@@ -1,0 +1,20 @@
+{% set headerImage = entry.headerImage[0] ?? null %}
+<article class="news-article listing clearfix">
+  {% if headerImage %}
+    {% set transformedImage = craft.imager.transformImage(headerImage, { width: 1800 }) %}
+    <div class="featured-image" style="background-image:url({{ transformedImage.getUrl() }});"></div>
+    {% if entry.headerImageCaption %}
+    <div class="featured-image-caption"><p>{{ entry.headerImageCaption }}</p></div>
+    {% endif %}
+  {% else %}
+    <hr class="article-divider">
+  {% endif %}
+
+  <header class="section-title">
+    <h1><a href="{{ entry.getUrl() }}"><span>{{ entry.title }}</span></a></h1>
+    <h3 class="date">{{ entry.postDate.format('F j, Y') }}{% if entry.manualAuthor %} &ndash; by {{ entry.manualAuthor }}{% endif %}</h3>
+  </header>
+  <section class="summary user-content">
+    {{ entry.body | retconLazy('img', 'lazyload', 'src') }}
+  </section>
+</article>

@@ -1,0 +1,40 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Ensure consistent URL
+    RewriteCond %{REQUEST_URI} !\.well-known/acme-challenge
+    RewriteCond %{HTTP_HOST} !^www\.firebellydesign\.com [NC]
+    RewriteCond %{HTTP_HOST} !^craft3\.firebelly\.co [NC]
+    RewriteCond %{HTTP_HOST} !^fb-craft3\.localhost [NC]
+    RewriteRule ^(.*)$ https://www.firebellydesign.com/$1 [R=301,L]
+
+    # Force SSL
+    RewriteCond %{REQUEST_URI} !\.well-known/acme-challenge
+    RewriteCond %{HTTP:X-Forwarded-SSL} !on
+    RewriteCond %{HTTP_HOST} !^craft3\.firebelly\.co [NC]
+    RewriteCond %{HTTP_HOST} !^fb-craft3\.localhost [NC]
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    # Custom redirects
+    RewriteRule ^flor/?$ /work/flor-rebrand [R=301,L]
+    RewriteRule ^expertise/?$ /process [R=301,L]
+    RewriteRule ^(wheel|Wheel)/?$ /uploads/Firebelly-Project-Wheel.pdf [R=301,L]
+    RewriteRule ^WorkshoppingWorkshops/?$ /uploads/Firebelly-Workshopping-Workshops.pdf [R=301,L]
+
+    # Redirect store -> homepage
+    RewriteRule ^store(.*) / [R=301,NE,L]
+
+    # Redirect thoughts -> ideas
+    RewriteRule ^thoughts(.*) /ideas$1 [R=301,NE,L]
+    # Redirect tagged pages to landing page for now
+    RewriteRule ^ideas/tagged* /ideas [R=301,NE,L]
+
+    # Redirect people & endeavors single URLs to hashes
+    RewriteRule ^(endeavors|people)/([^/]+)/? /$1#$2 [R=301,NE,L]
+
+    # Send would-be 404 requests to Craft
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
+    RewriteRule (.+) index.php?p=$1 [QSA,L]
+</IfModule>

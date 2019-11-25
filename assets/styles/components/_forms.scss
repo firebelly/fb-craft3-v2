@@ -1,0 +1,54 @@
+// Forms
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+input {
+  @extend .input-reset;
+  @include p2;
+  width: 100%;
+  color: color('black');
+  padding: 19px $padding-sm 27px 0;
+  border-bottom: 1px solid color('black');
+
+  &::placeholder {
+    color: color('black');
+  }
+}
+
+label {
+  border: 0;
+  background: 0;
+  border-radius: 0;
+  color: color('black');
+  @include type-caption;
+  letter-spacing: 0;
+  &.error, &.success {
+    display: block;
+    padding: .5em 0;
+  }
+  &.error {
+    background: color('red');
+  }
+  &.success {
+    background: color('gray-light');
+  }
+}
+
+// Light Colored Form Variant
+form.-light {
+  input {
+    color: color('white-dark');
+    border-color: color('white-dark');
+
+    &::placeholder {
+      color: color('white-dark');
+    }
+  }
+}

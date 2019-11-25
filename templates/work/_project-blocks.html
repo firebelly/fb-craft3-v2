@@ -1,0 +1,262 @@
+{% set blockColor = 'white' %}
+{% set blockClass = blockColor %}
+{% set textClass = '' %}
+{% set customStyles = '' %}
+{% set blockWrapped = false %}
+
+{# Check if first block is a color change #}
+{% if entry.projectBlocks|length and entry.projectBlocks[0].type == 'blockColorChange' %}
+  {% if entry.projectBlocks[0].color == 'custom' %}
+    {% set blockColor = entry.projectBlocks[0].customBackgroundColor %}
+    {% set blockClass = 'custom' %}
+    {% set customBackgroundColor = entry.projectBlocks[0].customBackgroundColor %}
+    {% if entry.projectBlocks[0].textColor == 'custom' %}
+      {% set customTextColor = 'color:' ~ entry.projectBlocks[0].customTextColor ~ ';' %}
+      {% set textClass = '' %}
+    {% else %}
+      {% set customTextColor = '' %}
+      {% set textClass = ' text-' ~ entry.projectBlocks[0].textColor %}
+    {% endif %}
+    {% set customStyles = ' style=background-color:' ~ customBackgroundColor ~ ';' ~ customTextColor %}
+  {% else %}
+    {% set blockColor = entry.projectBlocks[0].color %}
+    {% set blockClass = blockColor %}
+    {% set customStyles = '' %}
+    {% set textClass = '' %}
+  {% endif %}
+{% endif %}
+
+<div class="block-color color-{{ blockClass }}{{ textClass }}"{{ customStyles }}>
+
+{% for block in entry.projectBlocks.all() %}
+  {% switch block.type %}
+
+    {% case "blockColorChange" %}
+      {% if blockColor != block.color and blockColor != block.customBackgroundColor and loop.index != 1 %}
+        {% if block.color == 'custom' %}
+          {% set blockColor = block.customBackgroundColor %}
+          {% set blockClass = 'custom' %}
+          {% set customBackgroundColor = block.customBackgroundColor %}
+          {% if block.textColor == 'custom' %}
+            {% set customTextColor = 'color:' ~ block.customTextColor ~ ';' %}
+            {% set textClass = '' %}
+          {% else %}
+            {% set customTextColor = '' %}
+            {% set textClass = ' text-' ~ block.textColor %}
+          {% endif %}
+          {% set customStyles = ' style=background-color:' ~ customBackgroundColor ~ ';' ~ customTextColor %}
+        {% else %}
+          {% set blockColor = block.color %}
+          {% set blockClass = blockColor %}
+          {% set customStyles = '' %}
+          {% set textClass = '' %}
+        {% endif %}
+        {% if blockWrapped %}</div>{% set blockWrapped = false %}{% endif %}
+        </div><!-- /.block-color -->
+        <div class="block-color color-{{ blockClass }}{{ textClass }}"{{ customStyles }}>
+      {% endif %}
+
+    {% case "pageSection" %}
+      {% if block.displayTitle %}
+        <div id="{{ block.pageSection|lower|replace({' ': '-'}) }}" class="page-nav-section" data-title="{{block.pageSection}}"></div>
+      {% else %}
+        <div id="{{ block.pageSection|lower|replace({' ': '-'}) }}" class="page-nav-section"></div>
+      {% endif %}
+
+    {% case "spacer" %}
+      <div class="block-spacer {{ block.size }}"></div>
+
+
+    {% case "blockHeader" %}
+      {% if blockWrapped %}</div>{% set blockWrapped = false %}{% endif %}
+      <div class="project-summary user-content">
+        {% if block.numberHeader %}
+          <h3 class="h1 number-header">{{ block.numberHeader }}</h3>
+        {% endif %}
+        {% if block.blockTitle %}
+          <h2>{{ block.blockTitle }}</h2>
+        {% endif %}
+        {{ block.blockDescription }}
+      </div>
+
+    {% case "blockTypeSpecimen" %}
+      {% if blockWrapped %}</div>{% set blockWrapped = false %}{% endif %}
+      {% set colorPairs = '' %}
+      {% if block.colors | length %}
+        {% set colorPairsArray = [] %}
+        {% for colorPair in block.colors %}
+          {% set colorPairVals = [colorPair.textColor, colorPair.backgroundColor]|filter|join('-') %}
+          {% set colorPairsArray = colorPairsArray|merge([colorPairVals]) %}
+        {% endfor %}
+        {% set colorPairs = colorPairsArray|join(' ') %}
+      {% endif %}
+      <div id="{{ block.fontName }}" class="type-tester" data-font="{{ block.fontName }}" data-font-size="{{ block.startingFontSize }}" data-line-height="{{ block.lineHeight }}" data-min-size="{{ block.minFontSize }}" data-max-size="{{ block.maxFontSize }}" data-color-pairs="{{ colorPairs }}" data-svg-url="{{ craft.app.config.general.cdnUrl }}{{ block.svgFontFile[0].getUrl() }}" data-initial-alignment="{{ block.initialAlignment }}">
+        <style>
+          @font-face {
+            font-family: '{{ block.fontName }}';
+            src: url('{{ craft.app.config.general.cdnUrl }}{{ block.woffFontFile[0].getUrl() }}') format('woff'),
+                 url('{{ craft.app.config.general.cdnUrl }}{{ block.svgFontFile[0].getUrl() }}') format('svg');
+            font-weight: normal;
+            font-style: normal;
+          }
+          {% include "partials/_blank-font-face" %}
+        </style>
+        <div class="type-tester-inner">
+          <div id="test-para" class="test-para block-wrap{{ block.initialView == 'typeTester' ? ' -active' : '' }}" contenteditable="true">
+            {% if block.sampleText %}
+              {{ block.sampleText }}<span class="type-cursor"></span>
+            {% else %}
+              Start typing here to test font lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum accusantium laboriosam velit distinctio atque eius rerum necessitatibus in doloribus nemo aspernatur, aut, blanditiis debitis numquam saepe ab neque repellat tenetur.<span class="type-cursor"></span>
+            {% endif %}
+          </div>
+          {% if block.svgFontFile[0] %}
+            <div id="typeTesterSvgFont" style="display:none;"></div>
+            <div id="glyphChart" class="block-wrap{{ block.initialView == 'glyphsChart' ? ' -active' : '' }}" style="font-family:{{ block.fontName }};font-size: {{ block.startingFontSize }}px;line-height:{{ block.glyphsLineHeight ? block.glyphsLineHeight : '1' }};">
+              <ul id="glyphsLowercase"></ul>
+              <ul id="glyphsUppercase"></ul>
+              <ul id="glyphsOther"></ul>
+            </div>
+          {% endif %}
+        </div>
+      </div><!-- /.type-tester -->
+
+    {% case "blockImages" %}
+      {% if blockWrapped %}</div>{% set blockWrapped = false %}{% endif %}
+      <div class="fullbleed-images">
+        {% if block.carousel %}
+          <div class="flickity js-cursor">
+            {% for image in block.images.all() %}
+              {% set embeddedAsset = craft.embeddedAssets.get(image) %}
+              {% if embeddedAsset %}
+                {# Custom vimeo handling #}
+                {% if embeddedAsset.url matches '/vimeo\.com/' %}
+                  <div class="embedded-asset vimeo-block{{ block.backgroundVideo ? ' background-video' : '' }}" data-url="{{ embeddedAsset.url }}" data-width="{{ embeddedAsset.width }}" data-height="{{ embeddedAsset.height }}">
+                    <img class="lazyload" data-src="{{ embeddedAsset.images[0].url }}">
+                  </div>
+                {% else %}
+                  {{ embeddedAsset.html }}
+                {% endif %}
+              {% else %}
+                {% set treatedImage = craft.imager.transformImage(image, { mode: 'fit', width: 1800, height: 900 }) %}
+                {% set orientation = image.getWidth() > image.getHeight() ? 'landscape' : 'portrait' %}
+                <div class="slide {{ orientation }}">
+                  {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
+                    <img src="{{ craft.app.config.general.cdnUrl }}{{ treatedImage.getUrl() }}" alt="{{ image.title }}">
+                  {%- if block.imageLinkUrl %}</a>{% endif -%}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% else %}
+          {% for image in block.images.all() %}
+            {% set embeddedAsset = craft.embeddedAssets.get(image) %}
+            {% if embeddedAsset %}
+              <div class="vimeo-block{{ block.backgroundVideo ? ' background-video' : '' }}" data-url="{{ embeddedAsset.url }}" data-width="{{ embeddedAsset.width }}" data-height="{{ embeddedAsset.height }}">
+                <img class="lazyload" data-src="{{ embeddedAsset.images[0].url }}">
+              </div>
+            {% else %}
+              {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
+                <p><img class="lazyload" data-src="{{ craft.app.config.general.cdnUrl }}{{ image.getUrl() }}" alt="{{ image.title }}"></p>
+              {%- if block.imageLinkUrl %}</a>{% endif -%}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+
+    {% case "blockImagesWithText" %}
+      {% if blockWrapped %}</div>{% set blockWrapped = false %}{% endif %}
+      <div class="fullbleed-images">
+        <div class="flickity js-cursor with-captions">
+          {% for image in block.images.all() %}
+            {% set treatedImage = craft.imager.transformImage(image, { mode: 'fit', width: 1800, height: 900 }) %}
+            <figure class="slide {{ image.captionLabel or image.caption ? ' with-caption' : '' }}" style="background-image:url('{{ craft.app.config.general.cdnUrl }}{{ treatedImage.getUrl() }}');">
+              {% if image.captionLabel or image.caption %}
+                <figcaption class="image-text">
+                  <div class="-inner">
+                    {% if image.captionLabel %}
+                      <h5 class="caption-label">{{ image.captionLabel }}</h5>
+                    {% endif %}
+                    {% if image.caption %}
+                      <p class="caption">{{ image.caption }}</p>
+                    {% endif %}
+                  </div>
+                </figcaption>
+              {% endif %}
+            </figure>
+          {% endfor %}
+        </div>
+      </div>
+
+    {% case "blockHtml" %}
+      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      <div class="block-html vimeo-block">{{ block.html }}</div>
+
+    {% case "blockText" %}
+      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      <div class="block-text user-content {{ block.size }}">{{ block.text }}</div>
+
+    {% case "blockPaddedImage" %}
+      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      {% for image in block.image.all() %}
+        {% set width = (block.size == 'halfWidth' ? 900 : 1800) %}
+        {% set embeddedAsset = craft.embeddedAssets.get(image) %}
+        <div class="block-image {{ block.size }}">
+          {% if embeddedAsset %}
+            {# Custom vimeo handling #}
+            {% if embeddedAsset.url matches '/vimeo\.com/' %}
+              <div class="embedded-asset vimeo-block{{ block.backgroundVideo ? ' background-video' : '' }}" data-url="{{ embeddedAsset.url }}" data-width="{{ embeddedAsset.width }}" data-height="{{ embeddedAsset.height }}">
+                <img class="lazyload" data-src="{{ embeddedAsset.images[0].url }}">
+              </div>
+            {% else %}
+              {{ embeddedAsset.html }}
+            {% endif %}
+          {% else %}
+
+            {% if block.treated %}
+              {% set treatedImage = craft.imager.transformImage(image, { width: width, effects: { modulate: [100, 0, 100], clut: 'gradient:#000000-#ffffff' } }) %}
+            {% else %}
+              {# Leave GIFs alone #}
+              {% if image.filename matches '/gif$/' %}
+                {% set treatedImage = image %}
+              {% else %}
+                {% set treatedImage = craft.imager.transformImage(image, { width: width }) %}
+              {% endif %}
+            {% endif %}
+
+            {%- if block.browserFrame.browserFrameActive %}
+              <div class="browser-frame">
+                <div class="browserdots"></div>
+                <div class="site{% if block.browserFrame.browserFrameScroll %} scroll{% endif %}"{% if block.browserFrame.browserFrameScroll %} style="padding-bottom:{{ block.browserFrame.scrollHeight }}%;"{% endif %}>
+                  {%- if block.browserFrame.browserFrameScroll %}<div class="scroll-content">{% endif -%}
+            {% endif -%}
+            {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
+              <img class="lazyload" data-src="{{ craft.app.config.general.cdnUrl }}{{ treatedImage.getUrl() }}" alt="{{ image.title }}">
+            {%- if block.imageLinkUrl %}</a>{% endif -%}
+            {%- if block.browserFrame.browserFrameActive %}
+                  {%- if block.browserFrame.browserFrameScroll %}</div>{% endif -%}
+                </div><!-- .site -->
+              </div><!-- .browser-frame -->
+            {% endif -%}
+          {% endif %}
+
+          {% if block.text and loop.last %}
+            <div class="block-text user-content">
+              {{ block.text }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+    {% case "blockQuote" %}
+      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      <div class="block-quote" style="color: {{ block.textColor }}; background-color: {{ block.backgroundColor }};">
+        <blockquote>{{ block.quote }}</blockquote>
+      </div>
+
+    {% default %}
+      Hello?
+
+  {% endswitch %}
+{% endfor %}
+
+</div><!-- /.block-color -->

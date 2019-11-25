@@ -1,0 +1,61 @@
+// Homepage
+
+body.homepage {
+  .header {
+    padding: $padding-md 0;
+    h2 {
+      @include h1-sans;
+      margin: 0;
+
+      .motto {
+        @include type-caption;
+        display: block;
+        position: relative;
+
+        @include media-md {
+          top: 26px;
+          left: -20px;
+          vertical-align: top;
+          line-height: inherit;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  // Optional CTA that follows the header statement
+  .header-cta {
+    margin-top: $beat * 2;
+  }
+
+  // What We Do section
+  .what-we-do {
+    padding-bottom: $padding-lg;
+
+    .services {
+      @extend .semantic-list;
+      margin-top: $padding-lg;
+    }
+
+    .service {
+      align-items: flex-end;
+      padding: #{$beat * 2} 0;
+      border-bottom: 1px solid color('black');
+      .service-label {
+        @include h1-sans;
+        margin: 0;
+      }
+      .service-description {
+        @include p2;
+        margin: 0 0 6px;
+      }
+    }
+
+    .section-cta {
+      margin-top: $padding-md;
+      @include media-md {
+        margin-top: $padding-lg;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+// Common styles
+
+.section-label {
+  @include type-caption;
+  margin: 0;
+  padding: $beat 0 #{$beat * 2};
+  border-top: 1px solid color('black');
+}
+
+.section-cta {
+  .button {
+    width: 100%;
+  }
+  @include media-md {
+    .button {
+      width: auto;
+      min-width: 398px;
+    }
+  }
+}

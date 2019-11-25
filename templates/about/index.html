@@ -1,0 +1,38 @@
+{% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? "_ajax-layout" : "_layout" %}
+
+{% set title = entry.title %}
+{% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
+{% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
+
+{% set bodyClass = 'single page about with-blobs' %}
+{% set bodyId = 'about-page' %}
+{% set bodyDataAttributes = 'data-blob-color=#7F09F5' %}
+
+{% block content %}
+  <section class="content interior grid">
+    <div class="intro one-half -left clearfix">
+      <div class="-inner">
+        <header class="section-title">
+          <h1>Good Design for Good <span class="last-word">Reason.<sup>&trade;</sup></span></h1>
+        </header>
+        <div class="summary">
+          {{ entry.body }}
+        </div>
+        {# <%= render :partial => '/shared/edit_bug', :locals => { :obj => @page, :edit_path => refinery.admin_edit_page_path(@page) }%> #}
+      </div>
+    </div>
+
+    <div class="secondary one-half -right user-content">
+      <div class="secondary-item">
+        <header>
+          <h1>Design for Equity and Inclusion</h1>
+        </header>
+        <div class="summary">
+          {% if entry.inclusionStatement|length %}
+            {{ entry.inclusionStatement }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

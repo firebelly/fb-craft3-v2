@@ -1,0 +1,19 @@
+{% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? "_ajax-layout" : "_layout" %}
+
+{% set title = entry.title %}
+{% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
+{% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
+
+{% block content %}
+  <article class="clearfix news-article">
+    <div class="inner-wrapper">
+
+      <header class="section-title">
+        <h1>{{ entry.title }}</h1>
+      </header>
+      <section class="summary user-content">
+        {{ entry.body }}
+      </section>
+    </div>
+  </article>
+{% endblock %}

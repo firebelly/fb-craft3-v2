@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+{% include '/partials/_head' %}
+
+<body class="{% if bodyClass is defined %}{{ bodyClass }}{% else %}index{% endif %}" id="{% if bodyId is defined %}{{ bodyId }}{% else %}{{ craft.app.request.getSegment(1)}}-page{% endif %}"{% if bodyDataAttributes is defined %} {{ bodyDataAttributes }}{% endif %}>
+
+  <header class="site-header clearfix" role="banner">
+    <div class="container">
+      {% if entry is defined and entry.isEditable() %}
+        <div class="edit-link"><a href="{{ entry.cpEditUrl ~ '?redirect=' ~ craft.app.request.getUrl()|url_encode }}">Edit Entry</a></div>
+      {% endif %}
+
+      <h1 id="logo">
+        <a href="/"><span class="visually-hidden">Firebelly</span>{% include '/partials/_logo' %}</a>
+      </h1>
+
+      {% include "/partials/_sitenav" %}
+
+      <button id="nav-open" type="button" class="nav-toggle open">Menu</button>
+    </div>
+  </header>
+
+  <main id="main" class="site-main" role="main">
+
+    <div id='page'>
+      {% block content %}{% endblock %}
+    </div><!-- END #page -->
+
+  </main> <!-- END #main -->
+
+  {% include "/partials/_footer" %}
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+// Footer
+
+.site-footer {
+  padding: $padding-lg 0;
+  color: color('white-dark');
+  background-color: color('black');
+
+  @include media-md {
+    padding: 156px 0;
+  }
+
+  .label {
+    &-large {
+      @include h3-sans;
+      margin: 0;
+
+      @include media-lg {
+        @include h1-sans;
+      }
+    }
+    &-small {
+      @include type-caption;
+    }
+  }
+
+  .-top {
+    .label-large {
+      max-width: 224px;
+      margin-bottom: 64px;
+    }
+
+    @include media-md {
+      align-items: flex-end;
+      padding-bottom: 156px;
+
+      .label-large {
+        max-width: 400px;
+        margin-bottom: 0;
+      }
+
+      .button {
+        margin-bottom: 56px;
+      }
+    }
+  }
+
+  .-bottom {
+    margin-top: 64px;
+    padding-top: 15px;
+    border-top: 1px solid color('white-dark');
+
+    .label-small {
+      margin-top: 0;
+      margin-bottom: $padding-md;
+    }
+
+    @include media-md {
+      margin-top: 0;
+      padding: 15px 0 64px;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .newsletter-section {
+    margin-bottom: 15px;
+    padding-bottom: 45px;
+    border-bottom: 1px solid color('white-dark');
+
+    @include media-md {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      padding-right: 56px;
+      border-bottom: none;
+    }
+  }
+
+  .contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > div {
+      margin-bottom: 48px;
+    }
+
+    @include media-md {
+      > div {
+        margin-bottom: 0;
+        padding-right: 53px;
+      }
+    }
+
+    p {
+      @include p2;
+      margin: 0;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .address {
+    @include p2;
+    margin: 0;
+  }
+
+  .social-links,
+  .footer-nav ul {
+    @extend .semantic-list;
+
+    li {
+      @include p2;
+    }
+  }
+}
+
+.outer-frame {
+  height: 95px;
+  padding: 30px 0 0;
+  background-color: color('white-dark');
+}
+
+// Footer next/prev buttons
+.footer-pagination {
+  @include clearfix;
+  padding: 0 25px;
+
+  ul {
+    @include clearfix;
+    margin: $padding-lg 0 0 0;
+
+    &:after {
+      content: ' ';
+      display: block;
+      border-bottom: 1px solid #C2C3C5;
+      width: 80%;
+    }
+
+    @include media-md {
+      margin: $padding-lg 0 -30px 0;
+    }
+  }
+
+  li {
+    padding-bottom: 10px;
+    a {
+      font: 24px/1.375em $font-serif;
+    }
+  }
+
+  @include media-md {
+    ul {
+      width: 50%;
+      float: right;
+    }
+    a {
+      transition: margin .2s $cubic-ease2;
+    }
+    li.prev a {
+      margin-left: -24px;
+      &:hover {
+        margin-left: -30px;
+      }
+    }
+    li.next a:hover {
+      margin-left: 6px;
+    }
+
+  }
+
+  @include min-screen(1050px) {
+    li {
+      width: 50%;
+      float: left;
+    }
+  }
+
+  @include max-screen($breakpoint-lg) {
+    .one-half {
+      width: 100%;
+      float: none;
+    }
+  }
+
+}

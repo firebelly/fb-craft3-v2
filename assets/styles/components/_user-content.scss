@@ -1,0 +1,70 @@
+// User Content
+.user-content {
+  .h1,
+  h1 {
+    color: color('black');
+    font: 48px/1.145833333em $font-serif;
+  }
+  h2 {
+    color: color('black');
+  }
+  h3 {
+    margin: 0 0 .5em;
+  }
+
+  p {
+    font: 16px/1.375 $font-sans, sans-serif;
+    margin: 0 0 1em;
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+
+  blockquote {
+    margin: $padding-lg auto;
+    max-width: 800px;
+    text-align: center;
+    &, p {
+      font-size: 24px;
+      color: color('black');
+      line-height: 1.375em;
+      // letter-spacing: .035em;
+      font-family: $font-serif;
+    }
+    a {
+      &:hover, &:focus {
+        color: color('black');
+      }
+    }
+
+    @include media-md {
+      font-size: 32px;
+    }
+  }
+
+  ul, ol {
+    margin: $padding-md auto 0;
+    li {
+      line-height: 1.375em;
+      list-style: disc;
+      margin-bottom: .5em;
+    }
+  }
+  ol li {
+    list-style: decimal;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  strong em, em strong {
+    font-style: italic;
+    font-weight: bold;
+  }
+
+}
