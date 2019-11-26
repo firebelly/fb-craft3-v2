@@ -9,7 +9,7 @@
     ]
   },
   "publicPath": "/assets/",
-  "devUrl": "http://fb-craft3.localhost",
+  "devUrl": "http://fb-craft3-v2.localhost",
   "proxyUrl": "http://localhost:3000",
   "open": false,
   "cacheBusting": "[name]_[hash:8]",

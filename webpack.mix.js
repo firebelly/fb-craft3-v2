@@ -15,7 +15,7 @@ mix
   // });
 
 // Browsersync
-mix.browserSync('fb-craft3.localhost');
+mix.browserSync('fb-craft3-v2.localhost');
 
 // Styles
 mix.sass(src`styles/main.scss`, 'styles')
