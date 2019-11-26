@@ -10,7 +10,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: '{% if object.level == 1 %}work/industry/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
         template: work/industry
-dateModified: 1574723626
+dateModified: 1574791111
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -559,6 +559,21 @@ fields:
       columnType: text
     contentColumnType: text
     fieldGroup: d2d1260a-da85-41ec-8e8a-c16e376cf34f
+  ae9536dc-70b1-4e78-b8a8-eff55a877bb7:
+    name: 'Featured Work'
+    handle: featuredWork
+    instructions: 'Projects to be displayed in a list at the bottom of the homepage layout.'
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Matrix
+    settings:
+      minBlocks: '4'
+      maxBlocks: ''
+      contentTable: '{{%matrixcontent_featuredwork}}'
+      propagationMethod: all
+    contentColumnType: string
+    fieldGroup: 8371a28a-a15c-40e8-a56a-142abd851d9b
   b473b74b-efff-4a86-acaf-df0e00fb0cea:
     name: 'Stripe Product ID'
     handle: stripeProductId
@@ -1559,6 +1574,66 @@ matrixBlockTypes:
             sortOrder: 1
             fields:
               0943643d-bfdf-4b25-8911-ed4a49b73aa8:
+                required: false
+                sortOrder: 1
+  65eadbd2-56a8-4b0c-8995-cab5872df8d4:
+    field: ae9536dc-70b1-4e78-b8a8-eff55a877bb7
+    name: work
+    handle: work
+    sortOrder: 1
+    fields:
+      79beca15-3ac6-4ce4-88d4-744175734077:
+        name: 'Thumbnail Orientation'
+        handle: thumbnailOrientation
+        instructions: 'Choose between landscape or portrait orientation.'
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\RadioButtons
+        settings:
+          options:
+            -
+              label: Landscape
+              value: landscape
+              default: '1'
+            -
+              label: Portrait
+              value: portrait
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
+      ebe3df80-f4b8-44d5-b801-ff435339c49c:
+        name: Entry
+        handle: featuredEntry
+        instructions: 'Choose a project or Ideas post to be featured at the bottom of the homepage.'
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Entries
+        settings:
+          sources:
+            - 'section:8c753ecf-69cb-40e2-8cd0-94effdca10ab'
+            - 'section:a622d82a-9cfa-44de-b537-5a453e294cc7'
+          source: null
+          targetSiteId: null
+          viewMode: null
+          limit: '1'
+          selectionLabel: 'Choose an entry'
+          localizeRelations: false
+          validateRelatedElements: ''
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      5d5ad463-2922-4b79-8e61-8d33d0281ca7:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              79beca15-3ac6-4ce4-88d4-744175734077:
+                required: false
+                sortOrder: 2
+              ebe3df80-f4b8-44d5-b801-ff435339c49c:
                 required: false
                 sortOrder: 1
   6d9064a9-2296-4f99-bfff-28179a9c0dce:
@@ -3133,10 +3208,24 @@ sections:
                     required: false
                     sortOrder: 1
               -
-                name: 'Featured Services'
+                name: 'Recent Work'
                 sortOrder: 2
                 fields:
+                  cb20d27a-6050-42c1-9bf8-a507541f94ce:
+                    required: false
+                    sortOrder: 1
+              -
+                name: 'Featured Services'
+                sortOrder: 3
+                fields:
                   a2483d09-6798-40be-8f35-c45413ed2e03:
+                    required: false
+                    sortOrder: 1
+              -
+                name: 'Featured Work'
+                sortOrder: 4
+                fields:
+                  ae9536dc-70b1-4e78-b8a8-eff55a877bb7:
                     required: false
                     sortOrder: 1
     siteSettings:

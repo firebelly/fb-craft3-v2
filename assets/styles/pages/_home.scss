@@ -1,8 +1,16 @@
 // Homepage
 
 body.homepage {
+  #cursor {
+    width: 112px;
+    height: 151px;
+    mix-blend-mode: exclusion;
+    background: url('../images/view-cursor.png');
+  }
+
   .header {
     padding: $padding-md 0;
+
     h2 {
       @include h1-sans;
       margin: 0;
@@ -21,6 +29,10 @@ body.homepage {
         }
       }
     }
+
+    @include media-md {
+      padding-bottom: 176px;
+    }
   }
 
   // Optional CTA that follows the header statement
@@ -28,9 +40,26 @@ body.homepage {
     margin-top: $beat * 2;
   }
 
+  // Recent Work
+  .recent-work {
+    padding-bottom: 255px;
+
+    @include media-md {
+      .project:first-of-type {
+        margin-top: 144px;
+      }
+      .project:last-of-type {
+        margin-top: -176px;
+      }
+    }
+  }
+
   // What We Do section
   .what-we-do {
     padding-bottom: $padding-lg;
+    @include media-md {
+      padding-bottom: 122px;
+    }
 
     .services {
       @extend .semantic-list;
@@ -55,6 +84,21 @@ body.homepage {
       margin-top: $padding-md;
       @include media-md {
         margin-top: $padding-lg;
+      }
+    }
+  }
+
+  // Featured Work
+  .featured-work {
+    .project-grid {
+      @include media-md {
+        @include clearfix;
+        margin-left: -#{$padding-md / 2};
+        width: calc(100% + #{$padding-md});
+
+        .project {
+
+        }
       }
     }
   }
