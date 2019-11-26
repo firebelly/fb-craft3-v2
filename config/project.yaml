@@ -823,26 +823,6 @@ imageTransforms:
     format: null
     quality: 82
     interlace: none
-  ee0e3a10-8a6c-419f-884f-be44c8c3550f:
-    name: 'Project Thumb'
-    handle: projectThumb
-    mode: crop
-    position: center-center
-    width: 800
-    height: 600
-    format: null
-    quality: null
-    interlace: none
-  fc75fc60-946d-4d8e-8ab6-5a530e440b2f:
-    name: 'Project Thumb Small'
-    handle: projectThumbSmall
-    mode: crop
-    position: center-center
-    width: 400
-    height: 300
-    format: null
-    quality: null
-    interlace: none
 matrixBlockTypes:
   0ec5cb22-24c7-44b7-8ca3-38644e2537aa:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
@@ -3477,7 +3457,7 @@ volumes:
     url: /uploads/ideas/
     settings:
       path: uploads/ideas/
-    sortOrder: 3
+    sortOrder: 4
   42068817-6f6f-4a12-8420-4c2bf823fa58:
     name: Global
     handle: global
@@ -3487,17 +3467,7 @@ volumes:
     settings:
       path: uploads/
       url: /uploads/
-    sortOrder: 5
-  693fdd42-dd6b-467a-acc0-51b995280029:
-    name: Store
-    handle: store
-    type: craft\volumes\Local
-    hasUrls: true
-    url: null
-    settings:
-      path: uploads/store/
-      url: /uploads/store/
-    sortOrder: 4
+    sortOrder: 1
   cd389634-6297-4886-ac1a-17f7ff2050c8:
     name: People
     handle: people
@@ -3507,7 +3477,7 @@ volumes:
     settings:
       path: uploads/people/
       url: /uploads/people/
-    sortOrder: 2
+    sortOrder: 3
   d0e9262d-3cc0-46bc-aa1c-76d99cb9f385:
     name: Work
     handle: work
@@ -3516,7 +3486,7 @@ volumes:
     url: /uploads/work/
     settings:
       path: uploads/work/
-    sortOrder: 1
+    sortOrder: 2
     fieldLayouts:
       c2668c15-3d1c-4afc-af59-7c39de4da785:
         tabs:
@@ -3530,12 +3500,3 @@ volumes:
               ac9c369c-9a19-4d6f-9050-70c68705b2b9:
                 required: false
                 sortOrder: 2
-  e30f69e6-e736-4051-b925-6ffcb52b18d1:
-    name: 'User Photos'
-    handle: userPhotos
-    type: craft\volumes\Local
-    hasUrls: false
-    url: null
-    settings:
-      path: '@storage/userphotos'
-    sortOrder: 6
