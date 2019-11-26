@@ -3,6 +3,9 @@
 .section-label {
   @include type-caption;
   margin: 0;
+  z-index: 1;
+  position: relative;
+  pointer-events: none;
   padding: $beat 0 #{$beat * 2};
   border-top: 1px solid color('black');
 }
@@ -15,6 +18,29 @@
     .button {
       width: auto;
       min-width: 398px;
+    }
+  }
+}
+
+// Project Grid
+.project-grid {
+  .project {
+    .project-image {
+      img {
+        vertical-align: top;
+      }
+    }
+    .services {
+      @extend .semantic-list;
+      margin-top: 16px;
+      li {
+        @include type-caption;
+        display: inline-block;
+      }
+    }
+    .project-title {
+      @include p1;
+      margin-top: 24px;
     }
   }
 }

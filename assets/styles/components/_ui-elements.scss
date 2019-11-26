@@ -102,11 +102,11 @@ a.button {
 
 body.-cursor-active {
   // cursor: none;
-  .cursor {
+  #cursor {
     display: block;
   }
 }
-.cursor {
+#cursor {
   top: 0;
   left: 0;
   width: 100px;

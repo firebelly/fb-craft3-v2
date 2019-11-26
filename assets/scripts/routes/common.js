@@ -15,6 +15,7 @@ export default {
 
     let transitionElements = [],
         resizeTimer,
+        $customCursor,
         breakpointIndicatorString,
         breakpoint_xl = false,
         breakpoint_nav = false,
@@ -38,7 +39,7 @@ export default {
         return;
       }
 
-      $customCursor = $('<div class="cursor"></div>').appendTo($body);
+      $customCursor = $('<div id="cursor"></div>').appendTo($body);
 
       var lastMousePosition = { x: 0, y: 0 };
 
