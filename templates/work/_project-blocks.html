@@ -51,7 +51,7 @@
           {% set customStyles = '' %}
           {% set textClass = '' %}
         {% endif %}
-        {% if blockWrapped %}</div>{% set blockWrapped = false %}{% endif %}
+        {% if blockWrapped %}</div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
         </div><!-- /.block-color -->
         <div class="block-color color-{{ blockClass }}{{ textClass }}"{{ customStyles }}>
       {% endif %}
@@ -68,7 +68,7 @@
 
 
     {% case "blockHeader" %}
-      {% if blockWrapped %}</div>{% set blockWrapped = false %}{% endif %}
+      {% if blockWrapped %}</div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
       <div class="project-summary user-content">
         {% if block.numberHeader %}
           <h3 class="h1 number-header">{{ block.numberHeader }}</h3>
@@ -80,7 +80,7 @@
       </div>
 
     {% case "blockTypeSpecimen" %}
-      {% if blockWrapped %}</div>{% set blockWrapped = false %}{% endif %}
+      {% if blockWrapped %}</div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
       {% set colorPairs = '' %}
       {% if block.colors | length %}
         {% set colorPairsArray = [] %}
@@ -121,7 +121,7 @@
       </div><!-- /.type-tester -->
 
     {% case "blockImages" %}
-      {% if blockWrapped %}</div>{% set blockWrapped = false %}{% endif %}
+      {% if blockWrapped %}</div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
       <div class="fullbleed-images">
         {% if block.carousel %}
           <div class="flickity js-cursor">
@@ -164,7 +164,7 @@
       </div>
 
     {% case "blockImagesWithText" %}
-      {% if blockWrapped %}</div>{% set blockWrapped = false %}{% endif %}
+      {% if blockWrapped %}</div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
       <div class="fullbleed-images">
         <div class="flickity js-cursor with-captions">
           {% for image in block.images.all() %}
@@ -253,10 +253,26 @@
         <blockquote>{{ block.quote }}</blockquote>
       </div>
 
+    {% case "statTable" %}
+      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      {% if block.stats | length %}
+        <div class="stat-table">
+          <div class="-inner">
+            <dl>
+              {% for stat in block.stats.all() %}
+                <dt>{{ stat.figure }}</dt>
+                <dd>{{ stat.label }}</dd>
+              {% endfor %}
+            </dl>
+          </div>
+        </div>
+      {% endif %}
+
     {% default %}
       Hello?
 
   {% endswitch %}
 {% endfor %}
 
+{% if blockWrapped %}</div><!-- /.block-wrap -->{% endif %}
 </div><!-- /.block-color -->

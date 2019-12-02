@@ -10,7 +10,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: '{% if object.level == 1 %}work/industry/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
         template: work/industry
-dateModified: 1575319771
+dateModified: 1575323764
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -1723,6 +1723,45 @@ matrixBlockTypes:
               cd8352b6-52d7-4ef4-9157-153c0e82604c:
                 required: true
                 sortOrder: 1
+  921dbd19-6d95-4aa2-998a-8306734bab81:
+    field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
+    name: 'Stat Table'
+    handle: statTable
+    sortOrder: 12
+    fields:
+      ee6e50bd-8324-47a2-ae1d-a4a9aa232b49:
+        name: Stats
+        handle: stats
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: verbb\supertable\fields\SuperTableField
+        settings:
+          minRows: ''
+          maxRows: ''
+          contentTable: '{{%stc_23_stats}}'
+          propagationMethod: all
+          staticField: ''
+          columns:
+            ac9fcc5e-0535-4619-b4ed-7bc0e68d0750:
+              width: ''
+            fe70869e-e26a-4841-be4e-9216ab695e8c:
+              width: ''
+          fieldLayout: table
+          selectionLabel: ''
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      6dd7c96e-73b3-4bd9-b56e-16fd3cde0189:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              ee6e50bd-8324-47a2-ae1d-a4a9aa232b49:
+                required: false
+                sortOrder: 1
   951c9caa-38f7-46df-88e9-01764ca0f07d:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
     name: Spacer
@@ -2048,11 +2087,11 @@ matrixBlockTypes:
           propagationMethod: all
           staticField: '1'
           columns:
-            116:
+            3fff67ff-48e5-40bb-944b-80041c037145:
               width: ''
-            117:
+            53651a69-8231-4239-a2e2-e23b1a841189:
               width: ''
-            115:
+            6cfeb752-b0e2-42c2-9d50-6fc5a21cc5c0:
               width: ''
           fieldLayout: table
           selectionLabel: ''
@@ -3173,6 +3212,56 @@ superTableBlockTypes:
                 required: false
                 sortOrder: 1
               f368c9bc-907e-4802-8e7a-7f42e35d643b:
+                required: false
+                sortOrder: 2
+  b83f05b4-948e-4ddb-9c08-14b211c362fa:
+    field: ee6e50bd-8324-47a2-ae1d-a4a9aa232b49
+    fields:
+      ac9fcc5e-0535-4619-b4ed-7bc0e68d0750:
+        name: Figure
+        handle: figure
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      fe70869e-e26a-4841-be4e-9216ab695e8c:
+        name: Label
+        handle: label
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      4d726cf4-58a1-45e3-aeaa-43c5ebea50c2:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              ac9fcc5e-0535-4619-b4ed-7bc0e68d0750:
+                required: false
+                sortOrder: 1
+              fe70869e-e26a-4841-be4e-9216ab695e8c:
                 required: false
                 sortOrder: 2
 system:
