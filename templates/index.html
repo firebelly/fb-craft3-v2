@@ -38,8 +38,8 @@
         <h5 class="section-label">Recent</h5>
         <div class="project-grid grid spaced">
           {% for project in recentWork %}
-            <a class="project js-cursor col-md-1-2" href="{{ project.url }}" data-cursor-class="view">
-              <div class="-inner">
+            <div class="project col-md-1-2">
+              <a class="-inner js-cursor" href="{{ project.url }}" data-cursor-class="view">
                 {% if loop.last %}
                   {% set transformedImage = craft.imager.transformImage(project.altImage.one(), { width: 1116, height: 1504, mode: 'crop', position: project.altImage.one().getFocalPoint() }) %}
                 {% else %}
@@ -52,8 +52,8 @@
                   {% endfor %}
                 </ul>
                 <h3 class="project-title">{{ project.title }}: {{ project.subtitle }}</h3>
-              </div>
-            </a>
+              </a>
+            </div>
           {% endfor %}
         </div>
       </div>
@@ -93,8 +93,8 @@
         <div class="project-grid">
           {% for workBlock in featuredWork %}
             {% set featuredEntry = workBlock.featuredEntry.one() %}
-            <a class="project js-cursor" href="{{ featuredEntry.url }}">
-              <div class="-inner">
+            <div class="project">
+              <a class="-inner js-cursor" href="{{ featuredEntry.url }}">
                 {% if featuredEntry.altImage|length %}
                   {% set entryImage = featuredEntry.altImage.one() %}
                 {% else %}
@@ -115,8 +115,8 @@
                   </ul>
                 {% endif %}
                 <h3 class="project-title">{{ featuredEntry.title }}{% if (featuredEntry.subtitle) %}: {{ featuredEntry.subtitle }}{% endif %}</h3>
-              </div>
-            </a>
+              </a>
+            </div>
           {% endfor %}
         </div>
       </div>

@@ -1,97 +1,6 @@
 // Projects
 
-.filter-header {
-  @extend %small-caps;
-  @extend %fade-links;
-  display: none;
-  padding: $padding * 2;
-  display: none;
-  a,button {
-    display: inline-block;
-    margin-left: 4px;
-  }
-  &.active {
-    display: block;
-  }
-}
-
-// Case Study Page Navigation
-.page-nav {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10;
-  width: 25px;
-  color: $white;
-  position: fixed;
-  mix-blend-mode: exclusion;
-
-  @include media-md {
-    width: 33px;
-  }
-
-  @include media-lg {
-    width: 50px;
-  }
-
-  ul {
-    left: 0;
-    top: 50%;
-    width: 100%;
-    position: absolute;
-
-    li {
-      margin: 10px 0;
-      a {
-        width: 100%;
-        height: 20px;
-        display: block;
-        position: relative;
-        &::after {
-          top: 50%;
-          left: 50%;
-          content: '';
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          position: absolute;
-          background-color: $white;
-          transform: translate(-50%, -50%);
-          transition: transform .2s ease-out;
-        }
-        span {
-          left: 25px;
-          position: absolute;
-          white-space: nowrap;
-          transform: translateX(100%);
-          @include media-md {
-            left: 33px;
-          }
-          @include media-lg {
-            left: 50px;
-          }
-        }
-
-        &:hover {
-          span {
-            left: 0;
-            transform: translateX(-100%);
-          }
-        }
-      }
-
-      &.-active {
-        a {
-          &::after {
-            transform: translate(-50%, -50%) scale(1.3333);
-          }
-        }
-      }
-    }
-  }
-}
-
-#work-page.single {
+body.project {
   .portfolio {
     padding-top: 46px;
     @include media-sm {
@@ -99,51 +8,105 @@
     }
   }
 
-  .project-banner {
-    height: 400px; // Fallback for viewport units
-    height: 50vh;
-    overflow: hidden;
-    max-height: 400px;
-    position: relative;
-    background-size: cover;
-    background-position: center center;
+  // Project Header
+  header {
+    .project-title {
+      position: relative;
+      color: color('white');
 
-    @include media-md {
-      height: 800px; // Fallback for viewport units
-      height: 70vh;
-      max-height: 800px;
-    }
-
-    &.video {
-      height: auto;
-      max-height: none;
-
-      @include media-md {
-        height: auto;
-        max-height: 800px;
-        max-height: 75vh;
+      h1 {
+        @include h1-serif;
+        margin: 0;
+      }
+      h4 {
+        @include p1;
+        margin: $padding-sm 0 0;
       }
     }
 
-    video {
-      height: auto;
-      min-width: 100%;
-      max-width: 100%;
+    .header-wrap {
+      display: flex;
+      padding-top: 56px;
       position: relative;
+      max-height: 1200px;
+      padding-bottom: 56px;
+      align-items: flex-end;
+      height: calc(100vh - 96px);
+
+      .project-banner {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: auto;
+        height: auto;
+        max-height: none;
+        position: absolute;
+        background-size: cover;
+        background-color: rgba(0,0,0,.2);
+        background-position: center center;
+        // Video banners
+        &.video {
+          background-size: cover;
+          iframe {
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw;
+            min-height: 100vh;
+            min-width: 177.77vh;
+            transform: translateX(-50%);
+          }
+        }
+      }
+    }
+  }
+
+  // Project Intro
+  .intro {
+    .project-summary {
+      p {
+        @include p1;
+        margin: $padding-md auto 0;
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .project-meta {
+      ul {
+        @extend .semantic-list;
+
+        li {
+          display: inline;
+        }
+      }
+
+      .services {
+        margin-top: $padding-md;
+      }
+
+      @include media-md {
+        padding: 0;
+        text-align: left;
+
+        .services {
+          margin-top: 0;
+        }
+      }
     }
   }
 
 
   .section-title {
     text-align: center;
-    padding: ($padding * 6) 0 0;
+    padding: ($beat * 6) 0 0;
     h1 {
       font-size: 36px;
-      margin-bottom: $padding;
+      margin-bottom: $beat;
     }
     h4 {
-      color: $black-fade;
-      @extend %small-caps;
+      color: color('black');
     }
 
     @include media-sm {
@@ -154,58 +117,19 @@
     }
   }
 
-  .project-meta {
-    padding: 0 $mobile-padding;
-    max-width: 600px;
-    text-align: center;
-    margin: ($padding * 5) auto 0;
-    > div {
-      @extend %clearfix;
-    }
-    @extend %fade-links;
-    h3 {
-      @extend %small-caps;
-    }
-    ul {
-      li {
-        display: inline;
-        @extend %small-caps;
-      }
-    }
-
-    .services {
-      margin-top: $padding-md;
-    }
-
-    @include media-md {
-      padding: 0;
-      text-align: left;
-      h3 {
-        float: left;
-        width: 90px;
-      }
-      ul {
-        margin-left: 90px;
-      }
-      .services {
-        margin-top: 0;
-      }
-    }
-  }
-
   .block-quote {
-    padding: ($padding * 6) $mobile-padding;
+    padding: ($beat * 6) $padding-sm;
 
     @include media-md {
-      padding-top: ($padding * 12);
-      padding-bottom: ($padding * 12);
+      padding-top: ($beat * 12);
+      padding-bottom: ($beat * 12);
     }
 
     blockquote {
       margin: auto;
       max-width: 800px;
       text-align: center;
-      font: 36px/#{(41/36)} $font-display;
+      font: 36px/#{(41/36)} $font-serif;
       @include media-sm {
         font-size: 48px;
         line-height: (55/48);
@@ -216,7 +140,7 @@
   // A hacky fix for the unwanted borders created around fit-vid'ed video blocks due to iframes and subpixel rounding
   // Tried hard, but couldn't find a better way.  May god have mercy on my soul.
   .block-html {
-    @extend %clearfix;
+    @include clearfix;
     overflow: hidden;
     clear: left;
     width: 100%;
@@ -229,81 +153,6 @@
     // Removing margins on figure, which videos are placed in now
     figure {
       margin: 0;
-    }
-  }
-
-  .summary,
-  .project-summary {
-    width: 100%;
-    &.user-content {
-      padding-left: $mobile-padding;
-      padding-right: $mobile-padding;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      margin: 0 auto;
-      max-width: 600px;
-      text-align: center;
-    }
-    > p {
-      font-size: 16px;
-      max-width: 600px;
-      line-height: 1.375em;
-      margin: $padding-md auto 0;
-      &:first-of-type {
-        margin-top: 0;
-      }
-    }
-  }
-
-  // The project summary
-  .intro {
-    padding: ($padding * 6) 0;
-
-    @include media-md {
-      padding-bottom: ($padding * 9);
-    }
-  }
-
-  .summary {
-    blockquote {
-      margin: ($padding * 6) auto;
-    }
-  }
-
-  // Centered paragraphs
-  .fb-centered-paragraph {
-    font-size: 16px;
-    max-width: 600px;
-    line-height: 1.375em;
-    margin: $padding-md;
-
-    @include media-sm {
-      margin: ($padding * 6);
-    }
-
-    @include media-md {
-      margin: ($padding * 12) auto;
-    }
-  }
-
-  .project-summary {
-    padding: ($padding * 6) $mobile-padding;
-
-    h3.number-header {
-      margin-bottom: 11px;
-    }
-
-    h2 {
-      margin-bottom: ($padding * 6);
-    }
-
-    @include media-sm {
-      padding: ($padding * 6) 100px;
-    }
-
-    @include media-md {
-      padding: ($padding * 12);
     }
   }
 
@@ -388,7 +237,7 @@
             bottom: 0;
             content: '';
             position: absolute;
-            background-color: rgba($black,.5);
+            background-color: rgba(color('black'),.5);
           }
 
           > .-inner {
@@ -396,7 +245,7 @@
             padding: 25px;
 
             @include media-md {
-              padding: #{$padding * 6};
+              padding: #{$beat * 6};
             }
 
             @include media-lg {
@@ -407,11 +256,10 @@
 
           .caption-label,
           .caption {
-            color: $white;
+            color: color('white');
           }
 
           .caption-label {
-            @extend %small-caps;
             font-weight: 700;
             margin-bottom: 13px;
           }
@@ -434,7 +282,7 @@
           display: block;
         }
         .slide {
-          margin-right: #{$padding * 6};
+          margin-right: #{$beat * 6};
           &.portrait {
             img {
               max-height: 700px;
@@ -452,80 +300,13 @@
     }
   }
 
-  // Full page header style
-  header.full-page-header {
-    .section-title {
-      // Much larger type that overlays header image
-      h1 {
-        font-size: 60px;
-        line-height: 1;
-        color: $white;
-      }
-      h4 {
-        color: $white;
-        font: 18px/1 $font-body, sans-serif;
-        letter-spacing: 0;
-        text-transform: none;
-      }
-
-      @include media-sm {
-        h1 {
-          font-size: 80px;
-        }
-      }
-      @include media-md {
-        h1 {
-          font-size: 120px;
-        }
-        h4 {
-          font: 20px/1 $font-body, sans-serif;
-        }
-      }
-    }
-
-    .header-wrap {
-      position: relative;
-      height: calc(100vh - 66px);
-      max-height: 1200px;
-      // Use flex to center align header text
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      // Expand project-banner image to full viewport
-      .project-banner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        // Override attributes of standard header image
-        height: auto;
-        width: auto;
-        max-height: none;
-        background-color: rgba(0,0,0,.2);
-        // Video banners
-        &.video {
-          background-size: cover;
-          iframe {
-            left: 50%;
-            width: 100vw;
-            height: 56.25vw;
-            min-height: 100vh;
-            min-width: 177.77vh;
-            transform: translateX(-50%);
-          }
-        }
-      }
-    }
-  }
-
   // Two-column, alt header style
   .intro.two-column {
-    background: $black-dark;
-    color: $white;
+    background: color('black');
+    color: color('white');
     @extend %smooth;
     .intro-wrap {
-      @extend %clearfix;
+      @include clearfix;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -540,8 +321,8 @@
       max-width: none;
       ul li,
       h3 {
-        color: $white;
-        font: 16px/1 $font-body, sans-serif;
+        color: color('white');
+        font: 16px/1 $font-sans, sans-serif;
         letter-spacing: 0;
         text-transform: none;
         margin: 0 0 4px;
@@ -553,7 +334,7 @@
         font-weight: bold;
       }
       ul {
-        margin: 0 0 #{$padding * 2} 0;
+        margin: 0 0 #{$beat * 2} 0;
         li {
           display: block;
           color: rgba(255,255,255,0.65);
@@ -570,33 +351,33 @@
     .project-meta a {
       transition: none;
       color: rgba(255,255,255,0.65);
-      @include linkHover($white, screen);
+      @include linkHover(color('white'), screen);
     }
 
     // Small screen styles
-    @include max-screen($breakpoint-medium) {
+    @include media-md {
       .summary {
         position: relative;
-        padding-bottom: #{$padding * 3};
+        padding-bottom: #{$beat * 3};
         &::after {
           content: '';
           position: absolute;
           bottom: 0;
-          left: $mobile-padding;
-          right: $mobile-padding;
-          border-bottom: 1px solid $white;
+          left: $padding-sm;
+          right: $padding-sm;
+          border-bottom: 1px solid color('white');
         }
       }
     }
 
     // Desktop styles
     @include media-md {
-      padding-top: #{$padding * 9};
+      padding-top: #{$beat * 9};
       .summary {
         position: relative;
         width: 50%;
         float: left;
-        padding: 0 #{$padding * 6};
+        padding: 0 #{$beat * 6};
         &::after {
           content: '';
           position: absolute;
@@ -604,14 +385,14 @@
           right: 0;
           top: 20px;
           bottom: 40px;
-          border-right: 1px solid $white;
+          border-right: 1px solid color('white');
         }
       }
       .project-meta {
         width: 50%;
         float: left;
         // Arbitrary "move project-meta over a column" spacing
-        padding: 0 #{$padding * 6} 0 16%;
+        padding: 0 #{$beat * 6} 0 16%;
         margin: 0;
         .extra-info,
         .one-half {
@@ -625,36 +406,36 @@
 
 .block-color {
   &.color-white {
-    background: $white;
+    background: color('white');
   }
   &.color-gray {
-    background: $casestudy-gray;
+    background: color('offwhite');
     .user-content a {
-      @include linkHover($casestudy-gray);
+      @include linkHover(color('offwhite'));
     }
   }
   &.color-black {
-    background: $black-dark;
+    background: color('black');
     .user-content {
       &,
       h2,
       h3 {
         @extend %smooth;
-        color: $white;
+        color: color('white');
       }
       a {
-        color: rgba($white,.65);
-        @include linkHover($white, screen);
+        color: rgba(color('white'),.65);
+        @include linkHover(color('white'), screen);
       }
     }
   }
   .block-wrap {
-    padding: $mobile-padding;
+    padding: $padding-sm;
     @include media-md {
       padding: 0;
     }
     @include media-lg {
-      padding: #{$padding * 6} 0;
+      padding: #{$beat * 6} 0;
     }
 
     max-width: 1200px;
@@ -667,25 +448,25 @@
 // Block spacer
 .block-spacer {
   flex-basis: 100%;
-  padding: #{$padding * 2} 0;
+  padding: #{$beat * 2} 0;
 
   &.-medium {
-    padding: #{$padding * 3} 0;
+    padding: #{$beat * 3} 0;
   }
 
   &.-large {
-    padding: #{$padding * 4} 0;
+    padding: #{$beat * 4} 0;
   }
 
   @include media-md {
-    padding: #{$padding * 3} 0;
+    padding: #{$beat * 3} 0;
 
     &.-medium {
-      padding: #{$padding * 6} 0;
+      padding: #{$beat * 6} 0;
     }
 
     &.-large {
-      padding: #{$padding * 8} 0;
+      padding: #{$beat * 8} 0;
     }
   }
 }
@@ -693,7 +474,7 @@
 // Full width/half width areas
 .block-text,
 .block-image {
-  padding: #{$padding * 1} 0;
+  padding: #{$beat * 1} 0;
   flex: 0 1 100%;
 
   @include media-md {
@@ -711,15 +492,15 @@
 
   .block-text {
     padding-left: 0;
-    padding-top: #{$padding * 2};
+    padding-top: #{$beat * 2};
   }
 
   @include media-md {
-    padding: #{$padding * 3};
+    padding: #{$beat * 3};
 
     .block-text {
-      padding-top: #{$padding * 6};
-      padding-left: #{$padding * 3};
+      padding-top: #{$beat * 6};
+      padding-left: #{$beat * 3};
     }
 
     &.lightbox {
@@ -728,7 +509,7 @@
         height: 0;
         opacity: 0;
         overflow: hidden;
-        background-color: rgba($black,.75);
+        background-color: rgba(color('black'),.75);
 
         img {
           width: 100%;
@@ -750,14 +531,14 @@
 }
 .block-text {
   @include media-md {
-    padding: #{$padding * 6};
+    padding: #{$beat * 6};
   }
 
   &.user-content {
     h2,
     h3,
     h3.heading-small {
-      font: bold 16px/1 $font-body, sans-serif;
+      font: bold 16px/1 $font-sans, sans-serif;
       letter-spacing: 0;
       text-transform: none;
       margin: 0 0 4px;
@@ -767,16 +548,15 @@
     h2,
     h2.heading-large {
       color: inherit;
-      font: 36px/1 $font-display, sans-serif;
+      font: 36px/1 $font-serif, sans-serif;
       margin: 0 0 .6em;
     }
     h3.heading-medium {
       color: inherit;
-      font: 30px/32px $font-display, sans-serif;
+      font: 30px/32px $font-serif, sans-serif;
       margin: 0 0 .6em;
     }
     h3.heading-smallcaps {
-      @extend %small-caps;
       font-weight: 700;
       margin-bottom: 0;
       + p {
@@ -853,5 +633,94 @@
     display: block;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+  }
+}
+
+.filter-header {
+  display: none;
+  padding: $padding-md;
+  display: none;
+  a,button {
+    display: inline-block;
+    margin-left: 4px;
+  }
+  &.active {
+    display: block;
+  }
+}
+
+// Case Study Page Navigation
+.page-nav {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 25px;
+  color: color('white');
+  position: fixed;
+  mix-blend-mode: exclusion;
+
+  @include media-md {
+    width: 33px;
+  }
+
+  @include media-lg {
+    width: 50px;
+  }
+
+  ul {
+    left: 0;
+    top: 50%;
+    width: 100%;
+    position: absolute;
+
+    li {
+      margin: 10px 0;
+      a {
+        width: 100%;
+        height: 20px;
+        display: block;
+        position: relative;
+        &::after {
+          top: 50%;
+          left: 50%;
+          content: '';
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          position: absolute;
+          background-color: color('white');
+          transform: translate(-50%, -50%);
+          transition: transform .2s ease-out;
+        }
+        span {
+          left: 25px;
+          position: absolute;
+          white-space: nowrap;
+          transform: translateX(100%);
+          @include media-md {
+            left: 33px;
+          }
+          @include media-lg {
+            left: 50px;
+          }
+        }
+
+        &:hover {
+          span {
+            left: 0;
+            transform: translateX(-100%);
+          }
+        }
+      }
+
+      &.-active {
+        a {
+          &::after {
+            transform: translate(-50%, -50%) scale(1.3333);
+          }
+        }
+      }
+    }
   }
 }

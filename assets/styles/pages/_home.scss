@@ -16,7 +16,7 @@ body.homepage {
       margin: 0;
 
       .motto {
-        @include type-caption;
+        @include small-titles;
         display: block;
         position: relative;
 

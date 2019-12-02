@@ -1,4 +1,7 @@
-import Flickity from 'flickity';
+import jQueryBridget from 'jquery-bridget';
+import Flickity from 'flickity/dist/flickity.pkgd.js';
+import Waypoints from 'waypoints/lib/jquery.waypoints.js';
+import Lazysizes from 'lazysizes';
 require('flickity-imagesloaded');
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import * as p5 from 'p5';
@@ -7,6 +10,9 @@ import appState from '../util/appState';
 
 export default {
   init() {
+    // Set up libraries to be used with jQuery
+    jQueryBridget( 'flickity', Flickity, $ );
+
     const $body = $('body');
     const $window = $(window);
     const $html = $('html');
@@ -33,6 +39,7 @@ export default {
     _initHoverPairs();
     _initSiteNav();
     _initBlobs();
+    _initFlickity();
 
     function _initCustomCursor() {
       if (!$('.js-cursor').length) {
@@ -263,6 +270,14 @@ export default {
       }
 
       new p5(sketch);
+    }
+
+    function _initFlickity() {
+      $('.flickity').flickity({
+        pageDots: false,
+        imagesLoaded: true,
+        wrapAround: true,
+      });
     }
   },
   finalize() {

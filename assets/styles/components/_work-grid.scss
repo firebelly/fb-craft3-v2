@@ -40,11 +40,11 @@
     }
     h3,
     h1 {
+      @include small-titles;
       margin: 0;
       z-index: 1;
       position: relative;
       color: color('white');
-      @include type-caption;
     }
     h3 {
       margin-top: 1em;

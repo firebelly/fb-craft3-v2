@@ -23,12 +23,12 @@ input {
 }
 
 label {
+  @include small-titles;
   border: 0;
   background: 0;
   border-radius: 0;
-  color: color('black');
-  @include type-caption;
   letter-spacing: 0;
+  color: color('black');
   &.error, &.success {
     display: block;
     padding: .5em 0;

@@ -7,11 +7,13 @@ import stickyHeaders from './util/stickyHeaders';
 import stickyNav from './util/stickyNav';
 import common from './routes/common';
 import homepage from './routes/homepage';
+import project from './routes/project';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
   common,
   homepage,
+  project,
 });
 
 // Init sticky headers

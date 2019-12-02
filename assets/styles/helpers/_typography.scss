@@ -192,8 +192,8 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
   @include p2;
 }
 
-// Caption
-@mixin type-caption {
+// Small Titles
+@mixin small-titles {
   @extend %smooth;
   @include font-sans;
   @include paragraph-style(10,24,0.075em,bold,uppercase);

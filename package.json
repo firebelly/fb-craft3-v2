@@ -40,9 +40,12 @@
     "flickity": "^2.2.1",
     "flickity-imagesloaded": "^2.0.0",
     "jquery": "^3.4",
+    "jquery-bridget": "^2.0.1",
     "js-dom-router": "^1.0",
+    "lazysizes": "^5.2.0-beta1",
     "p5": "^0.10.2",
     "popper.js": "^1.15",
-    "velocity-animate": "^1.5.2"
+    "velocity-animate": "^1.5.2",
+    "waypoints": "^4.0.1"
   }
 }

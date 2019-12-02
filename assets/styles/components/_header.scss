@@ -30,8 +30,13 @@ $logo-lg-w: 49px;
   z-index: 2;
   left: $padding-sm;
   position: absolute;
+
   a {
     display: inline-block;
+  }
+
+  svg {
+    fill: color('black');
   }
 
   .logo-svg {

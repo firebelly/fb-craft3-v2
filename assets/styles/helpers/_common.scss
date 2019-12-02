@@ -1,7 +1,7 @@
 // Common styles
 
 .section-label {
-  @include type-caption;
+  @include small-titles;
   margin: 0;
   z-index: 1;
   position: relative;
@@ -34,7 +34,7 @@
       @extend .semantic-list;
       margin-top: 16px;
       li {
-        @include type-caption;
+        @include small-titles;
         display: inline-block;
       }
     }
