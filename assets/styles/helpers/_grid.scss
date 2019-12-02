@@ -1,7 +1,12 @@
 // Grid
 
-$columns: 10;
+$columns: 20;
 $column-width: 100% / $columns;
+
+// Quickie beat() function
+@function beat($num) {
+  @return $beat * $num;
+}
 
 // Quickie columns() function
 @function columns($num-columns, $parent-num-columns: $columns) {
