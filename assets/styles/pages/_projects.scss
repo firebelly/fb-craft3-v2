@@ -1,5 +1,6 @@
 // Projects
 
+// Single project
 body.project {
   .portfolio {
     padding-top: 46px;
@@ -43,8 +44,9 @@ body.project {
         max-height: none;
         position: absolute;
         background-size: cover;
-        background-color: rgba(0,0,0,.2);
+        background-color: rgba(0, 0, 0, 0.2);
         background-position: center center;
+
         // Video banners
         &.video {
           background-size: cover;
@@ -64,18 +66,16 @@ body.project {
   // Project Intro
   .intro {
     .project-summary {
-      p {
-        @include p1;
-        margin: $padding-md auto 0;
-        &:first-of-type {
-          margin-top: 0;
-        }
-      }
     }
 
     .project-meta {
+      h3 {
+        @include small-titles;
+        margin: 0 0 20px;
+      }
       ul {
         @extend .semantic-list;
+        margin: 0 0 20px;
 
         li {
           display: inline;
@@ -86,14 +86,22 @@ body.project {
         margin-top: $padding-md;
       }
 
+      // Desktop styles
       @include media-md {
-        padding: 0;
+        > .-inner {
+          padding: 0 0 0 columns(4, 8);
+        }
         text-align: left;
 
         .services {
           margin-top: 0;
         }
       }
+    }
+
+    // Desktop styles
+    @include media-md {
+      padding: beat(7) 0;
     }
   }
 
@@ -529,6 +537,7 @@ body.project {
     }
   }
 }
+
 .block-text {
   @include media-md {
     padding: #{$beat * 6};
@@ -555,17 +564,6 @@ body.project {
       color: inherit;
       font: 30px/32px $font-serif, sans-serif;
       margin: 0 0 .6em;
-    }
-    h3.heading-smallcaps {
-      font-weight: 700;
-      margin-bottom: 0;
-      + p {
-        margin-top: 24px;
-
-        &.p2 {
-          margin-top: 16px;
-        }
-      }
     }
 
     p.p2 {
