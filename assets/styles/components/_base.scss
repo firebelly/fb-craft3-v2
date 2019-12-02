@@ -18,7 +18,7 @@ body {
   box-sizing: border-box;
   padding-top: $header-sm; // making room for the fixed header
   background: color('white');
-  font: 16px/18px $font-sans, serif;
+  font: 16px/24px $font-sans, serif;
 
   @include media-nav {
     padding-top: $header-md;
@@ -42,6 +42,7 @@ body {
   border-right: 5px solid color('white');
   @include media-md {
     border: none;
+    margin-right: 72px;
   }
 }
 
@@ -90,7 +91,7 @@ sup {
   margin-top: 20px;
 }
 
-// Hide edit link for now
+// Edit link
 .edit-link {
   position: absolute;
   top: 25px;
