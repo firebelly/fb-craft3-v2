@@ -10,7 +10,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: '{% if object.level == 1 %}work/industry/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
         template: work/industry
-dateModified: 1574791111
+dateModified: 1575319771
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -43,8 +43,6 @@ fieldGroups:
     name: SEO
   9aec6670-8753-4f2e-91d5-03ff2b4f3ef6:
     name: Default
-  ac105b17-6ee3-4505-b227-76456561e443:
-    name: Store
   d2d1260a-da85-41ec-8e8a-c16e376cf34f:
     name: Assets
 fields:
@@ -64,20 +62,6 @@ fields:
       columnType: text
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
     contentColumnType: text
-  08bb2e84-ba06-4728-b98e-cf794cde2520:
-    name: Weight
-    handle: weight
-    instructions: 'In ounces'
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\Number
-    settings:
-      min: '0'
-      max: ''
-      decimals: '2'
-    fieldGroup: ac105b17-6ee3-4505-b227-76456561e443
-    contentColumnType: 'decimal(12,2)'
   17b68b87-5b0f-4c9c-bf97-605dd31eb437:
     name: 'Header Image'
     handle: headerImage
@@ -117,37 +101,14 @@ fields:
       propagationMethod: all
       staticField: ''
       columns:
-        80:
+        4c73b619-7e3e-4af8-b8f3-393a4f6b3dd3:
           width: ''
-        81:
+        f368c9bc-907e-4802-8e7a-7f42e35d643b:
           width: ''
       fieldLayout: row
       selectionLabel: 'Add Extra Details block'
     contentColumnType: string
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
-  1be90cd6-60d9-4569-8886-8015cb6fe8ff:
-    name: 'Header Options'
-    handle: headerOptions
-    instructions: ''
-    searchable: true
-    translationMethod: site
-    translationKeyFormat: null
-    type: verbb\supertable\fields\SuperTableField
-    settings:
-      minRows: ''
-      maxRows: ''
-      localizeBlocks: false
-      staticField: '1'
-      columns:
-        83:
-          width: ''
-        84:
-          width: ''
-      contentTable: '{{%stc_headeroptions}}'
-      fieldLayout: matrix
-      selectionLabel: ''
-    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
-    contentColumnType: string
   1e1f83a6-b350-412e-83b9-355478f75113:
     name: 'Vimeo Header Video'
     handle: vimeoHeaderVideo
@@ -164,20 +125,6 @@ fields:
       columnType: text
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
     contentColumnType: text
-  2120d39e-d188-4bbb-81f8-0445d38e45fb:
-    name: Price
-    handle: price
-    instructions: ''
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\Number
-    settings:
-      min: '0'
-      max: ''
-      decimals: '2'
-    fieldGroup: ac105b17-6ee3-4505-b227-76456561e443
-    contentColumnType: 'decimal(12,2)'
   2a5054ba-d822-4486-9917-cd1bcd4aba46:
     name: 'Project Blocks'
     handle: projectBlocks
@@ -222,25 +169,6 @@ fields:
       charLimit: ''
       columnType: text
     fieldGroup: 005558cd-73a4-4ab5-be0b-3b0d3765d3fa
-    contentColumnType: text
-  3bdd3508-a044-4140-8938-c063d1f31997:
-    name: 'Production Highlights'
-    handle: productionHighlights
-    instructions: ''
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\redactor\Field
-    settings:
-      availableTransforms: '*'
-      purifyHtml: '1'
-      columnType: text
-      availableVolumes: '*'
-      redactorConfig: Simple.json
-      removeInlineStyles: '1'
-      removeEmptyTags: '1'
-      removeNbsp: '1'
-    fieldGroup: ac105b17-6ee3-4505-b227-76456561e443
     contentColumnType: text
   61355f38-d901-40a6-baff-aefa66152bdf:
     name: Video
@@ -421,25 +349,6 @@ fields:
       availableTransforms: ''
     fieldGroup: 2155774e-82f7-4a6f-9357-0429f8ef8d05
     contentColumnType: text
-  964b9acf-3ae5-4d4a-bf92-eb874414f37a:
-    name: Colophon
-    handle: colophon
-    instructions: ''
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\redactor\Field
-    settings:
-      availableTransforms: '*'
-      purifyHtml: '1'
-      columnType: text
-      availableVolumes: '*'
-      redactorConfig: Simple.json
-      removeInlineStyles: '1'
-      removeEmptyTags: '1'
-      removeNbsp: '1'
-    fieldGroup: ac105b17-6ee3-4505-b227-76456561e443
-    contentColumnType: text
   973f412f-a0f6-4f53-b5b9-847caeb87763:
     name: 'Current Positions'
     handle: currentPositions
@@ -468,48 +377,6 @@ fields:
       localizeRelations: false
       branchLimit: ''
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
-    contentColumnType: string
-  a173288d-a184-4e9e-adea-80380448158d:
-    name: Size
-    handle: size
-    instructions: ''
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\redactor\Field
-    settings:
-      availableTransforms: '*'
-      purifyHtml: '1'
-      columnType: text
-      availableVolumes: '*'
-      redactorConfig: Simple.json
-      removeInlineStyles: '1'
-      removeEmptyTags: '1'
-      removeNbsp: '1'
-    fieldGroup: ac105b17-6ee3-4505-b227-76456561e443
-    contentColumnType: text
-  a1f09114-2948-4a92-a681-da1ba38c4783:
-    name: 'Product Images'
-    handle: productImages
-    instructions: 'First image is used as thumbnail'
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\Assets
-    settings:
-      useSingleFolder: ''
-      sources:
-        - 'volume:693fdd42-dd6b-467a-acc0-51b995280029'
-      defaultUploadLocationSource: 'volume:693fdd42-dd6b-467a-acc0-51b995280029'
-      defaultUploadLocationSubpath: ''
-      singleUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
-      singleUploadLocationSubpath: ''
-      restrictFiles: ''
-      limit: ''
-      viewMode: large
-      selectionLabel: ''
-      localizeRelations: false
-    fieldGroup: ac105b17-6ee3-4505-b227-76456561e443
     contentColumnType: string
   a2483d09-6798-40be-8f35-c45413ed2e03:
     name: 'Featured Services'
@@ -574,22 +441,6 @@ fields:
       propagationMethod: all
     contentColumnType: string
     fieldGroup: 8371a28a-a15c-40e8-a56a-142abd851d9b
-  b473b74b-efff-4a86-acaf-df0e00fb0cea:
-    name: 'Stripe Product ID'
-    handle: stripeProductId
-    instructions: 'For integration with Stripe checkout, e.g. sku_typeforce4'
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\PlainText
-    settings:
-      placeholder: ''
-      multiline: ''
-      initialRows: '4'
-      charLimit: ''
-      columnType: text
-    fieldGroup: ac105b17-6ee3-4505-b227-76456561e443
-    contentColumnType: text
   b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
     name: Body
     handle: body
@@ -808,10 +659,6 @@ fields:
       contentTable: '{{%matrixcontent_endeavors}}'
     fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
     contentColumnType: string
-globalSets:
-  9d29a7bb-6ede-413e-afbf-05564220fe76:
-    name: Fbsettings
-    handle: fbsettings
 imageTransforms:
   d13aab8e-a0af-4784-a02f-ba9b5c5a358e:
     name: Hero
@@ -2724,7 +2571,7 @@ plugins:
     settings: null
     licenseKey: null
     enabled: '1'
-    schemaVersion: 2.2.0
+    schemaVersion: 2.2.1
   cp-field-inspect:
     settings: null
     licenseKey: null
@@ -2788,70 +2635,6 @@ sections:
         hasUrls: true
         uriFormat: privacy-policy
         template: page
-  3edd1745-f5dd-4f0a-a78e-a3db2cbe0002:
-    name: Store
-    handle: store
-    type: structure
-    enableVersioning: true
-    propagationMethod: all
-    structure:
-      uid: f933ff7a-facf-47da-ac50-8dd696337e48
-      maxLevels: null
-    entryTypes:
-      70da5280-668c-4e2f-b91d-fe088dae861f:
-        name: Product
-        handle: product
-        hasTitleField: true
-        titleLabel: Title
-        titleFormat: null
-        sortOrder: 1
-        fieldLayouts:
-          c63d9bdb-85c9-4aaa-8b54-9c28fb7601c4:
-            tabs:
-              -
-                name: Main
-                sortOrder: 1
-                fields:
-                  08bb2e84-ba06-4728-b98e-cf794cde2520:
-                    required: false
-                    sortOrder: 3
-                  2120d39e-d188-4bbb-81f8-0445d38e45fb:
-                    required: false
-                    sortOrder: 2
-                  3bdd3508-a044-4140-8938-c063d1f31997:
-                    required: false
-                    sortOrder: 6
-                  964b9acf-3ae5-4d4a-bf92-eb874414f37a:
-                    required: false
-                    sortOrder: 7
-                  a173288d-a184-4e9e-adea-80380448158d:
-                    required: false
-                    sortOrder: 4
-                  a1f09114-2948-4a92-a681-da1ba38c4783:
-                    required: false
-                    sortOrder: 8
-                  b473b74b-efff-4a86-acaf-df0e00fb0cea:
-                    required: false
-                    sortOrder: 5
-                  b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
-                    required: false
-                    sortOrder: 1
-              -
-                name: SEO
-                sortOrder: 2
-                fields:
-                  7a978b7f-cab5-448c-88dc-d4e1a9d281cf:
-                    required: false
-                    sortOrder: 1
-                  8dd0581c-6902-4a9c-8ddd-e11ce7656351:
-                    required: false
-                    sortOrder: 2
-    siteSettings:
-      8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
-        enabledByDefault: true
-        hasUrls: true
-        uriFormat: '{% if object.level == 1 %}store/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
-        template: store/_entry
   4b622926-f41b-4a90-af05-e9b6802d5276:
     name: People
     handle: people
@@ -3082,9 +2865,6 @@ sections:
                   1aa39e81-b095-4d9a-9fb5-68e65b990311:
                     required: false
                     sortOrder: 5
-                  1be90cd6-60d9-4569-8886-8015cb6fe8ff:
-                    required: false
-                    sortOrder: 2
                   1e1f83a6-b350-412e-83b9-355478f75113:
                     required: false
                     sortOrder: 1
@@ -3332,46 +3112,6 @@ superTableBlockTypes:
               6cfeb752-b0e2-42c2-9d50-6fc5a21cc5c0:
                 required: false
                 sortOrder: 2
-  0c6faa48-c276-45ee-bd33-bc76a2d308ce:
-    field: 1be90cd6-60d9-4569-8886-8015cb6fe8ff
-    fieldLayouts:
-      cd50589d-24e3-4d56-b576-7b8f9b26e756:
-        tabs:
-          -
-            name: Content
-            sortOrder: '1'
-            fields:
-              4dc9bcd0-626f-4734-9036-49dfdc39b851:
-                required: '0'
-                sortOrder: '1'
-              72a0dcff-e202-475c-a7da-9113e149494f:
-                required: '0'
-                sortOrder: '2'
-    fields:
-      4dc9bcd0-626f-4734-9036-49dfdc39b851:
-        name: 'Full Page Header Image'
-        handle: fullPageHeaderImage
-        instructions: 'Show full-viewport Main Image on single project pages'
-        searchable: '1'
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\fields\Lightswitch
-        settings:
-          default: ''
-        fieldGroup: null
-        contentColumnType: boolean
-      72a0dcff-e202-475c-a7da-9113e149494f:
-        name: 'Two-column Black Intro'
-        handle: twoColumnLayout
-        instructions: 'Show body text + industry/services/extra info as two columns with black background'
-        searchable: '1'
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\fields\Lightswitch
-        settings:
-          default: ''
-        fieldGroup: null
-        contentColumnType: boolean
   5cb85ec1-60f9-450b-a8b0-8a7c312b03ad:
     field: 1aa39e81-b095-4d9a-9fb5-68e65b990311
     fields:
