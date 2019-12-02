@@ -111,7 +111,7 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // H1 - Stanley
 @mixin h1-serif {
   @include font-serif;
-  @include paragraph-style(128,128,-0.015em,900);
+  @include paragraph-style(128, 128, -0.015em, normal);
 }
 .h1-serif {
   @include h1-serif;
@@ -120,9 +120,9 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // H1 - Surt
 @mixin h1-sans {
   @include font-sans;
-  @include paragraph-style(32,40,0.01em);
+  @include paragraph-style(32, 40, 0.01em);
   @include media-md {
-    @include paragraph-style(96,96,0.01em);
+    @include paragraph-style(96, 96, 0.01em);
   }
 }
 .h1-sans {
@@ -132,7 +132,7 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // H2 - Stanley
 @mixin h2-serif {
   @include font-serif;
-  @include paragraph-style(52,56,0,900);
+  @include paragraph-style(52, 56, 0, 900);
 }
 .h2-serif {
   @include h2-serif;
@@ -141,7 +141,7 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // H2 - Surt
 @mixin h2-sans {
   @include font-sans;
-  @include paragraph-style(48,56,0.01em);
+  @include paragraph-style(48, 56, 0.01em);
 }
 .h2-sans {
   @include h2-sans;
@@ -150,7 +150,7 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // H3 - Surt
 @mixin h3-sans {
   @include font-sans;
-  @include paragraph-style(32,40,0.01em);
+  @include paragraph-style(32, 40, 0.01em);
 }
 .h3-sans {
   @include h3-sans;
@@ -159,7 +159,7 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // H4
 @mixin h4 {
   @include font-serif;
-  @include paragraph-style(30,32,0,900);
+  @include paragraph-style(30, 32, 0, 900);
 }
 .h4 {
   @include h4;
@@ -168,7 +168,7 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // H5
 @mixin h5 {
   @include font-serif;
-  @include paragraph-style(18,24,0,900);
+  @include paragraph-style(18, 24, 0, 900);
 }
 .h5 {
   @include h5;
@@ -177,7 +177,7 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // Paragraph
 @mixin p1 {
   @include font-sans;
-  @include paragraph-style(24,32,0.015em);
+  @include paragraph-style(24, 32, 0.015em);
 }
 .p1 {
   @include p1;
@@ -186,7 +186,7 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // Pargraph Two
 @mixin p2 {
   @include font-sans;
-  @include paragraph-style(16,24,0.015em);
+  @include paragraph-style(16, 24, 0.015em);
 }
 .p2 {
   @include p2;
@@ -196,8 +196,8 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 @mixin small-titles {
   @extend %smooth;
   @include font-sans;
-  @include paragraph-style(10,24,0.075em,bold,uppercase);
+  @include paragraph-style(10, 24, 0.075em, bold, uppercase);
   @include media-md {
-    @include paragraph-style(12,24,0.075em,bold,uppercase);
+    @include paragraph-style(12, 24, 0.075em, bold, uppercase);
   }
 }
