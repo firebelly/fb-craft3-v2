@@ -133,6 +133,7 @@
 
   ul {
     @include clearfix;
+    @extend .semantic-list;
     margin: $padding-lg 0 0 0;
 
     &:after {
@@ -143,7 +144,6 @@
     }
 
     @include media-md {
-      margin: $padding-lg 0 -30px 0;
     }
   }
 
