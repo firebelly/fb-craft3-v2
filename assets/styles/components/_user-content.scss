@@ -12,8 +12,21 @@
     margin: 0 0 .5em;
   }
 
+  h3.heading-smallcaps {
+    @include small-titles;
+    font-weight: 700;
+    margin-bottom: 0;
+    + p {
+      margin-top: 24px;
+
+      &.p2 {
+        margin-top: 16px;
+      }
+    }
+  }
+
   p {
-    font: 16px/1.375 $font-sans, sans-serif;
+    @include p1;
     margin: 0 0 1em;
     &:last-of-type {
       margin: 0;
@@ -25,11 +38,8 @@
     max-width: 800px;
     text-align: center;
     &, p {
-      font-size: 24px;
+      @include p1;
       color: color('black');
-      line-height: 1.375em;
-      // letter-spacing: .035em;
-      font-family: $font-serif;
     }
     a {
       &:hover, &:focus {
