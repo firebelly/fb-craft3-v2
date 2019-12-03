@@ -108,10 +108,10 @@ body.project {
 
   .section-title {
     text-align: center;
-    padding: ($beat * 6) 0 0;
+    padding: beat(6) 0 0;
     h1 {
       font-size: 36px;
-      margin-bottom: $beat;
+      margin-bottom: beat(1);
     }
     h4 {
       color: color('black');
@@ -126,11 +126,11 @@ body.project {
   }
 
   .block-quote {
-    padding: ($beat * 6) $padding-sm;
+    padding: beat(6) $padding-sm;
 
     @include media-md {
-      padding-top: ($beat * 12);
-      padding-bottom: ($beat * 12);
+      padding-top: beat(12);
+      padding-bottom: beat(12);
     }
 
     blockquote {
@@ -253,7 +253,7 @@ body.project {
             padding: 25px;
 
             @include media-md {
-              padding: #{$beat * 6};
+              padding: beat(6);
             }
 
             @include media-lg {
@@ -290,7 +290,7 @@ body.project {
           display: block;
         }
         .slide {
-          margin-right: #{$beat * 6};
+          margin-right: beat(6);
           &.portrait {
             img {
               max-height: 700px;
@@ -342,7 +342,7 @@ body.project {
         font-weight: bold;
       }
       ul {
-        margin: 0 0 #{$beat * 2} 0;
+        margin: 0 0 beat(2) 0;
         li {
           display: block;
           color: rgba(255,255,255,0.65);
@@ -366,7 +366,7 @@ body.project {
     @include media-md {
       .summary {
         position: relative;
-        padding-bottom: #{$beat * 3};
+        padding-bottom: beat(3);
         &::after {
           content: '';
           position: absolute;
@@ -380,12 +380,12 @@ body.project {
 
     // Desktop styles
     @include media-md {
-      padding-top: #{$beat * 9};
+      padding-top: beat(9);
       .summary {
         position: relative;
         width: 50%;
         float: left;
-        padding: 0 #{$beat * 6};
+        padding: 0 beat(6);
         &::after {
           content: '';
           position: absolute;
@@ -400,7 +400,7 @@ body.project {
         width: 50%;
         float: left;
         // Arbitrary "move project-meta over a column" spacing
-        padding: 0 #{$beat * 6} 0 16%;
+        padding: 0 beat(6) 0 16%;
         margin: 0;
         .extra-info,
         .one-half {
@@ -437,56 +437,61 @@ body.project {
       }
     }
   }
-  .block-wrap {
-    padding: $padding-sm;
-    @include media-md {
-      padding: 0;
-    }
-    @include media-lg {
-      padding: #{$beat * 6} 0;
-    }
 
-    max-width: 1200px;
+  // Wrapper for half-width items
+  .block-wrap {
+    padding: 0 $padding-sm;
+    // max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+
+    @include media-md {
+      padding: 0 #{$padding-lg * 2};
+    }
   }
+
 }
 
 // Block spacer
 .block-spacer {
   flex-basis: 100%;
-  padding: #{$beat * 2} 0;
+  padding: beat(2) 0;
 
   &.-medium {
-    padding: #{$beat * 3} 0;
+    padding: beat(3) 0;
   }
 
   &.-large {
-    padding: #{$beat * 4} 0;
+    padding: beat(4) 0;
   }
 
   @include media-md {
-    padding: #{$beat * 3} 0;
+    padding: beat(3) 0;
 
     &.-medium {
-      padding: #{$beat * 6} 0;
+      padding: beat(6) 0;
     }
 
     &.-large {
-      padding: #{$beat * 8} 0;
+      padding: beat(8) 0;
     }
   }
 }
 
 .stat-table {
   width: 100%;
+
+  @include media-md {
+    padding: beat(6) 0;
+  }
+
   ul {
     @extend .semantic-list;
   }
   li {
     align-items: flex-end;
-    padding: #{$beat * 2} 0;
+    padding: beat(2) 0;
     border-bottom: 1px solid color('black');
     .stat-figure {
       @include h1-sans;
@@ -510,7 +515,7 @@ body.project {
 // Full width/half width areas
 .block-text,
 .block-image {
-  padding: #{$beat * 1} 0;
+  padding: beat(1) 0;
   flex: 0 1 100%;
 
   @include media-md {
@@ -538,15 +543,15 @@ body.project {
 
   .block-text {
     padding-left: 0;
-    padding-top: #{$beat * 2};
+    padding-top: beat(2);
   }
 
   @include media-md {
-    padding: #{$beat * 3};
+    padding: beat(3) 0;
 
     .block-text {
-      padding-top: #{$beat * 6};
-      padding-left: #{$beat * 3};
+      padding-top: beat(6);
+      padding-left: beat(3);
     }
 
     &.lightbox {
@@ -578,7 +583,7 @@ body.project {
 
 .block-text {
   @include media-md {
-    padding: #{$beat * 6};
+    padding: beat(6) 0;
   }
 
   &.user-content {
@@ -672,91 +677,3 @@ body.project {
   }
 }
 
-.filter-header {
-  display: none;
-  padding: $padding-md;
-  display: none;
-  a,button {
-    display: inline-block;
-    margin-left: 4px;
-  }
-  &.active {
-    display: block;
-  }
-}
-
-// Case Study Page Navigation
-.page-nav {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10;
-  width: 25px;
-  color: color('white');
-  position: fixed;
-  mix-blend-mode: exclusion;
-
-  @include media-md {
-    width: 33px;
-  }
-
-  @include media-lg {
-    width: 50px;
-  }
-
-  ul {
-    left: 0;
-    top: 50%;
-    width: 100%;
-    position: absolute;
-
-    li {
-      margin: 10px 0;
-      a {
-        width: 100%;
-        height: 20px;
-        display: block;
-        position: relative;
-        &::after {
-          top: 50%;
-          left: 50%;
-          content: '';
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          position: absolute;
-          background-color: color('white');
-          transform: translate(-50%, -50%);
-          transition: transform .2s ease-out;
-        }
-        span {
-          left: 25px;
-          position: absolute;
-          white-space: nowrap;
-          transform: translateX(100%);
-          @include media-md {
-            left: 33px;
-          }
-          @include media-lg {
-            left: 50px;
-          }
-        }
-
-        &:hover {
-          span {
-            left: 0;
-            transform: translateX(-100%);
-          }
-        }
-      }
-
-      &.-active {
-        a {
-          &::after {
-            transform: translate(-50%, -50%) scale(1.3333);
-          }
-        }
-      }
-    }
-  }
-}
