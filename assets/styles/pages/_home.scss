@@ -62,22 +62,7 @@ body.homepage {
     }
 
     .services {
-      @extend .semantic-list;
       margin-top: $padding-lg;
-    }
-
-    .service {
-      align-items: flex-end;
-      padding: #{$beat * 2} 0;
-      border-bottom: 1px solid color('black');
-      .service-label {
-        @include h1-sans;
-        margin: 0;
-      }
-      .service-description {
-        @include p2;
-        margin: 0 0 6px;
-      }
     }
 
     .section-cta {

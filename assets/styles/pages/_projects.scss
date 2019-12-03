@@ -479,6 +479,26 @@ body.project {
   }
 }
 
+.stat-table {
+  width: 100%;
+  ul {
+    @extend .semantic-list;
+  }
+  li {
+    align-items: flex-end;
+    padding: #{$beat * 2} 0;
+    border-bottom: 1px solid color('black');
+    .stat-figure {
+      @include h1-sans;
+      margin: 0;
+    }
+    .stat-label {
+      @include p2;
+      margin: 0 0 6px;
+    }
+  }
+}
+
 .section-header {
   width: 100%;
   border-top: 1px solid color('black');

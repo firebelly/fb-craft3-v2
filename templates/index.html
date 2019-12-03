@@ -65,14 +65,16 @@
       <div class="container">
         <h5 class="section-label">What we do</h5>
 
-        <ul class="services grid">
+        <div class="services stat-table">
+          <ul>
           {% for service in entry.featuredServices.all() %}
-            <li class="service grid">
-              <h4 class="service-label col-md-1-2">{{ service.serviceName }}</h4>
-              <p class="service-description col-md-1-2">{{ service.serviceDescription }}</p>
+            <li class="grid">
+              <h4 class="stat-figure col-md-1-2">{{ service.serviceName }}</h4>
+              <p class="stat-label col-md-1-2">{{ service.serviceDescription }}</p>
             </li>
           {% endfor %}
-        </ul>
+          </ul>
+        </div>
 
         <div class="section-cta">
           <div class="grid align-right">

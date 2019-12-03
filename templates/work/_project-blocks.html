@@ -260,14 +260,17 @@
     {% case "statTable" %}
       {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
       {% if block.stats | length %}
+
         <div class="stat-table">
           <div class="-inner">
-            <dl>
+            <ul>
               {% for stat in block.stats.all() %}
-                <dt>{{ stat.figure }}</dt>
-                <dd>{{ stat.label }}</dd>
+                <li class="grid">
+                  <h4 class="stat-figure col-md-1-2">{{ stat.figure }}</h4>
+                  <p class="stat-label col-md-1-2">{{ stat.label }}</p>
+                </li>
               {% endfor %}
-            </dl>
+            </ul>
           </div>
         </div>
       {% endif %}
