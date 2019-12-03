@@ -10,7 +10,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: '{% if object.level == 1 %}work/industry/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
         template: work/industry
-dateModified: 1575323764
+dateModified: 1575393588
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -460,6 +460,26 @@ fields:
       removeNbsp: ''
     fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
     contentColumnType: text
+  b6cdac4a-5f04-4b23-a32a-6fa5ef9b059b:
+    name: 'Recent Work'
+    handle: recentWork
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Entries
+    settings:
+      sources:
+        - 'section:a622d82a-9cfa-44de-b537-5a453e294cc7'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: ''
+      selectionLabel: ''
+      localizeRelations: false
+      validateRelatedElements: ''
+    contentColumnType: string
+    fieldGroup: 8371a28a-a15c-40e8-a56a-142abd851d9b
   b81bcea7-a103-4c7f-b715-e346fefc0dab:
     name: Image
     handle: personImage
@@ -1405,19 +1425,20 @@ matrixBlockTypes:
                 sortOrder: 1
   65eadbd2-56a8-4b0c-8995-cab5872df8d4:
     field: ae9536dc-70b1-4e78-b8a8-eff55a877bb7
-    name: work
+    name: Work
     handle: work
     sortOrder: 1
     fields:
       79beca15-3ac6-4ce4-88d4-744175734077:
         name: 'Thumbnail Orientation'
         handle: thumbnailOrientation
-        instructions: 'Choose between landscape or portrait orientation.'
+        instructions: ''
         searchable: true
         translationMethod: none
         translationKeyFormat: null
-        type: craft\fields\RadioButtons
+        type: craft\fields\Dropdown
         settings:
+          optgroups: true
           options:
             -
               label: Landscape
@@ -1432,7 +1453,7 @@ matrixBlockTypes:
       ebe3df80-f4b8-44d5-b801-ff435339c49c:
         name: Entry
         handle: featuredEntry
-        instructions: 'Choose a project or Ideas post to be featured at the bottom of the homepage.'
+        instructions: ''
         searchable: true
         translationMethod: site
         translationKeyFormat: null
@@ -1526,7 +1547,7 @@ matrixBlockTypes:
                 sortOrder: 1
   73e62394-4339-4707-8fe6-78b210fd30e2:
     field: a2483d09-6798-40be-8f35-c45413ed2e03
-    name: service
+    name: Service
     handle: service
     sortOrder: 1
     fields:
@@ -1558,8 +1579,8 @@ matrixBlockTypes:
         settings:
           placeholder: ''
           code: ''
-          multiline: ''
-          initialRows: '4'
+          multiline: '1'
+          initialRows: '2'
           charLimit: ''
           columnType: text
         contentColumnType: text
@@ -3010,7 +3031,7 @@ sections:
                 name: 'Recent Work'
                 sortOrder: 2
                 fields:
-                  cb20d27a-6050-42c1-9bf8-a507541f94ce:
+                  b6cdac4a-5f04-4b23-a32a-6fa5ef9b059b:
                     required: false
                     sortOrder: 1
               -
