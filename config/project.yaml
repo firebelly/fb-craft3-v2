@@ -10,7 +10,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: '{% if object.level == 1 %}work/industry/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
         template: work/industry
-dateModified: 1575407258
+dateModified: 1575417004
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -265,21 +265,6 @@ fields:
       columnType: string
     fieldGroup: 9ace857e-959b-4a74-b0e0-42873080c846
     contentColumnType: string
-  7cb4f34a-43b1-44c2-8e70-f39f1320768c:
-    name: 'Call to Action'
-    handle: callToAction
-    instructions: 'Optional call to action that appears before the footer.'
-    searchable: true
-    translationMethod: site
-    translationKeyFormat: null
-    type: craft\fields\Matrix
-    settings:
-      minBlocks: ''
-      maxBlocks: '1'
-      contentTable: '{{%matrixcontent_calltoaction}}'
-      propagationMethod: all
-    contentColumnType: string
-    fieldGroup: 8371a28a-a15c-40e8-a56a-142abd851d9b
   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
     name: 'SEO Description'
     handle: seoDescription
@@ -544,26 +529,32 @@ fields:
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
     contentColumnType: text
   d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9:
-    name: 'Header Description'
-    handle: headerDescription
+    name: 'Page Header'
+    handle: pageHeader
     instructions: ''
     searchable: true
-    translationMethod: none
+    translationMethod: site
     translationKeyFormat: null
-    type: craft\fields\PlainText
+    type: verbb\supertable\fields\SuperTableField
     settings:
-      placeholder: ''
-      code: ''
-      multiline: ''
-      initialRows: '4'
-      charLimit: ''
-      columnType: text
-    contentColumnType: text
-    fieldGroup: 8371a28a-a15c-40e8-a56a-142abd851d9b
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_pageheader}}'
+      propagationMethod: all
+      staticField: '1'
+      columns:
+        5a5726ba-3ec2-4b2f-a4e8-d96afc76162e:
+          width: ''
+        707a27f2-d3dc-4100-8054-3b63cb4f230a:
+          width: ''
+      fieldLayout: row
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
   e08eb433-6275-40bd-ac89-ef297669541e:
     name: 'Main Image'
     handle: mainImage
-    instructions: 'Max-width: 1800px. Used for header image on single project pages, and as project thumbnail if the Thumbnail Image is not set.'
+    instructions: 'Max-width: 1800px. Used for header image on single project pages, and as project thumbnail if the Alt Image is not set.'
     searchable: true
     translationMethod: site
     translationKeyFormat: null
@@ -1934,61 +1925,6 @@ matrixBlockTypes:
           columnType: text
         fieldGroup: null
         contentColumnType: text
-  ca5a7423-d29f-485d-98ed-d53b5985ed59:
-    field: 7cb4f34a-43b1-44c2-8e70-f39f1320768c
-    name: CTA
-    handle: cta
-    sortOrder: 1
-    fields:
-      17f29205-67c4-4c34-9052-2af3132a6632:
-        name: 'Linked Entry'
-        handle: linkedEntry
-        instructions: 'Choose an entry'
-        searchable: true
-        translationMethod: site
-        translationKeyFormat: null
-        type: craft\fields\Entries
-        settings:
-          sources: '*'
-          source: null
-          targetSiteId: null
-          viewMode: null
-          limit: '1'
-          selectionLabel: ''
-          localizeRelations: false
-          validateRelatedElements: ''
-        contentColumnType: string
-        fieldGroup: null
-      43549ab3-c1ca-498f-bf7d-fe27a2f68272:
-        name: Text
-        handle: text
-        instructions: 'Short CTA text.'
-        searchable: false
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\fields\PlainText
-        settings:
-          placeholder: ''
-          code: ''
-          multiline: ''
-          initialRows: '4'
-          charLimit: ''
-          columnType: text
-        contentColumnType: text
-        fieldGroup: null
-    fieldLayouts:
-      2fe4151a-9660-46ec-9494-f974a04565f5:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-            fields:
-              17f29205-67c4-4c34-9052-2af3132a6632:
-                required: false
-                sortOrder: 2
-              43549ab3-c1ca-498f-bf7d-fe27a2f68272:
-                required: true
-                sortOrder: 1
   ce15a666-1d0d-4208-9577-a17c1187b7f2:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
     name: 'Padded Image / Video'
@@ -2699,6 +2635,46 @@ sections:
         hasUrls: true
         uriFormat: privacy-policy
         template: page
+  144be840-33bc-431f-a5e0-b3e1b742fb67:
+    name: 'Work Index'
+    handle: workIndex
+    type: single
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: work
+        template: work/index
+    entryTypes:
+      a717d775-1622-4e70-923c-c4cdaaf4adbb:
+        name: 'Work Index'
+        handle: workIndex
+        hasTitleField: false
+        titleLabel: ''
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          8220d21c-8174-4c75-be09-3baf93235570:
+            tabs:
+              -
+                name: Main
+                sortOrder: 1
+                fields:
+                  d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9:
+                    required: false
+                    sortOrder: 1
+              -
+                name: SEO
+                sortOrder: 2
+                fields:
+                  7a978b7f-cab5-448c-88dc-d4e1a9d281cf:
+                    required: false
+                    sortOrder: 2
+                  8dd0581c-6902-4a9c-8ddd-e11ce7656351:
+                    required: false
+                    sortOrder: 1
   4b622926-f41b-4a90-af05-e9b6802d5276:
     name: People
     handle: people
@@ -3025,9 +3001,6 @@ sections:
                 name: Content
                 sortOrder: 1
                 fields:
-                  7cb4f34a-43b1-44c2-8e70-f39f1320768c:
-                    required: false
-                    sortOrder: 2
                   d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9:
                     required: false
                     sortOrder: 1
@@ -3239,6 +3212,98 @@ superTableBlockTypes:
               f368c9bc-907e-4802-8e7a-7f42e35d643b:
                 required: false
                 sortOrder: 2
+  7ffa21ff-2a3f-4f5f-a1bd-6ce539ad5ed1:
+    field: d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9
+    fields:
+      12dbb05c-7185-4430-a641-29a609d4d60c:
+        name: 'CTA Text'
+        handle: ctaText
+        instructions: 'Optional call to action link in header'
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: string
+        contentColumnType: string
+        fieldGroup: null
+      5a5726ba-3ec2-4b2f-a4e8-d96afc76162e:
+        name: Subhead
+        handle: subhead
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: string
+        contentColumnType: string
+        fieldGroup: null
+      707a27f2-d3dc-4100-8054-3b63cb4f230a:
+        name: Headline
+        handle: headline
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '2'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      b5ba43a8-3986-4e7a-af56-02fd9620da8f:
+        name: 'CTA Link'
+        handle: ctaLink
+        instructions: 'Where optional CTA will link to'
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Entries
+        settings:
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: null
+          limit: '1'
+          selectionLabel: ''
+          localizeRelations: false
+          validateRelatedElements: ''
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      d856a906-491c-4937-948b-935c685be2d9:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              12dbb05c-7185-4430-a641-29a609d4d60c:
+                required: false
+                sortOrder: 3
+              5a5726ba-3ec2-4b2f-a4e8-d96afc76162e:
+                required: false
+                sortOrder: 2
+              707a27f2-d3dc-4100-8054-3b63cb4f230a:
+                required: false
+                sortOrder: 1
+              b5ba43a8-3986-4e7a-af56-02fd9620da8f:
+                required: false
+                sortOrder: 4
   b83f05b4-948e-4ddb-9c08-14b211c362fa:
     field: ee6e50bd-8324-47a2-ae1d-a4a9aa232b49
     fields:

@@ -4,11 +4,8 @@
 {% set seoDescription = "Firebelly Design is a socially conscious boutique design studio based in Chicago. We specialize in branding, strategy and Good Design for Good Reason™." %}
 
 {% block content %}
-  {% cache unless currentUser %}
-  <header class="section-title">
-    <h1>Good Design<br> for Good <span class="last-word">Reason.<sup>&trade;</sup></span></h1>
-    <h2>We create positive human experiences<br> through beautiful, sustainable design.</h2>
-  </header>
+
+  {% include 'partials/_page-header' %}
 
   <section class="portfolio">
     <ul class="projects filter-items clearfix">
@@ -46,7 +43,6 @@
       {% endfor %}
     </ul>
   </section>
-  {% endcache %}
 {% endblock %}
 
 {% block aside %}

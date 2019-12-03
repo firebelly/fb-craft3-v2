@@ -7,28 +7,8 @@
 {% set seoDescription = "Firebelly Design is a socially conscious boutique design studio based in Chicago. We specialize in branding, strategy and Good Design for Good Reason™." %}
 
 {% block content %}
-  <div class="header">
-    <div class="container">
-      <h2>
-        {% if entry.headerDescription %}
-          {{ entry.headerDescription }}
-        {% else %}
-          Firebelly is a socially conscious creative studio specializing in design, strategy & impact consulting.
-        {% endif %}
-        <span class="motto">Good Design For Good Reason.™</span>
-      </h2>
 
-      {% if entry.callToAction|length %}
-        <div class="header-cta section-cta">
-          <div class="grid align-right">
-            <div class="col-md-1-2">
-              <a href="{{ entry.callToAction.first().url() }}" class="button -black">{{ entry.callToAction.first().text }}</a>
-            </div>
-          </div>
-        </div>
-      {% endif %}
-    </div>
-  </div>
+  {% include 'partials/_page-header' %}
 
   {% set recentWork = entry.recentWork.all() %}
 

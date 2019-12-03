@@ -1,0 +1,33 @@
+// Page headers
+
+.page-header {
+  padding: $padding-md 0;
+
+  h2 {
+    @include h1-sans;
+    margin: 0;
+
+    .subhead {
+      @include small-titles;
+      display: block;
+      position: relative;
+
+      @include media-md {
+        top: 26px;
+        left: -20px;
+        vertical-align: top;
+        line-height: inherit;
+        display: inline-block;
+      }
+    }
+  }
+
+  // Optional CTA that follows the header statement
+  .header-cta {
+    margin-top: beat(2);
+  }
+
+  @include media-md {
+    padding-bottom: 176px;
+  }
+}
