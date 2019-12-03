@@ -14,14 +14,14 @@ body.focus-contact {
 body.page.single {
   .child-pages {
     .page {
-      padding: ($beat * 6) 25px;
+      padding: beat(6) 25px;
 
       &:nth-of-type(odd) {
         background: rgba(255,255,255,.6);
       }
 
       @include media-md {
-        padding: ($beat * 12) 25px;
+        padding: beat(12) 25px;
       }
 
       @include max-screen(1000px) {
@@ -75,9 +75,9 @@ body.page.single {
 body.page.single {
   .interior {
     &:not(.no-padding) {
-      padding: ($beat * 6) 25px;
+      padding: beat(6) 25px;
       @include media-md {
-        padding: ($beat * 12) 25px ($beat * 12) 25px;
+        padding: beat(12) 25px beat(12) 25px;
       }
     }
 
@@ -90,17 +90,17 @@ body.page.single {
           right: 100%;
           text-align: center;
           position: absolute;
-          width: #{$beat * 12};
-          padding: 0 #{$beat * 2};
+          width: beat(12);
+          padding: 0 beat(2);
         }
       }
     }
 
     .intro {
-      margin-bottom: ($beat * 3);
+      margin-bottom: beat(3);
       @include media-md {
-        padding-right: $beat * 12;
-        padding-left: (($beat * 12) - 25);
+        padding-right: beat(12);
+        padding-left: (beat(12) - 25);
       }
 
       .-inner {
@@ -118,7 +118,7 @@ body.page.single {
 
     .secondary {
       .secondary-item {
-        margin-top: ($beat * 3);
+        margin-top: beat(3);
         h1, h2, h3 {
           color: color('black');
           margin: 0 0 .6em;

@@ -6,7 +6,7 @@
   z-index: 1;
   position: relative;
   pointer-events: none;
-  padding: $beat 0 #{$beat * 2};
+  padding: beat(1) 0 beat(2);
   border-top: 1px solid color('black');
 }
 
