@@ -479,6 +479,14 @@ body.project {
   }
 }
 
+.section-header {
+  width: 100%;
+  border-top: 1px solid color('black');
+  h3 {
+    @include small-titles;
+  }
+}
+
 // Full width/half width areas
 .block-text,
 .block-image {
@@ -486,6 +494,16 @@ body.project {
   flex: 0 1 100%;
 
   @include media-md {
+    &.fullWidthPaddedLeft {
+      > .-inner {
+        padding-left: 50%;
+      }
+    }
+    &.fullWidthPaddedRight {
+      > .-inner {
+        padding-right: 50%;
+      }
+    }
     &.halfWidth {
       clear: none;
       flex: 0 1 50%;
@@ -517,7 +535,7 @@ body.project {
         height: 0;
         opacity: 0;
         overflow: hidden;
-        background-color: rgba(color('black'),.75);
+        background-color: rgba(color('black'), 0.75);
 
         img {
           width: 100%;

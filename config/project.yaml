@@ -10,7 +10,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: '{% if object.level == 1 %}work/industry/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
         template: work/industry
-dateModified: 1575393588
+dateModified: 1575407258
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -585,8 +585,9 @@ fields:
       limit: '1'
       selectionLabel: ''
       localizeRelations: false
-    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+      validateRelatedElements: ''
     contentColumnType: string
+    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
   e51fc2d2-3662-458a-a01c-4f431657b645:
     name: 'Page Sections'
     handle: pageSections
@@ -655,16 +656,18 @@ fields:
     translationKeyFormat: null
     type: craft\redactor\Field
     settings:
-      availableTransforms: ''
-      purifyHtml: '1'
-      columnType: text
-      availableVolumes: ''
       redactorConfig: ''
+      purifierConfig: ''
+      cleanupHtml: true
       removeInlineStyles: '1'
       removeEmptyTags: '1'
       removeNbsp: '1'
-    fieldGroup: 005558cd-73a4-4ab5-be0b-3b0d3765d3fa
+      purifyHtml: '1'
+      columnType: text
+      availableVolumes: ''
+      availableTransforms: ''
     contentColumnType: text
+    fieldGroup: 005558cd-73a4-4ab5-be0b-3b0d3765d3fa
   fe919db2-5aa8-4d45-800d-6d7d414c18c5:
     name: Endeavors
     handle: endeavors
@@ -1509,6 +1512,14 @@ matrixBlockTypes:
               label: 'Full Width'
               value: fullWidth
               default: ''
+            -
+              label: 'Full Width Padded Left'
+              value: fullWidthPaddedLeft
+              default: ''
+            -
+              label: 'Full Width Padded Right'
+              value: fullWidthPaddedRight
+              default: ''
         contentColumnType: string
         fieldGroup: null
       f7476e23-f767-471e-81da-baa2a3f8ff79:
@@ -1698,26 +1709,14 @@ matrixBlockTypes:
         contentColumnType: text
   90652172-39e4-4c0c-8de9-b51174c2e80b:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
-    name: 'Page Section'
-    handle: pageSection
+    name: 'Section Header'
+    handle: sectionHeader
     sortOrder: 10
     fields:
-      a44f3366-5afa-4f7a-a2d8-147eff058c95:
-        name: 'Display Title'
-        handle: displayTitle
-        instructions: 'Should the title of the section be displayed on hover in the page navigation?'
-        searchable: false
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\fields\Lightswitch
-        settings:
-          default: ''
-        contentColumnType: boolean
-        fieldGroup: null
       cd8352b6-52d7-4ef4-9157-153c0e82604c:
-        name: 'Page Section'
-        handle: pageSection
-        instructions: "The section title —\_used for identification of the section, and optionally displayed on hover in the page navigation."
+        name: Headline
+        handle: headline
+        instructions: ''
         searchable: false
         translationMethod: none
         translationKeyFormat: null
@@ -1738,9 +1737,6 @@ matrixBlockTypes:
             name: Content
             sortOrder: 1
             fields:
-              a44f3366-5afa-4f7a-a2d8-147eff058c95:
-                required: false
-                sortOrder: 2
               cd8352b6-52d7-4ef4-9157-153c0e82604c:
                 required: true
                 sortOrder: 1
@@ -2057,6 +2053,14 @@ matrixBlockTypes:
             -
               label: 'Full Width'
               value: fullWidth
+              default: ''
+            -
+              label: 'Full Width Padded Left'
+              value: fullWidthPaddedLeft
+              default: ''
+            -
+              label: 'Full Width Padded Right'
+              value: fullWidthPaddedRight
               default: ''
         contentColumnType: string
         fieldGroup: null

@@ -56,12 +56,10 @@
         <div class="block-color color-{{ blockClass }}{{ textClass }}"{{ customStyles }}>
       {% endif %}
 
-    {% case "pageSection" %}
-      {% if block.displayTitle %}
-        <div id="{{ block.pageSection|lower|replace({' ': '-'}) }}" class="page-nav-section" data-title="{{block.pageSection}}"></div>
-      {% else %}
-        <div id="{{ block.pageSection|lower|replace({' ': '-'}) }}" class="page-nav-section"></div>
-      {% endif %}
+    {% case "sectionHeader" %}
+      <div class="section-header">
+        <h3>{{ block.headline }}</h3>
+      </div>
 
     {% case "spacer" %}
       <div class="block-spacer {{ block.size }}"></div>
@@ -193,7 +191,11 @@
 
     {% case "blockText" %}
       {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
-      <div class="block-text user-content {{ block.size }}">{{ block.text }}</div>
+      <div class="block-text user-content {{ block.size }}">
+        <div class="-inner">
+          {{ block.text }}
+        </div>
+      </div>
 
     {% case "blockPaddedImage" %}
       {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
@@ -201,6 +203,7 @@
         {% set width = (block.size == 'halfWidth' ? 900 : 1800) %}
         {% set embeddedAsset = craft.embeddedAssets.get(image) %}
         <div class="block-image {{ block.size }}">
+          <div class="-inner">
           {% if embeddedAsset %}
             {# Custom vimeo handling #}
             {% if embeddedAsset.url matches '/vimeo\.com/' %}
@@ -244,6 +247,7 @@
               {{ block.text }}
             </div>
           {% endif %}
+          </div><!-- /.-inner -->
         </div>
       {% endfor %}
 
