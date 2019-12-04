@@ -4,7 +4,8 @@
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
 
-{% set bodyClass = 'single page services' %}
+{% set bodyClass = 'single page services with-blobs' %}
+{% set bodyDataAttributes = 'data-blob-color=#09F53D' %}
 
 {% block content %}
 

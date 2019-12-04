@@ -1,6 +1,14 @@
 {% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? "_ajax-layout" : "_layout" %}
 {% set title = "Ideas" %}
 
+{% if entry is defined %}
+  {% set title = entry.title %}
+  {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
+  {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
+  {% set bodyClass = 'single page ideas with-blobs' %}
+  {% set bodyDataAttributes = 'data-blob-color=#09F53D' %}
+{% endif %}
+
 {% if tag is defined %}
   {% set tag = craft.tags.slug(tag).one() %}
   {% paginate craft.entries({
@@ -20,6 +28,11 @@
 {% endif %}
 
 {% block content %}
+
+  {% if entry is defined %}
+    {% include 'partials/_page-header' %}
+  {% endif %}
+
 	<section class="ideas-list page-content" data-page="/ideas" data-page-title="{{ title }}">
     {% if tag is defined %}
       <div class="filter-header active"><div class="filter-header-wrap">Filter:<p><span class="filter">{{ tag.title }}</span> <a href="/ideas" class="tcon tcon-no-animate tcon-menu--xcross xcross-open xcross-small" aria-label="remove tag filter"><span class="tcon-menu__lines" aria-hidden="true"></span><span class="tcon-visuallyhidden">remove tag filter</span></a></p></div></div>
