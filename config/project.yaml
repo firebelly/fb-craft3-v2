@@ -10,7 +10,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: '{% if object.level == 1 %}work/industry/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
         template: work/industry
-dateModified: 1575422251
+dateModified: 1575422411
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -2616,14 +2616,14 @@ sections:
         name: 'Privacy Policy'
         handle: privacyPolicy
         hasTitleField: false
-        titleLabel: null
+        titleLabel: ''
         titleFormat: '{section.name|raw}'
         sortOrder: 1
         fieldLayouts:
           abfce3a5-9dfe-465d-873f-c59606a086d8:
             tabs:
               -
-                name: Default
+                name: Main
                 sortOrder: 1
                 fields:
                   b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
@@ -2733,13 +2733,13 @@ sections:
         handle: careers
         hasTitleField: true
         titleLabel: Title
-        titleFormat: null
+        titleFormat: ''
         sortOrder: 1
         fieldLayouts:
           80226eff-f435-4479-b673-d09cdd38a47e:
             tabs:
               -
-                name: Content
+                name: Main
                 sortOrder: 1
                 fields:
                   68692063-3da9-4055-b678-06af18aebc8e:
@@ -2920,7 +2920,7 @@ sections:
           7994c536-5adc-436d-841d-1f1c8c56bbc6:
             tabs:
               -
-                name: Project
+                name: Main
                 sortOrder: 1
                 fields:
                   0110a99c-d7cc-4c08-95b3-26a97e538cbe:
@@ -2944,16 +2944,16 @@ sections:
                 fields:
                   1aa39e81-b095-4d9a-9fb5-68e65b990311:
                     required: false
-                    sortOrder: 5
+                    sortOrder: 4
                   1e1f83a6-b350-412e-83b9-355478f75113:
                     required: false
                     sortOrder: 1
                   91e94580-5640-43f9-ab7f-efc779c3e379:
                     required: false
-                    sortOrder: 4
+                    sortOrder: 3
                   986f2e8c-a1f5-441b-b4d6-bc731bd63706:
                     required: false
-                    sortOrder: 3
+                    sortOrder: 2
               -
                 name: 'Project Blocks'
                 sortOrder: 3
@@ -2988,14 +2988,14 @@ sections:
         name: Process
         handle: expertise
         hasTitleField: false
-        titleLabel: null
+        titleLabel: ''
         titleFormat: '{section.name|raw}'
         sortOrder: 1
         fieldLayouts:
           b1925b13-c508-4e53-9527-34712dddf298:
             tabs:
               -
-                name: Default
+                name: Main
                 sortOrder: 1
                 fields:
                   b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
@@ -3038,7 +3038,7 @@ sections:
           9fbe79cb-296b-4b76-98b8-fe55e06fc1a1:
             tabs:
               -
-                name: Content
+                name: Main
                 sortOrder: 1
                 fields:
                   d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9:
@@ -3099,7 +3099,7 @@ sections:
           5e35b5aa-4ac0-460e-890a-57333290968b:
             tabs:
               -
-                name: Default
+                name: Main
                 sortOrder: 1
                 fields:
                   93e68e0b-500c-4465-aab3-792ecf196ba8:
