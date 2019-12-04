@@ -17,7 +17,7 @@
     <div id="recent-work" class="recent-work section">
       <div class="container">
         <h5 class="section-label">Recent</h5>
-        <div class="project-grid grid spaced">
+        <div class="thumbnail-grid grid spaced">
           {% for project in recentWork %}
             <div class="project col-md-1-2">
               <a class="-inner js-cursor" href="{{ project.url }}" data-cursor-class="view">
@@ -73,11 +73,11 @@
   {% if featuredWork|length %}
     <div id="featured-work" class="featured-work section">
       <div class="container">
-        <div class="project-grid">
+        <div class="thumbnail-grid grid spaced">
           {% for workBlock in featuredWork %}
             {% set featuredEntry = workBlock.featuredEntry.one() %}
             {% if featuredEntry %}
-              <div class="project">
+              <div class="project col-md-1-2 orientation-{{ workBlock.thumbnailOrientation }}">
                 <a class="-inner js-cursor" href="{{ featuredEntry.getUrl() }}">
                   {% if featuredEntry.altImage|length %}
                     {% set entryImage = featuredEntry.altImage.one() %}
@@ -90,7 +90,7 @@
                   {% else %}
                     {% set transformedImage = craft.imager.transformImage(entryImage, { width: 1116, height: 640, mode: 'crop', position: entryImage.getFocalPoint() }) %}
                   {% endif %}
-                  <div class="project-image"><img src="{{ transformedImage.getUrl() }}" alt=""></div>
+                  <div class="project-image"><img src="{{ transformedImage.getUrl() }}" alt="{{ entryImage.title }}"></div>
                   {% if featuredEntry.services|length %}
                     <ul class="services">
                       {% for service in featuredEntry.services.all() %}

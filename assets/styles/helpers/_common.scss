@@ -23,7 +23,7 @@
 }
 
 // Project Grid
-.project-grid {
+.thumbnail-grid {
   .project {
     .project-image {
       img {
@@ -38,9 +38,12 @@
         display: inline-block;
       }
     }
-    .project-title {
-      @include p1;
-      margin-top: 24px;
-    }
+  }
+  .category {
+    @include small-titles;
+  }
+  h3 {
+    @include p1;
+    margin-top: 24px;
   }
 }

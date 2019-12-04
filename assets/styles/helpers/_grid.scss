@@ -63,7 +63,8 @@ $column-width: 100% / $columns;
       margin-left: -#{$padding-md / 2};
       width: calc(100% + #{$padding-md});
 
-      > [class*='col-'] {
+      > [class*='col-'],
+      .md-full {
         padding: 0 #{$padding-md / 2};
       }
     }
@@ -73,7 +74,8 @@ $column-width: 100% / $columns;
         margin-left: -#{$padding-lg / 2};
         width: calc(100% + #{$padding-lg});
 
-        > [class*='col-'] {
+        > [class*='col-'],
+        .lg-full {
           padding: 0 #{$padding-lg / 2};
         }
       }

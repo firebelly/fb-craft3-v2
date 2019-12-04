@@ -50,7 +50,7 @@ body.homepage {
 
   // Featured Work
   .featured-work {
-    .project-grid {
+    .thumbnail-grid {
       @include media-md {
         @include clearfix;
         margin-left: -#{$padding-md / 2};
