@@ -3,35 +3,24 @@
 {% set title = entry.title %}
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
+{% if entry.headerImage|length %}
+  {% set headerImage = entry.headerImage.one() %}
+{% endif %}
 
 {% block content %}
-  {% set headerImage = entry.headerImage.inReverse().one() %}
   <article class="news-article listing clearfix">
-    {% if headerImage %}
-      {% set transformedImage = craft.imager.transformImage(headerImage, { width: 1800 }) %}
-      <div class="featured-image" style="background-image:url({{ craft.app.config.general.cdnUrl }}{{ transformedImage.getUrl() }});"></div>
-      {% if entry.headerImageCaption %}
-      <div class="featured-image-caption"><p>{{ entry.headerImageCaption }}</p></div>
-      {% endif %}
-    {% else %}
-      <hr class="article-divider">
-    {% endif %}
 
-    <header class="section-title">
-      <h1>{{ entry.title }}</h1>
-      <h3 class="date">{{ entry.postDate.format('M d, Y') }}{% if entry.manualAuthor %} &ndash; by {{ entry.manualAuthor }}{% endif %}</h3>
+    {% include 'partials/_image-header' with { image: headerImage } %}
 
-      {# <%= render partial: '/shared/edit_bug', :locals => { :obj => news_post, :edit_path => refinery.edit_news_posts_admin_news_post_path(news_post) }%> #}
-    </header>
-    <section class="summary user-content">
-      {{ entry.body }}
-    </section>
+    <div class="container">
+      <header class="date">
+        <h4>{{ entry.postDate.format('M d, Y') }}{% if entry.manualAuthor %} &ndash; by {{ entry.manualAuthor }}{% endif %}</h4>
+      </header>
+
+      <div class="user-content">
+        {{ entry.body }}
+      </div>
+    </div>
   </article>
   {% include "partials/_pagination" with {'paginationSection': 'ideas', 'postName': 'Post'} %}
 {% endblock %}
-
-{% block aside %}
-  {% cache globally using key "ideas-nav" %}
-    {% include "partials/_ideas_nav" %}
-  {% endcache %}
-{% endblock aside %}

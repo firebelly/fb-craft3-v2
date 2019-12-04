@@ -9,7 +9,7 @@
 
 {% block content %}
 
-  {% include 'partials/_page-header' %}
+  {% include 'partials/_text-header' %}
 
   <section class="portfolio">
     <ul class="projects filter-items clearfix">
@@ -33,18 +33,18 @@
           <article>
             {% if mainImage %}
               {% set transformedImage = craft.imager.transformImage(mainImage, { width: 900, height: 600, mode: 'crop' }) %}
-              <div class="project-image lazyload" data-bg="{{ craft.app.config.general.cdnUrl }}{{ transformedImage.getUrl() }}"></div>
+              <div class="project-image">
+                <img src="{{ craft.app.config.general.cdnUrl }}{{ transformedImage.getUrl() }}" alt="">
+              </div>
             {% endif %}
             <header>
               <h1><a href="{{ entry.getUrl() }}">{{ entry.title }}</a></h1>
-              {% if entry.rolloverSubtitle %}
-                <h3>{{ entry.rolloverSubtitle }}</h3>
-              {% endif %}
             </header>
-            <a aria-label="{{ entry.title }}: {{ entry.rolloverSubtitle }}" class="view-project" href="{{ entry.getUrl() }}"><span>View Project</span></a>
+            <a aria-label="{{ entry.title }}" class="view-project" href="{{ entry.getUrl() }}"><span>View Project</span></a>
           </article>
         </li>
       {% endfor %}
     </ul>
   </section>
+
 {% endblock %}

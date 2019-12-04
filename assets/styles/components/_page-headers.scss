@@ -1,6 +1,6 @@
 // Page headers
 
-.page-header {
+header.text-header {
   padding: $padding-md 0;
 
   h2 {
@@ -29,5 +29,59 @@
 
   @include media-md {
     padding-bottom: 176px;
+  }
+}
+
+// Full viewport image/video headers (projects, thoughts)
+header.image-header {
+  .header-title {
+    position: relative;
+    color: color('white');
+
+    h1 {
+      @include h1-serif;
+      margin: 0;
+    }
+    h4 {
+      @include p1;
+      margin: $padding-sm 0 0;
+    }
+  }
+
+  .header-wrap {
+    display: flex;
+    padding-top: 56px;
+    position: relative;
+    max-height: 1200px;
+    padding-bottom: 56px;
+    align-items: flex-end;
+    height: calc(100vh - 96px);
+
+    .header-banner {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: auto;
+      height: auto;
+      max-height: none;
+      position: absolute;
+      background-size: cover;
+      background-color: rgba(0, 0, 0, 0.2);
+      background-position: center center;
+
+      // Video banners
+      &.video {
+        background-size: cover;
+        iframe {
+          left: 50%;
+          width: 100vw;
+          height: 56.25vw;
+          min-height: 100vh;
+          min-width: 177.77vh;
+          transform: translateX(-50%);
+        }
+      }
+    }
   }
 }

@@ -12,28 +12,8 @@
 {% block content %}
   {% cache unless currentUser %}
   <div class="single-project" data-id="{{ entry.id }}">
-    <header>
-      <div class="header-wrap container">
 
-        {% if mainImage is defined %}
-          {% set transformedImage = craft.imager.transformImage(mainImage, { width: 1800 }) %}
-        {% endif %}
-
-        {% if entry.vimeoHeaderVideo %}
-          <div class="project-banner video" {% if mainImage is defined %}style="background-image:url({{ craft.app.config.general.cdnUrl }}{{ transformedImage.getUrl() }});"{% endif %}>
-            <iframe src="https://player.vimeo.com/video/{{ entry.vimeoHeaderVideo|replace('/[^0-9+]/', '') }}?background=1;autoplay=1&autopause=0&loop=1&title=0&byline=0&portrait=0" width="1245" height="700" frameborder="0"></iframe>
-          </div>
-        {% elseif mainImage is defined %}
-          <div class="project-banner" style="background-image:url({{ craft.app.config.general.cdnUrl }}{{ transformedImage.getUrl() }});"></div>
-        {% endif %}
-
-        <div class="project-title">
-          <h1 class="project-client">{{ entry.title }}</h1>
-          <h4 class="project-name">{{ entry.subtitle }}</h4>
-        </div>
-
-      </div>
-    </header>
+    {% include 'partials/_image-header' with { image: mainImage } %}
 
     <div class="intro">
       <div class="container grid">

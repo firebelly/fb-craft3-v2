@@ -1,6 +1,6 @@
 {% if entry.pageHeader|length %}
   {% set pageHeader = entry.pageHeader.one() %}
-  <div class="page-header">
+  <header class="text-header">
     <div class="container">
       <h2>
         {{ pageHeader.headline }}
@@ -17,5 +17,5 @@
         </div>
       {% endif %}
     </div>
-  </div>
+  </header>
 {% endif %}
