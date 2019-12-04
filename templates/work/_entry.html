@@ -47,9 +47,10 @@
         <div class="project-meta col-md-1-2">
           <div class="-inner">
 
-            {% if entry.client %}
+            {% set client = entry.client.one() %}
+            {% if client.clientName %}
               <h3>Client</h3>
-              <p>{% if entry.clientUrl %}<a target="_blank" rel="noopener" href="{{ entry.clientUrl }}">{% endif %}{{ entry.client }}{% if entry.clientUrl %}</a>{% endif %}</p>
+              <p>{% if client.clientUrl %}<a target="_blank" rel="noopener" href="{{ client.clientUrl }}">{% endif %}{{ client.clientName }}{% if client.clientUrl %}</a>{% endif %}</p>
             {% endif %}
 
             <h3>Industry</h3>

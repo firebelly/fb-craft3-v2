@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1575486163
+dateModified: 1575487989
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -176,7 +176,7 @@ fields:
   35faad0a-64da-476e-afcf-dd5cb5979569:
     name: 'Project URL'
     handle: projectUrl
-    instructions: ''
+    instructions: 'If populated, adds a View Website link'
     searchable: false
     translationMethod: none
     translationKeyFormat: null
@@ -221,30 +221,23 @@ fields:
     handle: client
     instructions: ''
     searchable: true
-    translationMethod: none
+    translationMethod: site
     translationKeyFormat: null
-    type: craft\fields\PlainText
+    type: verbb\supertable\fields\SuperTableField
     settings:
-      placeholder: ''
-      code: ''
-      multiline: ''
-      initialRows: '4'
-      charLimit: ''
-      columnType: string
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_client}}'
+      propagationMethod: all
+      staticField: '1'
+      columns:
+        6fb5c201-7948-4273-8a4a-69080393eaa4:
+          width: ''
+        9e1c0bbe-9830-45d8-a937-79e6a96da817:
+          width: ''
+      fieldLayout: row
+      selectionLabel: ''
     contentColumnType: string
-    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
-  5400aaab-22d5-4781-9f6b-e2171add1a0e:
-    name: 'Client URL'
-    handle: clientUrl
-    instructions: ''
-    searchable: false
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\Url
-    settings:
-      placeholder: ''
-      maxLength: '255'
-    contentColumnType: string(255)
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
   61355f38-d901-40a6-baff-aefa66152bdf:
     name: Video
@@ -3136,19 +3129,16 @@ sections:
                 fields:
                   1aa39e81-b095-4d9a-9fb5-68e65b990311:
                     required: false
-                    sortOrder: 7
+                    sortOrder: 6
                   1e1f83a6-b350-412e-83b9-355478f75113:
                     required: false
                     sortOrder: 1
                   35faad0a-64da-476e-afcf-dd5cb5979569:
                     required: false
-                    sortOrder: 6
+                    sortOrder: 5
                   4d475249-13b3-46a6-981d-befb42899cef:
                     required: false
                     sortOrder: 4
-                  5400aaab-22d5-4781-9f6b-e2171add1a0e:
-                    required: false
-                    sortOrder: 5
                   91e94580-5640-43f9-ab7f-efc779c3e379:
                     required: false
                     sortOrder: 3
@@ -3598,6 +3588,52 @@ superTableBlockTypes:
               b5ba43a8-3986-4e7a-af56-02fd9620da8f:
                 required: false
                 sortOrder: 4
+  a919befb-d911-4343-b57a-1693853c46fd:
+    field: 4d475249-13b3-46a6-981d-befb42899cef
+    fields:
+      6fb5c201-7948-4273-8a4a-69080393eaa4:
+        name: URL
+        handle: clientUrl
+        instructions: 'Makes client name external link if populated'
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Url
+        settings:
+          placeholder: ''
+          maxLength: '255'
+        contentColumnType: string(255)
+        fieldGroup: null
+      9e1c0bbe-9830-45d8-a937-79e6a96da817:
+        name: Name
+        handle: clientName
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: string
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      06bdef56-48be-41d0-bda6-5b2e73dd91f5:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              6fb5c201-7948-4273-8a4a-69080393eaa4:
+                required: false
+                sortOrder: 2
+              9e1c0bbe-9830-45d8-a937-79e6a96da817:
+                required: false
+                sortOrder: 1
   b83f05b4-948e-4ddb-9c08-14b211c362fa:
     field: ee6e50bd-8324-47a2-ae1d-a4a9aa232b49
     fields:
