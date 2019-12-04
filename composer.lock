@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "80ac860c82c5c654f1fef6795f2c438e",
+    "content-hash": "6f1a0aadf6108851a679c44cc1171604",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -846,6 +846,54 @@
                 "validator"
             ],
             "time": "2019-08-13T17:33:27+00:00"
+        },
+        {
+            "name": "elivz/craft-single-cat",
+            "version": "1.2.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elivz/craft-single-cat/zipball/e18c661fce0c913d00ef225545e525da59173f65",
+                "reference": "e18c661fce0c913d00ef225545e525da59173f65",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Single Cat",
+                "handle": "single-cat",
+                "changelogUrl": "https://raw.githubusercontent.com/elivz/craft-single-cat/master/CHANGELOG.md",
+                "class": "elivz\\singlecat\\SingleCat"
+            },
+            "autoload": {
+                "psr-4": {
+                    "elivz\\singlecat\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eli Van Zoeren",
+                    "homepage": "https://elivz.com"
+                }
+            ],
+            "description": "Field type that allows the user to select a single category from a drop-down.",
+            "keywords": [
+                "category",
+                "craft-plugin",
+                "craftcms",
+                "select",
+                "single cat",
+                "single category"
+            ],
+            "support": {
+                "docs": "https://github.com/elivz/craft-single-cat/blob/master/README.md",
+                "issues": "https://github.com/elivz/craft-single-cat/issues"
+            },
+            "time": "2019-02-17T18:19:43+00:00"
         },
         {
             "name": "elvanto/litemoji",

@@ -37,7 +37,8 @@
     "mmikkel/cp-field-inspect": "1.0.7",
     "spicyweb/craft-embedded-assets": "2.1.1.1",
     "mmikkel/retcon": "^2.0",
-    "verbb/smith": "1.0.0"
+    "verbb/smith": "1.0.0",
+    "elivz/craft-single-cat": "1.2.1"
   },
   "autoload": {
     "psr-4": {
