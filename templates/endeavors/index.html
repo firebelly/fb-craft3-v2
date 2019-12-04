@@ -52,14 +52,3 @@
   </ul>
 </section>
 {% endblock %}
-
-{% block aside %}
-  <section id="filters" class="divider section-nav">
-    <h1>{{ entry.title }}</h1>
-    <ul class="option-set clearfix smoothscroll">
-      {% for block in entry.endeavors.all() %}
-        <li><a href="#{{ block.endeavorTitle|kebab }}">{{ block.endeavorTitle }}</a></li>
-      {% endfor %}
-    </ul>
-  </section>
-{% endblock aside %}

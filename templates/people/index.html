@@ -83,14 +83,3 @@
   </section>
   {% endcache %}
 {% endblock %}
-
-{% block aside %}
-  <section id="filters" class="divider section-nav">
-    <h1>{{ entry.title }}</h1>
-    <ul class="option-set clearfix smoothscroll">
-      {% for block in entry.people.all() %}
-        <li><a href="#{{ block.personNameFirst|kebab }}-{{ block.personNameLast|kebab }}">{{ block.personNameFirst }}</a></li>
-      {% endfor %}
-    </ul>
-  </section>
-{% endblock aside %}

@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1575487989
+dateModified: 1575489837
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -78,22 +78,6 @@ fieldGroups:
   d2d1260a-da85-41ec-8e8a-c16e376cf34f:
     name: Assets
 fields:
-  0110a99c-d7cc-4c08-95b3-26a97e538cbe:
-    name: 'Rollover Subtitle'
-    handle: rolloverSubtitle
-    instructions: 'Shown on project thumbnails below title on rollover'
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\PlainText
-    settings:
-      placeholder: ''
-      multiline: ''
-      initialRows: '4'
-      charLimit: ''
-      columnType: text
-    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
-    contentColumnType: text
   17b68b87-5b0f-4c9c-bf97-605dd31eb437:
     name: 'Header Image'
     handle: headerImage
@@ -619,19 +603,20 @@ fields:
   cfeb2873-7b57-40cd-89ca-956423fc2d63:
     name: Subtitle
     handle: subtitle
-    instructions: 'Shown on single project pages below the title'
+    instructions: ''
     searchable: true
     translationMethod: none
     translationKeyFormat: null
     type: craft\fields\PlainText
     settings:
       placeholder: ''
+      code: ''
       multiline: ''
       initialRows: '4'
       charLimit: ''
-      columnType: text
-    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
-    contentColumnType: text
+      columnType: string
+    contentColumnType: string
+    fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
   d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9:
     name: 'Page Header'
     handle: pageHeader
@@ -2960,37 +2945,44 @@ sections:
           e202b4f0-44e2-48d9-8526-6757bbf2bbd8:
             tabs:
               -
-                name: Header
+                name: Main
                 sortOrder: 1
+                fields:
+                  633f1f9b-c9d5-40ce-ae9f-0f29a8c13f00:
+                    required: true
+                    sortOrder: 3
+                  a4b38771-d642-4c89-8372-f1d73f910aa7:
+                    required: false
+                    sortOrder: 2
+                  cfeb2873-7b57-40cd-89ca-956423fc2d63:
+                    required: false
+                    sortOrder: 1
+              -
+                name: Header
+                sortOrder: 2
                 fields:
                   17b68b87-5b0f-4c9c-bf97-605dd31eb437:
                     required: true
-                    sortOrder: 3
-                  633f1f9b-c9d5-40ce-ae9f-0f29a8c13f00:
-                    required: true
-                    sortOrder: 2
-                  646c04f6-c01d-49af-91e5-ff5d90479af4:
-                    required: false
-                    sortOrder: 6
-                  a4b38771-d642-4c89-8372-f1d73f910aa7:
-                    required: false
                     sortOrder: 1
-                  d9c72a60-67c9-4086-b918-069fa0ba21dd:
-                    required: false
-                    sortOrder: 5
-                  f442e9c0-3dcf-45a3-8dac-3134afcea15b:
+                  1e1f83a6-b350-412e-83b9-355478f75113:
                     required: false
                     sortOrder: 4
+                  d9c72a60-67c9-4086-b918-069fa0ba21dd:
+                    required: false
+                    sortOrder: 2
+                  f442e9c0-3dcf-45a3-8dac-3134afcea15b:
+                    required: false
+                    sortOrder: 3
               -
                 name: Body
-                sortOrder: 2
+                sortOrder: 3
                 fields:
                   b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                     required: true
                     sortOrder: 1
               -
                 name: SEO
-                sortOrder: 3
+                sortOrder: 4
                 fields:
                   7a978b7f-cab5-448c-88dc-d4e1a9d281cf:
                     required: false
@@ -3105,9 +3097,6 @@ sections:
                 name: Main
                 sortOrder: 1
                 fields:
-                  0110a99c-d7cc-4c08-95b3-26a97e538cbe:
-                    required: false
-                    sortOrder: 2
                   6b43a75a-e6af-4df4-8ca9-5910e934a3ef:
                     required: false
                     sortOrder: 5

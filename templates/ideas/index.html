@@ -55,9 +55,3 @@
 
   </div>
 {% endblock %}
-
-{% block aside %}
-  {% cache globally using key "ideas-nav" %}
-    {% include "partials/_ideas_nav" %}
-  {% endcache %}
-{% endblock aside %}
