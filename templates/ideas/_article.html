@@ -1,4 +1,4 @@
-{% set headerImage = entry.headerImage[0] ?? null %}
+{% set headerImage = entry.thumbnailImage[0] ?? entry.headerImage[0] ?? null %}
 {% set ideaType = entry.ideaType.one() %}
 
 <article class="ideas {{ entry.thumbnailOrientation == 'fullWidth' ? 'md-full' : 'col-md-1-2' }}">
@@ -17,7 +17,9 @@
   {% endif %}
 
   <div class="idea-meta">
-    <h4 class="category">{{ entry.ideaType.title }}</h4>
+    {% if entry.ideaType|length %}
+      <h4 class="category">{{ entry.ideaType.one().title }}</h4>
+    {% endif %}
     <h3><a href="{{ entry.getUrl() }}"><span>{{ entry.title }}</span></a></h3>
   </div>
 

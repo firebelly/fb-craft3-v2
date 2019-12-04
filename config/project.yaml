@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1575489837
+dateModified: 1575491094
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -83,12 +83,11 @@ fields:
     handle: headerImage
     instructions: ''
     searchable: true
-    translationMethod: none
+    translationMethod: site
     translationKeyFormat: null
     type: craft\fields\Assets
     settings:
       useSingleFolder: ''
-      sources: '*'
       defaultUploadLocationSource: 'volume:36408e8f-dddf-4161-a5bf-1b85cd665761'
       defaultUploadLocationSubpath: ''
       singleUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
@@ -96,12 +95,16 @@ fields:
       restrictFiles: '1'
       allowedKinds:
         - image
+      sources: '*'
+      source: null
+      targetSiteId: null
+      viewMode: large
       limit: '1'
-      viewMode: list
-      selectionLabel: ''
+      selectionLabel: 'Set header image'
       localizeRelations: false
-    fieldGroup: 6437dede-d24a-41aa-b80e-ca2691b7f29b
+      validateRelatedElements: ''
     contentColumnType: string
+    fieldGroup: 6437dede-d24a-41aa-b80e-ca2691b7f29b
   1aa39e81-b095-4d9a-9fb5-68e65b990311:
     name: 'Extra Details'
     handle: extraDetails
@@ -320,10 +323,11 @@ fields:
       targetSiteId: null
       viewMode: large
       limit: '1'
-      selectionLabel: ''
+      selectionLabel: 'Set alt image'
       localizeRelations: false
-    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+      validateRelatedElements: ''
     contentColumnType: string
+    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
   7a978b7f-cab5-448c-88dc-d4e1a9d281cf:
     name: 'SEO Title'
     handle: seoTitle
@@ -688,11 +692,38 @@ fields:
       targetSiteId: null
       viewMode: large
       limit: '1'
-      selectionLabel: ''
+      selectionLabel: 'Set main image'
       localizeRelations: false
       validateRelatedElements: ''
     contentColumnType: string
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+  e09feac8-411a-42fa-b8a3-01cb28b49ce8:
+    name: 'Thumbnail Image'
+    handle: thumbnailImage
+    instructions: 'Used for thumbnail if set (handy for different crops than header image)'
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:36408e8f-dddf-4161-a5bf-1b85cd665761'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+      singleUploadLocationSubpath: ''
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources: '*'
+      source: null
+      targetSiteId: null
+      viewMode: large
+      limit: '1'
+      selectionLabel: 'Set thumbnail image'
+      localizeRelations: false
+      validateRelatedElements: ''
+    contentColumnType: string
+    fieldGroup: 6437dede-d24a-41aa-b80e-ca2691b7f29b
   e51fc2d2-3662-458a-a01c-4f431657b645:
     name: 'Page Sections'
     handle: pageSections
@@ -2966,13 +2997,16 @@ sections:
                     sortOrder: 1
                   1e1f83a6-b350-412e-83b9-355478f75113:
                     required: false
-                    sortOrder: 4
+                    sortOrder: 5
                   d9c72a60-67c9-4086-b918-069fa0ba21dd:
+                    required: false
+                    sortOrder: 3
+                  e09feac8-411a-42fa-b8a3-01cb28b49ce8:
                     required: false
                     sortOrder: 2
                   f442e9c0-3dcf-45a3-8dac-3134afcea15b:
                     required: false
-                    sortOrder: 3
+                    sortOrder: 4
               -
                 name: Body
                 sortOrder: 3
