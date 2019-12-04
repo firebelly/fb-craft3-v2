@@ -21,7 +21,28 @@ categoryGroups:
         hasUrls: true
         uriFormat: '{% if object.level == 1 %}work/industry/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
         template: work/industry
-dateModified: 1575475705
+  c3c1211d-da8f-41f9-b98f-9f08a291d513:
+    name: Services
+    handle: services
+    structure:
+      uid: fc5b02e8-6367-450b-84a1-45b214a20262
+      maxLevels: null
+    siteSettings:
+      8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
+        hasUrls: true
+        uriFormat: 'work/services/{slug}'
+        template: work/index
+    fieldLayouts:
+      fcf1f589-32ab-422d-8ff7-b4f22a73e664:
+        tabs:
+          -
+            name: Main
+            sortOrder: 1
+            fields:
+              b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
+                required: false
+                sortOrder: 1
+dateModified: 1575486163
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -123,19 +144,20 @@ fields:
   1e1f83a6-b350-412e-83b9-355478f75113:
     name: 'Vimeo Header Video'
     handle: vimeoHeaderVideo
-    instructions: 'Used on single project pages in header.'
+    instructions: ''
     searchable: true
     translationMethod: none
     translationKeyFormat: null
     type: craft\fields\PlainText
     settings:
       placeholder: 'https://vimeo.com/203895133'
+      code: ''
       multiline: ''
       initialRows: '4'
       charLimit: ''
       columnType: text
-    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
     contentColumnType: text
+    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
   2a5054ba-d822-4486-9917-cd1bcd4aba46:
     name: 'Project Blocks'
     handle: projectBlocks
@@ -150,6 +172,19 @@ fields:
       contentTable: '{{%matrixcontent_projectblocks}}'
       propagationMethod: all
     contentColumnType: string
+    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+  35faad0a-64da-476e-afcf-dd5cb5979569:
+    name: 'Project URL'
+    handle: projectUrl
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Url
+    settings:
+      placeholder: ''
+      maxLength: '255'
+    contentColumnType: string(255)
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
   36bce506-23ae-4d68-a0ba-6398a4053d03:
     name: 'Secondary Page Header Content'
@@ -181,6 +216,36 @@ fields:
       columnType: text
     fieldGroup: 005558cd-73a4-4ab5-be0b-3b0d3765d3fa
     contentColumnType: text
+  4d475249-13b3-46a6-981d-befb42899cef:
+    name: Client
+    handle: client
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: string
+    contentColumnType: string
+    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+  5400aaab-22d5-4781-9f6b-e2171add1a0e:
+    name: 'Client URL'
+    handle: clientUrl
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Url
+    settings:
+      placeholder: ''
+      maxLength: '255'
+    contentColumnType: string(255)
+    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
   61355f38-d901-40a6-baff-aefa66152bdf:
     name: Video
     handle: video
@@ -318,17 +383,24 @@ fields:
   91e94580-5640-43f9-ab7f-efc779c3e379:
     name: Services
     handle: services
-    instructions: ''
+    instructions: 'Top three are shown in list views'
     searchable: true
-    translationMethod: none
+    translationMethod: site
     translationKeyFormat: null
-    type: craft\fields\Tags
+    type: verbb\supertable\fields\SuperTableField
     settings:
-      source: 'taggroup:23af138f-e299-4c1f-bf04-9c6c14430637'
-      selectionLabel: ''
-      localizeRelations: false
-    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_services}}'
+      propagationMethod: all
+      staticField: ''
+      columns:
+        1c5c9bf9-9c15-4b64-872b-bcd113568146:
+          width: ''
+      fieldLayout: row
+      selectionLabel: 'Add a service'
     contentColumnType: string
+    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
   92519b8f-b52c-4b39-9bc7-a7df62593778:
     name: 'Caption Label'
     handle: captionLabel
@@ -386,16 +458,22 @@ fields:
     handle: industry
     instructions: ''
     searchable: true
-    translationMethod: none
+    translationMethod: site
     translationKeyFormat: null
-    type: craft\fields\Categories
+    type: elivz\singlecat\fields\SingleCatField
     settings:
+      branchLimit: 1
+      showBlankOption: ''
+      sources: '*'
       source: 'group:bf01aebc-0872-497d-b688-0845cd48cc20'
-      selectionLabel: ''
+      targetSiteId: null
+      viewMode: null
+      limit: null
+      selectionLabel: null
       localizeRelations: false
-      branchLimit: ''
-    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+      validateRelatedElements: false
     contentColumnType: string
+    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
   a2483d09-6798-40be-8f35-c45413ed2e03:
     name: 'Featured Services'
     handle: featuredServices
@@ -2651,6 +2729,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  single-cat:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.0
 routes:
   1cdbb0b9-5e9e-4114-b636-6224ad91e535:
     template: ideas/index
@@ -3054,10 +3136,19 @@ sections:
                 fields:
                   1aa39e81-b095-4d9a-9fb5-68e65b990311:
                     required: false
-                    sortOrder: 4
+                    sortOrder: 7
                   1e1f83a6-b350-412e-83b9-355478f75113:
                     required: false
                     sortOrder: 1
+                  35faad0a-64da-476e-afcf-dd5cb5979569:
+                    required: false
+                    sortOrder: 6
+                  4d475249-13b3-46a6-981d-befb42899cef:
+                    required: false
+                    sortOrder: 4
+                  5400aaab-22d5-4781-9f6b-e2171add1a0e:
+                    required: false
+                    sortOrder: 5
                   91e94580-5640-43f9-ab7f-efc779c3e379:
                     required: false
                     sortOrder: 3
@@ -3557,6 +3648,40 @@ superTableBlockTypes:
               fe70869e-e26a-4841-be4e-9216ab695e8c:
                 required: false
                 sortOrder: 2
+  ded11c53-f98b-42e5-b92b-764f7e424dcf:
+    field: 91e94580-5640-43f9-ab7f-efc779c3e379
+    fields:
+      1c5c9bf9-9c15-4b64-872b-bcd113568146:
+        name: Service
+        handle: service
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: elivz\singlecat\fields\SingleCatField
+        settings:
+          branchLimit: 1
+          showBlankOption: ''
+          sources: '*'
+          source: 'group:c3c1211d-da8f-41f9-b98f-9f08a291d513'
+          targetSiteId: null
+          viewMode: null
+          limit: null
+          selectionLabel: null
+          localizeRelations: false
+          validateRelatedElements: false
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      03b262d1-e7eb-4ee7-887f-f176f668cfad:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              1c5c9bf9-9c15-4b64-872b-bcd113568146:
+                required: false
+                sortOrder: 1
 system:
   edition: solo
   live: true

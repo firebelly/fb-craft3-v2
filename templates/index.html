@@ -29,7 +29,9 @@
                 <div class="project-image"><img src="{{ transformedImage.getUrl() }}" alt=""></div>
                 <ul class="services">
                   {% for service in project.services.all() %}
-                    <li>{{ service.title }}{{ not loop.last ? ", " }}</li>
+                    <li>
+                      <a href="/work?service={{ service.service.one().slug }}">{{ service.service.one().title }}</a>{{ not loop.last ? ',' }}
+                    </li>
                   {% endfor %}
                 </ul>
                 <h3 class="project-title">{{ project.title }}: {{ project.subtitle }}</h3>
@@ -51,7 +53,7 @@
           {% for service in entry.featuredServices.all() %}
             <li class="grid">
               <h4 class="stat-figure col-md-1-2">{{ service.serviceName }}</h4>
-              <p class="stat-label col-md-1-2">{{ service.serviceDescription }}</p>
+              <div class="stat-label col-md-1-2"><p>{{ service.serviceDescription }}</p></div>
             </li>
           {% endfor %}
           </ul>
@@ -94,7 +96,9 @@
                   {% if featuredEntry.services|length %}
                     <ul class="services">
                       {% for service in featuredEntry.services.all() %}
-                        <li>{{ service.title }}{{ not loop.last ? ", " }}</li>
+                        <li>
+                          <a href="/work?service={{ service.service.one().slug }}">{{ service.service.one().title }}</a>{{ not loop.last ? ',' }}
+                        </li>
                       {% endfor %}
                     </ul>
                   {% endif %}

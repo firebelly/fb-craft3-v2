@@ -67,15 +67,20 @@ body.project {
   .intro {
     .project-summary {
     }
+    h3 {
+      @include small-titles;
+    }
 
     .project-meta {
       h3 {
-        @include small-titles;
-        margin: 0 0 20px;
+        margin: 0 0 16px;
+      }
+      p {
+        margin: 0 0 24px;
       }
       ul {
         @extend .semantic-list;
-        margin: 0 0 20px;
+        margin: 0 0 24px;
 
         li {
           display: inline;
@@ -498,8 +503,10 @@ body.project {
       margin: 0;
     }
     .stat-label {
-      @include p2;
-      margin: 0 0 6px;
+      p {
+        @include p2;
+        margin: 0 0 6px;
+      }
     }
   }
 }
