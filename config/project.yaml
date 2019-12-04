@@ -10,7 +10,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: '{% if object.level == 1 %}work/industry/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
         template: work/industry
-dateModified: 1575422531
+dateModified: 1575422792
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -2886,6 +2886,49 @@ sections:
                 name: Main
                 sortOrder: 1
                 fields:
+                  d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9:
+                    required: false
+                    sortOrder: 1
+              -
+                name: SEO
+                sortOrder: 2
+                fields:
+                  7a978b7f-cab5-448c-88dc-d4e1a9d281cf:
+                    required: false
+                    sortOrder: 2
+                  8dd0581c-6902-4a9c-8ddd-e11ce7656351:
+                    required: false
+                    sortOrder: 1
+  9c06ab3b-a616-46e8-9f17-26bbc55b0f9b:
+    name: Contact
+    handle: contact
+    type: single
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: contact
+        template: contact/index
+    entryTypes:
+      4c19699a-8b0d-4900-b32a-9fe205ed35cc:
+        name: Contact
+        handle: contact
+        hasTitleField: false
+        titleLabel: ''
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          bf4575be-1373-4166-abda-874bf5a44bcd:
+            tabs:
+              -
+                name: Main
+                sortOrder: 1
+                fields:
+                  b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
+                    required: false
+                    sortOrder: 2
                   d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9:
                     required: false
                     sortOrder: 1
