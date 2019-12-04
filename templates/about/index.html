@@ -9,6 +9,9 @@
 {% set bodyDataAttributes = 'data-blob-color=#7F09F5' %}
 
 {% block content %}
+
+  {% include 'partials/_page-header' %}
+
   <section class="content interior grid">
     <div class="intro one-half -left clearfix">
       <div class="-inner">
@@ -18,7 +21,6 @@
         <div class="summary">
           {{ entry.body }}
         </div>
-        {# <%= render :partial => '/shared/edit_bug', :locals => { :obj => @page, :edit_path => refinery.admin_edit_page_path(@page) }%> #}
       </div>
     </div>
 
