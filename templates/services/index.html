@@ -11,4 +11,17 @@
 
   {% include 'partials/_page-header' %}
 
+  <div class="container">
+    <div class="services stat-table">
+      <ul>
+      {% for service in craft.categories.group('services').all() %}
+        <li class="grid">
+          <h4 class="stat-figure col-md-1-2">{{ service.title }}</h4>
+          <div class="stat-label col-md-1-2">{{ service.body }}</div>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+
 {% endblock %}
