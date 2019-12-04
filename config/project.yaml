@@ -10,7 +10,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: '{% if object.level == 1 %}work/industry/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
         template: work/industry
-dateModified: 1575422029
+dateModified: 1575422251
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -3063,6 +3063,16 @@ sections:
                 sortOrder: 4
                 fields:
                   ae9536dc-70b1-4e78-b8a8-eff55a877bb7:
+                    required: false
+                    sortOrder: 1
+              -
+                name: SEO
+                sortOrder: 5
+                fields:
+                  7a978b7f-cab5-448c-88dc-d4e1a9d281cf:
+                    required: false
+                    sortOrder: 2
+                  8dd0581c-6902-4a9c-8ddd-e11ce7656351:
                     required: false
                     sortOrder: 1
     siteSettings:
