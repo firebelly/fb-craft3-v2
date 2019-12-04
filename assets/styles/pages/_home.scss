@@ -8,38 +8,6 @@ body.homepage {
     background: url('../images/view-cursor.png');
   }
 
-  .header {
-    padding: $padding-md 0;
-
-    h2 {
-      @include h1-sans;
-      margin: 0;
-
-      .motto {
-        @include small-titles;
-        display: block;
-        position: relative;
-
-        @include media-md {
-          top: 26px;
-          left: -20px;
-          vertical-align: top;
-          line-height: inherit;
-          display: inline-block;
-        }
-      }
-    }
-
-    @include media-md {
-      padding-bottom: 176px;
-    }
-  }
-
-  // Optional CTA that follows the header statement
-  .header-cta {
-    margin-top: beat(2);
-  }
-
   // Recent Work
   .recent-work {
     padding-bottom: 255px;
@@ -57,7 +25,14 @@ body.homepage {
   // What We Do section
   .what-we-do {
     padding-bottom: $padding-lg;
+    .stat-table {
+      padding: 0;
+    }
+
     @include media-md {
+      .stat-table {
+        padding: 0;
+      }
       padding-bottom: 122px;
     }
 
