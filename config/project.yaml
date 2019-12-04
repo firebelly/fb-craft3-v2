@@ -1,4 +1,15 @@
 categoryGroups:
+  9a689cb6-2caf-4f05-af0a-4a44a4b139d7:
+    name: 'Idea Type'
+    handle: ideaType
+    structure:
+      uid: 04fb36cd-36ea-4813-9aff-ed3f475ce3ad
+      maxLevels: null
+    siteSettings:
+      8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
+        hasUrls: true
+        uriFormat: 'ideas/type/{slug}'
+        template: ideas/index
   bf01aebc-0872-497d-b688-0845cd48cc20:
     name: Industry
     handle: industry
@@ -10,7 +21,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: '{% if object.level == 1 %}work/industry/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
         template: work/industry
-dateModified: 1575423611
+dateModified: 1575475705
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -42,7 +53,7 @@ fieldGroups:
   9ace857e-959b-4a74-b0e0-42873080c846:
     name: SEO
   9aec6670-8753-4f2e-91d5-03ff2b4f3ef6:
-    name: Default
+    name: Common
   d2d1260a-da85-41ec-8e8a-c16e376cf34f:
     name: Assets
 fields:
@@ -195,6 +206,28 @@ fields:
       localizeRelations: false
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
     contentColumnType: string
+  633f1f9b-c9d5-40ce-ae9f-0f29a8c13f00:
+    name: 'Idea Type'
+    handle: ideaType
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Categories
+    settings:
+      allowLimit: false
+      allowMultipleSources: false
+      branchLimit: '1'
+      sources: '*'
+      source: 'group:9a689cb6-2caf-4f05-af0a-4a44a4b139d7'
+      targetSiteId: null
+      viewMode: null
+      limit: null
+      selectionLabel: 'Set Idea Type'
+      localizeRelations: false
+      validateRelatedElements: ''
+    contentColumnType: string
+    fieldGroup: 6437dede-d24a-41aa-b80e-ca2691b7f29b
   646c04f6-c01d-49af-91e5-ff5d90479af4:
     name: Tags
     handle: tags
@@ -459,7 +492,7 @@ fields:
       source: null
       targetSiteId: null
       viewMode: null
-      limit: ''
+      limit: '2'
       selectionLabel: ''
       localizeRelations: false
       validateRelatedElements: ''
@@ -549,6 +582,31 @@ fields:
           width: ''
       fieldLayout: row
       selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
+  d9c72a60-67c9-4086-b918-069fa0ba21dd:
+    name: 'Thumbnail Orientation'
+    handle: thumbnailOrientation
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Dropdown
+    settings:
+      optgroups: true
+      options:
+        -
+          label: Landscape
+          value: landscape
+          default: '1'
+        -
+          label: Portrait
+          value: portrait
+          default: ''
+        -
+          label: 'Full Width'
+          value: fullWidth
+          default: ''
     contentColumnType: string
     fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
   e08eb433-6275-40bd-ac89-ef297669541e:
@@ -2831,17 +2889,23 @@ sections:
                 sortOrder: 1
                 fields:
                   17b68b87-5b0f-4c9c-bf97-605dd31eb437:
-                    required: false
+                    required: true
+                    sortOrder: 3
+                  633f1f9b-c9d5-40ce-ae9f-0f29a8c13f00:
+                    required: true
                     sortOrder: 2
                   646c04f6-c01d-49af-91e5-ff5d90479af4:
                     required: false
-                    sortOrder: 4
+                    sortOrder: 6
                   a4b38771-d642-4c89-8372-f1d73f910aa7:
                     required: false
                     sortOrder: 1
+                  d9c72a60-67c9-4086-b918-069fa0ba21dd:
+                    required: false
+                    sortOrder: 5
                   f442e9c0-3dcf-45a3-8dac-3134afcea15b:
                     required: false
-                    sortOrder: 3
+                    sortOrder: 4
               -
                 name: Body
                 sortOrder: 2
@@ -2978,6 +3042,9 @@ sections:
                   cfeb2873-7b57-40cd-89ca-956423fc2d63:
                     required: false
                     sortOrder: 1
+                  d9c72a60-67c9-4086-b918-069fa0ba21dd:
+                    required: false
+                    sortOrder: 6
                   e08eb433-6275-40bd-ac89-ef297669541e:
                     required: false
                     sortOrder: 4
