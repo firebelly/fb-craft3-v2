@@ -1,5 +1,5 @@
 <header class="image-header">
-  <div class="header-wrap container">
+  <div class="header-wrap">
 
     {% if image is defined %}
       {% set transformedImage = craft.imager.transformImage(image, { width: 1800 }) %}
@@ -13,9 +13,11 @@
       <div class="header-banner" style="background-image:url({{ craft.app.config.general.cdnUrl }}{{ transformedImage.getUrl() }});"></div>
     {% endif %}
 
-    <div class="header-title">
-      <h1>{{ entry.title }}</h1>
-      <h4>{{ entry.subtitle }}</h4>
+    <div class="container">
+      <div class="header-title">
+        <h1>{{ entry.title }}</h1>
+        <h4>{{ entry.subtitle }}</h4>
+      </div>
     </div>
 
   </div>

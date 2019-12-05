@@ -3301,7 +3301,7 @@ findup-sync@3.0.0:
     micromatch "^3.0.4"
     resolve-dir "^1.0.1"
 
-fitvids@^2.0.0:
+fitvids@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/fitvids/-/fitvids-2.1.1.tgz#91feb2c5f8c34181d6f6e00c668fd1c4f7f3166d"
   integrity sha512-CvbOFRzdw1X1IieeVBu5NqR0eEFoAHXzq0MwTXXpKomiLhoOCR1BKYncmzW8415AygYg4RetZWJKbAb5wHxIVQ==

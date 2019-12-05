@@ -5,6 +5,7 @@ import Lazysizes from 'lazysizes';
 require('flickity-imagesloaded');
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import * as p5 from 'p5';
+import fitvids from 'fitvids';
 
 import appState from '../util/appState';
 
@@ -28,7 +29,8 @@ export default {
         breakpoint_lg = false,
         breakpoint_md = false,
         breakpoint_sm = false,
-        breakpoint_xs = false;
+        breakpoint_xs = false,
+        players = [];
 
     transitionElements = [$siteNav];
 
@@ -40,6 +42,7 @@ export default {
     _initSiteNav();
     _initBlobs();
     _initFlickity();
+    _initVideos();
 
     function _initCustomCursor() {
       if (!$('.js-cursor').length) {
@@ -279,6 +282,83 @@ export default {
         wrapAround: true,
       });
     }
+
+    function _initVideos() {
+      // Responsive videos
+      fitvids();
+
+      // Init vimeo videos using js api
+      if (typeof Vimeo === 'undefined') {
+        return false;
+      }
+      $('.vimeo-block').each(function(i) {
+        var $this = $(this);
+        var el;
+        var isBackgroundVideo = $this.is('.background-video');
+        var isBannerVideo = $this.is('.banner-video');
+        // Set vimeo player options
+        // Note: embed options seem to overwrite these, so autoplay=0
+        // must be in embed for video to stay paused until waypoint triggers play()
+        var opts = {
+          autoplay: false,
+          loop: false,
+          background: false,
+          muted: false,
+          title: false,
+          byline: false,
+          portrait: false
+        };
+        // If background video is switched on, mute video, loop, and autoplay
+        if (isBackgroundVideo || isBannerVideo) {
+          opts.autoplay = true;
+          opts.loop = true;
+          opts.muted = true;
+          opts.background = true;
+        }
+        if ($this.find('iframe').length) {
+          // Iframe embed
+          el = $this.find('iframe')[0];
+        } else if ($this.attr('data-url').length) {
+          // Div from embeddedAssets
+          el = $this[0];
+          opts.url = $this.attr('data-url');
+          opts.width = $this.attr('data-width');
+          opts.height = $this.attr('data-height');
+        }
+        if (el) {
+          players[i] = {
+            player: new Vimeo.Player(el, opts),
+            status: 'pause'
+          };
+          players[i].player.ready().then(function() {
+            if ($this.attr('data-url')) {
+              // Hide image once loaded
+              $this.find('img').remove();
+            }
+            // Run fitvids again in case this wasn't an embed
+            fitvids();
+          });
+          // Add waypoint to trigger play when video block scrolls into view
+          // todo: add support for pausing when exiting viewport w/ rewind, make loop an option
+          // Only autoplay with waypoints if background video
+          if (isBackgroundVideo) {
+            $this.waypoint({
+              handler: function(direction) {
+                if (players[i].status !== 'play') {
+                  players[i].player.play();
+                  players[i].status = 'play';
+                }
+              },
+              offset: '50%'
+            });
+          }
+          if (isBannerVideo) {
+            players[i].player.play();
+          }
+        }
+      });
+    }
+
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired

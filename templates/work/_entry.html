@@ -13,7 +13,11 @@
   {% cache unless currentUser %}
   <div class="single-project" data-id="{{ entry.id }}">
 
-    {% include 'partials/_image-header' with { image: mainImage } %}
+    {% if entry.mainImage|length %}
+      {% include 'partials/_image-header' with { image: mainImage } %}
+    {% else %}
+      {% include 'partials/_image-header' %}
+    {% endif %}
 
     <div class="intro">
       <div class="container grid">
@@ -28,7 +32,7 @@
           <div class="-inner">
 
             {% set client = entry.client.one() %}
-            {% if client.clientName %}
+            {% if client and client.clientName %}
               <h3>Client</h3>
               <p>{% if client.clientUrl %}<a target="_blank" rel="noopener" href="{{ client.clientUrl }}">{% endif %}{{ client.clientName }}{% if client.clientUrl %}</a>{% endif %}</p>
             {% endif %}
