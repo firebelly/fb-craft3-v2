@@ -79,6 +79,7 @@ header.image-header {
           height: 56.25vw;
           min-height: calc(100vh - 96px);
           min-width: 177.77vh;
+          max-height: 100%;
           transform: translateX(-50%);
         }
       }
