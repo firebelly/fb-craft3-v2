@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1575921927
+dateModified: 1575924995
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -1375,7 +1375,7 @@ matrixBlockTypes:
         translationKeyFormat: null
         type: craft\redactor\Field
         settings:
-          redactorConfig: Simple.json
+          redactorConfig: Standard.json
           purifierConfig: ''
           cleanupHtml: true
           removeInlineStyles: '1'
