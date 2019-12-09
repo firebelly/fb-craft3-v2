@@ -34,7 +34,7 @@
             {% if mainImage %}
               {% set transformedImage = craft.imager.transformImage(mainImage, { width: 900, height: 600, mode: 'crop' }) %}
               <div class="project-image">
-                <img src="partials/_text-header{{ transformedImage.getUrl() }}" alt="">
+                <img src="{{ transformedImage.getUrl() }}" alt="">
               </div>
             {% endif %}
             <header>
