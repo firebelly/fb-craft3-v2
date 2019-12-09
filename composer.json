@@ -38,7 +38,8 @@
     "spicyweb/craft-embedded-assets": "2.1.1.1",
     "mmikkel/retcon": "^2.0",
     "verbb/smith": "1.0.0",
-    "elivz/craft-single-cat": "1.2.1"
+    "elivz/craft-single-cat": "1.2.1",
+    "verbb/field-manager": "2.1.1"
   },
   "autoload": {
     "psr-4": {

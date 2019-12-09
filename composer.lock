@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f1a0aadf6108851a679c44cc1171604",
+    "content-hash": "4458c2c0c1e9d6dda7c2876ea98f6b10",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -4304,6 +4304,56 @@
                 "expanded singles"
             ],
             "time": "2019-02-09T12:53:15+00:00"
+        },
+        {
+            "name": "verbb/field-manager",
+            "version": "2.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verbb/field-manager/zipball/026cc5d6c030e509158d7525d8764514e7da3a79",
+                "reference": "026cc5d6c030e509158d7525d8764514e7da3a79",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Field Manager",
+                "handle": "field-manager",
+                "changelogUrl": "https://raw.githubusercontent.com/verbb/field-manager/craft-3/CHANGELOG.md",
+                "class": "verbb\\fieldmanager\\FieldManager"
+            },
+            "autoload": {
+                "psr-4": {
+                    "verbb\\fieldmanager\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Verbb",
+                    "homepage": "https://verbb.io"
+                }
+            ],
+            "description": "Manage your fields and field groups with ease with simple field or group cloning and quicker overall management.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "field manager"
+            ],
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/field-manager/issues?state=open",
+                "source": "https://github.com/verbb/field-manager",
+                "docs": "https://github.com/verbb/field-manager",
+                "rss": "https://github.com/verbb/field-manager/commits/v2.atom"
+            },
+            "time": "2019-11-27T06:04:29+00:00"
         },
         {
             "name": "verbb/smith",
