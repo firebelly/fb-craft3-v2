@@ -236,14 +236,6 @@
   }
 }
 
-.section-header {
-  width: 100%;
-  border-top: 1px solid color('black');
-  h3 {
-    @include small-titles;
-  }
-}
-
 // Full width/half width areas
 .block-text,
 .block-image {
@@ -346,7 +338,7 @@
     h2,
     h2.heading-large {
       color: inherit;
-      font: 36px/1 $font-serif, sans-serif;
+      font: 52px/1.07 $font-serif, sans-serif;
       margin: 0 0 .6em;
     }
     h3.heading-medium {

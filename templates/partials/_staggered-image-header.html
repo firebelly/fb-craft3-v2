@@ -1,0 +1,24 @@
+{% if header.mainImage %}
+  {% set transformedMainImage = craft.imager.transformImage(header.mainImage.one(), { width: 1116, height: 1504, mode: 'crop', position: header.mainImage.one().getFocalPoint() }) %}
+{% endif %}
+{% if header.secondaryImage %}
+  {% set transformedSecondaryImage = craft.imager.transformImage(header.secondaryImage.one(), { width: 1116, height: 640, mode: 'crop', position: header.secondaryImage.one().getFocalPoint() }) %}
+{% endif %}
+
+<div class="staggered-image-header">
+  <div class="container">
+    <h5 class="section-label">{{ header.headline }}</h5>
+    <div class="grid spaced">
+      <div class="main-image col-md-1-2">
+        {% if transformedMainImage %}
+          <img src="{{ transformedMainImage.getUrl() }}" alt="{{ header.mainImage.title }}">
+        {% endif %}
+      </div>
+      <div class="secondary-image col-md-1-2">
+        {% if transformedMainImage %}
+          <img src="{{ transformedSecondaryImage.getUrl() }}" alt="{{ header.secondaryImage.title }}">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

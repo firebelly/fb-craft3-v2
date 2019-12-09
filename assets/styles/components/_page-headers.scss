@@ -1,5 +1,18 @@
 // Page headers
 
+.staggered-image-header {
+  padding-bottom: 128px;
+
+  @include media-md {
+    .main-image {
+      margin-top: -176px;
+    }
+    .secondary-image {
+      margin-top: 144px;
+    }
+  }
+}
+
 header.text-header {
   padding: $padding-md 0;
 

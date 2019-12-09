@@ -10,6 +10,14 @@
   border-top: 1px solid color('black');
 }
 
+.section-header {
+  width: 100%;
+  border-top: 1px solid color('black');
+  h3 {
+    @include small-titles;
+  }
+}
+
 .section-cta {
   .button {
     width: 100%;
