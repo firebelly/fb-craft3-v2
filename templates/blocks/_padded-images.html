@@ -1,0 +1,51 @@
+{% for image in block.image.all() %}
+  {% set width = (block.size == 'halfWidth' ? 900 : 1800) %}
+  {% set embeddedAsset = craft.embeddedAssets.get(image) %}
+  <div class="block-image {{ block.size }}">
+    <div class="-inner">
+    {% if embeddedAsset %}
+      {# Custom vimeo handling #}
+      {% if embeddedAsset.url matches '/vimeo\.com/' %}
+        <div class="embedded-asset vimeo-block{{ block.backgroundVideo ? ' background-video' : '' }}" data-url="{{ embeddedAsset.url }}" data-width="{{ embeddedAsset.width }}" data-height="{{ embeddedAsset.height }}">
+          <img class="lazyload" data-src="{{ embeddedAsset.images[0].url }}">
+        </div>
+      {% else %}
+        {{ embeddedAsset.html }}
+      {% endif %}
+    {% else %}
+
+      {% if block.treated %}
+        {% set treatedImage = craft.imager.transformImage(image, { width: width, effects: { modulate: [100, 0, 100], clut: 'gradient:#000000-#ffffff' } }) %}
+      {% else %}
+        {# Leave GIFs alone #}
+        {% if image.filename matches '/gif$/' %}
+          {% set treatedImage = image %}
+        {% else %}
+          {% set treatedImage = craft.imager.transformImage(image, { width: width }) %}
+        {% endif %}
+      {% endif %}
+
+      {%- if browserFrame is defined and browserFrame.browserFrameActive %}
+        <div class="browser-frame">
+          <div class="browserdots"></div>
+          <div class="site{% if browserFrame.browserFrameScroll %} scroll{% endif %}"{% if browserFrame.browserFrameScroll %} style="padding-bottom:{{ browserFrame.scrollHeight }}%;"{% endif %}>
+            {%- if browserFrame.browserFrameScroll %}<div class="scroll-content">{% endif -%}
+      {% endif -%}
+      {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
+        <img class="lazyload" data-src="partials/_text-header{{ treatedImage.getUrl() }}" alt="{{ image.title }}">
+      {%- if block.imageLinkUrl %}</a>{% endif -%}
+      {%- if browserFrame is defined and browserFrame.browserFrameActive %}
+          {%- if browserFrame.browserFrameScroll %}</div>{% endif -%}
+          </div><!-- .site -->
+        </div><!-- .browser-frame -->
+      {% endif -%}
+    {% endif %}
+
+    {% if block.text and loop.last %}
+      <div class="block-text user-content">
+        {{ block.text }}
+      </div>
+    {% endif %}
+    </div><!-- /.-inner -->
+  </div>
+{% endfor %}

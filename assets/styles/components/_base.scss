@@ -83,8 +83,12 @@ img {
 }
 
 // Supers
-sup {
-  font-size: .35em;
+h1,
+h2,
+h3 {
+  sup {
+    @include font-sans;
+  }
 }
 
 .edit-bug {

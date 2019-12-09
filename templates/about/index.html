@@ -12,29 +12,8 @@
 
   {% include 'partials/_text-header' %}
 
-  <section class="content interior grid">
-    <div class="intro one-half -left clearfix">
-      <div class="-inner">
-        <header class="section-title">
-          <h1>Good Design for Good <span class="last-word">Reason.<sup>&trade;</sup></span></h1>
-        </header>
-        <div class="summary">
-          {{ entry.body }}
-        </div>
-      </div>
-    </div>
+  {% include 'blocks/_page-blocks' %}
 
-    <div class="secondary one-half -right user-content">
-      <div class="secondary-item">
-        <header>
-          <h1>Design for Equity and Inclusion</h1>
-        </header>
-        <div class="summary">
-          {% if entry.inclusionStatement|length %}
-            {{ entry.inclusionStatement }}
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  </section>
+  {% include 'about/_people-list' %}
+
 {% endblock %}

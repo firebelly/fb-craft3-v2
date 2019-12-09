@@ -1,0 +1,28 @@
+{% set blockWrapped = false %}
+
+<div class="block-color color-gray">
+
+{% for block in entry.pageBlocks.all() %}
+  {% switch block.type %}
+
+    {% case "sectionHeader" %}
+      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      {% include "blocks/_section-header" with { block: block } %}
+
+    {% case "blockCarousel" %}
+      {% if blockWrapped %}</div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
+      {% include "blocks/_image-carousel" with { block: block } %}
+
+    {% case "blockText" %}
+      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      {% include "blocks/_text" with { block: block } %}
+
+    {% case "blockPaddedImage" %}
+      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      {% include "blocks/_padded-images" with { block: block } %}
+
+  {% endswitch %}
+{% endfor %}
+
+{% if blockWrapped %}</div><!-- /.block-wrap -->{% endif %}
+</div><!-- /.block-color -->

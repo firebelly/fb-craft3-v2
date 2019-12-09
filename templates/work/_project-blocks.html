@@ -88,12 +88,12 @@
         {% endfor %}
         {% set colorPairs = colorPairsArray|join(' ') %}
       {% endif %}
-      <div id="{{ block.fontName }}" class="type-tester" data-font="{{ block.fontName }}" data-font-size="{{ block.startingFontSize }}" data-line-height="{{ block.lineHeight }}" data-min-size="{{ block.minFontSize }}" data-max-size="{{ block.maxFontSize }}" data-color-pairs="{{ colorPairs }}" data-svg-url="{{ craft.app.config.general.cdnUrl }}{{ block.svgFontFile[0].getUrl() }}" data-initial-alignment="{{ block.initialAlignment }}">
+      <div id="{{ block.fontName }}" class="type-tester" data-font="{{ block.fontName }}" data-font-size="{{ block.startingFontSize }}" data-line-height="{{ block.lineHeight }}" data-min-size="{{ block.minFontSize }}" data-max-size="{{ block.maxFontSize }}" data-color-pairs="{{ colorPairs }}" data-svg-url="partials/_text-header{{ block.svgFontFile[0].getUrl() }}" data-initial-alignment="{{ block.initialAlignment }}">
         <style>
           @font-face {
             font-family: '{{ block.fontName }}';
-            src: url('{{ craft.app.config.general.cdnUrl }}{{ block.woffFontFile[0].getUrl() }}') format('woff'),
-                 url('{{ craft.app.config.general.cdnUrl }}{{ block.svgFontFile[0].getUrl() }}') format('svg');
+            src: url('{{ block.woffFontFile[0].getUrl() }}') format('woff'),
+                 url('{{ block.svgFontFile[0].getUrl() }}') format('svg');
             font-weight: normal;
             font-style: normal;
           }
@@ -139,7 +139,7 @@
                 {% set orientation = image.getWidth() > image.getHeight() ? 'landscape' : 'portrait' %}
                 <div class="slide {{ orientation }}">
                   {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
-                    <img src="{{ craft.app.config.general.cdnUrl }}{{ treatedImage.getUrl() }}" alt="{{ image.title }}">
+                    <img src="partials/_text-header{{ treatedImage.getUrl() }}" alt="{{ image.title }}">
                   {%- if block.imageLinkUrl %}</a>{% endif -%}
                 </div>
               {% endif %}
@@ -154,7 +154,7 @@
               </div>
             {% else %}
               {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
-                <p><img class="lazyload" data-src="{{ craft.app.config.general.cdnUrl }}{{ image.getUrl() }}" alt="{{ image.title }}"></p>
+                <p><img class="lazyload" data-src="partials/_text-header{{ image.getUrl() }}" alt="{{ image.title }}"></p>
               {%- if block.imageLinkUrl %}</a>{% endif -%}
             {% endif %}
           {% endfor %}
@@ -167,7 +167,7 @@
         <div class="flickity js-cursor with-captions">
           {% for image in block.images.all() %}
             {% set treatedImage = craft.imager.transformImage(image, { mode: 'fit', width: 1800, height: 900 }) %}
-            <figure class="slide {{ image.captionLabel or image.caption ? ' with-caption' : '' }}" style="background-image:url('{{ craft.app.config.general.cdnUrl }}{{ treatedImage.getUrl() }}');">
+            <figure class="slide {{ image.captionLabel or image.caption ? ' with-caption' : '' }}" style="background-image:url('{{ treatedImage.getUrl() }}');">
               {% if image.captionLabel or image.caption %}
                 <figcaption class="image-text">
                   <div class="-inner">
@@ -191,89 +191,19 @@
 
     {% case "blockText" %}
       {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
-      <div class="block-text user-content {{ block.size }}">
-        <div class="-inner">
-          {{ block.text }}
-        </div>
-      </div>
+      {% include "blocks/_text" with { block: block } %}
 
     {% case "blockPaddedImage" %}
       {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
-      {% for image in block.image.all() %}
-        {% set width = (block.size == 'halfWidth' ? 900 : 1800) %}
-        {% set embeddedAsset = craft.embeddedAssets.get(image) %}
-        <div class="block-image {{ block.size }}">
-          <div class="-inner">
-          {% if embeddedAsset %}
-            {# Custom vimeo handling #}
-            {% if embeddedAsset.url matches '/vimeo\.com/' %}
-              <div class="embedded-asset vimeo-block{{ block.backgroundVideo ? ' background-video' : '' }}" data-url="{{ embeddedAsset.url }}" data-width="{{ embeddedAsset.width }}" data-height="{{ embeddedAsset.height }}">
-                <img class="lazyload" data-src="{{ embeddedAsset.images[0].url }}">
-              </div>
-            {% else %}
-              {{ embeddedAsset.html }}
-            {% endif %}
-          {% else %}
-
-            {% if block.treated %}
-              {% set treatedImage = craft.imager.transformImage(image, { width: width, effects: { modulate: [100, 0, 100], clut: 'gradient:#000000-#ffffff' } }) %}
-            {% else %}
-              {# Leave GIFs alone #}
-              {% if image.filename matches '/gif$/' %}
-                {% set treatedImage = image %}
-              {% else %}
-                {% set treatedImage = craft.imager.transformImage(image, { width: width }) %}
-              {% endif %}
-            {% endif %}
-
-            {%- if block.browserFrame.browserFrameActive %}
-              <div class="browser-frame">
-                <div class="browserdots"></div>
-                <div class="site{% if block.browserFrame.browserFrameScroll %} scroll{% endif %}"{% if block.browserFrame.browserFrameScroll %} style="padding-bottom:{{ block.browserFrame.scrollHeight }}%;"{% endif %}>
-                  {%- if block.browserFrame.browserFrameScroll %}<div class="scroll-content">{% endif -%}
-            {% endif -%}
-            {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
-              <img class="lazyload" data-src="{{ craft.app.config.general.cdnUrl }}{{ treatedImage.getUrl() }}" alt="{{ image.title }}">
-            {%- if block.imageLinkUrl %}</a>{% endif -%}
-            {%- if block.browserFrame.browserFrameActive %}
-                  {%- if block.browserFrame.browserFrameScroll %}</div>{% endif -%}
-                </div><!-- .site -->
-              </div><!-- .browser-frame -->
-            {% endif -%}
-          {% endif %}
-
-          {% if block.text and loop.last %}
-            <div class="block-text user-content">
-              {{ block.text }}
-            </div>
-          {% endif %}
-          </div><!-- /.-inner -->
-        </div>
-      {% endfor %}
+      {% include "blocks/_padded-images" with { block: block, browserFrame: block.browserFrame } %}
 
     {% case "blockQuote" %}
       {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
-      <div class="block-quote" style="color: {{ block.textColor }}; background-color: {{ block.backgroundColor }};">
-        <blockquote>{{ block.quote }}</blockquote>
-      </div>
+      {% include "blocks/_quote" with { block: block } %}
 
     {% case "statTable" %}
       {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
-      {% if block.stats | length %}
-
-        <div class="stat-table">
-          <div class="-inner">
-            <ul>
-              {% for stat in block.stats.all() %}
-                <li class="grid">
-                  <h4 class="stat-figure col-md-1-2">{{ stat.figure }}</h4>
-                  <div class="stat-label col-md-1-2"><p>{{ stat.label }}</p></div>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      {% endif %}
+      {% include "blocks/_stat-table" with { block: block } %}
 
     {% default %}
       Hello?

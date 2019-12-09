@@ -26,14 +26,14 @@
 @import "components/pagination";
 @import "components/page-headers";
 @import "components/footer";
+@import "components/blocks";
 
 // Pages
 @import "pages/home";
 // @import "pages/interior";
 // @import "pages/process";
 // @import "pages/endeavors";
-// @import "pages/about";
-// @import "pages/people";
+@import "pages/about";
 @import "pages/projects";
 // @import "pages/ideas";
 // @import "pages/careers";

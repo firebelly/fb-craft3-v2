@@ -1,0 +1,14 @@
+{% if block.stats | length %}
+  <div class="stat-table">
+    <div class="-inner">
+      <ul>
+        {% for stat in block.stats.all() %}
+          <li class="grid">
+            <h4 class="stat-figure col-md-1-2">{{ stat.figure }}</h4>
+            <div class="stat-label col-md-1-2"><p>{{ stat.label }}</p></div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}
