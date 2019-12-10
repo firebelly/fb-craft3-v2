@@ -6,16 +6,6 @@
         {{ pageHeader.headline }}
         <span class="subhead">{{ pageHeader.subhead }}</span>
       </h2>
-
-      {% if pageHeader.ctaText %}
-        <div class="header-cta">
-          <div class="grid align-right">
-            <div class="col-md-1-2">
-              <a href="{{ pageHeader.ctaLink.one().getUrl() }}" class="button -black">{{ pageHeader.ctaText }}</a>
-            </div>
-          </div>
-        </div>
-      {% endif %}
     </div>
   </header>
 {% endif %}

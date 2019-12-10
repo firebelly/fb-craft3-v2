@@ -7,7 +7,7 @@
   {% if not nextEntry %}
     {% set nextEntry = craft.entries.section(paginationSection).one() %}
   {% endif %}
-  <nav class="footer-pagination">
+  <nav class="pagination">
     <ul>
       <li class="prev">
         <a rel="prev" href="{{ prevEntry.getUrl() }}"><span class="arrow">&larr;</span> Previous {{ postName }}</a>

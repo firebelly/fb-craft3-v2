@@ -1,19 +1,20 @@
 {% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? "_ajax-layout" : "_layout" %}
 {% set title = "Ideas" %}
 
-{% if entry is defined %}
-  {% set title = entry.title %}
-  {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
-  {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
-  {% set bodyClass = 'single page ideas with-blobs' %}
-  {% set bodyDataAttributes = 'data-blob-color=#09F53D' %}
+{% if entry is not defined %}
+  {% set entry = craft.entries.section('ideasIndex').one() %}
 {% endif %}
 
-{% if tag is defined %}
-  {% set tag = craft.tags.slug(tag).one() %}
+{% set title = entry.title %}
+{% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
+{% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
+{% set bodyClass = 'single page ideas with-blobs' %}
+{% set bodyDataAttributes = 'data-blob-color=#09F53D' %}
+
+{% if category is defined %}
   {% paginate craft.entries({
     section: 'ideas',
-    relatedTo: tag,
+    relatedTo: category,
     with: [
       'headerImage',
       'thumbnailImage'
@@ -31,9 +32,7 @@
 
 {% block content %}
 
-  {% if entry is defined %}
-    {% include 'partials/_text-header' %}
-  {% endif %}
+  {% include 'partials/_text-header' %}
 
   <div class="container">
 
@@ -43,7 +42,7 @@
       {% endfor %}
     </div>
 
-    <nav class="footer-pagination">
+    <nav class="pagination">
       <ul>
         {% if paginationInfo.nextUrl %}
         <li class="next">

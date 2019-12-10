@@ -1,0 +1,37 @@
+{% set altImage = entry.altImage[0] ?? null %}
+{% if entry.altImage %}
+  {% set mainImage = altImage %}
+{% else %}
+  {% set mainImage = entry.mainImage[0] ?? null %}
+{% endif %}
+
+{% if mainImage %}
+  {% if entry.thumbnailOrientation == 'portrait' %}
+    {% set transformedImage = craft.imager.transformImage(mainImage, { width: 1116, height: 1504, mode: 'crop' }) %}
+  {% else %}
+    {% set transformedImage = craft.imager.transformImage(mainImage, { width: 1116, height: 640, mode: 'crop' }) %}
+  {% endif %}
+{% endif %}
+
+<article class="project {{ entry.thumbnailOrientation == 'fullWidth' ? 'md-full' : 'col-md-1-2' }}">
+
+  {% if transformedImage is defined %}
+    <a class="-inner js-cursor" href="{{ entry.getUrl() }}">
+      <div class="project-image">
+        <img src="{{ transformedImage.getUrl() }}" alt="{{ mainImage.title }}">
+      </div>
+    </a>
+  {% endif %}
+
+  {% if entry.services|length %}
+    <ul class="services">
+      {% for service in entry.services.all() %}
+        {% set service = service.service.one() %}{# lol #}
+        <li>
+          <a href="{{ service.getUrl() }}">{{ service.title }}</a>{{ not loop.last ? ',' }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <h3 class="project-title">{{ entry.title }}: {{ entry.subtitle }}</h3>
+</article>

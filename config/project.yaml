@@ -30,7 +30,7 @@ categoryGroups:
     siteSettings:
       8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
         hasUrls: true
-        uriFormat: 'work/services/{slug}'
+        uriFormat: 'work/service/{slug}'
         template: work/index
     fieldLayouts:
       fcf1f589-32ab-422d-8ff7-b4f22a73e664:
@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576007150
+dateModified: 1576020013
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -289,20 +289,6 @@ fields:
       maxLength: '255'
     contentColumnType: string(255)
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
-  36bce506-23ae-4d68-a0ba-6398a4053d03:
-    name: 'Secondary Page Header Content'
-    handle: secondaryPageHeaderContent
-    instructions: 'Appears on the right column of the page header, and is broken up itself into two columns'
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\Matrix
-    settings:
-      maxBlocks: '1'
-      localizeBlocks: false
-      contentTable: '{{%matrixcontent_secondarypageheadercontent}}'
-    fieldGroup: 885301bf-3f92-4266-818e-0c53786afc3a
-    contentColumnType: string
   4d475249-13b3-46a6-981d-befb42899cef:
     name: Client
     handle: client
@@ -353,31 +339,6 @@ fields:
       validateRelatedElements: ''
     contentColumnType: string
     fieldGroup: 7d6b2f37-d8cf-429f-8b3f-f3d7df5d814b
-  61355f38-d901-40a6-baff-aefa66152bdf:
-    name: Video
-    handle: video
-    instructions: 'Used on single project pages in header.'
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\Assets
-    settings:
-      useSingleFolder: ''
-      sources:
-        - 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
-      defaultUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
-      defaultUploadLocationSubpath: ''
-      singleUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
-      singleUploadLocationSubpath: ''
-      restrictFiles: '1'
-      allowedKinds:
-        - video
-      limit: '1'
-      viewMode: list
-      selectionLabel: ''
-      localizeRelations: false
-    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
-    contentColumnType: string
   633f1f9b-c9d5-40ce-ae9f-0f29a8c13f00:
     name: 'Idea Type'
     handle: ideaType
@@ -417,19 +378,6 @@ fields:
       columnType: string
     contentColumnType: string
     fieldGroup: 7d6b2f37-d8cf-429f-8b3f-f3d7df5d814b
-  646c04f6-c01d-49af-91e5-ff5d90479af4:
-    name: Tags
-    handle: tags
-    instructions: null
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\Tags
-    settings:
-      source: 'taggroup:d4b18616-df80-4087-b64c-b941f7c6b109'
-      localizeRelations: false
-    fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
-    contentColumnType: string
   68692063-3da9-4055-b678-06af18aebc8e:
     name: 'Past Positions'
     handle: pastPositions
@@ -543,27 +491,6 @@ fields:
       columnType: text
     contentColumnType: text
     fieldGroup: d2d1260a-da85-41ec-8e8a-c16e376cf34f
-  93e68e0b-500c-4465-aab3-792ecf196ba8:
-    name: 'Inclusion Statement'
-    handle: inclusionStatement
-    instructions: 'Statement of inclusion'
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\redactor\Field
-    settings:
-      redactorConfig: Standard.json
-      purifierConfig: ''
-      cleanupHtml: true
-      removeInlineStyles: '1'
-      removeEmptyTags: '1'
-      removeNbsp: '1'
-      purifyHtml: '1'
-      columnType: text
-      availableVolumes: ''
-      availableTransforms: ''
-    fieldGroup: 2155774e-82f7-4a6f-9357-0429f8ef8d05
-    contentColumnType: text
   973f412f-a0f6-4f53-b5b9-847caeb87763:
     name: 'Open Positions'
     handle: openPositions
@@ -725,30 +652,6 @@ fields:
       selectionLabel: ''
     contentColumnType: string
     fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
-  c2459491-d974-47d5-a14d-c7f9a031727c:
-    name: 'Page Header Image'
-    handle: pageHeaderImage
-    instructions: 'The general page header image'
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\Assets
-    settings:
-      useSingleFolder: ''
-      sources: '*'
-      defaultUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
-      defaultUploadLocationSubpath: ''
-      singleUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
-      singleUploadLocationSubpath: ''
-      restrictFiles: '1'
-      allowedKinds:
-        - image
-      limit: '1'
-      viewMode: large
-      selectionLabel: 'Select a header image'
-      localizeRelations: false
-    fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
-    contentColumnType: string
   c2b1d20c-3703-4b5c-911f-f7b0b0367bf9:
     name: 'Apprenticeship Program'
     handle: apprenticeshipProgram
@@ -960,20 +863,6 @@ fields:
       selectionLabel: ''
     contentColumnType: string
     fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
-  f42c71b2-cff3-42e8-8d92-c56d30af22b8:
-    name: Highlights
-    handle: highlights
-    instructions: ''
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\Matrix
-    settings:
-      maxBlocks: null
-      localizeBlocks: false
-      contentTable: '{{%matrixcontent_highlights}}'
-    fieldGroup: 885301bf-3f92-4266-818e-0c53786afc3a
-    contentColumnType: string
   f442e9c0-3dcf-45a3-8dac-3134afcea15b:
     name: 'Header Image Caption'
     handle: headerImageCaption
@@ -2352,65 +2241,6 @@ matrixBlockTypes:
               56ccc2db-d89f-4e56-b202-b67887baa187:
                 required: false
                 sortOrder: 1
-  b34a241a-7516-4e2a-91a4-d765b5df8200:
-    name: 'Page Header Content'
-    handle: pageHeaderContent
-    sortOrder: 1
-    field: 36bce506-23ae-4d68-a0ba-6398a4053d03
-    fieldLayouts:
-      aa8fec15-d9c7-4ca0-94ff-8afce37cb37c:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-            fields:
-              2c0870e2-dd5c-4feb-a249-3de1fbfaf56d:
-                required: false
-                sortOrder: 2
-              535ab492-f922-453c-9426-2dcff56165d8:
-                required: false
-                sortOrder: 1
-    fields:
-      2c0870e2-dd5c-4feb-a249-3de1fbfaf56d:
-        name: 'Right Column Content'
-        handle: rightColumnContent
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\redactor\Field
-        settings:
-          availableTransforms: ''
-          purifyHtml: '1'
-          purifierConfig: ''
-          columnType: text
-          availableVolumes: ''
-          redactorConfig: ''
-          removeInlineStyles: '1'
-          removeEmptyTags: '1'
-          removeNbsp: '1'
-        fieldGroup: null
-        contentColumnType: text
-      535ab492-f922-453c-9426-2dcff56165d8:
-        name: 'Left Column Content'
-        handle: leftColumnContent
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\redactor\Field
-        settings:
-          availableTransforms: ''
-          purifyHtml: '1'
-          purifierConfig: ''
-          columnType: text
-          availableVolumes: ''
-          redactorConfig: ''
-          removeInlineStyles: '1'
-          removeEmptyTags: '1'
-          removeNbsp: '1'
-        fieldGroup: null
-        contentColumnType: text
   b34f0c52-4e7b-4baf-b7e9-e5e0d652c952:
     field: 973f412f-a0f6-4f53-b5b9-847caeb87763
     name: Position
@@ -2886,58 +2716,6 @@ matrixBlockTypes:
               c99a9e7d-614a-49a4-9a5d-18acff432d20:
                 required: true
                 sortOrder: 1
-  e63a940f-7d77-4238-b04f-605b0dfa9324:
-    name: Highlight
-    handle: highlight
-    sortOrder: 1
-    field: f42c71b2-cff3-42e8-8d92-c56d30af22b8
-    fieldLayouts:
-      6d016a34-d525-4c0c-a61f-3b63a7110dd6:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-            fields:
-              423b2466-8513-41bd-8ee2-eb116503c047:
-                required: true
-                sortOrder: 2
-              aa8debcc-5c3d-450c-8c09-710f04c949fd:
-                required: true
-                sortOrder: 1
-    fields:
-      423b2466-8513-41bd-8ee2-eb116503c047:
-        name: 'Highlight Title'
-        handle: highlightTitle
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\redactor\Field
-        settings:
-          availableTransforms: '*'
-          purifyHtml: '1'
-          columnType: text
-          availableVolumes: '*'
-          redactorConfig: Standard.json
-          removeInlineStyles: ''
-          removeEmptyTags: ''
-          removeNbsp: ''
-        fieldGroup: null
-        contentColumnType: text
-      aa8debcc-5c3d-450c-8c09-710f04c949fd:
-        name: 'Highlight Date'
-        handle: highlightDate
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\fields\Date
-        settings:
-          minuteIncrement: '30'
-          showDate: 1
-          showTime: 0
-        fieldGroup: null
-        contentColumnType: datetime
   f5a2db3c-0e4c-4b44-b933-a05090df42a5:
     name: 'Page Section'
     handle: pageSection
@@ -4282,23 +4060,6 @@ superTableBlockTypes:
   7ffa21ff-2a3f-4f5f-a1bd-6ce539ad5ed1:
     field: d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9
     fields:
-      12dbb05c-7185-4430-a641-29a609d4d60c:
-        name: 'CTA Text'
-        handle: ctaText
-        instructions: 'Optional call to action link in header'
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\fields\PlainText
-        settings:
-          placeholder: ''
-          code: ''
-          multiline: ''
-          initialRows: '4'
-          charLimit: ''
-          columnType: string
-        contentColumnType: string
-        fieldGroup: null
       5a5726ba-3ec2-4b2f-a4e8-d96afc76162e:
         name: Subhead
         handle: subhead
@@ -4333,25 +4094,6 @@ superTableBlockTypes:
           columnType: text
         contentColumnType: text
         fieldGroup: null
-      b5ba43a8-3986-4e7a-af56-02fd9620da8f:
-        name: 'CTA Link'
-        handle: ctaLink
-        instructions: 'Where optional CTA will link to'
-        searchable: true
-        translationMethod: site
-        translationKeyFormat: null
-        type: craft\fields\Entries
-        settings:
-          sources: '*'
-          source: null
-          targetSiteId: null
-          viewMode: null
-          limit: '1'
-          selectionLabel: ''
-          localizeRelations: false
-          validateRelatedElements: ''
-        contentColumnType: string
-        fieldGroup: null
     fieldLayouts:
       d856a906-491c-4937-948b-935c685be2d9:
         tabs:
@@ -4359,18 +4101,12 @@ superTableBlockTypes:
             name: Content
             sortOrder: 1
             fields:
-              12dbb05c-7185-4430-a641-29a609d4d60c:
-                required: false
-                sortOrder: 3
               5a5726ba-3ec2-4b2f-a4e8-d96afc76162e:
                 required: false
                 sortOrder: 2
               707a27f2-d3dc-4100-8054-3b63cb4f230a:
                 required: false
                 sortOrder: 1
-              b5ba43a8-3986-4e7a-af56-02fd9620da8f:
-                required: false
-                sortOrder: 4
   a919befb-d911-4343-b57a-1693853c46fd:
     field: 4d475249-13b3-46a6-981d-befb42899cef
     fields:
@@ -4591,13 +4327,6 @@ system:
   name: 'Firebelly Design'
   timeZone: America/Chicago
   schemaVersion: 3.3.3
-tagGroups:
-  23af138f-e299-4c1f-bf04-9c6c14430637:
-    name: Services
-    handle: services
-  d4b18616-df80-4087-b64c-b941f7c6b109:
-    name: Default
-    handle: default
 volumes:
   36408e8f-dddf-4161-a5bf-1b85cd665761:
     name: Ideas
