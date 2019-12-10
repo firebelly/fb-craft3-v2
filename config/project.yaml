@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1575924995
+dateModified: 1575995243
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -65,6 +65,8 @@ fieldGroups:
     name: Careers
   6437dede-d24a-41aa-b80e-ca2691b7f29b:
     name: Ideas
+  7d6b2f37-d8cf-429f-8b3f-f3d7df5d814b:
+    name: People
   8371a28a-a15c-40e8-a56a-142abd851d9b:
     name: Homepage
   885301bf-3f92-4266-818e-0c53786afc3a:
@@ -76,6 +78,44 @@ fieldGroups:
   d2d1260a-da85-41ec-8e8a-c16e376cf34f:
     name: Assets
 fields:
+  10e541f6-8f8a-4989-ae4f-ba0a6c14fe7a:
+    name: 'Social Links'
+    handle: socialLinks
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\redactor\Field
+    settings:
+      redactorConfig: Standard.json
+      purifierConfig: ''
+      cleanupHtml: true
+      removeInlineStyles: '1'
+      removeEmptyTags: '1'
+      removeNbsp: '1'
+      purifyHtml: '1'
+      columnType: text
+      availableVolumes: '*'
+      availableTransforms: '*'
+    contentColumnType: text
+    fieldGroup: 7d6b2f37-d8cf-429f-8b3f-f3d7df5d814b
+  15ec60bb-5dd4-4ba8-9439-d6d0d27852e9:
+    name: Title
+    handle: personTitle
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: string
+    contentColumnType: string
+    fieldGroup: 7d6b2f37-d8cf-429f-8b3f-f3d7df5d814b
   17b68b87-5b0f-4c9c-bf97-605dd31eb437:
     name: 'Header Image'
     handle: headerImage
@@ -168,6 +208,23 @@ fields:
       selectionLabel: ''
     contentColumnType: string
     fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
+  227385b6-8cac-440b-a21a-baab39260887:
+    name: Tagline
+    handle: tagline
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: string
+    contentColumnType: string
+    fieldGroup: 7d6b2f37-d8cf-429f-8b3f-f3d7df5d814b
   2a5054ba-d822-4486-9917-cd1bcd4aba46:
     name: 'Project Blocks'
     handle: projectBlocks
@@ -183,6 +240,27 @@ fields:
       propagationMethod: all
     contentColumnType: string
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+  3299e13b-c0fd-4177-a838-00ca6a466265:
+    name: Bio
+    handle: bio
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\redactor\Field
+    settings:
+      redactorConfig: Standard.json
+      purifierConfig: ''
+      cleanupHtml: true
+      removeInlineStyles: '1'
+      removeEmptyTags: '1'
+      removeNbsp: '1'
+      purifyHtml: '1'
+      columnType: text
+      availableVolumes: '*'
+      availableTransforms: '*'
+    contentColumnType: text
+    fieldGroup: 7d6b2f37-d8cf-429f-8b3f-f3d7df5d814b
   35faad0a-64da-476e-afcf-dd5cb5979569:
     name: 'Project URL'
     handle: projectUrl
@@ -233,6 +311,33 @@ fields:
       selectionLabel: ''
     contentColumnType: string
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+  4d99ca25-a97e-4f75-81d6-63b0de40e463:
+    name: Photo
+    handle: photo
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: '1'
+      defaultUploadLocationSource: 'volume:cd389634-6297-4886-ac1a-17f7ff2050c8'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:cd389634-6297-4886-ac1a-17f7ff2050c8'
+      singleUploadLocationSubpath: ''
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources: '*'
+      source: null
+      targetSiteId: null
+      viewMode: large
+      limit: '1'
+      selectionLabel: 'Select photo'
+      localizeRelations: false
+      validateRelatedElements: ''
+    contentColumnType: string
+    fieldGroup: 7d6b2f37-d8cf-429f-8b3f-f3d7df5d814b
   61355f38-d901-40a6-baff-aefa66152bdf:
     name: Video
     handle: video
@@ -280,6 +385,23 @@ fields:
       validateRelatedElements: ''
     contentColumnType: string
     fieldGroup: 6437dede-d24a-41aa-b80e-ca2691b7f29b
+  634f28ac-77c1-474c-ba4a-ffbd731f529d:
+    name: Pronouns
+    handle: pronouns
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: 'e.g. she / her / hers'
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: string
+    contentColumnType: string
+    fieldGroup: 7d6b2f37-d8cf-429f-8b3f-f3d7df5d814b
   646c04f6-c01d-49af-91e5-ff5d90479af4:
     name: Tags
     handle: tags
@@ -792,12 +914,17 @@ fields:
     searchable: true
     translationMethod: site
     translationKeyFormat: null
-    type: craft\fields\Matrix
+    type: craft\fields\Entries
     settings:
-      minBlocks: ''
-      maxBlocks: ''
-      contentTable: '{{%matrixcontent_people}}'
-      propagationMethod: all
+      sources:
+        - 'section:4b622926-f41b-4a90-af05-e9b6802d5276'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: ''
+      selectionLabel: 'Add people'
+      localizeRelations: false
+      validateRelatedElements: ''
     contentColumnType: string
     fieldGroup: 2155774e-82f7-4a6f-9357-0429f8ef8d05
   fe919db2-5aa8-4d45-800d-6d7d414c18c5:
@@ -2560,14 +2687,15 @@ matrixBlockTypes:
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:cd389634-6297-4886-ac1a-17f7ff2050c8'
           singleUploadLocationSubpath: ''
-          restrictFiles: ''
-          allowedKinds: null
+          restrictFiles: '1'
+          allowedKinds:
+            - image
           sources: '*'
           source: null
           targetSiteId: null
-          viewMode: list
+          viewMode: large
           limit: '1'
-          selectionLabel: ''
+          selectionLabel: 'Select photo'
           localizeRelations: false
           validateRelatedElements: ''
         contentColumnType: string
@@ -3122,16 +3250,25 @@ sections:
   4b622926-f41b-4a90-af05-e9b6802d5276:
     name: People
     handle: people
-    type: single
+    type: structure
     enableVersioning: true
     propagationMethod: all
+    siteSettings:
+      8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
+        enabledByDefault: true
+        hasUrls: false
+        uriFormat: ''
+        template: null
+    structure:
+      uid: 6956db8e-eaf3-49f4-bdbf-3434d0e7566b
+      maxLevels: 1
     entryTypes:
       ee4de29f-9db6-468d-8814-92442aa00639:
         name: Person
         handle: person
         hasTitleField: true
-        titleLabel: ''
-        titleFormat: null
+        titleLabel: Name
+        titleFormat: ''
         sortOrder: 1
         fieldLayouts:
           d0ff1bd9-ec94-4011-9d82-3812b8f3d484:
@@ -3140,15 +3277,24 @@ sections:
                 name: Main
                 sortOrder: 1
                 fields:
-                  36bce506-23ae-4d68-a0ba-6398a4053d03:
+                  10e541f6-8f8a-4989-ae4f-ba0a6c14fe7a:
+                    required: false
+                    sortOrder: 5
+                  15ec60bb-5dd4-4ba8-9439-d6d0d27852e9:
                     required: false
                     sortOrder: 2
-                  b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
-                    required: false
-                    sortOrder: 1
-                  f68bd23e-cdef-4a93-bc69-d799858a5e37:
+                  227385b6-8cac-440b-a21a-baab39260887:
                     required: false
                     sortOrder: 3
+                  3299e13b-c0fd-4177-a838-00ca6a466265:
+                    required: false
+                    sortOrder: 6
+                  4d99ca25-a97e-4f75-81d6-63b0de40e463:
+                    required: false
+                    sortOrder: 1
+                  634f28ac-77c1-474c-ba4a-ffbd731f529d:
+                    required: false
+                    sortOrder: 4
               -
                 name: SEO
                 sortOrder: 2
@@ -3159,12 +3305,6 @@ sections:
                   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
                     required: false
                     sortOrder: 1
-    siteSettings:
-      8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
-        enabledByDefault: true
-        hasUrls: true
-        uriFormat: people
-        template: people
   53bb7143-5489-4408-8bed-d0ae79b93aa2:
     name: Careers
     handle: careers
