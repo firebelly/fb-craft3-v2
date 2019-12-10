@@ -88,7 +88,7 @@
         {% endfor %}
         {% set colorPairs = colorPairsArray|join(' ') %}
       {% endif %}
-      <div id="{{ block.fontName }}" class="type-tester" data-font="{{ block.fontName }}" data-font-size="{{ block.startingFontSize }}" data-line-height="{{ block.lineHeight }}" data-min-size="{{ block.minFontSize }}" data-max-size="{{ block.maxFontSize }}" data-color-pairs="{{ colorPairs }}" data-svg-url="partials/_text-header{{ block.svgFontFile[0].getUrl() }}" data-initial-alignment="{{ block.initialAlignment }}">
+      <div id="{{ block.fontName }}" class="type-tester" data-font="{{ block.fontName }}" data-font-size="{{ block.startingFontSize }}" data-line-height="{{ block.lineHeight }}" data-min-size="{{ block.minFontSize }}" data-max-size="{{ block.maxFontSize }}" data-color-pairs="{{ colorPairs }}" data-svg-url="{{ block.svgFontFile[0].getUrl() }}" data-initial-alignment="{{ block.initialAlignment }}">
         <style>
           @font-face {
             font-family: '{{ block.fontName }}';
