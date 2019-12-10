@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576004561
+dateModified: 1576007150
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -565,19 +565,20 @@ fields:
     fieldGroup: 2155774e-82f7-4a6f-9357-0429f8ef8d05
     contentColumnType: text
   973f412f-a0f6-4f53-b5b9-847caeb87763:
-    name: 'Current Positions'
-    handle: currentPositions
+    name: 'Open Positions'
+    handle: openPositions
     instructions: ''
     searchable: true
-    translationMethod: none
+    translationMethod: site
     translationKeyFormat: null
     type: craft\fields\Matrix
     settings:
-      maxBlocks: null
-      localizeBlocks: false
-      contentTable: '{{%matrixcontent_currentpositions}}'
-    fieldGroup: 544f7f96-7297-4753-bfde-ed6ea24b1117
+      minBlocks: ''
+      maxBlocks: ''
+      contentTable: '{{%matrixcontent_openpositions}}'
+      propagationMethod: all
     contentColumnType: string
+    fieldGroup: 544f7f96-7297-4753-bfde-ed6ea24b1117
   986f2e8c-a1f5-441b-b4d6-bc731bd63706:
     name: Industry
     handle: industry
@@ -761,7 +762,12 @@ fields:
       maxRows: ''
       contentTable: '{{%stc_apprenticeshipprogram}}'
       propagationMethod: all
-      staticField: ''
+      staticField: '1'
+      columns:
+        07e125b8-faf1-4a21-b2e9-35492c4483e1:
+          width: ''
+        d1fe725b-a0fe-4932-a9cd-b20aeff2760d:
+          width: ''
       fieldLayout: row
       selectionLabel: ''
     contentColumnType: string
@@ -915,6 +921,27 @@ fields:
       propagationMethod: all
     contentColumnType: string
     fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
+  e9ddbb67-3421-4553-9f71-b1b5c342fd51:
+    name: 'Positions Outro'
+    handle: positionsOutro
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\redactor\Field
+    settings:
+      redactorConfig: Standard.json
+      purifierConfig: ''
+      cleanupHtml: true
+      removeInlineStyles: '1'
+      removeEmptyTags: '1'
+      removeNbsp: '1'
+      purifyHtml: '1'
+      columnType: text
+      availableVolumes: '*'
+      availableTransforms: '*'
+    contentColumnType: text
+    fieldGroup: 544f7f96-7297-4753-bfde-ed6ea24b1117
   e9fdb022-c8cc-4328-afb2-2063afdc4902:
     name: Clients
     handle: clients
@@ -2385,46 +2412,51 @@ matrixBlockTypes:
         fieldGroup: null
         contentColumnType: text
   b34f0c52-4e7b-4baf-b7e9-e5e0d652c952:
-    name: 'Current Position'
-    handle: currentPosition
-    sortOrder: 1
     field: 973f412f-a0f6-4f53-b5b9-847caeb87763
-    fieldLayouts:
-      84746df1-cd4e-4d08-80fb-83b6d13fbeb0:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-            fields:
-              cc61cc8f-1a70-4a5f-a078-ac910a598b26:
-                required: false
-                sortOrder: 2
-              dff78dca-1c40-46dd-9207-1430fc4816c2:
-                required: false
-                sortOrder: 1
+    name: Position
+    handle: position
+    sortOrder: 1
     fields:
+      bfffd827-7f67-48a7-9c2e-90ab56621d37:
+        name: Intro
+        handle: intro
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '2'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
       cc61cc8f-1a70-4a5f-a078-ac910a598b26:
-        name: 'Position Description'
-        handle: positionDescription
+        name: Description
+        handle: description
         instructions: ''
         searchable: true
         translationMethod: none
         translationKeyFormat: null
         type: craft\redactor\Field
         settings:
-          availableTransforms: '*'
-          purifyHtml: '1'
-          purifierConfig: ''
-          columnType: text
-          availableVolumes: '*'
           redactorConfig: ''
+          purifierConfig: ''
+          cleanupHtml: true
           removeInlineStyles: '1'
           removeEmptyTags: '1'
           removeNbsp: '1'
-        fieldGroup: null
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
         contentColumnType: text
+        fieldGroup: null
       dff78dca-1c40-46dd-9207-1430fc4816c2:
-        name: 'Position Title'
+        name: Title
         handle: positionTitle
         instructions: ''
         searchable: true
@@ -2433,12 +2465,29 @@ matrixBlockTypes:
         type: craft\fields\PlainText
         settings:
           placeholder: ''
+          code: ''
           multiline: ''
           initialRows: '4'
           charLimit: ''
           columnType: text
-        fieldGroup: null
         contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      84746df1-cd4e-4d08-80fb-83b6d13fbeb0:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              bfffd827-7f67-48a7-9c2e-90ab56621d37:
+                required: false
+                sortOrder: 2
+              cc61cc8f-1a70-4a5f-a078-ac910a598b26:
+                required: false
+                sortOrder: 3
+              dff78dca-1c40-46dd-9207-1430fc4816c2:
+                required: false
+                sortOrder: 1
   ce15a666-1d0d-4208-9577-a17c1187b7f2:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
     name: 'Padded Image / Video'
@@ -3390,13 +3439,16 @@ sections:
                     sortOrder: 4
                   c2b1d20c-3703-4b5c-911f-f7b0b0367bf9:
                     required: false
-                    sortOrder: 5
+                    sortOrder: 6
                   d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9:
                     required: false
                     sortOrder: 1
                   e5facf83-ead7-410b-96f6-761ac8ecb2d0:
                     required: false
                     sortOrder: 3
+                  e9ddbb67-3421-4553-9f71-b1b5c342fd51:
+                    required: false
+                    sortOrder: 5
     siteSettings:
       8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
         enabledByDefault: true
@@ -4020,20 +4072,24 @@ superTableBlockTypes:
     field: c2b1d20c-3703-4b5c-911f-f7b0b0367bf9
     fields:
       07e125b8-faf1-4a21-b2e9-35492c4483e1:
-        name: Headline
-        handle: headline
+        name: Intro
+        handle: intro
         instructions: ''
         searchable: true
         translationMethod: none
         translationKeyFormat: null
-        type: craft\fields\PlainText
+        type: craft\redactor\Field
         settings:
-          placeholder: ''
-          code: ''
-          multiline: '1'
-          initialRows: '4'
-          charLimit: ''
+          redactorConfig: Standard.json
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
           columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
         contentColumnType: text
         fieldGroup: null
       d1fe725b-a0fe-4932-a9cd-b20aeff2760d:
@@ -4045,7 +4101,7 @@ superTableBlockTypes:
         translationKeyFormat: null
         type: craft\redactor\Field
         settings:
-          redactorConfig: Simple.json
+          redactorConfig: Standard.json
           purifierConfig: ''
           cleanupHtml: true
           removeInlineStyles: '1'

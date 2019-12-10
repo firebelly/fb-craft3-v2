@@ -3,54 +3,59 @@
 {% set title = entry.title %}
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
-{% set pageHeaderImage = entry.pageHeaderImage.one() %}
 
 {% block content %}
 
-  <article class="clearfix">
-    {% if pageHeaderImage %}
-      {% set transformedImage = craft.imager.transformImage(pageHeaderImage, { width: 1800 }) %}
-      <div class="featured-image" style="background-image:url({{ transformedImage.getUrl() }});"></div>
-    {% else %}
-      <hr class="article-divider">
-    {% endif %}
+  {% include 'partials/_text-header' %}
 
-    <div class="inner-wrapper">
+  {% include 'partials/_staggered-image-header' with { header: entry.staggeredImageHeader } %}
 
-      <header class="section-title">
-        <h1>{{ entry.title }}</h1>
-      </header>
-      <section class="summary user-content">
-        {{ entry.body }}
+  {% include 'blocks/_page-blocks' %}
 
-        <div class="current-positions">
-        {% for block in entry.currentPositions.all() %}
-          <div class="position">
-            <h6>{{ block.positionTitle }}</h6>
-            {{ block.positionDescription }}
-          </div>
-        {% endfor %}
-        </div>
+  <div class="block-wrap container">
 
-        {% if entry.pastPositions %}
-        <div class="past-positions">
-          <hr class="article-divider">
-
-          <h1>Previous Openings</h1>
-
-          {% for block in entry.pastPositions.all() %}
-          <div class="position">
-            <h6>{{ block.positionTitle }}</h6>
-            {{ block.positionDescription }}
-          </div>
-          {% endfor %}
-
-        </div>
-        {% endif %}
-
-      </section>
-
+    <div class="section-header">
+      <h3>Open Positions</h3>
     </div>
 
-  </article>
+    {% if entry.openPositions|length %}
+      <div class="current-positions">
+      {% for block in entry.openPositions.all() %}
+        <div class="position">
+          <h2>{{ block.positionTitle }}</h2>
+          {{ block.positionDescription }}
+        </div>
+      {% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="block-text user-content fullWidthPaddedLeft">
+      <div class="-inner">
+        {% if entry.openPositions|length == 0 %}
+          <p>Nothing at the moment. ¯\_(ツ)_/¯</p>
+        {% endif %}
+
+        {{ entry.positionsOutro }}
+      </div>
+    </div>
+
+    <div class="section-header">
+      <h3>Open Positions</h3>
+    </div>
+
+    <div class="block-text user-content fullWidthPaddedLeft">
+      <div class="-inner">
+        {{ entry.apprenticeshipProgram.intro }}
+      </div>
+    </div>
+
+    <div class="block-text user-content fullWidthPaddedRight">
+      <div class="-inner">
+        {{ entry.apprenticeshipProgram.body }}
+      </div>
+    </div>
+
+
+  </div>
+
 {% endblock %}
