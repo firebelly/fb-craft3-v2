@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1575997424
+dateModified: 1576000145
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -81,22 +81,37 @@ fields:
   10e541f6-8f8a-4989-ae4f-ba0a6c14fe7a:
     name: 'Social Links'
     handle: socialLinks
-    instructions: ''
+    instructions: '`e.g. Twitter / @dawnhancock / https://twitter.com/dawnhancock`'
     searchable: true
     translationMethod: none
     translationKeyFormat: null
-    type: craft\redactor\Field
+    type: craft\fields\Table
     settings:
-      redactorConfig: Standard.json
-      purifierConfig: ''
-      cleanupHtml: true
-      removeInlineStyles: '1'
-      removeEmptyTags: '1'
-      removeNbsp: '1'
-      purifyHtml: '1'
+      addRowLabel: 'Add a row'
+      maxRows: ''
+      minRows: ''
+      columns:
+        col1:
+          heading: Type
+          handle: type
+          width: ''
+          type: singleline
+        col2:
+          heading: 'Link Text'
+          handle: text
+          width: ''
+          type: singleline
+        col3:
+          heading: URL
+          handle: url
+          width: ''
+          type: singleline
+      defaults:
+        -
+          col1: ''
+          col2: ''
+          col3: ''
       columnType: text
-      availableVolumes: '*'
-      availableTransforms: '*'
     contentColumnType: text
     fieldGroup: 7d6b2f37-d8cf-429f-8b3f-f3d7df5d814b
   15ec60bb-5dd4-4ba8-9439-d6d0d27852e9:

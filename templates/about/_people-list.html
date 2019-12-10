@@ -38,12 +38,17 @@
                 {{ person.title }}
               </h2>
               {% if person.personTitle %}
-                <h3>
-                  {{ person.personTitle }}
-                  {% if person.socialLinks %}
-                    {{ person.socialLinks }}
-                  {% endif %}
-                </h3>
+                <h3>{{ person.personTitle }}</h3>
+                {% if person.socialLinks|length %}
+                  <ul class="social">
+                  {% for link in person.socialLinks %}
+                    <li>
+                      {% if link.type %}{{ link.type }}:{% endif %}
+                      <a href="{{ link.url }}" rel="noopener noreferrer" target="_blank">{{ link.text }}</a>
+                    </li>
+                  {% endfor %}
+                {% endif %}
+                </ul>
               {% endif %}
             </div>
             <div class="-right">
