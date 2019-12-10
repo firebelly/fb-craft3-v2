@@ -167,21 +167,21 @@
       }
     }
   }
-
-  // Wrapper for half-width items
-  .block-wrap {
-    padding: 0 $padding-sm;
-    // max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-
-    @include media-md {
-      padding: 0 #{$padding-lg * 2};
-    }
-  }
-
 }
+
+// Wrapper for half-width items
+.block-wrap {
+  padding: 0 $padding-sm;
+  // max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include media-md {
+    padding: 0 #{$padding-lg * 2};
+  }
+}
+
 
 // Block spacer
 .block-spacer {

@@ -11,6 +11,8 @@
 
   {% include 'partials/_text-header' %}
 
+  {% include 'partials/_intro' %}
+
   <div class="container">
     <div class="services stat-table">
       <ul>
@@ -20,6 +22,29 @@
           <div class="stat-label col-md-1-2">{{ service.body }}</div>
         </li>
       {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="block-wrap our-clients">
+    <div class="section-header">
+      <h3>{{ entry.clients.headline }}</h3>
+    </div>
+    {% if entry.clients.body %}
+      <div class="block-text user-content fullWidthPaddedLeft">
+        <div class="-inner">
+          {{ entry.clients.body }}
+        </div>
+      </div>
+    {% endif %}
+    <div class="client-logos">
+      <ul>
+        {% for logo in entry.clients.logos %}
+          {% set treatedImage = craft.imager.transformImage(logo, { mode: 'fit', width: 260, height: 120 }) %}
+          {% if treatedImage %}
+            <li><img src="{{ treatedImage.getUrl() }}" alt="{{ logo.title }}"></li>
+          {% endif %}
+        {% endfor %}
       </ul>
     </div>
   </div>

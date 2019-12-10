@@ -1,0 +1,15 @@
+{% if entry.intro|length %}
+  {% set intro = entry.intro.one() %}
+  <div class="block-wrap intro">
+    <div class="section-header">
+      <h3>{{ intro.headline }}</h3>
+    </div>
+    {% if intro.body %}
+      <div class="block-text user-content fullWidthPaddedLeft">
+        <div class="-inner">
+          {{ intro.body }}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
