@@ -6,7 +6,7 @@
   {% switch block.type %}
 
     {% case "sectionHeader" %}
-      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
       {% include "blocks/_section-header" with { block: block } %}
 
     {% case "blockCarousel" %}
@@ -14,15 +14,15 @@
       {% include "blocks/_image-carousel" with { block: block } %}
 
     {% case "blockText" %}
-      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
       {% include "blocks/_text" with { block: block } %}
 
     {% case "blockPaddedImage" %}
-      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
       {% include "blocks/_padded-images" with { block: block } %}
 
   {% endswitch %}
 {% endfor %}
 
-{% if blockWrapped %}</div><!-- /.block-wrap -->{% endif %}
+{% if blockWrapped %}</div></div><!-- /.block-wrap -->{% endif %}
 </div><!-- /.block-color -->

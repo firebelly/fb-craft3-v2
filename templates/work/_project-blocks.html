@@ -51,13 +51,13 @@
           {% set customStyles = '' %}
           {% set textClass = '' %}
         {% endif %}
-        {% if blockWrapped %}</div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
+        {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
         </div><!-- /.block-color -->
         <div class="block-color color-{{ blockClass }}{{ textClass }}"{{ customStyles }}>
       {% endif %}
 
     {% case "sectionHeader" %}
-      <div class="section-header">
+      <div class="block-section-header">
         <h3>{{ block.headline }}</h3>
       </div>
 
@@ -66,7 +66,7 @@
 
 
     {% case "blockHeader" %}
-      {% if blockWrapped %}</div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
+      {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
       <div class="project-summary user-content">
         {% if block.numberHeader %}
           <h3 class="h1 number-header">{{ block.numberHeader }}</h3>
@@ -78,7 +78,7 @@
       </div>
 
     {% case "blockTypeSpecimen" %}
-      {% if blockWrapped %}</div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
+      {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
       {% set colorPairs = '' %}
       {% if block.colors | length %}
         {% set colorPairsArray = [] %}
@@ -119,7 +119,7 @@
       </div><!-- /.type-tester -->
 
     {% case "blockImages" %}
-      {% if blockWrapped %}</div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
+      {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
       <div class="fullbleed-images">
         {% if block.carousel %}
           <div class="flickity js-cursor">
@@ -162,7 +162,7 @@
       </div>
 
     {% case "blockImagesWithText" %}
-      {% if blockWrapped %}</div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
+      {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
       <div class="fullbleed-images">
         <div class="flickity js-cursor with-captions">
           {% for image in block.images.all() %}
@@ -186,23 +186,23 @@
       </div>
 
     {% case "blockHtml" %}
-      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
       <div class="block-html vimeo-block">{{ block.html }}</div>
 
     {% case "blockText" %}
-      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
       {% include "blocks/_text" with { block: block } %}
 
     {% case "blockPaddedImage" %}
-      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
       {% include "blocks/_padded-images" with { block: block, browserFrame: block.browserFrame } %}
 
     {% case "blockQuote" %}
-      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
       {% include "blocks/_quote" with { block: block } %}
 
     {% case "statTable" %}
-      {% if not blockWrapped %}<div class="block-wrap">{% set blockWrapped = true %}{% endif %}
+      {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
       {% include "blocks/_stat-table" with { block: block } %}
 
     {% default %}
@@ -211,5 +211,5 @@
   {% endswitch %}
 {% endfor %}
 
-{% if blockWrapped %}</div><!-- /.block-wrap -->{% endif %}
+{% if blockWrapped %}</div></div><!-- /.block-wrap -->{% endif %}
 </div><!-- /.block-color -->

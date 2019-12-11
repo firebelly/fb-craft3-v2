@@ -13,36 +13,43 @@
 
   {% include 'partials/_intro' %}
 
-  <div class="container">
-    <div class="services stat-table">
-      <ul>
-      {% for service in craft.categories.group('services').all() %}
-        <li class="grid bigclicky">
-          <h4 class="figure col-md-1-2">
-            <a href="{{ service.getUrl() }}">{{ service.title }}</a>
-          </h4>
-          <div class="label col-md-1-2">
-            {{ service.body }}
-            <svg class="icon icon-arrow" aria-hidden="true"><use xlink:href="#icon-arrow"/></svg>
-          </div>
-        </li>
-      {% endfor %}
-      </ul>
+  <div class="block-wrap">
+    <div class="-inner">
+      <div class="block-stat-table services-list">
+        <ul>
+        {% for service in craft.categories.group('services').all() %}
+          <li class="grid bigclicky">
+            <h4 class="figure col-md-1-2">
+              <a href="{{ service.getUrl() }}">{{ service.title }}</a>
+            </h4>
+            <div class="label col-md-1-2">
+              {{ service.body }}
+              <svg class="icon icon-arrow" aria-hidden="true"><use xlink:href="#icon-arrow"/></svg>
+            </div>
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
     </div>
   </div>
 
-  <div class="block-wrap our-clients">
-    <div class="section-header">
-      <h3>{{ entry.clients.headline }}</h3>
-    </div>
-    {% if entry.clients.body %}
-      <div class="block-text user-content fullWidthPaddedLeft">
-        <div class="-inner">
-          {{ entry.clients.body }}
+  <div class="our-clients">
+    <div class="block-wrap">
+      <div class="-inner">
+        <div class="block-section-header">
+          <h3>{{ entry.clients.headline }}</h3>
         </div>
+        {% if entry.clients.body %}
+          <div class="block-text user-content fullWidthPaddedLeft">
+            <div class="-inner">
+              {{ entry.clients.body }}
+            </div>
+          </div>
+        {% endif %}
       </div>
-    {% endif %}
-    <div class="client-logos">
+    </div>
+
+    <div class="container client-logos">
       <ul>
         {% for logo in entry.clients.logos %}
           {% set treatedImage = craft.imager.transformImage(logo, { mode: 'fit', width: 260, height: 120 }) %}
@@ -54,4 +61,23 @@
     </div>
   </div>
 
+  {% if entry.industries|length %}
+    <div class="industries">
+      <div class="block-wrap">
+        <div class="-inner">
+          <div class="block-section-header">
+            <h3>Industries</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <ul>
+          {% for industry in entry.industries %}
+            <li>{{ industry.industry.one().title }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
 {% endblock %}
