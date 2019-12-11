@@ -1,6 +1,6 @@
 // Common styles
 
-.section-label {
+h4.lined {
   @include small-titles;
   margin: 0;
   z-index: 1;
@@ -8,14 +8,6 @@
   pointer-events: none;
   padding: beat(1) 0 beat(2);
   border-top: 1px solid color('black');
-}
-
-.section-header {
-  width: 100%;
-  border-top: 1px solid color('black');
-  h3 {
-    @include small-titles;
-  }
 }
 
 .section-cta {
@@ -30,7 +22,7 @@
   }
 }
 
-// Project Grid
+// Thumbnail grid (project/ideas)
 .thumbnail-grid {
   .project {
     .project-image {
@@ -38,8 +30,9 @@
         vertical-align: top;
       }
     }
+
     .services {
-      @extend .semantic-list;
+      @extend %semantic-list;
       margin-top: 16px;
       li {
         @include small-titles;
@@ -47,9 +40,19 @@
       }
     }
   }
+  // Project/ideas article
+  article {
+    margin-bottom: beat(3);
+
+    @include media-md {
+      margin-bottom: beat(8);
+    }
+  }
+
   .category {
     @include small-titles;
   }
+
   h3 {
     @include p1;
     margin-top: 24px;
