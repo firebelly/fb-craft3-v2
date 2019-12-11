@@ -51,7 +51,7 @@
 
     <div class="container client-logos">
       <ul>
-        {% for logo in entry.clients.logos %}
+        {% for logo in entry.clients.logos.all() %}
           {% set treatedImage = craft.imager.transformImage(logo, { mode: 'fit', width: 260, height: 120 }) %}
           {% if treatedImage %}
             <li><img src="{{ treatedImage.getUrl() }}" alt="{{ logo.title }}"></li>
@@ -73,7 +73,7 @@
 
       <div class="container">
         <ul>
-          {% for industry in entry.industries %}
+          {% for industry in entry.industries.all() %}
             <li>{{ industry.industry.one().title }}</li>
           {% endfor %}
         </ul>

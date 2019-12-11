@@ -36,7 +36,7 @@
 
   <div class="container">
     <div class="thumbnail-grid grid spaced">
-      {% for projectEntry in projectEntries %}
+      {% for projectEntry in projectEntries.all() %}
         {% include 'work/_article' with { entry: projectEntry } %}
       {% endfor %}
     </div>
