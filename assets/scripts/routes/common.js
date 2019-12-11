@@ -1,8 +1,8 @@
 import jQueryBridget from 'jquery-bridget';
 import Flickity from 'flickity/dist/flickity.pkgd.js';
+require('flickity-imagesloaded');
 import Waypoints from 'waypoints/lib/jquery.waypoints.js';
 import Lazysizes from 'lazysizes';
-require('flickity-imagesloaded');
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import * as p5 from 'p5';
 import fitvids from 'fitvids';
@@ -10,9 +10,10 @@ import fitvids from 'fitvids';
 import appState from '../util/appState';
 
 export default {
+  // JavaScript to be fired on all pages
   init() {
     // Set up libraries to be used with jQuery
-    jQueryBridget( 'flickity', Flickity, $ );
+    jQueryBridget('flickity', Flickity, $);
 
     const $document = $(document);
     const $body = $('body');
@@ -21,9 +22,7 @@ export default {
     const pageAt = window.location.pathname;
     const $siteNav = $('#site-nav');
 
-    let transitionElements = [],
-        resizeTimer,
-        $customCursor,
+    let $customCursor,
         breakpointIndicatorString,
         breakpoint_xl = false,
         breakpoint_nav = false,
@@ -33,34 +32,34 @@ export default {
         breakpoint_xs = false,
         players = [];
 
-    transitionElements = [$siteNav];
-
-    // JavaScript to be fired on all pages
     _initCustomCursor();
+    _initBigClicky();
     _initSmoothScroll();
     _initActiveToggle();
-    _initHoverPairs();
     _initSiteNav();
     _initBlobs();
     _initFlickity();
     _initVideos();
 
-    // Bigclicky™
-    $document.on('click', '.bigclicky', function(e) {
-      if (!$(e.target).is('a')) {
-        e.preventDefault();
-        var link = $(this).find('a:first');
-        var href = link.attr('href');
-        if (href) {
-          if (e.metaKey || link.attr('target')) {
-            window.open(href);
-          } else {
-            location.href = href;
+    // Bigclicky™ (large clickable area that pulls first a[href] as URL)
+    function _initBigClicky() {
+      $document.on('click', '.bigclicky', function(e) {
+        if (!$(e.target).is('a')) {
+          e.preventDefault();
+          var link = $(this).find('a:first');
+          var href = link.attr('href');
+          if (href) {
+            if (e.metaKey || link.attr('target')) {
+              window.open(href);
+            } else {
+              location.href = href;
+            }
           }
         }
-      }
-    });
+      });
+    }
 
+    // Big ol' juicy custom cursors for your pleasure
     function _initCustomCursor() {
       if (!$('.js-cursor').length) {
         return;
@@ -70,48 +69,52 @@ export default {
 
       var lastMousePosition = { x: 0, y: 0 };
 
-        // Update the mouse position
-        function onMouseMove(evt) {
-          lastMousePosition.x = evt.clientX;
-          lastMousePosition.y = evt.clientY;
-          requestAnimationFrame(update);
-        }
+      // Update the mouse position
+      function onMouseMove(evt) {
+        lastMousePosition.x = evt.clientX;
+        lastMousePosition.y = evt.clientY;
+        requestAnimationFrame(update);
+      }
 
-        function update() {
-          // Get the element we're hovered on
-          var hoveredEl = document.elementFromPoint(lastMousePosition.x, lastMousePosition.y);
+      function update() {
+        // Get the element we're hovered on
+        var hoveredEl = document.elementFromPoint(lastMousePosition.x, lastMousePosition.y);
+        console.log(hoveredEl);
 
-          // Check if the element or any of its parents have a .js-cursor class
-          if ($(hoveredEl).parents('.js-cursor').length || $(hoveredEl).hasClass('js-cursor')) {
-            $body.addClass('-cursor-active');
+        // Check if the element or any of its parents have a .js-cursor class
+        if ($(hoveredEl).parents('.js-cursor').length || $(hoveredEl).hasClass('js-cursor')) {
+          console.log('az');
+          $body.addClass('-cursor-active');
 
-            if ($(hoveredEl).is('.previous')) {
-              $customCursor.addClass('previous');
-            } else {
-              $customCursor.removeClass('previous');
-            }
-
-            if ($(hoveredEl).is('.next')) {
-              $customCursor.addClass('next');
-            } else {
-              $customCursor.removeClass('next');
-            }
+          if ($(hoveredEl).is('.previous')) {
+            $customCursor.addClass('previous');
           } else {
-            $body.removeClass('-cursor-active');
+            $customCursor.removeClass('previous');
           }
 
-          // now draw object at lastMousePosition
-          $customCursor.css({
-            'transform': 'translate3d(' + lastMousePosition.x + 'px, ' + lastMousePosition.y + 'px, 0)'
-          });
+          if ($(hoveredEl).is('.next')) {
+            $customCursor.addClass('next');
+          } else {
+            $customCursor.removeClass('next');
+          }
+        } else {
+          console.log('bz');
+          $body.removeClass('-cursor-active');
         }
 
-        // Listen for mouse movement
-        document.addEventListener('mousemove', onMouseMove, false);
-        // Make sure a user is still hovered on an element when they start scrolling
-        document.addEventListener('scroll', update, false);
+        // now draw object at lastMousePosition
+        $customCursor.css({
+          'transform': 'translate3d(' + lastMousePosition.x + 'px, ' + lastMousePosition.y + 'px, 0)'
+        });
+      }
+
+      // Listen for mouse movement
+      $document.on('mousemove', onMouseMove);
+      // Make sure a user is still hovered on an element when they start scrolling
+      $document.on('scroll', update);
     }
 
+    // Smooth scroll to an element
     function _scrollBody(element, offset, duration, delay) {
       var headerOffset = $siteHeader.outerHeight();
       if (typeof offset === "undefined" || offset === null) {
@@ -132,27 +135,6 @@ export default {
           }
         }, "easeOutSine");
       }
-    }
-
-    function _disableScroll() {
-      var st = $(window).scrollTop();
-      $body.attr('data-st', st);
-      $body.addClass('no-scroll');
-      $body.css('top', -st);
-    }
-
-    function _enableScroll() {
-      $body.removeClass('no-scroll');
-      $body.css('top', '');
-      $(window).scrollTop($body.attr('data-st'));
-      $body.attr('data-st', '');
-    }
-
-    function _getUrlParameter(name) {
-      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-      var results = regex.exec(location.search);
-      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
     function _initSmoothScroll() {
@@ -177,21 +159,8 @@ export default {
       });
     }
 
-    function _initHoverPairs() {
-      $(document).on('mouseenter', '[data-hover-pair]', function(e) {
-        var hoverPair = $(this).attr('data-hover-pair');
-        $('[data-hover-pair="'+hoverPair+'"]').addClass('-hover');
-      }).on('mouseleave', '[data-hover-pair]', function(e) {
-        var hoverPair = $(this).attr('data-hover-pair');
-        $('[data-hover-pair="'+hoverPair+'"]').removeClass('-hover');
-      });
-    }
-
-
     function _initSiteNav() {
-
       $(document).on('click', '#nav-open', _openNav);
-
       $(document).on('click', '#nav-close', _closeNav);
     }
 
@@ -210,6 +179,7 @@ export default {
       appState.navOpen = false;
     }
 
+    // Superfluous flesh!
     function _initBlobs() {
       if (!$body.is('.with-blobs')) {
         return;
@@ -292,6 +262,7 @@ export default {
       new p5(sketch);
     }
 
+    // Carousels
     function _initFlickity() {
       $('.flickity').flickity({
         pageDots: false,
@@ -300,8 +271,8 @@ export default {
       });
     }
 
+    // Responsive videos, Vimeo API
     function _initVideos() {
-      // Responsive videos
       fitvids();
 
       // Init vimeo videos using js api
