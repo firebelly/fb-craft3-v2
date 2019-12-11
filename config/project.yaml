@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576020013
+dateModified: 1576094917
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -436,6 +436,27 @@ fields:
       columnType: string
     fieldGroup: 9ace857e-959b-4a74-b0e0-42873080c846
     contentColumnType: string
+  8567d77b-1731-470e-8a5d-d998a26562f0:
+    name: Industries
+    handle: industries
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_industries}}'
+      propagationMethod: all
+      staticField: ''
+      columns:
+        319e6046-72bf-4cae-9e40-cf33df8cc47a:
+          width: ''
+      fieldLayout: row
+      selectionLabel: 'Add industry'
+    contentColumnType: string
+    fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
     name: 'SEO Description'
     handle: seoDescription
@@ -3378,6 +3399,9 @@ sections:
                 name: Main
                 sortOrder: 1
                 fields:
+                  8567d77b-1731-470e-8a5d-d998a26562f0:
+                    required: false
+                    sortOrder: 4
                   c0291894-b365-432f-a00c-8368fce83e0b:
                     required: false
                     sortOrder: 2
@@ -4321,6 +4345,40 @@ superTableBlockTypes:
               ca8ba7dd-574a-45c4-8248-6ff797a9e22e:
                 required: false
                 sortOrder: 2
+  f517ba73-58da-47cd-8a85-d6fa6f13a082:
+    field: 8567d77b-1731-470e-8a5d-d998a26562f0
+    fields:
+      319e6046-72bf-4cae-9e40-cf33df8cc47a:
+        name: Industry
+        handle: industry
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: elivz\singlecat\fields\SingleCatField
+        settings:
+          branchLimit: 1
+          showBlankOption: ''
+          sources: '*'
+          source: 'group:bf01aebc-0872-497d-b688-0845cd48cc20'
+          targetSiteId: null
+          viewMode: null
+          limit: null
+          selectionLabel: null
+          localizeRelations: false
+          validateRelatedElements: false
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      2bd9e4a5-a4c6-4b6e-bec0-c24db249411d:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              319e6046-72bf-4cae-9e40-cf33df8cc47a:
+                required: false
+                sortOrder: 1
 system:
   edition: solo
   live: true
