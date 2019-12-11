@@ -1,13 +1,6 @@
 // Homepage
 
 body.homepage {
-  #cursor {
-    width: 112px;
-    height: 151px;
-    mix-blend-mode: exclusion;
-    background: url('../images/view-cursor.png');
-  }
-
   // Recent Work
   .recent-work {
     padding-bottom: 255px;
@@ -41,6 +34,7 @@ body.homepage {
     }
 
     .section-cta {
+      width: 100%;
       margin-top: $padding-md;
       @include media-md {
         margin-top: $padding-lg;
