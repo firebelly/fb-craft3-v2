@@ -1,0 +1,133 @@
+// Carousels
+.flickity {
+  position: relative;
+  .flickity-prev-next-button {
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    display: none;
+    transform: none;
+    background: none;
+    border-radius: 0;
+    cursor: none!important;
+    svg {
+      display: none;
+    }
+  }
+  .slide {
+    margin-right: 25px;
+    &.landscape {
+      width: 80%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    &.portrait {
+      img {
+        width: auto;
+        height: 100%;
+        max-height: 400px;
+      }
+    }
+  }
+
+  // With Captions
+  &.with-captions {
+    figure.slide {
+      height: 0;
+      width: 80%;
+      margin-top: 0;
+      margin-left: 0;
+      margin-bottom: 0;
+      overflow: hidden;
+      padding-bottom: 120%;
+      background-size: cover;
+      background-position: center center;
+
+      @include media-md {
+        padding-bottom: 60%;
+      }
+
+      @include min-screen(1000px) {
+        padding-bottom: 45%;
+      }
+    }
+    .image-text {
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      position: absolute;
+      align-items: flex-end;
+      &::before {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: '';
+        position: absolute;
+        background-color: rgba(color('black'),.5);
+      }
+
+      > .-inner {
+        position: relative;
+        padding: 25px;
+
+        @include media-md {
+          padding: beat(4);
+        }
+
+        @include media-lg {
+          width: 50%;
+          padding-right: 0;
+        }
+      }
+
+      .caption-label,
+      .caption {
+        color: color('white');
+      }
+
+      .caption-label {
+        font-weight: 700;
+        margin-bottom: 13px;
+      }
+
+      .caption {
+        font-size: 16px;
+        line-height: 24px;
+
+        @include media-md {
+          font-size: 24px;
+          line-height: 32px;
+        }
+      }
+    }
+  }
+
+  // Desktop styles
+  @include media-md {
+    .flickity-prev-next-button {
+      display: block;
+    }
+    .slide {
+      margin-right: beat(4);
+      &.portrait {
+        img {
+          max-height: 700px;
+        }
+      }
+    }
+  }
+  @include min-screen(1600px) {
+    .slide.portrait {
+      img {
+        max-height: 900px;
+      }
+    }
+  }
+}
