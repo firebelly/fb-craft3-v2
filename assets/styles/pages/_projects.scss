@@ -21,6 +21,11 @@ body.project {
       @include small-titles;
     }
 
+    // Desktop styles
+    @include media-md {
+      padding: beat(7) 0;
+    }
+
     .project-meta {
       h3 {
         margin: 0 0 16px;
@@ -29,7 +34,7 @@ body.project {
         margin: 0 0 24px;
       }
       ul {
-        @extend .semantic-list;
+        @extend %semantic-list;
         margin: 0 0 24px;
 
         li {
@@ -52,11 +57,6 @@ body.project {
           margin-top: 0;
         }
       }
-    }
-
-    // Desktop styles
-    @include media-md {
-      padding: beat(7) 0;
     }
   }
 
