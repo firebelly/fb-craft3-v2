@@ -33,10 +33,13 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
 }
 
 // Semantic List
-.semantic-list {
+%semantic-list {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+.semantic-list {
+  @extend %semantic-list;
 }
 
 // Button reset
