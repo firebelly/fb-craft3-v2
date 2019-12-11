@@ -1,35 +1,10 @@
 // User Content
 .user-content {
-  .h1,
-  h1 {
-    color: color('black');
-    font: 48px/1.145833333em $font-serif;
-  }
-  h2 {
-    color: color('black');
-  }
-  h3 {
-    margin: 0 0 .5em;
-  }
 
-  h3.heading-smallcaps {
-    @include small-titles;
-    font-weight: 700;
-    margin-bottom: 0;
-    + p {
-      margin-top: 24px;
-
-      &.p2 {
-        margin-top: 16px;
-      }
-    }
-  }
-
-  p {
-    @include p1;
-    margin: 0 0 1em;
-    &:last-of-type {
-      margin: 0;
+  * + * {
+    margin-top: beat(0.5);
+    @include media-md {
+      margin-top: beat(1);
     }
   }
 
@@ -37,18 +12,9 @@
     margin: $padding-lg auto;
     max-width: 800px;
     text-align: center;
-    &, p {
+    &,
+    p {
       @include p1;
-      color: color('black');
-    }
-    a {
-      &:hover, &:focus {
-        color: color('black');
-      }
-    }
-
-    @include media-md {
-      font-size: 32px;
     }
   }
 
@@ -72,9 +38,9 @@
     font-weight: bold;
   }
 
-  strong em, em strong {
+  strong em,
+  em strong {
     font-style: italic;
     font-weight: bold;
   }
-
 }

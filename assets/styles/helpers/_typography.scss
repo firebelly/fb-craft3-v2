@@ -201,3 +201,54 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
     @include paragraph-style(12, 24, 0.075em, bold, uppercase);
   }
 }
+
+.h1,
+h1 {
+  @include h1-sans;
+  font: 48px/1.145833333em $font-serif;
+  margin: 0;
+}
+h2 {
+  @include h2-sans;
+  margin: 0;
+}
+h2.heading-large {
+  color: inherit;
+  font: 52px/1.07 $font-serif, sans-serif;
+}
+
+h3 {
+  @include h3-sans;
+  margin: 0;
+}
+h3.heading-small {
+  font: bold 16px/1 $font-sans, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  text-align: left;
+  font-weight: bold;
+}
+
+h4.heading-smallcaps,
+h3.heading-smallcaps {
+  @include small-titles;
+  font-weight: 700;
+}
+h3.heading-medium {
+  color: inherit;
+  font: 30px/32px $font-serif, sans-serif;
+}
+
+p {
+  @include p1;
+  margin: 0;
+
+  &.p2 {
+    @include p2;
+  }
+}
+
+ul,
+ol {
+	@include p2;
+}
