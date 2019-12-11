@@ -1,4 +1,4 @@
-{% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? "_ajax-layout" : "_layout" %}
+{% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? '_ajax-layout' : '_layout' %}
 
 {% if entry is not defined %}
   {% set entry = craft.entries.section('workIndex').one() %}
@@ -35,13 +35,11 @@
   {% include 'partials/_text-header' %}
 
   <div class="container">
-
     <div class="thumbnail-grid grid spaced">
       {% for projectEntry in projectEntries %}
         {% include 'work/_article' with { entry: projectEntry } %}
       {% endfor %}
     </div>
-
   </div>
 
 {% endblock %}
