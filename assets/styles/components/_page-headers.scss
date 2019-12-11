@@ -47,6 +47,8 @@ header.text-header {
 
 // Full viewport image/video headers (projects, thoughts)
 header.image-header {
+  overflow: hidden;
+
   .header-title {
     position: relative;
     color: color('white');

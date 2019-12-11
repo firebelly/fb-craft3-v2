@@ -112,7 +112,7 @@
 
   .social-links,
   .footer-nav ul {
-    @extend .semantic-list;
+    @extend %semantic-list;
 
     li {
       @include p2;
@@ -133,7 +133,7 @@
 
   ul {
     @include clearfix;
-    @extend .semantic-list;
+    @extend %semantic-list;
     margin: $padding-lg 0 0 0;
 
     &:after {
