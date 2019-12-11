@@ -101,7 +101,7 @@ a.button {
 }
 
 body.-cursor-active {
-  // cursor: none;
+  cursor: none;
   #cursor {
     display: block;
   }
@@ -109,8 +109,6 @@ body.-cursor-active {
 #cursor {
   top: 0;
   left: 0;
-  width: 100px;
-  height: 100px;
   z-index: 1000;
   display: none;
   position: fixed;
@@ -118,12 +116,22 @@ body.-cursor-active {
   margin-left: -50px;
   pointer-events: none;
 
+  // Default view cursor
+  width: 112px;
+  height: 151px;
+  mix-blend-mode: exclusion;
+  background: url('../images/view-cursor.png');
+
   &.previous {
+    width: 100px;
+    height: 100px;
     mix-blend-mode: difference;
     background-image: url('/assets/dist/images/left-arrow.svg');
     background-size: 100px 100px;
   }
   &.next {
+    width: 100px;
+    height: 100px;
     mix-blend-mode: difference;
     background-image: url('/assets/dist/images/right-arrow.svg');
     background-size: 100px 100px;
