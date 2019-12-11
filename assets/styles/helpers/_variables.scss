@@ -34,3 +34,7 @@ $breakpoint-md: 768px;
 $breakpoint-lg: 1200px;
 $breakpoint-nav: 1100px;
 $breakpoint-xl: 1400px;
+
+// Custom cubic easings
+$cubic-ease1: cubic-bezier(0.77, 0, 0.175, 1);
+$cubic-ease2: cubic-bezier(0.165, 0.84, 0.44, 1);
