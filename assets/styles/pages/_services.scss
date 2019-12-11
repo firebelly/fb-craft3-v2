@@ -3,7 +3,7 @@
 #services-page {
 }
 
-.services {
+.services-list {
   li {
     .label {
       padding-right: 150px;
@@ -15,6 +15,39 @@
       position: absolute;
       right: 0;
       bottom: 40px;
+    }
+  }
+}
+
+.industries,
+.client-logos {
+  ul {
+    @extend %semantic-list;
+    padding: beat(1) 0;
+    li {
+      display: inline-block;
+    }
+
+    @include media-md {
+      padding: beat(4) 0;
+    }
+  }
+}
+
+.industries {
+  li {
+    display: block;
+    padding: beat(1) 0;
+  }
+  @include media-md {
+    padding: beat(14) 0;
+    ul {
+      padding: beat(8) 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        flex: 0 1 33%;
+      }
     }
   }
 }
