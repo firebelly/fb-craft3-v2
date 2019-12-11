@@ -17,9 +17,14 @@
     <div class="services stat-table">
       <ul>
       {% for service in craft.categories.group('services').all() %}
-        <li class="grid">
-          <h4 class="stat-figure col-md-1-2">{{ service.title }}</h4>
-          <div class="stat-label col-md-1-2">{{ service.body }}</div>
+        <li class="grid bigclicky">
+          <h4 class="figure col-md-1-2">
+            <a href="{{ service.getUrl() }}">{{ service.title }}</a>
+          </h4>
+          <div class="label col-md-1-2">
+            {{ service.body }}
+            <svg class="icon icon-arrow" aria-hidden="true"><use xlink:href="#icon-arrow"/></svg>
+          </div>
         </li>
       {% endfor %}
       </ul>

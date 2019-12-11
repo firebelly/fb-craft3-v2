@@ -1,0 +1,20 @@
+// Services
+
+#services-page {
+}
+
+.services {
+  li {
+    .label {
+      padding-right: 150px;
+      position: relative;
+    }
+    svg {
+      width: 53px;
+      height: 22px;
+      position: absolute;
+      right: 0;
+      bottom: 40px;
+    }
+  }
+}

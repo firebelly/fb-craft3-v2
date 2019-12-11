@@ -14,6 +14,7 @@ export default {
     // Set up libraries to be used with jQuery
     jQueryBridget( 'flickity', Flickity, $ );
 
+    const $document = $(document);
     const $body = $('body');
     const $window = $(window);
     const $html = $('html');
@@ -43,6 +44,22 @@ export default {
     _initBlobs();
     _initFlickity();
     _initVideos();
+
+    // Bigclicky™
+    $document.on('click', '.bigclicky', function(e) {
+      if (!$(e.target).is('a')) {
+        e.preventDefault();
+        var link = $(this).find('a:first');
+        var href = link.attr('href');
+        if (href) {
+          if (e.metaKey || link.attr('target')) {
+            window.open(href);
+          } else {
+            location.href = href;
+          }
+        }
+      }
+    });
 
     function _initCustomCursor() {
       if (!$('.js-cursor').length) {
