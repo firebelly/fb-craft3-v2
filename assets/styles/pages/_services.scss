@@ -19,6 +19,13 @@
   }
 }
 
+.our-clients {
+  padding: beat(1) 0;
+  @include media-md {
+    padding: beat(8) 0;
+  }
+}
+
 .industries,
 .client-logos {
   ul {

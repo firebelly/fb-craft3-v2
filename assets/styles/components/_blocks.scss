@@ -1,3 +1,6 @@
+// Project/page blocks
+
+// Color changes
 .block-color {
   &.color-white {
     background: color('white');
@@ -63,6 +66,7 @@
       padding: 0 #{$padding-md / 2};
     }
 
+    .block-stat-table,
     .block-text,
     .block-image {
       padding: beat(4) #{$padding-md / 2};
@@ -77,10 +81,6 @@
 // Lists with giant header text at left + body text at right (misgnomer of the year, I apologize)
 .block-stat-table {
   width: 100%;
-
-  @include media-md {
-    padding: beat(4) 0;
-  }
 
   ul {
     @extend %semantic-list;
@@ -97,6 +97,17 @@
       p {
         @include p2;
         margin: 0 0 6px;
+      }
+    }
+  }
+
+  @include media-md {
+    li {
+      .figure {
+        padding-right: #{$padding-md / 2};
+      }
+      .label {
+        padding-left: #{$padding-md / 2};
       }
     }
   }
