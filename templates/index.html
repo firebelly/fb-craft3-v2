@@ -14,9 +14,9 @@
   {% set recentWork = entry.recentWork.all() %}
 
   {% if recentWork|length %}
-    <div id="recent-work" class="recent-work section">
+    <div class="recent-work section">
       <div class="container">
-        <h5 class="section-label">Recent</h5>
+        <h4 class="lined">Recent</h4>
         <div class="thumbnail-grid grid spaced">
           {% for project in recentWork %}
             <div class="project col-md-1-2">
@@ -44,42 +44,46 @@
   {% endif %}
 
   {% if entry.featuredServices|length %}
-    <div id="what-we-do" class="what-we-do section">
-      <div class="container">
-        <h5 class="section-label">What we do</h5>
+    <div class="what-we-do section">
+      <div class="block-wrap">
+        <div class="-inner">
+          <div class="block-section-header">
+            <h3>What We Do</h3>
+          </div>
 
-        <div class="services stat-table">
-          <ul>
-          {% for service in entry.featuredServices.all() %}
-            <li class="grid">
-              <h4 class="figure col-md-1-2">{{ service.serviceName }}</h4>
-              <div class="label col-md-1-2"><p>{{ service.serviceDescription }}</p></div>
-            </li>
-          {% endfor %}
-          </ul>
-        </div>
+          <div class="block-stat-table">
+            <ul>
+            {% for service in entry.featuredServices.all() %}
+              <li class="grid">
+                <h4 class="figure col-md-1-2">{{ service.serviceName }}</h4>
+                <div class="label col-md-1-2"><p>{{ service.serviceDescription }}</p></div>
+              </li>
+            {% endfor %}
+            </ul>
+          </div>
 
-        <div class="section-cta">
-          <div class="grid align-right">
-            <div class="col-md-1-2 align-left">
-              <a href="/services" class="button -black">All Services</a>
+          <div class="section-cta">
+            <div class="grid align-right">
+              <div class="col-md-1-2 align-left">
+                <a href="/services" class="button -black">All Services</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    {% endif %}
-  </div>
+      </div><!-- /.block-wrap -->
+    </div><!-- /.what-we-do -->
+  {% endif %}
 
   {% set featuredWork = entry.featuredWork.all() %}
 
   {% if featuredWork|length %}
-    <div id="featured-work" class="featured-work section">
+    <div class="featured-work section">
       <div class="container">
         <div class="thumbnail-grid grid spaced">
           {% for workBlock in featuredWork %}
             {% set featuredEntry = workBlock.featuredEntry.one() %}
             {% if featuredEntry %}
-              <div class="project col-md-1-2 orientation-{{ workBlock.thumbnailOrientation }}">
+              <article class="project col-md-1-2 orientation-{{ workBlock.thumbnailOrientation }}">
                 <a class="-inner js-cursor" href="{{ featuredEntry.getUrl() }}">
                   {% if featuredEntry.altImage|length %}
                     {% set entryImage = featuredEntry.altImage.one() %}
@@ -104,7 +108,7 @@
                   {% endif %}
                   <h3 class="project-title">{{ featuredEntry.title }}{% if (featuredEntry.subtitle) %}: {{ featuredEntry.subtitle }}{% endif %}</h3>
                 </a>
-              </div>
+              </article>
             {% endif %}
           {% endfor %}
         </div>

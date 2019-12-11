@@ -16,7 +16,7 @@
 <article class="project {{ entry.thumbnailOrientation == 'fullWidth' ? 'md-full' : 'col-md-1-2' }}">
 
   {% if transformedImage is defined %}
-    <a class="-inner js-cursor" href="{{ entry.getUrl() }}">
+    <a class="-inner js-cursor" href="{{ entry.getUrl() }}" data-cursor-class="view">
       <div class="project-image">
         <img src="{{ transformedImage.getUrl() }}" alt="{{ mainImage.title }}">
       </div>

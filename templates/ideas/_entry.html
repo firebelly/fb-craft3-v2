@@ -8,19 +8,23 @@
 {% endif %}
 
 {% block content %}
-  <article class="news-article listing clearfix">
+
+  <article class="ideas clearfix">
 
     {% include 'partials/_image-header' with { image: headerImage } %}
 
-    <div class="container">
-      <header class="date">
-        <h4>{{ entry.postDate.format('M d, Y') }}{% if entry.manualAuthor %} &ndash; by {{ entry.manualAuthor }}{% endif %}</h4>
-      </header>
+    <div class="ideas-single">
+      <div class="container">
+        <h4 class="lined">{{ entry.postDate.format('M d, Y') }}{% if entry.manualAuthor %} &ndash; by {{ entry.manualAuthor }}{% endif %}</h4>
 
-      <div class="user-content">
-        {{ entry.body }}
+        <div class="user-content">
+          {{ entry.body }}
+        </div>
       </div>
     </div>
+
   </article>
+
   {% include "partials/_pagination" with {'paginationSection': 'ideas', 'postName': 'Post'} %}
+
 {% endblock %}
