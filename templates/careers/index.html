@@ -12,50 +12,51 @@
 
   {% include 'blocks/_page-blocks' %}
 
-  <div class="block-wrap container">
+  <div class="block-wrap">
+    <div class="-inner">
 
-    <div class="section-header">
-      <h3>Open Positions</h3>
-    </div>
+      <div class="block-section-header">
+        <h3>Open Positions</h3>
+      </div>
 
-    {% if entry.openPositions|length %}
-      <div class="current-positions">
-      {% for block in entry.openPositions.all() %}
-        <div class="position">
-          <h2>{{ block.positionTitle }}</h2>
-          {{ block.positionDescription }}
+      {% if entry.openPositions|length %}
+        <div class="current-positions">
+        {% for block in entry.openPositions.all() %}
+          <div class="position">
+            <h2>{{ block.positionTitle }}</h2>
+            {{ block.positionDescription }}
+          </div>
+        {% endfor %}
         </div>
-      {% endfor %}
+      {% endif %}
+
+      <div class="block-text user-content fullWidthPaddedLeft">
+        <div class="-inner">
+          {% if entry.openPositions|length == 0 %}
+            <p>Nothing at the moment. ¯\_(ツ)_/¯</p>
+          {% endif %}
+
+          {{ entry.positionsOutro }}
+        </div>
       </div>
-    {% endif %}
 
-    <div class="block-text user-content fullWidthPaddedLeft">
-      <div class="-inner">
-        {% if entry.openPositions|length == 0 %}
-          <p>Nothing at the moment. ¯\_(ツ)_/¯</p>
-        {% endif %}
-
-        {{ entry.positionsOutro }}
+      <div class="block-section-header">
+        <h3>Apprenticeship Program</h3>
       </div>
-    </div>
 
-    <div class="section-header">
-      <h3>Apprenticeship Program</h3>
-    </div>
-
-    <div class="block-text user-content fullWidthPaddedLeft">
-      <div class="-inner">
-        {{ entry.apprenticeshipProgram.intro }}
+      <div class="block-text user-content fullWidthPaddedLeft">
+        <div class="-inner">
+          {{ entry.apprenticeshipProgram.intro }}
+        </div>
       </div>
-    </div>
 
-    <div class="block-text user-content fullWidthPaddedRight">
-      <div class="-inner">
-        {{ entry.apprenticeshipProgram.body }}
+      <div class="block-text user-content fullWidthPaddedRight">
+        <div class="-inner">
+          {{ entry.apprenticeshipProgram.body }}
+        </div>
       </div>
+
     </div>
-
-
-  </div>
+  </div><!-- /.block-wrap -->
 
 {% endblock %}
