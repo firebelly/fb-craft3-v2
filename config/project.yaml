@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576182549
+dateModified: 1576185085
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -1374,8 +1374,8 @@ matrixBlockTypes:
         contentColumnType: text
         fieldGroup: null
       7748df7c-bf7f-4b05-9fa3-e9f442d8a98b:
-        name: 'Text Alignment'
-        handle: textAlignment
+        name: 'Size / Alignment'
+        handle: sizeAlignment
         instructions: ''
         searchable: false
         translationMethod: none
@@ -1385,12 +1385,20 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              label: 'Left Aligned'
-              value: leftAligned
+              label: 'Half Width (Right Aligned Text)'
+              value: 'halfWidth rightAligned'
               default: ''
             -
-              label: 'Right Aligned'
-              value: rightAligned
+              label: 'Half Width (Left Aligned Text)'
+              value: halfWidth
+              default: ''
+            -
+              label: 'Half Width, On The Left (Right Aligned Text)'
+              value: 'fullWidthPaddedRight rightAligned'
+              default: ''
+            -
+              label: 'Half Width, On The Right (Left Aligned Text)'
+              value: fullWidthPaddedLeft
               default: ''
         contentColumnType: string
         fieldGroup: null
@@ -1594,12 +1602,12 @@ matrixBlockTypes:
               value: fullWidth
               default: ''
             -
-              label: 'Full Width Padded Left'
-              value: fullWidthPaddedLeft
+              label: 'Half Width, On The Left'
+              value: fullWidthPaddedRight
               default: ''
             -
-              label: 'Full Width Padded Right'
-              value: fullWidthPaddedRight
+              label: 'Half Width, On The Right'
+              value: fullWidthPaddedLeft
               default: ''
         contentColumnType: string
         fieldGroup: null
@@ -1925,12 +1933,12 @@ matrixBlockTypes:
               value: fullWidth
               default: ''
             -
-              label: 'Full Width Padded Left'
-              value: fullWidthPaddedLeft
+              label: 'Half Width, On The Left'
+              value: fullWidthPaddedRight
               default: ''
             -
-              label: 'Full Width Padded Right'
-              value: fullWidthPaddedRight
+              label: 'Half Width, On The Right'
+              value: fullWidthPaddedLeft
               default: ''
         contentColumnType: string
         fieldGroup: null
@@ -2419,12 +2427,12 @@ matrixBlockTypes:
               value: fullWidth
               default: ''
             -
-              label: 'Full Width Padded Left'
-              value: fullWidthPaddedLeft
+              label: 'Half Width, On The Left'
+              value: fullWidthPaddedRight
               default: ''
             -
-              label: 'Full Width Padded Right'
-              value: fullWidthPaddedRight
+              label: 'Half Width, On The Right'
+              value: fullWidthPaddedLeft
               default: ''
         contentColumnType: string
         fieldGroup: null
@@ -2934,11 +2942,11 @@ matrixBlockTypes:
               value: fullWidth
               default: ''
             -
-              label: 'Full Width Padded Left'
+              label: 'Half Width, On The Right'
               value: fullWidthPaddedLeft
               default: ''
             -
-              label: 'Full Width Padded Right'
+              label: 'Half Width, On The Left'
               value: fullWidthPaddedRight
               default: ''
         contentColumnType: string

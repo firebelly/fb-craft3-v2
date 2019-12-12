@@ -7,52 +7,22 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Stanley Fonts */
-[data-type=blockText] .input .redactor-styles h2,
-[data-type=blockPaddedImage] .input .redactor-styles h2,
-.input .redactor-styles h3.heading-medium,
-.redactor-dropdown-format .redactor-dropdown-item-heading-large,
-.redactor-dropdown-format .redactor-dropdown-item-heading-medium {
-  font-family: 'StanleyPoster', serif;
-  font-weight: normal;
+.input.ltr .redactor-styles p {
+	font-size: 16px;
+	line-height: 24px;
+}
+/* blockquote cite and h3 = smallcaps */
+.input.ltr .redactor-styles blockquote cite,
+.input.ltr .redactor-styles h3 {
+	font-weight: 500;
+	letter-spacing: .25em;
+	text-transform: uppercase;
+	font-size: 12px;
+	line-height: 1.833333333em;
 }
 
-/* Custom redactor styles */
-.redactor-dropdown-format .redactor-dropdown-item-p2,
-.input .redactor-styles p.p2 {
-  font-size: 24px;
-  line-height: 32px;
+.input.ltr .redactor-styles blockquote p {
+	font: normal 52px/56px 'StanleyPoster', serif;
+	font-weight: normal;
 }
 
-.redactor-dropdown-format .redactor-dropdown-item-heading-large,
-[data-type=blockText] .input .redactor-styles h2,
-[data-type=blockPaddedImage] .input .redactor-styles h2,
-.input .redactor-styles h2.heading-large {
-  font-size: 36px;
-  line-height: 1;
-}
-
-.redactor-dropdown-format .redactor-dropdown-item-heading-small,
-[data-type=blockText] .input .redactor-styles h3,
-[data-type=blockPaddedImage] .input .redactor-styles h3,
-.input .redactor-styles h3.heading-small {
-  font-size: 16px;
-  line-height: 1;
-  font-weight: bold;
-}
-
-.redactor-dropdown-format .redactor-dropdown-item-heading-medium,
-.input .redactor-styles h3.heading-medium {
-  font-size: 30px;
-  line-height: 32px;
-}
-
-.redactor-dropdown-format .redactor-dropdown-item-heading-smallcaps,
-.input .redactor-styles p.heading-smallcaps,
-.input .redactor-styles h3.heading-smallcaps {
-  font-weight: 500;
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  font-size: 12px;
-  line-height: 1.833333333em;
-}

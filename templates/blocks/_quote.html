@@ -1,8 +1,10 @@
-<div class="block-quote halfWidth user-content -{{ block.textAlignment }}">
-  <blockquote>
-  	<p>&ldquo;{{ block.quote }}&rdquo;</p>
-  	{% if block.attribution %}
-  	  <cite>— {{ block.attribution }}</cite>
-  	{% endif %}
-  </blockquote>
+<div class="block-quote user-content {{ block.sizeAlignment }}">
+  <div class="-inner">
+    <blockquote>
+      <p>&ldquo;{{ block.quote }}&rdquo;</p>
+      {% if block.attribution %}
+        <cite>— {{ block.attribution }}</cite>
+      {% endif %}
+    </blockquote>
+  </div>
 </div>
