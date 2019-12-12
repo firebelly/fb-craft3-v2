@@ -13,13 +13,7 @@
   }
 
   blockquote {
-    margin: $padding-lg auto;
-    max-width: 800px;
-    text-align: center;
-    &,
-    p {
-      @include p1;
-    }
+    @extend %blockquote;
   }
 
   ul, ol {

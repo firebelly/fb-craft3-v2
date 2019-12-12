@@ -10,6 +10,21 @@ h4.lined {
   border-top: 1px solid color('black');
 }
 
+%blockquote {
+  margin: 0;
+  padding: 0;
+  p {
+    @include h2-serif;
+  }
+  cite {
+    display: block;
+    @include small-titles;
+    margin: 0;
+    padding-top: beat(1.5);
+    font-style: normal;
+  }
+}
+
 .section-cta {
   .button {
     width: 100%;

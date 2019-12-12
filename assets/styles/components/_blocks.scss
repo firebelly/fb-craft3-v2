@@ -42,6 +42,7 @@
   // Add padding to all blocks inside .block-wrap
   .block-stat-table,
   .block-text,
+  .block-quote,
   .block-image {
     padding: beat(1) #{$padding-sm / 2};
   }
@@ -59,7 +60,7 @@
     margin-left: -#{$padding-md / 2};
     width: calc(100% + #{$padding-md});
     > .-inner {
-      padding: 0 #{$padding-lg * 2};
+      padding: 0 #{$padding-lg * 1} 0 #{$padding-lg * 2};
     }
 
     .block-section-header {
@@ -67,6 +68,7 @@
     }
 
     .block-stat-table,
+    .block-quote,
     .block-text,
     .block-image {
       padding: beat(4) #{$padding-md / 2};
@@ -151,6 +153,7 @@
 
 // Full width/half width areas
 .block-text,
+.block-quote,
 .block-image {
   flex: 0 1 100%;
   img {

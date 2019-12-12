@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576094917
+dateModified: 1576182549
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -1367,35 +1367,49 @@ matrixBlockTypes:
         settings:
           placeholder: ''
           code: ''
-          multiline: ''
-          initialRows: '4'
+          multiline: '1'
+          initialRows: '2'
           charLimit: ''
           columnType: text
         contentColumnType: text
         fieldGroup: null
-      23549bfb-faf5-4cfb-8403-62ac3f8b93e9:
-        name: 'Background Color'
-        handle: backgroundColor
+      7748df7c-bf7f-4b05-9fa3-e9f442d8a98b:
+        name: 'Text Alignment'
+        handle: textAlignment
         instructions: ''
-        searchable: true
+        searchable: false
         translationMethod: none
         translationKeyFormat: null
-        type: craft\fields\Color
+        type: craft\fields\Dropdown
         settings:
-          defaultColor: '#ffffff'
-        contentColumnType: string(7)
+          optgroups: true
+          options:
+            -
+              label: 'Left Aligned'
+              value: leftAligned
+              default: ''
+            -
+              label: 'Right Aligned'
+              value: rightAligned
+              default: ''
+        contentColumnType: string
         fieldGroup: null
-      5f7db67a-0c0e-41cb-b556-292250022322:
-        name: 'Text Color'
-        handle: textColor
+      ae4062a8-a6a9-44ba-a654-1aed2e7a7ee4:
+        name: Attribution
+        handle: attribution
         instructions: ''
         searchable: true
         translationMethod: none
         translationKeyFormat: null
-        type: craft\fields\Color
+        type: craft\fields\PlainText
         settings:
-          defaultColor: '#231f20'
-        contentColumnType: string(7)
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: string
+        contentColumnType: string
         fieldGroup: null
     fieldLayouts:
       d54a2400-eb9e-4d66-91ca-5da12b714e0e:
@@ -1407,10 +1421,10 @@ matrixBlockTypes:
               1601483c-947b-4094-9090-15ffacd94774:
                 required: false
                 sortOrder: 1
-              23549bfb-faf5-4cfb-8403-62ac3f8b93e9:
+              7748df7c-bf7f-4b05-9fa3-e9f442d8a98b:
                 required: false
                 sortOrder: 3
-              5f7db67a-0c0e-41cb-b556-292250022322:
+              ae4062a8-a6a9-44ba-a654-1aed2e7a7ee4:
                 required: false
                 sortOrder: 2
   21a449c5-00d7-4691-897b-ea4ff6b08c48:

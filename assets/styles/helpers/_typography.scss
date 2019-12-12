@@ -132,7 +132,7 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // H2 - Stanley
 @mixin h2-serif {
   @include font-serif;
-  @include paragraph-style(52, 56, 0, 900);
+  @include paragraph-style(52, 56, 0, normal);
 }
 .h2-serif {
   @include h2-serif;

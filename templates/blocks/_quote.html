@@ -1,3 +1,8 @@
-<div class="block-quote" style="color: {{ block.textColor }}; background-color: {{ block.backgroundColor }};">
-  <blockquote>{{ block.quote }}</blockquote>
+<div class="block-quote halfWidth user-content -{{ block.textAlignment }}">
+  <blockquote>
+  	<p>&ldquo;{{ block.quote }}&rdquo;</p>
+  	{% if block.attribution %}
+  	  <cite>— {{ block.attribution }}</cite>
+  	{% endif %}
+  </blockquote>
 </div>

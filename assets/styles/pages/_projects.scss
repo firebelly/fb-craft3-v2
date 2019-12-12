@@ -88,22 +88,11 @@ body.project {
   }
 
   .block-quote {
-    padding: beat(6) $padding-sm;
-
-    @include media-md {
-      padding-top: beat(12);
-      padding-bottom: beat(12);
+    &.-rightAligned {
+      text-align: right;
     }
-
     blockquote {
-      margin: auto;
-      max-width: 800px;
-      text-align: center;
-      font: 36px/#{(41/36)} $font-serif;
-      @include media-sm {
-        font-size: 48px;
-        line-height: (55/48);
-      }
+      @extend %blockquote;
     }
   }
 
