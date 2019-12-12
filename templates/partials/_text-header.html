@@ -3,8 +3,8 @@
   <header class="text-header">
     <div class="container">
       <h2>
-        {{ pageHeader.headline }}
-        <span class="subhead">{{ pageHeader.subhead }}</span>
+        {{ headline ?? pageHeader.headline }}
+        <span class="subhead">{{ subhead ?? pageHeader.subhead }}</span>
       </h2>
     </div>
   </header>

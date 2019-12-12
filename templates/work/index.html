@@ -19,6 +19,9 @@
     },
     section: 'work'
   }) %}
+  {# todo: make these fields on services? or is this hardcoded? #}
+  {% set headline = 'Check out all our %s projects.'|format(category.title|lower) %}
+  {% set subhead = 'Feast your eyes.' %}
 
 {% else %}
   {% set projectEntries = craft.entries({
@@ -32,7 +35,11 @@
 
 {% block content %}
 
-  {% include 'partials/_text-header' %}
+  {% if category is defined %}
+    {% include 'partials/_text-header' with { headline: headline, subhead: subhead } %}
+  {% else %}
+    {% include 'partials/_text-header' %}
+  {% endif %}
 
   <div class="container">
     <div class="thumbnail-grid grid spaced">
