@@ -3,7 +3,7 @@
 .site-header {
   top: 0;
   left: 0;
-  z-index: 20;
+  z-index: 100;
   width: 100%;
   position: fixed;
   height: $header-sm;
@@ -11,13 +11,6 @@
   transition: padding .4s $cubic-ease1, top .3s ease-out, background .2s ease-out;
   @include media-nav {
     height: $header-md;
-  }
-
-  &.nav-down {
-
-  }
-  &.nav-up {
-
   }
 }
 

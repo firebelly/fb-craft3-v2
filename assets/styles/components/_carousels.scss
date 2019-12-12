@@ -1,4 +1,11 @@
 // Carousels
+.block-carousel {
+  @include media-md {
+    position: relative;
+    margin-right: -72px;
+    z-index: 20;
+  }
+}
 .flickity {
   position: relative;
   .flickity-prev-next-button {
