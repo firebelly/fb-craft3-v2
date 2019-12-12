@@ -28,9 +28,9 @@
                 {% endif %}
                 <div class="project-image"><img src="{{ transformedImage.getUrl() }}" alt=""></div>
                 <ul class="services">
-                  {% for service in project.services.all() %}
+                  {% for service in project.services.with('service').all() %}
                     <li>
-                      <a href="/work?service={{ service.service.one().slug }}">{{ service.service.one().title }}</a>{{ not loop.last ? ',' }}
+                      <a href="{{ service.service[0].getUrl() }}">{{ service.service[0].title }}</a>{{ not loop.last ? ',' }}
                     </li>
                   {% endfor %}
                 </ul>
@@ -99,9 +99,9 @@
                   <div class="project-image"><img src="{{ transformedImage.getUrl() }}" alt="{{ entryImage.title }}"></div>
                   {% if featuredEntry.services|length %}
                     <ul class="services">
-                      {% for service in featuredEntry.services.all() %}
+                      {% for service in featuredEntry.services.with('service').all() %}
                         <li>
-                          <a href="/work?service={{ service.service.one().slug }}">{{ service.service.one().title }}</a>{{ not loop.last ? ',' }}
+                          <a href="{{ service.service[0].getUrl() }}">{{ service.service[0].title }}</a>{{ not loop.last ? ',' }}
                         </li>
                       {% endfor %}
                     </ul>

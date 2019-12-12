@@ -20,6 +20,9 @@ body.project {
     h3 {
       @include small-titles;
     }
+    .visit-website {
+      padding-top: beat(2);
+    }
 
     // Desktop styles
     @include media-md {
@@ -27,6 +30,9 @@ body.project {
     }
 
     .project-meta {
+      a {
+        text-decoration: underline;
+      }
       h3 {
         margin: 0 0 16px;
       }

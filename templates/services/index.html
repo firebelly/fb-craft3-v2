@@ -73,8 +73,8 @@
 
       <div class="container">
         <ul>
-          {% for industry in entry.industries.all() %}
-            <li>{{ industry.industry.one().title }}</li>
+          {% for industry in entry.industries.with('industry').all() %}
+            <li>{{ industry.industry[0].title }}</li>
           {% endfor %}
         </ul>
       </div>

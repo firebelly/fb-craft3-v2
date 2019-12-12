@@ -24,7 +24,7 @@
         <div class="project-summary user-content col-md-1-2">
           {{ entry.body }}
           {% if entry.projectUrl %}
-            <a target="_blank" rel="noopener" href="{{ entry.projectUrl }}">Visit Website</a>
+            <p class="visit-website"><a target="_blank" rel="noopener" href="{{ entry.projectUrl }}">Visit Website</a></p>
           {% endif %}
         </div>
 
@@ -46,8 +46,8 @@
             {% if entry.services|length %}
               <ul>
                 <li>
-                  {% for service in entry.services.all() %}
-                    <a href="/work?service={{ service.service.one().slug }}">{{ service.service.one().title }}</a>
+                  {% for service in entry.services.with('service').all() %}
+                    <a href="{{ service.service[0].getUrl() }}">{{ service.service[0].title }}</a>
                     {{ not loop.last ? ' / ' }}
                   {% endfor %}
                 </li>
