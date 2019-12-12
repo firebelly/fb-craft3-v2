@@ -6,6 +6,7 @@
   background-color: color('black');
 
   @include media-md {
+    margin-right: 72px;
     padding: 156px 0;
   }
 
