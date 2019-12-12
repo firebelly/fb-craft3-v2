@@ -78,7 +78,7 @@ img {
 .container {
   padding: 0 $padding-sm;
   @include media-md {
-    padding: 0 #{$padding-lg * 2};
+    padding: 0 #{$padding-lg * 1} 0 #{$padding-lg * 2};
   }
 }
 
