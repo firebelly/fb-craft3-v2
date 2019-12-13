@@ -33,16 +33,16 @@
 
             {% set client = entry.client.one() %}
             {% if client and client.clientName %}
-              <h3>Client</h3>
+              <h4>Client</h4>
               <p>{% if client.clientUrl %}<a target="_blank" rel="noopener" href="{{ client.clientUrl }}">{% endif %}{{ client.clientName }}{% if client.clientUrl %}</a>{% endif %}</p>
             {% endif %}
 
-            <h3>Industry</h3>
+            <h4>Industry</h4>
             {% if entry.industry|length %}
               <p>{{ entry.industry.one().title }}</p>
             {% endif %}
 
-            <h3>Services</h3>
+            <h4>Services</h4>
             {% if entry.services|length %}
               <ul>
                 <li>
@@ -56,7 +56,7 @@
 
             {% if entry.extraDetails|length %}
               {% for details in entry.extraDetails.all() %}
-                <h3>{{ details.header }}</h3>
+                <h4>{{ details.header }}</h4>
                 <ul>
                 {% for item in details.items %}
                   <li>

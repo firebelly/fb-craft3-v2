@@ -16,21 +16,29 @@
 header.text-header {
   padding: $padding-md 0;
 
-  h2 {
-    @include h1-sans;
-    margin: 0;
-
-    .subhead {
+  .title {
+    h1,
+    h2 {
+      @include h1-sans;
+      margin: 0;
+    }
+    h4.subhead {
       @include small-titles;
       display: block;
       position: relative;
+    }
 
-      @include media-md {
+    @include media-md {
+      h1,
+      h2 {
+        display: inline;
+      }
+      h4.subhead {
         top: 26px;
-        left: -20px;
+        left: 10px;
         vertical-align: top;
         line-height: inherit;
-        display: inline-block;
+        display: inline;
       }
     }
   }

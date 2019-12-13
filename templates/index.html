@@ -9,7 +9,7 @@
 
 {% block content %}
 
-  {% include 'partials/_text-header' %}
+  {% include 'partials/_text-header' with { headerTag: 'h2' } %}
 
   {% set recentWork = entry.recentWork.all() %}
 

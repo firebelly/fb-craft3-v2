@@ -4,8 +4,16 @@
   * + * {
     margin-top: beat(1);
     @include media-md {
-      margin-top: beat(2);
+      margin-top: beat(1);
     }
+  }
+  p + p,
+  p + h3 {
+    margin-top: beat(1.5);
+  }
+
+  h3 {
+    @include small-titles;
   }
 
   a {

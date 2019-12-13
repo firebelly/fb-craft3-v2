@@ -17,7 +17,7 @@ body.project {
   .intro {
     .project-summary {
     }
-    h3 {
+    h4 {
       @include small-titles;
     }
     .visit-website {
@@ -33,16 +33,16 @@ body.project {
       a {
         text-decoration: underline;
       }
-      h3 {
+      h4 {
         margin: 0 0 16px;
       }
       p {
         @include p2;
-        margin: 0 0 24px;
+        margin: 0 0 beat(1.5);
       }
       ul {
         @extend %semantic-list;
-        margin: 0 0 24px;
+        margin: 0 0 beat(1.5);
 
         li {
           display: inline;
@@ -115,106 +115,4 @@ body.project {
     }
   }
 
-  // Two-column, alt header style
-  .intro.two-column {
-    background: color('black');
-    color: color('white');
-    @extend %smooth;
-    .intro-wrap {
-      @include clearfix;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    // Override 1-column mobile styles
-    .services {
-      margin-top: 0;
-    }
-
-    .summary,
-    .project-meta {
-      max-width: none;
-      ul li,
-      h3 {
-        color: color('white');
-        font: 16px/1 $font-sans, sans-serif;
-        letter-spacing: 0;
-        text-transform: none;
-        margin: 0 0 4px;
-        text-align: left;
-      }
-      h3 {
-        float: none;
-        width: auto;
-        font-weight: bold;
-      }
-      ul {
-        margin: 0 0 beat(2) 0;
-        li {
-          display: block;
-          color: rgba(255,255,255,0.65);
-        }
-      }
-    }
-    .summary {
-      > p {
-        margin: 0 0 2em;
-      }
-    }
-
-    .summary.user-content a,
-    .project-meta a {
-      transition: none;
-      color: rgba(255,255,255,0.65);
-      @include linkHover(color('white'), screen);
-    }
-
-    // Small screen styles
-    @include media-md {
-      .summary {
-        position: relative;
-        padding-bottom: beat(3);
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: $padding-sm;
-          right: $padding-sm;
-          border-bottom: 1px solid color('white');
-        }
-      }
-    }
-
-    // Desktop styles
-    @include media-md {
-      padding-top: beat(9);
-      .summary {
-        position: relative;
-        width: 50%;
-        float: left;
-        padding: 0 beat(6);
-        &::after {
-          content: '';
-          position: absolute;
-          left: auto;
-          right: 0;
-          top: 20px;
-          bottom: 40px;
-          border-right: 1px solid color('white');
-        }
-      }
-      .project-meta {
-        width: 50%;
-        float: left;
-        // Arbitrary "move project-meta over a column" spacing
-        padding: 0 beat(6) 0 16%;
-        margin: 0;
-        .extra-info,
-        .one-half {
-          float: none;
-          width: auto;
-        }
-      }
-    }
-  }
 }

@@ -11,9 +11,9 @@
         <div class="edit-link"><a href="{{ entry.cpEditUrl ~ '?redirect=' ~ craft.app.request.getUrl()|url_encode }}">Edit Entry</a></div>
       {% endif %}
 
-      <h1 id="logo">
+      <{{ craft.app.request.getUrl() == '/' ? 'h1' : 'div' }} id="logo">
         <a href="/"><span class="visually-hidden">Firebelly</span>{% include '/partials/_logo' %}</a>
-      </h1>
+      </{{ craft.app.request.getUrl() == '/' ? 'h1' : 'div' }}>
 
       {% include "/partials/_sitenav" %}
 
