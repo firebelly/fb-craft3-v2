@@ -2,9 +2,9 @@
 .user-content {
 
   * + * {
-    margin-top: beat(0.5);
+    margin-top: beat(1);
     @include media-md {
-      margin-top: beat(1);
+      margin-top: beat(2);
     }
   }
 
