@@ -24,6 +24,9 @@
   }
   .slide {
     margin-right: 25px;
+    img {
+      max-width: none;
+    }
     &.landscape {
       width: 80%;
       img {
