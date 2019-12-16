@@ -1,19 +1,19 @@
 // Type Tester Module
 
-.type-tester {
+.block-type-tester {
   width: 100%;
+}
+.type-tester {
   position: relative;
-  box-sizing: border-box;
-
-  .type-tester-inner {
+  .-inner {
     text-align: center;
   }
 
   &.lowercase {
-    #test-para {
+    .test-para {
       text-transform: lowercase;
     }
-    #glyphsUppercase {
+    .glyphsUppercase {
       display: none;
     }
     // Manual fix for sans/serif for Uptown type - todo: make this universal
@@ -23,10 +23,10 @@
     }
   }
   &.uppercase {
-    #test-para {
+    .test-para {
       text-transform: uppercase;
     }
-    #glyphsLowercase {
+    .glyphsLowercase {
       display: none;
     }
     // Manual fix for sans/serif for Uptown type - todo: make this universal
@@ -36,7 +36,7 @@
     }
   }
 
-  #test-para {
+  .test-para {
     width: 100%;
     display: none;
     margin: 0 auto;
@@ -69,7 +69,7 @@
     }
   }
 
-  #typetools {
+  .typetools {
     position: relative;
 
     h4, label, button {
@@ -84,50 +84,48 @@
       display: flex;
       margin: 0 auto;
       flex-wrap: wrap;
-      padding-bottom: 13px;
 
       .type-tool {
         max-width: 50%;
         flex-basis: 50%;
         margin-bottom: 20px;
 
-        &#glyphsTypeToggle {
+        &.glyphsTypeToggle {
           order: 0;
           padding-right: 20px;
         }
-        &#styleToggle {
+        &.styleToggle {
           order: 1;
         }
-        &#colorPairs {
+        &.colorPairs {
           order: 4;
         }
-        &#fontSizeTool {
+        &.fontSizeTool {
           order: 2;
         }
-        &#textAlignment {
+        &.textAlignment {
           order: 3;
         }
       }
 
       @include media-md {
-        padding: $padding-md 0 13px $padding-md;
 
         .type-tool {
           max-width: none;
           flex-basis: auto;
 
-          &#glyphsTypeToggle {
+          &.glyphsTypeToggle {
             padding-right: 0;
           }
-          &#fontSizeTool {
+          &.fontSizeTool {
             order: 1;
             padding-right: 0;
           }
-          &#textAlignment {
+          &.textAlignment {
             order: 2;
             padding-left: 0;
           }
-          &#colorPairs {
+          &.colorPairs {
             order: 3;
             padding-left: 0;
           }
@@ -165,7 +163,7 @@
         }
       }
 
-      &#glyphsTypeToggle {
+      &.glyphsTypeToggle {
         display: inline-block;
       }
 
@@ -177,25 +175,25 @@
         height: 30px;
         max-width: 150px;
         border-bottom: none;
-        appearance: none; /* Hides the slider so that custom slider can be made */
-        background: transparent; /* Otherwise white in Chrome */
+        appearance: none; // Hides the slider so that custom slider can be made
+        background: transparent; // Otherwise white in Chrome
       }
       input[type=range]::-webkit-slider-thumb {
         -webkit-appearance: none;
       }
       input[type=range]:focus {
-        outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+        outline: none; // Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though.
       }
       input[type=range]::-ms-track {
         width: 100%;
         cursor: pointer;
-        /* Hides the slider so custom styles can be added */
+        // Hides the slider so custom styles can be added
         background: transparent;
         border-color: transparent;
         color: transparent;
       }
       // Actual thumb styles
-      /* Special styling for WebKit/Blink */
+      // Special styling for WebKit/Blink
       input[type=range]::-webkit-slider-thumb {
         -webkit-appearance: none;
         width: 12px;
@@ -203,9 +201,9 @@
         cursor: pointer;
         border-radius: 50%;
         background: color('black');
-        margin-top: -6px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+        margin-top: -6px; // You need to specify a margin in Chrome, but in Firefox and IE it is automatic
       }
-      /* All the same stuff for Firefox */
+      // All the same stuff for Firefox
       input[type=range]::-moz-range-thumb {
         width: 12px;
         height: 12px;
@@ -213,7 +211,7 @@
         border-radius: 50%;
         background: color('black');
       }
-      /* All the same stuff for IE */
+      // All the same stuff for IE
       input[type=range]::-ms-thumb {
         width: 12px;
         height: 12px;
@@ -264,6 +262,7 @@
       cursor: pointer;
       background: none;
       position: relative;
+      border: none;
       &:focus {
         outline: none;
       }
@@ -318,7 +317,7 @@
       }
     }
 
-    #colorPairsContainer {
+    .colorPairsContainer {
       max-width: 120px;
       .color-pair {
         width: 30px;
@@ -341,12 +340,11 @@
   }
 
   // SVG + Glyph Chart
-  #glyphChart {
+  .glyphChart {
     width: 100%;
     display: none;
     margin: 0 auto;
-    padding-top: 52px;
-    padding-bottom: 52px;
+    padding: 52px;
     &.-active {
       display: block;
     }
@@ -356,6 +354,8 @@
       margin-bottom: 52px;
       line-height: inherit;
       justify-content: center;
+      margin: 0;
+      padding: 0;
       li {
         padding: 0;
         width: 1em;
@@ -381,9 +381,6 @@
     }
 
     @include media-md {
-      padding-left: $padding-lg;
-      padding-right: $padding-lg;
-
       ul {
         justify-content: left;
       }

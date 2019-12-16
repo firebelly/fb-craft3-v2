@@ -5,13 +5,12 @@ export default {
 
     function _initTypeTester() {
       // If there's a type tester present
-      if ($('.type-tester').length) {
-        var $fontStyle;
-        var $typeTester = $('.type-tester');
-        var $typeTesterInner = $('.type-tester-inner');
-        var $para = $typeTester.find('#test-para');
-        var $svgContainer = $('#typeTesterSvgFont');
-        var $glyphChart = $('#glyphChart');
+      $('.type-tester').each(function() {
+        var $typeTester = $(this);
+        var $typeTesterInner = $typeTester.find('.-inner');
+        var $para = $typeTester.find('.test-para');
+        var $svgContainer = $('.type-tester').find('.typeTesterSvgFont');
+        var $glyphChart = $('.type-tester').find('.glyphChart');
 
         var fontFamily = $typeTester.attr('data-font');
         var startingFontSize = $typeTester.attr('data-font-size');
@@ -25,25 +24,24 @@ export default {
         });
 
         // Set Up Tools
-        $typeTester.prepend('<div id="typetools"><div class="typetools-container block-wrap"></div></div>');
-        var $tools = $('#typetools');
-        var $toolsContainer = $tools.find('.typetools-container');
+        var $tools = $('<div class="typetools"></div>').prependTo($typeTester);
+        var $toolsContainer = $('<div class="typetools-container block-wrap"></div>').appendTo($tools);
 
-        // Get SVG font file if it is set and generate the glypgh chart
+        // Get SVG font file if it is set and generate the glyph chart
         if ($typeTester.attr('data-svg-url')) {
 
           // Add glyphs button to toolbar
-          $toolsContainer.append('<div class="type-tool" id="glyphsTypeToggle"><h4>View</h4><button id="typeToggle" data-target=".test-para">Type Tester</button><button id="glyphsToggle" data-target="#glyphChart">Glyphs</button></div>');
+          $toolsContainer.append('<div class="type-tool glyphsTypeToggle"><h4>View</h4><button class="typeToggle" data-target=".test-para">Type Tester</button><button class="glyphsToggle" data-target=".glyphChart">Glyphs</button></div>');
 
           // Watch for glyphs/type toggle
-          $(document).on('click', '#glyphsTypeToggle button', function() {
-            var targetElem = $(this).attr('data-target');
-            $('#glyphChart.-active, .test-para.-active, #glyphsTypeToggle button.-active').removeClass('-active');
-            $(targetElem).addClass('-active');
+          $(document).on('click', '.glyphsTypeToggle button', function() {
+            var $targetElem = $typeTester.find($(this).attr('data-target'));
+            $typeTester.find('.glyphChart.-active, .test-para.-active, .glyphsTypeToggle button.-active').removeClass('-active');
+            $targetElem.addClass('-active');
             $(this).addClass('-active');
 
             // Add/remove -hidden class on type-only tools
-            if (targetElem === '.test-para') {
+            if ($targetElem.hasClass('.test-para')) {
               $('.type-tool.type-only').removeClass('hidden');
             } else {
               $('.type-tool.type-only').addClass('hidden');
@@ -81,14 +79,14 @@ export default {
                 glyphsOutput += '<li class="glyph-' + groupArray[i] + '">' + groupArray[i] + '</li>';
               }
 
-              $glyphChart.find('#'+group).append(glyphsOutput);
+              $glyphChart.find('.' + group).append(glyphsOutput);
             });
 
           });
         }
 
         // Add style button to toolbar
-        $toolsContainer.append('<div class="type-tool" id="styleToggle"><h4>Style</h4><button class="styleToggle -active" data-style="lowercase">Sans-serif</button><button class="styleToggle" data-style="uppercase">Serif</button></div>');
+        $toolsContainer.append('<div class="type-tool"><h4>Style</h4><button class="styleToggle -active" data-style="lowercase">Sans-serif</button><button class="styleToggle" data-style="uppercase">Serif</button></div>');
         $para.addClass('lowercase');
         $typeTester.addClass('lowercase');
 
@@ -97,9 +95,9 @@ export default {
         var minSize = $typeTester.attr('data-min-size');
         var maxSize = $typeTester.attr('data-max-size');
 
-        $toolsContainer.append('<div class="type-tool type-only" id="fontSizeTool"><label for="fontSize" id="fontSizeLabel">Size: <span id="currentFontSize"></span></label><input type="range" name="fontSize" id="fontSize" min="'+minSize+'" max="'+maxSize+'" step="6"></div>');
-        var $fontSize = $('#fontSize');
-        var $currentFontSize = $('#currentFontSize');
+        $toolsContainer.append('<div class="type-tool type-only fontSizeTool"><label for="fontSize" class="fontSizeLabel">Size: <span class="currentFontSize"></span></label><input type="range" name="fontSize" class="fontSize" min="'+minSize+'" max="'+maxSize+'" step="6"></div>');
+        var $fontSize = $tools.find('.fontSize');
+        var $currentFontSize = $tools.find('.currentFontSize');
         // Set starting font size
         $typeTesterInner.css('font-size', startingFontSize+'px');
         $fontSize.val(startingFontSize);
@@ -107,8 +105,8 @@ export default {
 
         // Font Weights
         if ($typeTester.attr('data-weights')) {
-          $toolsContainer.append('<div class="type-tool"><label for="fontWeight">Weight</label><select name="fontWeight" id="fontWeight"></select></div>');
-          var $fontWeight = $('#fontWeight');
+          $toolsContainer.append('<div class="type-tool"><label for="fontWeight">Weight</label><select name="fontWeight" class="fontWeight"></select></div>');
+          var $fontWeight = $tools.find('.fontWeight');
 
           var dataStyles = $typeTester.attr('data-weights');
           var weights = dataStyles.split('-');
@@ -124,8 +122,8 @@ export default {
         }
 
         // Paragraph Style
-        $toolsContainer.append('<div class="type-tool type-only" id="textAlignment"><label>Align</label><button class="alignment -left" data-alignment="left"><span class="visually-hidden">Left</span><span class="lines"></span></button><button class="alignment -center" data-alignment="center"><span class="visually-hidden">Center</span><span class="lines"></span></button><button class="alignment -right" data-alignment="right"><span class="visually-hidden">Right</span><span class="lines"></span></button></div>');
-        var $textAlignment = $('#textAlignment');
+        $toolsContainer.append('<div class="type-tool type-only textAlignment"><label>Align</label><button class="alignment -left" data-alignment="left"><span class="visually-hidden">Left</span><span class="lines"></span></button><button class="alignment -center" data-alignment="center"><span class="visually-hidden">Center</span><span class="lines"></span></button><button class="alignment -right" data-alignment="right"><span class="visually-hidden">Right</span><span class="lines"></span></button></div>');
+        var $textAlignment = $tools.find('.textAlignment');
         var initialAlignment = $typeTester.attr('data-initial-alignment');
         $para.css('text-align', initialAlignment);
         $textAlignment.find('button[data-alignment='+initialAlignment+']').addClass('-active');
@@ -136,21 +134,21 @@ export default {
           var colorPairs = colorData.split(' ');
 
           if (colorPairs.length > 1) {
-            $toolsContainer.append('<div class="type-tool" id="colorPairs"><label>Color</label><div id="colorPairsContainer"></div></div>');
-            var $colorPairs = $('#colorPairs');
+            $toolsContainer.append('<div class="type-tool colorPairs"><label>Color</label><div class="colorPairsContainer"></div></div>');
+            var $colorPairs = $tools.find('.colorPairs');
 
             $.each(colorPairs, function(i) {
               var colors = this.split('-');
               var textColor = colors[0];
               var backgroundColor = colors[1];
 
-              $('#colorPairsContainer').append('<button class="color-pair" data-text-color="'+textColor+'" data-background-color="'+backgroundColor+'"><span style="color:'+textColor+';background-color:'+backgroundColor+';">A</span></button>');
+              $typeTester.find('.colorPairsContainer').append('<button class="color-pair" data-text-color="'+textColor+'" data-background-color="'+backgroundColor+'"><span style="color:'+textColor+';background-color:'+backgroundColor+';">A</span></button>');
             });
 
-            $('#colorPairs .color-pair:first').addClass('-active');
-            var textColor = $('#colorPairs .color-pair:first').attr('data-text-color');
-            var backgroundColor = $('#colorPairs .color-pair:first').attr('data-background-color');
-            $('.type-tester-inner').css({
+            $typeTester.find('.colorPairs .color-pair:first').addClass('-active');
+            var textColor = $typeTester.find('.colorPairs .color-pair:first').attr('data-text-color');
+            var backgroundColor = $typeTester.find('.colorPairs .color-pair:first').attr('data-background-color');
+            $typeTesterInner.css({
               'color': textColor,
               'background-color': backgroundColor
             });
@@ -160,7 +158,7 @@ export default {
               $(this).addClass('-active');
               var textColor = $(this).attr('data-text-color');
               var backgroundColor = $(this).attr('data-background-color');
-              $('.type-tester-inner').css({
+              $typeTesterInner.css({
                 'color': textColor,
                 'background-color': backgroundColor
               });
@@ -171,10 +169,10 @@ export default {
 
         // Set Active state
         if ($para.is('.-active')) {
-          $('#typeToggle').addClass('-active');
+          $tools.find('.typeToggle').addClass('-active');
         } else if ($glyphChart.is('.-active')) {
-          $('#glyphsToggle').addClass('-active');
-          $('.type-tool.type-only').addClass('hidden');
+          $tools.find('.glyphsToggle').addClass('-active');
+          $tools.find('.type-tool.type-only').addClass('hidden');
         }
 
         // Watch for changes on individual tools
@@ -183,7 +181,7 @@ export default {
           var style = $(this).attr('data-style');
           $typeTester.removeClass('lowercase uppercase');
           $typeTester.addClass(style);
-          $('#styleToggle').find('button.-active').removeClass('-active');
+          $tools.find('button.styleToggle.-active').removeClass('-active');
           $(this).addClass('-active');
         });
 
@@ -207,12 +205,12 @@ export default {
         $para.on('focus', function(e) {
           $(this).find('.type-cursor').remove();
         }).on('blur', function(e) {
-          paraText = $(this).html().replace(/(<br>\s*)+$/,'');
-          $(this).html(paraText);
+          var $paraText = $(this).html().replace(/(<br>\s*)+$/,'');
+          $(this).html($paraText);
           $(this).append('<span class="type-cursor"></span>');
         });
 
-      }
+      });
     }
 
     function _hexToRgba(hex, alpha) {
@@ -224,22 +222,6 @@ export default {
       }
     }
 
-    function _removeEmptyProjectBlocks() {
-      // The way we have project blocks set up,
-      // full-width blocks might end up adding an empty
-      // .block-wrap element after them that only contains
-      // white space. This function is a banaid fix to remove
-      // those blocks with just white space so they don't
-      // create unwanted space between blocks
-      var $blockWraps = $('.block-wrap');
-
-      $blockWraps.each(function() {
-        var contents = $(this).html();
-        if(!contents.replace(/\s/g, '').length) {
-          $(this).css('display', 'none');
-        }
-      });
-    }
   },
 
   finalize() {

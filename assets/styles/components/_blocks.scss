@@ -40,6 +40,7 @@
   }
 
   // Add padding to all blocks inside .block-wrap
+  .block-type-tester,
   .block-stat-table,
   .block-text,
   .block-quote,
@@ -67,6 +68,7 @@
       padding: 0 #{$padding-md / 2};
     }
 
+    .block-type-tester,
     .block-stat-table,
     .block-quote,
     .block-text,
