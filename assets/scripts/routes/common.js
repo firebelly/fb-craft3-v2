@@ -79,11 +79,9 @@ export default {
       function update() {
         // Get the element we're hovered on
         var hoveredEl = document.elementFromPoint(lastMousePosition.x, lastMousePosition.y);
-        console.log(hoveredEl);
 
         // Check if the element or any of its parents have a .js-cursor class
         if ($(hoveredEl).parents('.js-cursor').length || $(hoveredEl).hasClass('js-cursor')) {
-          console.log('az');
           $body.addClass('-cursor-active');
 
           if ($(hoveredEl).is('.previous')) {
@@ -98,7 +96,6 @@ export default {
             $customCursor.removeClass('next');
           }
         } else {
-          console.log('bz');
           $body.removeClass('-cursor-active');
         }
 
