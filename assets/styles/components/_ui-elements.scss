@@ -126,14 +126,14 @@ body.-cursor-active {
     width: 100px;
     height: 100px;
     mix-blend-mode: difference;
-    background-image: url('/assets/dist/images/left-arrow.svg');
+    background-image: url('/assets/dist/images/left-arrow-v2.svg');
     background-size: 100px 100px;
   }
   &.next {
     width: 100px;
     height: 100px;
     mix-blend-mode: difference;
-    background-image: url('/assets/dist/images/right-arrow.svg');
+    background-image: url('/assets/dist/images/right-arrow-v2.svg');
     background-size: 100px 100px;
   }
 }
