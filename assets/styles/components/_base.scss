@@ -12,8 +12,9 @@ _/        _/_/_/
   box-sizing: inherit;
 }
 
+// CSS vars
 :root {
-  --projectBlockColor: color('black');
+  --projectBlockColor: #{color('black')};
 }
 
 body {
