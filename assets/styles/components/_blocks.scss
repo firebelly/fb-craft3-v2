@@ -64,6 +64,7 @@
   li {
     align-items: flex-end;
     padding: beat(2) 0;
+    border-bottom: 1px solid color(black); // for IE
     border-bottom: 1px solid var(--projectBlockColor);
     .figure {
       @include h1-sans;
@@ -94,6 +95,7 @@
   width: 100%;
   h3 {
     @include small-titles;
+    border-top: 1px solid color(black); // for IE
     border-top: 1px solid var(--projectBlockColor);
     padding-top: beat(1);
   }
