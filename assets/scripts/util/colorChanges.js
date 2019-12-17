@@ -21,6 +21,11 @@ const colorChanges = {
       $window.off('scroll.colorChanges').on('scroll.colorChanges', colorChanges.scrolling);
       $window.off('resize.colorChanges').on('resize.colorChanges', colorChanges.resizing);
       $window.off('load.colorChanges').on('load.colorChanges', colorChanges.resizing);
+
+      // Reposition color changes after lazyloaded images show
+      document.addEventListener('lazyloaded', function(e){
+        colorChanges.resizing();
+      });
     }
   },
 
