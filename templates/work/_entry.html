@@ -77,9 +77,11 @@
     <div class="project-blocks">
       {% include 'work/_project-blocks' %}
     </div>
-  </div>
 
-  {% include 'partials/_pagination_structure' with {'paginationSection': 'work', 'postName': 'Project'} %}
+    <div class="color-change" data-background="gray" data-color="black"></div>
+    {% include 'partials/_pagination_structure' with {'paginationSection': 'work', 'postName': 'Project'} %}
+
+  </div>
 
   {% endcache %}
 {% endblock %}
