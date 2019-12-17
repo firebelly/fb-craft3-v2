@@ -5,6 +5,7 @@ export let $colorChangeBlocks = [],
     $rootElement,
     $window,
     scrollTop,
+    windowHeight,
     ticking;
 
 const colorChanges = {
@@ -43,7 +44,7 @@ const colorChanges = {
     let currentColorValues = colorChangeValues[0];
     // Find current sticky section title based on scroll position
     $colorChangeBlocks.each(function(i) {
-      if (this.getAttribute('data-originalPosition') <= scrollTop) {
+      if (this.getAttribute('data-originalPosition') <= scrollTop + (windowHeight * 0.8)) {
         currentColorValues = colorChangeValues[i+1];
       }
     });
@@ -65,6 +66,7 @@ const colorChanges = {
       };
       $this.attr('data-originalPosition', $this.offset().top);
     });
+    windowHeight = $window.height();
   },
 
   // Resizing
