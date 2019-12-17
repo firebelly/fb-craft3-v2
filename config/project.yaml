@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576617556
+dateModified: 1576618339
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -950,7 +950,7 @@ matrixBlockTypes:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
     name: 'Type Specimen'
     handle: blockTypeSpecimen
-    sortOrder: 9
+    sortOrder: 7
     fields:
       15709825-2a2f-4119-8b35-be0e61a4e5c6:
         name: 'Font Name'
@@ -1251,7 +1251,7 @@ matrixBlockTypes:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
     name: 'Color Change'
     handle: blockColorChange
-    sortOrder: 6
+    sortOrder: 5
     fields:
       5ff6fcc8-a978-4064-90c6-f095e27e0536:
         name: 'Custom Background Color'
@@ -1350,7 +1350,7 @@ matrixBlockTypes:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
     name: Quote
     handle: blockQuote
-    sortOrder: 8
+    sortOrder: 6
     fields:
       1601483c-947b-4094-9090-15ffacd94774:
         name: Quote
@@ -1634,9 +1634,9 @@ matrixBlockTypes:
                 sortOrder: 2
   3622f58f-dd2a-4562-bf4f-882a617fb936:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
-    name: Header
+    name: 'Header (deprecated)'
     handle: blockHeader
-    sortOrder: 1
+    sortOrder: 12
     fields:
       83c669be-4817-49be-8816-1a16e844d2ac:
         name: 'Block Title'
@@ -1713,7 +1713,7 @@ matrixBlockTypes:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
     name: 'Full Bleed Images / Videos'
     handle: blockImages
-    sortOrder: 2
+    sortOrder: 1
     fields:
       8137e76e-6940-452e-a1fe-97ae1c9d6a3a:
         name: Images/Videos
@@ -1803,7 +1803,7 @@ matrixBlockTypes:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
     name: 'Images With Text'
     handle: blockImagesWithText
-    sortOrder: 3
+    sortOrder: 2
     fields:
       0943643d-bfdf-4b25-8911-ed4a49b73aa8:
         name: Images
@@ -1907,7 +1907,7 @@ matrixBlockTypes:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
     name: Text
     handle: blockText
-    sortOrder: 5
+    sortOrder: 4
     fields:
       3d3a5ff3-1708-458b-8057-2299251ff6d8:
         name: Size
@@ -2127,7 +2127,7 @@ matrixBlockTypes:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
     name: 'Section Header'
     handle: sectionHeader
-    sortOrder: 10
+    sortOrder: 8
     fields:
       cd8352b6-52d7-4ef4-9157-153c0e82604c:
         name: Headline
@@ -2160,7 +2160,7 @@ matrixBlockTypes:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
     name: 'Stat Table'
     handle: statTable
-    sortOrder: 12
+    sortOrder: 10
     fields:
       ee6e50bd-8324-47a2-ae1d-a4a9aa232b49:
         name: Stats
@@ -2199,7 +2199,7 @@ matrixBlockTypes:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
     name: Spacer
     handle: spacer
-    sortOrder: 11
+    sortOrder: 9
     fields:
       cdf809ec-f742-48c0-aabd-858937fafc3c:
         name: Size
@@ -2361,7 +2361,7 @@ matrixBlockTypes:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
     name: 'Padded Image / Video'
     handle: blockPaddedImage
-    sortOrder: 4
+    sortOrder: 3
     fields:
       52791cbe-7784-410d-bb2c-db8942a1f072:
         name: Images/Videos
@@ -2877,9 +2877,9 @@ matrixBlockTypes:
         contentColumnType: string
   fa20f500-9928-4240-bec7-357b2b27dde5:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
-    name: 'Full Bleed Video'
+    name: 'HTML (deprecated)'
     handle: blockHtml
-    sortOrder: 7
+    sortOrder: 11
     fields:
       e4baee51-ae56-49d3-9c7e-6ad49fdc53b8:
         name: 'Embed Code'
