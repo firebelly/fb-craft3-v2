@@ -5,10 +5,6 @@
 }
 .project-blocks {
   @include clearfix;
-
-  @include media-md {
-    margin-bottom: beat(12);
-  }
 }
 
 // Single project
