@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576185085
+dateModified: 1576617556
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -1256,7 +1256,7 @@ matrixBlockTypes:
       5ff6fcc8-a978-4064-90c6-f095e27e0536:
         name: 'Custom Background Color'
         handle: customBackgroundColor
-        instructions: 'Use a custom color instead of the predefined colors. If set, please select a custom text color in the next field. Setting this field will overwrite the color set in the first field.'
+        instructions: ''
         searchable: false
         translationMethod: none
         translationKeyFormat: null
@@ -1268,7 +1268,7 @@ matrixBlockTypes:
       6680e6bf-a506-458f-9816-c2bb00398a79:
         name: 'Text Color Change'
         handle: textColor
-        instructions: 'Choose between the predefined white or black text color for custom background colors, or leave as "custom" and choose a custom text color in the next field.'
+        instructions: ''
         searchable: false
         translationMethod: none
         translationKeyFormat: null
@@ -1293,7 +1293,7 @@ matrixBlockTypes:
       6821fcdd-6f2b-4b86-8d3f-351a426bc175:
         name: 'Color Change'
         handle: color
-        instructions: 'Will change block background color until another Color Change block is encountered'
+        instructions: 'Changes background + text colors until another Color Change block is encountered'
         searchable: false
         translationMethod: none
         translationKeyFormat: null
@@ -1305,10 +1305,6 @@ matrixBlockTypes:
               label: Custom
               value: custom
               default: '1'
-            -
-              label: White
-              value: white
-              default: ''
             -
               label: Gray
               value: gray
@@ -1322,7 +1318,7 @@ matrixBlockTypes:
       82ae774c-be86-4f81-960b-b33b2a617beb:
         name: 'Custom Text Color'
         handle: customTextColor
-        instructions: 'Custom Text color to be used with a custom background color.'
+        instructions: ''
         searchable: false
         translationMethod: none
         translationKeyFormat: null

@@ -4,7 +4,9 @@
   {% switch block.type %}
 
     {% case "blockColorChange" %}
-      <div class="color-change" data-background="{{ block.customBackgroundColor }}" data-color="{{ block.customTextColor }}"></div>
+      {% set background = (block.color == 'custom') ? block.customBackgroundColor : block.color %}
+      {% set color = (block.textColor == 'custom') ? block.customTextColor : block.textColor %}
+      <div class="color-change" data-background="{{ background }}" data-color="{{ color }}"></div>
 
     {% case "sectionHeader" %}
       {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}

@@ -1,7 +1,8 @@
 // Color change blocks
 
 export let $colorChangeBlocks = [],
-    colorChangeValues = [{'background': '#F2F2F0', 'color': '#232323'}], // Initial project-block bg + color
+    defaultColors = { 'white': '#ffffff', 'gray': '#F2F2F0', 'black': '#232323' }, // Default, named colors
+    colorChangeValues = [{ 'background': defaultColors.gray, 'color': defaultColors.black }], // Initial project-block bg + color
     $rootElement,
     $window,
     scrollTop,
@@ -59,10 +60,12 @@ const colorChanges = {
   setBlockPositions() {
     $colorChangeBlocks.each(function(i) {
       let $this = $(this);
-      // Cache block values
+      // Cache block color values
+      let bgColor = $this.attr('data-background');
+      let color = $this.attr('data-color');
       colorChangeValues[i+1] = {
-        'background': $this.attr('data-background'),
-        'color': $this.attr('data-color')
+        'background': bgColor.match('#') ? bgColor : defaultColors[bgColor],
+        'color': color.match('#') ? color : defaultColors[color]
       };
       $this.attr('data-originalPosition', $this.offset().top);
     });
