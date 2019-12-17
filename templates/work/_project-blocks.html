@@ -1,60 +1,10 @@
-{% set blockColor = 'gray' %}
-{% set blockClass = blockColor %}
-{% set textClass = '' %}
-{% set customStyles = '' %}
 {% set blockWrapped = false %}
-
-{# Check if first block is a color change #}
-{% if entry.projectBlocks|length and entry.projectBlocks[0].type == 'blockColorChange' %}
-  {% if entry.projectBlocks[0].color == 'custom' %}
-    {% set blockColor = entry.projectBlocks[0].customBackgroundColor %}
-    {% set blockClass = 'custom' %}
-    {% set customBackgroundColor = entry.projectBlocks[0].customBackgroundColor %}
-    {% if entry.projectBlocks[0].textColor == 'custom' %}
-      {% set customTextColor = 'color:' ~ entry.projectBlocks[0].customTextColor ~ ';' %}
-      {% set textClass = '' %}
-    {% else %}
-      {% set customTextColor = '' %}
-      {% set textClass = ' text-' ~ entry.projectBlocks[0].textColor %}
-    {% endif %}
-    {% set customStyles = ' style=background-color:' ~ customBackgroundColor ~ ';' ~ customTextColor %}
-  {% else %}
-    {% set blockColor = entry.projectBlocks[0].color %}
-    {% set blockClass = blockColor %}
-    {% set customStyles = '' %}
-    {% set textClass = '' %}
-  {% endif %}
-{% endif %}
-
-<div class="block-color color-{{ blockClass }}{{ textClass }}"{{ customStyles }}>
 
 {% for block in entry.projectBlocks.all() %}
   {% switch block.type %}
 
     {% case "blockColorChange" %}
-      {% if blockColor != block.color and blockColor != block.customBackgroundColor and loop.index != 1 %}
-        {% if block.color == 'custom' %}
-          {% set blockColor = block.customBackgroundColor %}
-          {% set blockClass = 'custom' %}
-          {% set customBackgroundColor = block.customBackgroundColor %}
-          {% if block.textColor == 'custom' %}
-            {% set customTextColor = 'color:' ~ block.customTextColor ~ ';' %}
-            {% set textClass = '' %}
-          {% else %}
-            {% set customTextColor = '' %}
-            {% set textClass = ' text-' ~ block.textColor %}
-          {% endif %}
-          {% set customStyles = ' style=background-color:' ~ customBackgroundColor ~ ';' ~ customTextColor %}
-        {% else %}
-          {% set blockColor = block.color %}
-          {% set blockClass = blockColor %}
-          {% set customStyles = '' %}
-          {% set textClass = '' %}
-        {% endif %}
-        {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
-        </div><!-- /.block-color -->
-        <div class="block-color color-{{ blockClass }}{{ textClass }}"{{ customStyles }}>
-      {% endif %}
+      <div class="color-change" data-background="{{ block.customBackgroundColor }}" data-color="{{ block.customTextColor }}"></div>
 
     {% case "sectionHeader" %}
       {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
@@ -93,7 +43,7 @@
               {% if embeddedAsset %}
                 {# Custom vimeo handling #}
                 {% if embeddedAsset.url matches '/vimeo\.com/' %}
-                  <div class="embedded-asset vimeo-block{{ block.backgroundVideo ? ' background-video' : '' }}" data-url="{{ embeddedAsset.url }}" data-width="{{ embeddedAsset.width }}" data-height="{{ embeddedAsset.height }}">
+                  <div class="embedded-asset vimeo-block{{ block.backgroundVideo ? ' c-video' : '' }}" data-url="{{ embeddedAsset.url }}" data-width="{{ embeddedAsset.width }}" data-height="{{ embeddedAsset.height }}">
                     <img class="lazyload" data-src="{{ embeddedAsset.images[0].url }}">
                   </div>
                 {% else %}
@@ -183,4 +133,3 @@
 {% endfor %}
 
 {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% endif %}
-</div><!-- /.block-color -->

@@ -1,33 +1,5 @@
 // Project/page blocks
 
-// Color changes
-.block-color {
-  &.color-white {
-    background: color('white');
-  }
-  &.color-gray {
-    background: color('offwhite');
-    .user-content a {
-      @include linkHover(color('offwhite'));
-    }
-  }
-  &.color-black {
-    background: color('black');
-    .user-content {
-      &,
-      h2,
-      h3 {
-        @extend %smooth;
-        color: color('white');
-      }
-      a {
-        color: rgba(color('white'), 0.65);
-        @include linkHover(color('white'), screen);
-      }
-    }
-  }
-}
-
 // Wrapper for all non-fullwidth blocks
 .block-wrap {
   margin-left: -#{$padding-sm / 2};
@@ -92,7 +64,7 @@
   li {
     align-items: flex-end;
     padding: beat(2) 0;
-    border-bottom: 1px solid color('black');
+    border-bottom: 1px solid var(--projectBlockColor);
     .figure {
       @include h1-sans;
       margin: 0;
@@ -122,7 +94,7 @@
   width: 100%;
   h3 {
     @include small-titles;
-    border-top: 1px solid color('black');
+    border-top: 1px solid var(--projectBlockColor);
     padding-top: beat(1);
   }
 }

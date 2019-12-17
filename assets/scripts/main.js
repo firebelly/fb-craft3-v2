@@ -3,8 +3,7 @@ import Velocity from 'velocity-animate';
 
 // import local dependencies
 import Router from './util/Router';
-import stickyHeaders from './util/stickyHeaders';
-import stickyNav from './util/stickyNav';
+import colorChanges from './util/colorChanges';
 import common from './routes/common';
 import homepage from './routes/homepage';
 import project from './routes/project';
@@ -16,11 +15,8 @@ const routes = new Router({
   project,
 });
 
-// Init sticky headers
-stickyHeaders.init();
-
-// Init sticky nav
-stickyNav.init();
+// Init color changes
+colorChanges.init();
 
 // Load Events
 $(document).ready(() => routes.loadEvents());

@@ -2,6 +2,7 @@
 
 .project-blocks {
   @include clearfix;
+  transition: all 0.5s;
 }
 
 // Single project

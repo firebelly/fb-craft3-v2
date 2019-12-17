@@ -1,7 +1,5 @@
 {% set blockWrapped = false %}
 
-<div class="block-color color-gray">
-
 {% for block in entry.pageBlocks.all() %}
   {% switch block.type %}
 
@@ -25,4 +23,3 @@
 {% endfor %}
 
 {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% endif %}
-</div><!-- /.block-color -->
