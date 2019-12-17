@@ -14,7 +14,7 @@ const colorChanges = {
   init() {
     if ($('.color-change').length) {
       $window = $(window);
-      $rootElement = $('.project-blocks');
+      $rootElement = $('.single-project');
       $colorChangeBlocks = $('.color-change');
 
       colorChanges.setBlockPositions();

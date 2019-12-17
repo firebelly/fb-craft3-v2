@@ -1,8 +1,14 @@
 // Projects
 
+.single-project {
+  transition: all 0.5s;
+}
 .project-blocks {
   @include clearfix;
-  transition: all 0.5s;
+
+  @include media-md {
+    margin-bottom: beat(12);
+  }
 }
 
 // Single project
