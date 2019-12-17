@@ -12,6 +12,10 @@ _/        _/_/_/
   box-sizing: inherit;
 }
 
+:root {
+  --projectBlockColor: color('black');
+}
+
 body {
   overflow-x: hidden;
   color: color('black');
@@ -19,7 +23,6 @@ body {
   padding-top: $header-sm; // making room for the fixed header
   background: color('white');
   font: 16px/24px $font-sans, serif;
-  --projectBlockColor: color('black');
 
   @include media-nav {
     padding-top: $header-md;
