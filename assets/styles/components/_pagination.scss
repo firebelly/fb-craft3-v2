@@ -1,22 +1,94 @@
 // Pagination
 
+// Project image rotator on hover
+@keyframes imgRotator {
+  0%, 20% {
+    opacity: 1;
+  }
+  21%, 100% {
+    opacity: 0;
+  }
+}
+
 .pagination {
   @include h1-sans;
   padding-top: beat(4);
   padding-bottom: beat(4);
+  position: relative;
+
+  // Next Project link styles
+  .rollover-images {
+    position: absolute;
+    top: beat(12);
+    left: 0;
+    width: columns(10);
+    opacity: 0;
+    @include transition(opacity);
+    img {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include media-md {
+    .rollover-images.hover {
+      opacity: 1;
+      img {
+        animation: imgRotator 3s linear infinite;
+        @for $i from 0 through 4 {
+          &:nth-child(#{5 - $i}) {
+            animation-delay: #{(-0.6 * $i)}s;
+          }
+        }
+      }
+    }
+  }
 
   a {
     display: block;
+    @include transition(color);
     .link {
-      display: block;
       position: relative;
+      display: block;
     }
     .title {
       display: block;
       @include p2;
       text-decoration: underline;
     }
+
+    // Next Project styles
+    .project-title {
+      @include small-titles;
+      align-self: flex-end;
+      opacity: 0;
+      color: color('red');
+      position: relative;
+      @include transition(opacity);
+      .subtitle {
+        display: block;
+        padding-top: beat(1);
+        @include p1;
+      }
+    }
+
+    @include media-md {
+      &:hover {
+        color: color('red');
+        .icon-big-arrow {
+          fill: color('red');
+        }
+        .project-title {
+          opacity: 1;
+        }
+      }
+    }
   }
+
   .-inner {
     // Custom longer-dashed border
     background: linear-gradient(to right, currentColor 0%, currentColor 50%, transparent 50%, transparent 100%) repeat-x left top;
@@ -30,6 +102,7 @@
     height: 45px;
     bottom: 0;
     right: 0;
+    @include transition(fill);
   }
 
   @include media-md {
@@ -42,6 +115,7 @@
     }
 
     .container {
+      position: relative;
       padding-top: beat(15);
       padding-bottom: beat(2);
     }

@@ -1,5 +1,12 @@
 // Mixins
 
+// Global UI Transition
+@mixin transition($properties...) {
+  transition-duration: $transition-duration;
+  transition-property: $properties;
+  transition-timing-function: $transition-easing;
+}
+
 // Ye olde clearfix
 @mixin clearfix {
   &:after {

@@ -38,3 +38,7 @@ $breakpoint-xl: 1400px;
 // Custom cubic easings
 $cubic-ease1: cubic-bezier(0.77, 0, 0.175, 1);
 $cubic-ease2: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+// Base transition styles using @include transition(property)
+$transition-duration: 0.5s;
+$transition-easing: 'ease-out';

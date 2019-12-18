@@ -1,7 +1,16 @@
 export default {
   init() {
-    // JavaScript to be fired on the home page
+    // JavaScript to be fired on project pages
+
     _initTypeTester();
+
+    // Add hover class to rollover images on hover for Next Project links
+    $('.pagination.-next').each(function() {
+      let $rolloverImages = $(this).find('.rollover-images');
+      $(this).find('a').hover(function() {
+        $rolloverImages.toggleClass('hover');
+      });
+    });
 
     function _initTypeTester() {
       // If there's a type tester present
@@ -225,6 +234,6 @@ export default {
   },
 
   finalize() {
-    // JavaScript to be fired on the home page, after the init JS
+    // JavaScript to be fired on project pages, after the init JS
   },
 };

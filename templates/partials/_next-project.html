@@ -1,0 +1,48 @@
+{% set nextEntry = craft.entries.section('work').positionedAfter(entry).orderBy('lft asc').one() %}
+{% if not nextEntry %}
+  {% set nextEntry = craft.entries.section('work').one() %}
+{% endif %}
+
+{% set rolloverImages = [] %}
+{% for block in entry.projectBlocks.all() %}
+  {% if rolloverImages|length < 5 and block.type == 'blockPaddedImage' and block.image|length %}
+    {% set image = block.image.all()[0] %}
+    {% if not (image.filename matches '/(gif|svg|json)$/') %}
+      {% set transformedImage = craft.imager.transformImage(image, { width: 684, height: 384, mode: 'crop', quality: 65 }) %}
+      {% if transformedImage %}
+        {% set rolloverImages = rolloverImages|merge([ { transformedImage: transformedImage, title: image.title } ]) %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+<nav class="pagination -next">
+  {% if rolloverImages|length %}
+    <div class="rollover-images">
+      {% for image in rolloverImages %}
+        <img src="{{ image.transformedImage.getUrl() }}" alt="{{ image.title }}">
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <div class="container">
+    <div class="-inner">
+      <a rel="next" href="{{ nextEntry.getUrl() }}">
+        <div class="link">
+          <div class="grid">
+            <div class="col-1-2">
+              Next<br>Project
+            </div>
+            <div class="col-1-4 project-title">
+              {{ nextEntry.title }}
+              <span class="subtitle">
+                {{ nextEntry.subtitle}}
+              </span>
+            </div>
+          </div>
+          <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</nav>
