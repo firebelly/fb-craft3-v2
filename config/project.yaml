@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576618339
+dateModified: 1576699268
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -650,6 +650,34 @@ fields:
       validateRelatedElements: ''
     contentColumnType: string
     fieldGroup: 8371a28a-a15c-40e8-a56a-142abd851d9b
+  b7b021f8-e7a0-4d03-8243-f13e49183cea:
+    name: 'Next Project Images'
+    handle: nextProjectImages
+    instructions: 'Shown as thumbnail slideshow in Next Project links'
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: '1'
+      defaultUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      defaultUploadLocationSubpath: '{slug}'
+      singleUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      singleUploadLocationSubpath: '{slug}'
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources:
+        - 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      source: null
+      targetSiteId: null
+      viewMode: large
+      limit: '5'
+      selectionLabel: 'Add images'
+      localizeRelations: false
+      validateRelatedElements: ''
+    contentColumnType: string
+    fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
   c0291894-b365-432f-a00c-8368fce83e0b:
     name: Intro
     handle: intro
@@ -3508,19 +3536,22 @@ sections:
                 fields:
                   6b43a75a-e6af-4df4-8ca9-5910e934a3ef:
                     required: false
-                    sortOrder: 5
+                    sortOrder: 4
                   b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                     required: false
-                    sortOrder: 3
+                    sortOrder: 2
+                  b7b021f8-e7a0-4d03-8243-f13e49183cea:
+                    required: false
+                    sortOrder: 6
                   cfeb2873-7b57-40cd-89ca-956423fc2d63:
                     required: false
                     sortOrder: 1
                   d9c72a60-67c9-4086-b918-069fa0ba21dd:
                     required: false
-                    sortOrder: 6
+                    sortOrder: 5
                   e08eb433-6275-40bd-ac89-ef297669541e:
                     required: false
-                    sortOrder: 4
+                    sortOrder: 3
               -
                 name: Header
                 sortOrder: 2

@@ -4,17 +4,14 @@
 {% endif %}
 
 {% set rolloverImages = [] %}
-{% for block in nextEntry.projectBlocks.all() %}
-  {% if rolloverImages|length < 5 and block.type == 'blockPaddedImage' and block.image|length %}
-    {% set image = block.image.all()[0] %}
-    {% if not (image.filename matches '/(gif|svg|json)$/') %}
-      {% set transformedImage = craft.imager.transformImage(image, { width: 800, height: 450, mode: 'crop', quality: 75 }) %}
-      {% if transformedImage %}
-        {% set rolloverImages = rolloverImages|merge([ { transformedImage: transformedImage, title: image.title } ]) %}
-      {% endif %}
+{% if nextEntry.nextProjectImages|length %}
+  {% for image in nextEntry.nextProjectImages.all() %}
+    {% set transformedImage = craft.imager.transformImage(image, { width: 800, height: 450, mode: 'crop', quality: 75 }) %}
+    {% if transformedImage %}
+      {% set rolloverImages = rolloverImages|merge([ { transformedImage: transformedImage, title: image.title } ]) %}
     {% endif %}
-  {% endif %}
-{% endfor %}
+  {% endfor %}
+{% endif %}
 
 <nav class="pagination -next">
   {% if rolloverImages|length %}
