@@ -7,9 +7,9 @@
 
     <a class="-inner js-cursor" href="{{ entry.getUrl() }}">
       {% if entry.thumbnailOrientation == 'portrait' %}
-        {% set transformedImage = craft.imager.transformImage(headerImage, { width: 1116, height: 1504, mode: 'crop', position: headerImage.getFocalPoint() }) %}
+        {% set transformedImage = craft.imager.transformImage(headerImage, { width: 1116, height: 1504, mode: 'crop' }) %}
       {% else %}
-        {% set transformedImage = craft.imager.transformImage(headerImage, { width: 1116, height: 640, mode: 'crop', position: headerImage.getFocalPoint() }) %}
+        {% set transformedImage = craft.imager.transformImage(headerImage, { width: 1116, height: 640, mode: 'crop' }) %}
       {% endif %}
       <div class="ideas-image"><img src="{{ transformedImage.getUrl() }}" alt="{{ headerImage.title }}"></div>
     </a>

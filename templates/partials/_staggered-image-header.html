@@ -1,8 +1,8 @@
 {% if header.mainImage %}
-  {% set transformedMainImage = craft.imager.transformImage(header.mainImage.one(), { width: 1116, height: 1504, mode: 'crop', position: header.mainImage.one().getFocalPoint() }) %}
+  {% set transformedMainImage = craft.imager.transformImage(header.mainImage.one(), { width: 1116, height: 1504, mode: 'crop' }) %}
 {% endif %}
 {% if header.secondaryImage %}
-  {% set transformedSecondaryImage = craft.imager.transformImage(header.secondaryImage.one(), { width: 1116, height: 640, mode: 'crop', position: header.secondaryImage.one().getFocalPoint() }) %}
+  {% set transformedSecondaryImage = craft.imager.transformImage(header.secondaryImage.one(), { width: 1116, height: 640, mode: 'crop' }) %}
 {% endif %}
 
 <div class="staggered-image-header">

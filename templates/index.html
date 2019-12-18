@@ -22,9 +22,9 @@
             <div class="project col-md-1-2">
               <a class="-inner js-cursor" href="{{ project.url }}" data-cursor-class="view">
                 {% if loop.last %}
-                  {% set transformedImage = craft.imager.transformImage(project.altImage.one(), { width: 1116, height: 1504, mode: 'crop', position: project.altImage.one().getFocalPoint() }) %}
+                  {% set transformedImage = craft.imager.transformImage(project.altImage.one(), { width: 1116, height: 1504, mode: 'crop' }) %}
                 {% else %}
-                  {% set transformedImage = craft.imager.transformImage(project.altImage.one(), { width: 1116, height: 640, mode: 'crop', position: project.altImage.one().getFocalPoint() }) %}
+                  {% set transformedImage = craft.imager.transformImage(project.altImage.one(), { width: 1116, height: 640, mode: 'crop' }) %}
                 {% endif %}
                 <div class="project-image"><img src="{{ transformedImage.getUrl() }}" alt=""></div>
                 <ul class="services">
@@ -92,9 +92,9 @@
                   {% endif %}
 
                   {% if workBlock.thumbnailOrientation == 'portrait' %}
-                    {% set transformedImage = craft.imager.transformImage(entryImage, { width: 1116, height: 1504, mode: 'crop', position: entryImage.getFocalPoint() }) %}
+                    {% set transformedImage = craft.imager.transformImage(entryImage, { width: 1116, height: 1504, mode: 'crop' }) %}
                   {% else %}
-                    {% set transformedImage = craft.imager.transformImage(entryImage, { width: 1116, height: 640, mode: 'crop', position: entryImage.getFocalPoint() }) %}
+                    {% set transformedImage = craft.imager.transformImage(entryImage, { width: 1116, height: 640, mode: 'crop' %}
                   {% endif %}
                   <div class="project-image"><img src="{{ transformedImage.getUrl() }}" alt="{{ entryImage.title }}"></div>
                   {% if featuredEntry.services|length %}
