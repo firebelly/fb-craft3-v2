@@ -9,6 +9,8 @@
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
 {% set bodyClass = 'single page work with-blobs' %}
 {% set bodyDataAttributes = 'data-blob-color=#FF3D00' %}
+{% set sectionHeader = 'All Projects' %}
+{% set filterLinks = '<a href="#" class="filter-projects">Filter Projects</a>' %}
 
 {% if category is defined %}
 
@@ -22,6 +24,8 @@
   {# todo: make these fields on services? or is this hardcoded? #}
   {% set headline = 'Check out all our %s projects.'|format(category.title|lower) %}
   {% set subhead = 'Feast your eyes.' %}
+  {% set sectionHeader = 'All %s Projects'|format(category.title) %}
+  {% set filterLinks = '<a href="/work">Clear Filter</a>' %}
 
 {% else %}
   {% set projectEntries = craft.entries({
@@ -42,6 +46,12 @@
   {% endif %}
 
   <div class="container">
+    <div class="block-section-header top-section-header">
+      <h3>{{ sectionHeader }}</h3>
+      <div class="filter-links">
+        {{ filterLinks|raw }}
+      </div>
+    </div>
     <div class="thumbnail-grid grid spaced">
       {% for projectEntry in projectEntries.all() %}
         {% include 'work/_article' with { entry: projectEntry } %}

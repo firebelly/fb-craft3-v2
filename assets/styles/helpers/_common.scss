@@ -37,6 +37,16 @@ h4.lined {
   }
 }
 
+.top-section-header {
+  .filter-links {
+    text-align: right;
+    a {
+      @include p1;
+      text-decoration: underline;
+    }
+  }
+}
+
 // Thumbnail grid (project/ideas)
 .thumbnail-grid {
   .project {

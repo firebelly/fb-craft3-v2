@@ -6,6 +6,16 @@
 .project-blocks {
   @include clearfix;
 }
+.top-section-header {
+  .filter-links {
+    padding: beat(1) 0;
+  }
+  @include media-md {
+    .filter-links {
+      padding: beat(1) 0 beat(4);
+    }
+  }
+}
 
 // Single project
 body.project {

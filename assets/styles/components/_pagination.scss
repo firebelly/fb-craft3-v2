@@ -7,7 +7,15 @@
 
   a {
     display: block;
-    position: relative;
+    .link {
+      display: block;
+      position: relative;
+    }
+    .title {
+      display: block;
+      @include p2;
+      text-decoration: underline;
+    }
   }
   .-inner {
     // Custom longer-dashed border
@@ -25,6 +33,7 @@
   }
 
   @include media-md {
+    padding-top: 0;
     padding-bottom: beat(12);
 
     .icon-big-arrow {
@@ -35,6 +44,33 @@
     .container {
       padding-top: beat(15);
       padding-bottom: beat(2);
+    }
+    a {
+      .title {
+        padding-top: beat(2);
+      }
+    }
+    &.-next-prev {
+      .padded {
+        display: block;
+      }
+      a[rel="prev"] {
+        .padded {
+          padding-left: columns(3, 8);
+          padding-right: columns(1, 8);
+        }
+        .icon-big-arrow {
+          right: auto;
+          left: 0;
+          transform: rotate(180deg);
+        }
+      }
+      a[rel="next"] {
+        .padded {
+          padding-left: columns(2, 8);
+          padding-right: columns(2, 8);
+        }
+      }
     }
   }
 }

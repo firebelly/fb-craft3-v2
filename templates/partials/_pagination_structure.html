@@ -3,10 +3,14 @@
   {% if not nextEntry %}
     {% set nextEntry = craft.entries.section(paginationSection).one() %}
   {% endif %}
-  <nav class="pagination">
+  <nav class="pagination -next">
     <div class="container">
       <div class="-inner">
-        <a rel="next" href="{{ nextEntry.getUrl() }}">Next<br>{{ postName }} <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a>
+        <a rel="next" href="{{ nextEntry.getUrl() }}">
+          <span class="link">
+            Next<br>{{ postName }} <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg>
+          </span>
+        </a>
       </div>
     </div>
   </nav>

@@ -1,7 +1,23 @@
-// Ideas page
+// Ideas pages
 #ideas-page {
+  // Reduce padding on pagination
+  .pagination {
+    .container {
+      padding-top: beat(6);
+    }
+  }
+  .block-section-header {
+    padding-bottom: beat(1);
+  }
+
+  @include media-md {
+    .block-section-header {
+      padding-bottom: beat(4);
+    }
+  }
 }
 
+// Single ideas post
 .ideas-single {
   padding: beat(8) 0;
 

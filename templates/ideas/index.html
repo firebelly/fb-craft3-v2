@@ -35,24 +35,28 @@
   {% include 'partials/_text-header' %}
 
   <div class="container">
-
+    <div class="block-section-header">
+      <h3>Ideas</h3>
+    </div>
     <div class="thumbnail-grid grid spaced">
       {% for entry in ideasEntries %}
         {% include "ideas/_article" %}
       {% endfor %}
     </div>
-
-    <nav class="pagination">
-      <ul>
-        {% if paginationInfo.nextUrl %}
-        <li class="next">
-          <a rel="next" href="{{ paginationInfo.nextUrl }}">Next Page </a>
-        </li>
-        {% else %}
-          <li class="next disabled"></li>
-        {% endif %}
-      </ul>
-    </nav>
-
   </div>
+
+  {% if paginationInfo.nextUrl %}
+    <nav class="pagination -next">
+      <div class="container">
+        <div class="-inner">
+          <a rel="next" href="{{ paginationInfo.nextUrl }}">
+            <span class="link">
+              Next<br>Page <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  {% endif %}
+
 {% endblock %}

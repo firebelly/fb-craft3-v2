@@ -2,17 +2,34 @@
   {% set params = craft.entries.section(paginationSection).orderBy('postDate asc, id asc') %}
   {% set prevEntry = entry.getPrev(params) %}
   {% set nextEntry = entry.getNext(params) %}
-  <nav class="pagination">
-    <ul>
-      {% if prevEntry %}
-      <li class="prev">
-        <a rel="prev" href="{{ prevEntry.getUrl() }}"><span class="arrow">&larr;</span> Previous {{ postName }}</a>
-      </li>
-      {% endif %}
-      {% if nextEntry %}
-      <li class="next">
-        <a rel="next" href="{{ nextEntry.getUrl() }}">Next {{ postName }} <span class="arrow">&rarr;</span></a>
-      </li>
-      {% endif %}
+  <nav class="pagination -next-prev">
+    <div class="container">
+      <div class="-inner">
+        <div class="grid">
+          <div class="col-md-1-2">
+            {% if prevEntry %}
+              <a rel="prev" href="{{ prevEntry.getUrl() }}">
+                <span class="link">
+                  <span class="padded">
+                    <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg> Prev<br>Post</span>
+                  </span>
+                <span class="title padded">{{ prevEntry.title }}</span>
+              </a>
+            {% endif %}
+          </div>
+          <div class="col-md-1-2">
+            {% if nextEntry %}
+              <a rel="next" href="{{ nextEntry.getUrl() }}">
+                <span class="link">
+                  <span class="padded">
+                    Next<br>Post <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg>
+                  </span>
+                </span>
+                <span class="title padded">{{ nextEntry.title }}</span>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
     </ul>
   </nav>
