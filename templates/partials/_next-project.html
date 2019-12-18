@@ -6,9 +6,11 @@
 {% set rolloverImages = [] %}
 {% if nextEntry.nextProjectImages|length %}
   {% for image in nextEntry.nextProjectImages.all() %}
-    {% set transformedImage = craft.imager.transformImage(image, { width: 800, height: 450, mode: 'crop', quality: 75 }) %}
-    {% if transformedImage %}
-      {% set rolloverImages = rolloverImages|merge([ { transformedImage: transformedImage, title: image.title } ]) %}
+    {% if not (image.filename matches '/(gif|svg|json)$/') %}
+      {% set transformedImage = craft.imager.transformImage(image, { width: 800, height: 450, mode: 'crop', quality: 75 }) %}
+      {% if transformedImage %}
+        {% set rolloverImages = rolloverImages|merge([ { transformedImage: transformedImage, title: image.title } ]) %}
+      {% endif %}
     {% endif %}
   {% endfor %}
 {% endif %}
