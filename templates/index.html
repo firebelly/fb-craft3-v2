@@ -94,7 +94,7 @@
                   {% if workBlock.thumbnailOrientation == 'portrait' %}
                     {% set transformedImage = craft.imager.transformImage(entryImage, { width: 1116, height: 1504, mode: 'crop' }) %}
                   {% else %}
-                    {% set transformedImage = craft.imager.transformImage(entryImage, { width: 1116, height: 640, mode: 'crop' %}
+                    {% set transformedImage = craft.imager.transformImage(entryImage, { width: 1116, height: 640, mode: 'crop' }) %}
                   {% endif %}
                   <div class="project-image"><img src="{{ transformedImage.getUrl() }}" alt="{{ entryImage.title }}"></div>
                   {% if featuredEntry.services|length %}
