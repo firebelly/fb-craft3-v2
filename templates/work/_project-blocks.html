@@ -3,21 +3,21 @@
 {% for block in entry.projectBlocks.all() %}
   {% switch block.type %}
 
-    {% case "blockColorChange" %}
+    {% case 'blockColorChange' %}
       {% set background = (block.color == 'custom') ? block.customBackgroundColor : block.color %}
       {% set color = (block.textColor == 'custom') ? block.customTextColor : block.textColor %}
       <div class="color-change" data-background="{{ background }}" data-color="{{ color }}"></div>
 
-    {% case "sectionHeader" %}
+    {% case 'sectionHeader' %}
       {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
       <div class="block-section-header">
         <h3>{{ block.headline }}</h3>
       </div>
 
-    {% case "spacer" %}
+    {% case 'spacer' %}
       <div class="block-spacer {{ block.size }}"></div>
 
-    {% case "blockHeader" %}{# deprecated #}
+    {% case 'blockHeader' %}{# deprecated #}
       {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
       <div class="block-text fullWidth user-content">
         <div class="-inner">
@@ -31,11 +31,11 @@
         </div>
       </div>
 
-    {% case "blockTypeSpecimen" %}
+    {% case 'blockTypeSpecimen' %}
       {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
-      {% include "blocks/_type-tester" with { block: block } %}
+      {% include 'blocks/_type-tester' with { block: block } %}
 
-    {% case "blockImages" %}
+    {% case 'blockImages' %}
       {% if block.carousel %}
         {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
         <div class="block-carousel">
@@ -84,7 +84,7 @@
         {% endfor %}
       {% endif %}
 
-    {% case "blockImagesWithText" %}
+    {% case 'blockImagesWithText' %}
       {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
       <div class="block-carousel">
         <div class="flickity js-cursor with-captions">
@@ -108,25 +108,25 @@
         </div>
       </div>
 
-    {% case "blockHtml" %}
+    {% case 'blockHtml' %}
       {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
       <div class="block-html vimeo-block">{{ block.html }}</div>
 
-    {% case "blockText" %}
+    {% case 'blockText' %}
       {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
-      {% include "blocks/_text" with { block: block } %}
+      {% include 'blocks/_text' with { block: block } %}
 
-    {% case "blockPaddedImage" %}
+    {% case 'blockPaddedImage' %}
       {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
-      {% include "blocks/_padded-images" with { block: block, browserFrame: block.browserFrame } %}
+      {% include 'blocks/_padded-images' with { block: block, browserFrame: block.browserFrame } %}
 
-    {% case "blockQuote" %}
+    {% case 'blockQuote' %}
       {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
-      {% include "blocks/_quote" with { block: block } %}
+      {% include 'blocks/_quote' with { block: block } %}
 
-    {% case "statTable" %}
+    {% case 'statTable' %}
       {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
-      {% include "blocks/_stat-table" with { block: block } %}
+      {% include 'blocks/_stat-table' with { block: block } %}
 
     {% default %}
       Hello?
