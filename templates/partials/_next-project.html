@@ -8,7 +8,7 @@
   {% if rolloverImages|length < 5 and block.type == 'blockPaddedImage' and block.image|length %}
     {% set image = block.image.all()[0] %}
     {% if not (image.filename matches '/(gif|svg|json)$/') %}
-      {% set transformedImage = craft.imager.transformImage(image, { width: 684, height: 384, mode: 'crop', quality: 65 }) %}
+      {% set transformedImage = craft.imager.transformImage(image, { width: 800, height: 450, mode: 'crop', quality: 75 }) %}
       {% if transformedImage %}
         {% set rolloverImages = rolloverImages|merge([ { transformedImage: transformedImage, title: image.title } ]) %}
       {% endif %}
