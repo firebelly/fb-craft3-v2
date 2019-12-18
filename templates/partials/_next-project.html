@@ -4,7 +4,7 @@
 {% endif %}
 
 {% set rolloverImages = [] %}
-{% for block in entry.projectBlocks.all() %}
+{% for block in nextEntry.projectBlocks.all() %}
   {% if rolloverImages|length < 5 and block.type == 'blockPaddedImage' and block.image|length %}
     {% set image = block.image.all()[0] %}
     {% if not (image.filename matches '/(gif|svg|json)$/') %}
