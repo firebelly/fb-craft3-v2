@@ -19,24 +19,7 @@
         <h4 class="lined">Recent</h4>
         <div class="thumbnail-grid grid spaced">
           {% for project in recentWork %}
-            <div class="project col-md-1-2">
-              <a class="-inner js-cursor" href="{{ project.url }}" data-cursor-class="view">
-                {% if loop.last %}
-                  {% set transformedImage = craft.imager.transformImage(project.altImage.one(), { width: 1116, height: 1504, mode: 'crop' }) %}
-                {% else %}
-                  {% set transformedImage = craft.imager.transformImage(project.altImage.one(), { width: 1116, height: 640, mode: 'crop' }) %}
-                {% endif %}
-                <div class="project-image"><img src="{{ transformedImage.getUrl() }}" alt=""></div>
-                <ul class="services">
-                  {% for service in project.services.with('service').all() %}
-                    <li>
-                      <a href="{{ service.service[0].getUrl() }}">{{ service.service[0].title }}</a>{{ not loop.last ? ',' }}
-                    </li>
-                  {% endfor %}
-                </ul>
-                <h3 class="project-title">{{ project.title }}: {{ project.subtitle }}</h3>
-              </a>
-            </div>
+            {% include 'work/_article' with { entry: project, orientationOverride: (loop.last ? 'portrait' : 'landscape') } %}
           {% endfor %}
         </div>
       </div>
@@ -82,33 +65,10 @@
         <div class="thumbnail-grid grid spaced">
           {% for workBlock in featuredWork %}
             {% set featuredEntry = workBlock.featuredEntry.one() %}
-            {% if featuredEntry %}
-              <article class="project col-md-1-2 orientation-{{ workBlock.thumbnailOrientation }}">
-                <a class="-inner js-cursor" href="{{ featuredEntry.getUrl() }}">
-                  {% if featuredEntry.altImage|length %}
-                    {% set entryImage = featuredEntry.altImage.one() %}
-                  {% else %}
-                    {% set entryImage = featuredEntry.headerImage.one() %}
-                  {% endif %}
-
-                  {% if workBlock.thumbnailOrientation == 'portrait' %}
-                    {% set transformedImage = craft.imager.transformImage(entryImage, { width: 1116, height: 1504, mode: 'crop' }) %}
-                  {% else %}
-                    {% set transformedImage = craft.imager.transformImage(entryImage, { width: 1116, height: 640, mode: 'crop' }) %}
-                  {% endif %}
-                  <div class="project-image"><img src="{{ transformedImage.getUrl() }}" alt="{{ entryImage.title }}"></div>
-                  {% if featuredEntry.services|length %}
-                    <ul class="services">
-                      {% for service in featuredEntry.services.with('service').all() %}
-                        <li>
-                          <a href="{{ service.service[0].getUrl() }}">{{ service.service[0].title }}</a>{{ not loop.last ? ',' }}
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  {% endif %}
-                  <h3 class="project-title">{{ featuredEntry.title }}{% if (featuredEntry.subtitle) %}: {{ featuredEntry.subtitle }}{% endif %}</h3>
-                </a>
-              </article>
+            {% if featuredEntry.type == 'project' %}
+              {% include 'work/_article' with { entry: featuredEntry } %}
+            {% elseif featuredEntry.type == 'ideasPost' %}
+              {% include 'work/_article' with { entry: featuredEntry } %}
             {% endif %}
           {% endfor %}
         </div>
