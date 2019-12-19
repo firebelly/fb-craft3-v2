@@ -49,11 +49,13 @@ const colorChanges = {
         currentColorValues = colorChangeValues[i+1];
       }
     });
+    // Default to black if text color value is blank
+    let textColor = currentColorValues.color || defaultColors.black;
     $rootElement.css({
       'background': currentColorValues.background,
-      'color': currentColorValues.color
+      'color': textColor
     });
-    document.body.style.setProperty('--projectBlockColor', currentColorValues.color);
+    document.body.style.setProperty('--projectBlockColor', textColor);
   },
 
   // Recalculate positions/sizes
