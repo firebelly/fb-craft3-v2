@@ -27,9 +27,8 @@
     opacity: 0;
     @include transition(opacity);
   }
-}
-article.project:hover {
-  .project-image {
+
+  &:hover {
     img:nth-child(2) {
       opacity: 1;
     }
