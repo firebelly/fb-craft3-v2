@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576699268
+dateModified: 1576786657
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -393,9 +393,9 @@ fields:
     fieldGroup: 544f7f96-7297-4753-bfde-ed6ea24b1117
     contentColumnType: string
   6b43a75a-e6af-4df4-8ca9-5910e934a3ef:
-    name: 'Alt Image'
+    name: 'Thumbnail Images'
     handle: altImage
-    instructions: 'Used for thumbnail if set (handy for different crops than header image)'
+    instructions: 'Used for thumbnail in list views, second image is shown on hover'
     searchable: true
     translationMethod: site
     translationKeyFormat: null
@@ -414,8 +414,8 @@ fields:
       source: null
       targetSiteId: null
       viewMode: large
-      limit: '1'
-      selectionLabel: 'Set alt image'
+      limit: '2'
+      selectionLabel: 'Set thumbnail images'
       localizeRelations: false
       validateRelatedElements: ''
     contentColumnType: string
@@ -790,9 +790,9 @@ fields:
     contentColumnType: string
     fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
   e08eb433-6275-40bd-ac89-ef297669541e:
-    name: 'Main Image'
+    name: 'Header Image'
     handle: mainImage
-    instructions: 'Max-width: 1800px. Used for header image on single project pages, and as project thumbnail if the Alt Image is not set.'
+    instructions: 'Used for header image on single project pages'
     searchable: true
     translationMethod: site
     translationKeyFormat: null
@@ -812,7 +812,7 @@ fields:
       targetSiteId: null
       viewMode: large
       limit: '1'
-      selectionLabel: 'Set main image'
+      selectionLabel: 'Set header image'
       localizeRelations: false
       validateRelatedElements: ''
     contentColumnType: string

@@ -17,6 +17,25 @@
   }
 }
 
+// Project thumbnails with second image hover
+.project-image {
+  position: relative;
+  img:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    @include transition(opacity);
+  }
+}
+article.project:hover {
+  .project-image {
+    img:nth-child(2) {
+      opacity: 1;
+    }
+  }
+}
+
 // Single project
 body.project {
   .portfolio {
