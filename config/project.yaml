@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576786657
+dateModified: 1576791441
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -555,12 +555,20 @@ fields:
     searchable: true
     translationMethod: site
     translationKeyFormat: null
-    type: craft\fields\Matrix
+    type: verbb\supertable\fields\SuperTableField
     settings:
-      minBlocks: ''
-      maxBlocks: '3'
-      contentTable: '{{%matrixcontent_featuredservices}}'
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_featuredservices}}'
       propagationMethod: all
+      staticField: ''
+      columns:
+        195d4768-976a-455a-aede-a233cfa8b363:
+          width: ''
+        a937d4b1-f5ba-42cf-8c90-a903d38ee8cc:
+          width: ''
+      fieldLayout: row
+      selectionLabel: 'Add a service'
     contentColumnType: string
     fieldGroup: 8371a28a-a15c-40e8-a56a-142abd851d9b
   a4b38771-d642-4c89-8372-f1d73f910aa7:
@@ -599,16 +607,22 @@ fields:
   ae9536dc-70b1-4e78-b8a8-eff55a877bb7:
     name: 'Featured Work'
     handle: featuredWork
-    instructions: 'Projects to be displayed in a list at the bottom of the homepage layout.'
+    instructions: 'Projects to be displayed in a list at the bottom of the homepage layout'
     searchable: true
     translationMethod: site
     translationKeyFormat: null
-    type: craft\fields\Matrix
+    type: craft\fields\Entries
     settings:
-      minBlocks: '4'
-      maxBlocks: ''
-      contentTable: '{{%matrixcontent_featuredwork}}'
-      propagationMethod: all
+      sources:
+        - 'section:8c753ecf-69cb-40e2-8cd0-94effdca10ab'
+        - 'section:a622d82a-9cfa-44de-b537-5a453e294cc7'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: '5'
+      selectionLabel: 'Add a feature'
+      localizeRelations: false
+      validateRelatedElements: ''
     contentColumnType: string
     fieldGroup: 8371a28a-a15c-40e8-a56a-142abd851d9b
   b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
@@ -3701,33 +3715,21 @@ sections:
                 name: Main
                 sortOrder: 1
                 fields:
+                  a2483d09-6798-40be-8f35-c45413ed2e03:
+                    required: false
+                    sortOrder: 3
+                  ae9536dc-70b1-4e78-b8a8-eff55a877bb7:
+                    required: false
+                    sortOrder: 4
+                  b6cdac4a-5f04-4b23-a32a-6fa5ef9b059b:
+                    required: false
+                    sortOrder: 2
                   d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9:
                     required: false
                     sortOrder: 1
               -
-                name: 'Recent Work'
-                sortOrder: 2
-                fields:
-                  b6cdac4a-5f04-4b23-a32a-6fa5ef9b059b:
-                    required: false
-                    sortOrder: 1
-              -
-                name: 'Featured Services'
-                sortOrder: 3
-                fields:
-                  a2483d09-6798-40be-8f35-c45413ed2e03:
-                    required: false
-                    sortOrder: 1
-              -
-                name: 'Featured Work'
-                sortOrder: 4
-                fields:
-                  ae9536dc-70b1-4e78-b8a8-eff55a877bb7:
-                    required: false
-                    sortOrder: 1
-              -
                 name: SEO
-                sortOrder: 5
+                sortOrder: 2
                 fields:
                   7a978b7f-cab5-448c-88dc-d4e1a9d281cf:
                     required: false
@@ -4274,6 +4276,56 @@ superTableBlockTypes:
                 required: false
                 sortOrder: 1
               fe70869e-e26a-4841-be4e-9216ab695e8c:
+                required: false
+                sortOrder: 2
+  c57ae3d3-370d-465e-b6aa-b11d576d3fc7:
+    field: a2483d09-6798-40be-8f35-c45413ed2e03
+    fields:
+      195d4768-976a-455a-aede-a233cfa8b363:
+        name: 'Service Name'
+        handle: serviceName
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: string
+        contentColumnType: string
+        fieldGroup: null
+      a937d4b1-f5ba-42cf-8c90-a903d38ee8cc:
+        name: 'Service Description'
+        handle: serviceDescription
+        instructions: 'A short sentence or two describing the service'
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '2'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      b3de5b92-cde3-4021-b389-da0218d168b1:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              195d4768-976a-455a-aede-a233cfa8b363:
+                required: false
+                sortOrder: 1
+              a937d4b1-f5ba-42cf-8c90-a903d38ee8cc:
                 required: false
                 sortOrder: 2
   ded11c53-f98b-42e5-b92b-764f7e424dcf:

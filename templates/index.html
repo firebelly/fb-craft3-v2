@@ -57,14 +57,17 @@
     </div><!-- /.what-we-do -->
   {% endif %}
 
-  {% set featuredWork = entry.featuredWork.all() %}
+  {% set featuredWork = entry.featuredWork.with([
+      'headerImage',
+      'thumbnailImage',
+      'altImage',
+    ]).all() %}
 
   {% if featuredWork|length %}
     <div class="featured-work section">
       <div class="container">
         <div class="thumbnail-grid grid spaced">
-          {% for workBlock in featuredWork %}
-            {% set featuredEntry = workBlock.featuredEntry.one() %}
+          {% for featuredEntry in featuredWork %}
             {% if featuredEntry.type == 'project' %}
               {% include 'work/_article' with { entry: featuredEntry } %}
             {% elseif featuredEntry.type == 'ideasPost' %}
