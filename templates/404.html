@@ -3,17 +3,25 @@
 {% set bodyId = "fourohfour-page" %}
 
 {% block content %}
-<section class="content interior grid">
-  <div class="intro clearfix">
+  <header class="text-header">
+    <div class="container">
+      <div class="title">
+        <h1>We’re Sorry</h1>
+      </div>
+    </div>
+  </header>
+
+  <div class="block-wrap intro">
     <div class="-inner">
-      <header class="section-title">
-        <h1 data-text="We’re Sorry">We’re Sorry</h1>
-        <div class="summary user-content">
-	        <h2>Unfortunately it appears that you have reached a page that does not exist.</h2>
-	        <p style="line-height: 1.9em"><a href="http://youtu.be/-Spq1N3QljM" target="_blank">Here's a link to something fun for the inconvenience</a>.</p>
+      <div class="block-section-header">
+        <h3>Unfortunately it appears that you have reached a page that does not exist.</h3>
+      </div>
+
+      <div class="block-text user-content fullWidthPaddedLeft">
+        <div class="-inner">
+          <p><a href="https://youtu.be/-Spq1N3QljM" rel="noopener" target="_blank">Here’s a link to something fun for the inconvenience</a>.</p>
         </div>
-      </header>
+      </div>
     </div>
   </div>
-</section>
 {% endblock %}
