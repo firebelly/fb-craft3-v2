@@ -125,7 +125,10 @@
       display: block;
     }
     .slide {
-      margin-right: beat(4);
+      &.landscape {
+        width: calc(100% - 288px);
+      }
+      margin-right: 72px;
       &.portrait {
         img {
           max-height: 700px;
