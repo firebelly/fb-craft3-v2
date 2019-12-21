@@ -47,10 +47,10 @@
     .block-image {
       padding: beat(4) #{$padding-md / 2};
     }
-    // Text inside image blocks
-    .block-image .block-text {
-      padding: beat(2) 0 0;
-    }
+    // Text inside image blocks (I believe these only need 16px of padding on all breakpoints)
+    // .block-image .block-text {
+    //   padding: beat(2) 0 0;
+    // }
   }
 }
 
