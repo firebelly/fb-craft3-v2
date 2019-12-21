@@ -1,7 +1,7 @@
 <div class="block-quote user-content {{ block.sizeAlignment }}">
   <div class="-inner">
     <blockquote>
-      <p>&ldquo;{{ block.quote }}&rdquo;</p>
+      <p>{{ block.quoteMarks ? '&ldquo;'|raw : '' }}{{ block.quote }}{{ block.quoteMarks ? '&rdquo;'|raw : '' }}</p>
       {% if block.attribution %}
         <cite>— {{ block.attribution }}</cite>
       {% endif %}

@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576791441
+dateModified: 1576952076
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -1440,6 +1440,18 @@ matrixBlockTypes:
               default: ''
         contentColumnType: string
         fieldGroup: null
+      7fcbcb5c-e1de-4185-9943-4f882c3fe97c:
+        name: 'Quote Marks'
+        handle: quoteMarks
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Lightswitch
+        settings:
+          default: '1'
+        contentColumnType: boolean
+        fieldGroup: null
       ae4062a8-a6a9-44ba-a654-1aed2e7a7ee4:
         name: Attribution
         handle: attribution
@@ -1470,6 +1482,9 @@ matrixBlockTypes:
               7748df7c-bf7f-4b05-9fa3-e9f442d8a98b:
                 required: false
                 sortOrder: 3
+              7fcbcb5c-e1de-4185-9943-4f882c3fe97c:
+                required: false
+                sortOrder: 4
               ae4062a8-a6a9-44ba-a654-1aed2e7a7ee4:
                 required: false
                 sortOrder: 2
