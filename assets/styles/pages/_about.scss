@@ -12,6 +12,11 @@
       display: none;
     }
 
+    // Less spacing for people than a work thumbnail-grid
+    article {
+      margin-bottom: 0;
+    }
+
     @include media-md {
       .person {
         padding-bottom: beat(4);
