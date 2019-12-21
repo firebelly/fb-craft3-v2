@@ -58,7 +58,7 @@ h4.lined {
 
     .services {
       @extend %semantic-list;
-      margin-top: 16px;
+      margin-top: beat(1);
       li {
         @include small-titles;
         display: inline-block;
@@ -68,6 +68,9 @@ h4.lined {
   // Project/ideas article
   article {
     margin-bottom: beat(3);
+    img {
+      display: block;
+    }
 
     @include media-md {
       margin-bottom: beat(8);
@@ -77,9 +80,11 @@ h4.lined {
   .category {
     @include small-titles;
   }
-
+  h4 {
+    margin: beat(1) 0;
+  }
   h3 {
     @include p1;
-    margin-top: 24px;
+    margin-top: beat(1);
   }
 }

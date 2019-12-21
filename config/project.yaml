@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576952076
+dateModified: 1576953515
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -1390,12 +1390,12 @@ matrixBlockTypes:
                 sortOrder: 4
   201186b3-d443-4b19-b4b6-ed5d01071c82:
     field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
-    name: Quote
+    name: 'Quote / Statement'
     handle: blockQuote
     sortOrder: 6
     fields:
       1601483c-947b-4094-9090-15ffacd94774:
-        name: Quote
+        name: 'Quote / Statement'
         handle: quote
         instructions: ''
         searchable: true
@@ -1444,7 +1444,7 @@ matrixBlockTypes:
         name: 'Quote Marks'
         handle: quoteMarks
         instructions: ''
-        searchable: true
+        searchable: false
         translationMethod: none
         translationKeyFormat: null
         type: craft\fields\Lightswitch
@@ -2779,6 +2779,106 @@ matrixBlockTypes:
               e7d409d4-2f29-4388-9755-f6ab096c7c7f:
                 required: false
                 sortOrder: 4
+  d2e516cf-009b-4b99-b605-14a2318cfbf1:
+    field: e5facf83-ead7-410b-96f6-761ac8ecb2d0
+    name: 'Quote / Statement'
+    handle: blockQuote
+    sortOrder: 5
+    fields:
+      0a5cec0b-231f-4e63-81a8-63a1ac641fbf:
+        name: 'Quote Marks'
+        handle: quoteMarks
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Lightswitch
+        settings:
+          default: '1'
+        contentColumnType: boolean
+        fieldGroup: null
+      41c70af9-fae6-411a-b469-d20f50133d8f:
+        name: 'Quote / Statement'
+        handle: quote
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '2'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      660c9787-b4f5-480e-8926-65516900a149:
+        name: Attribution
+        handle: attribution
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      b51d66e6-1149-4327-9b72-31a1840db7ab:
+        name: 'Size / Alignment'
+        handle: sizeAlignment
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          optgroups: true
+          options:
+            -
+              label: 'Half Width (Right Aligned Text)'
+              value: 'halfWidth rightAligned'
+              default: ''
+            -
+              label: 'Half Width (Left Aligned Text)'
+              value: halfWidth
+              default: ''
+            -
+              label: 'Half Width, On The Left (Right Aligned Text)'
+              value: 'fullWidthPaddedRight rightAligned'
+              default: ''
+            -
+              label: 'Half Width, On The Right (Left Aligned Text)'
+              value: fullWidthPaddedLeft
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      74e87440-f2c5-460b-a0e9-5591bcf90970:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              0a5cec0b-231f-4e63-81a8-63a1ac641fbf:
+                required: false
+                sortOrder: 4
+              41c70af9-fae6-411a-b469-d20f50133d8f:
+                required: false
+                sortOrder: 1
+              660c9787-b4f5-480e-8926-65516900a149:
+                required: false
+                sortOrder: 2
+              b51d66e6-1149-4327-9b72-31a1840db7ab:
+                required: false
+                sortOrder: 3
   e5736d30-f070-41c6-8ec5-b37106596382:
     field: e5facf83-ead7-410b-96f6-761ac8ecb2d0
     name: 'Section Header'

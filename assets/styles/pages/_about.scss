@@ -8,15 +8,11 @@
   }
 
   .people-list {
-    @extend %semantic-list;
-    padding: beat(1) #{$padding-sm / 2};
-
     .modal-content {
       display: none;
     }
 
     @include media-md {
-      padding: beat(4) #{$padding-md / 2};
       .person {
         padding-bottom: beat(4);
       }

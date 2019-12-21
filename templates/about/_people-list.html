@@ -7,13 +7,13 @@
 </div>
 
 <div class="container">
-  <ul class="thumbnail-grid grid spaced people-list">
+  <div class="thumbnail-grid grid spaced people-list">
     {% for person in entry.people.all() %}
       {% set image = person.photo.one() %}
       {% if image %}
         {% set personImage = craft.imager.transformImage(image, { width: 800 }) %}
       {% endif %}
-      <li class="col-md-1-2 person" id="{{ person.slug }}">
+      <article class="col-md-1-2 person" id="{{ person.slug }}">
         <div class="toggle-container">
           {% if personImage is defined %}
             <a class="-inner js-cursor" href="{{ person.getUrl() }}">
@@ -62,7 +62,7 @@
             </div>
           </div>
         </div>
-     </li>
+     </article>
     {% endfor %}
-  </ul>
+  </div>
 </div>

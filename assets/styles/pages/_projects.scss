@@ -118,15 +118,6 @@ body.project {
     }
   }
 
-  .block-quote {
-    &.rightAligned {
-      text-align: right;
-    }
-    blockquote {
-      @extend %blockquote;
-    }
-  }
-
   // A hacky fix for the unwanted borders created around fit-vid'ed video blocks due to iframes and subpixel rounding
   // Tried hard, but couldn't find a better way.  May god have mercy on my soul.
   .block-html {

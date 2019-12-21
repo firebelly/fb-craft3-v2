@@ -54,6 +54,12 @@
   }
 }
 
+.block-quote {
+  &.rightAligned {
+    text-align: right;
+  }
+}
+
 // Lists with giant header text at left + body text at right (misgnomer of the year, I apologize)
 .block-stat-table {
   width: 100%;

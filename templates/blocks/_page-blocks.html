@@ -19,6 +19,10 @@
       {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
       {% include "blocks/_padded-images" with { block: block } %}
 
+    {% case 'blockQuote' %}
+      {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
+      {% include 'blocks/_quote' with { block: block } %}
+
   {% endswitch %}
 {% endfor %}
 
