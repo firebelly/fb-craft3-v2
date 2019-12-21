@@ -1,11 +1,10 @@
 // Projects
 
-.single-project {
-  transition: all 0.5s;
-}
 .project-blocks {
   @include clearfix;
 }
+
+// Filter block
 .top-section-header {
   .filter-links {
     padding: beat(1) 0;
@@ -17,25 +16,11 @@
   }
 }
 
-// Project thumbnails with second image hover
-.project-image {
-  position: relative;
-  img:nth-child(2) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    @include transition(opacity);
-  }
-
-  &:hover {
-    img:nth-child(2) {
-      opacity: 1;
-    }
-  }
+// Single projects
+.single-project {
+  // For color change blocks that change bg + text colors
+  transition: all 0.5s;
 }
-
-// Single project
 body.project {
   .portfolio {
     padding-top: 46px;

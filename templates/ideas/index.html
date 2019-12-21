@@ -16,7 +16,6 @@
     section: 'ideas',
     relatedTo: category,
     with: [
-      'headerImage',
       'thumbnailImage'
     ]
   }).limit(11) as paginationInfo, ideasEntries %}
@@ -24,7 +23,6 @@
   {% paginate craft.entries({
     section: 'ideas',
     with: [
-      'headerImage',
       'thumbnailImage'
     ]
   }).limit(11) as paginationInfo, ideasEntries %}

@@ -16,7 +16,7 @@
 
   {% if transformedImage is defined %}
     <a class="-inner js-cursor" href="{{ entry.getUrl() }}" data-cursor-class="view">
-      <div class="project-image">
+      <div class="rollover-image">
         <img src="{{ transformedImage.getUrl() }}" alt="{{ thumbnailImage.title }}">
         <img src="{{ transformedImageHover.getUrl() }}" alt="{{ thumbnailImageHover.title }}">
       </div>
@@ -26,7 +26,7 @@
   {% if entry.services|length %}
     <ul class="services">
       {% for service in entry.services.all() %}
-        {% set service = service.service.one() %}{# lol #}
+        {% set service = service.service.one() %}
         <li>
           <a href="{{ service.getUrl() }}">{{ service.title }}</a>{{ not loop.last ? ',' }}
         </li>

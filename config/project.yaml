@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576953515
+dateModified: 1576957853
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -832,10 +832,10 @@ fields:
     contentColumnType: string
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
   e09feac8-411a-42fa-b8a3-01cb28b49ce8:
-    name: 'Thumbnail Image'
+    name: 'Thumbnail Images'
     handle: thumbnailImage
-    instructions: 'Used for thumbnail if set (handy for different crops than header image)'
-    searchable: true
+    instructions: 'Used for thumbnail in list views, second image is shown on hover'
+    searchable: false
     translationMethod: site
     translationKeyFormat: null
     type: craft\fields\Assets
@@ -852,8 +852,8 @@ fields:
       source: null
       targetSiteId: null
       viewMode: large
-      limit: '1'
-      selectionLabel: 'Set thumbnail image'
+      limit: '2'
+      selectionLabel: 'Set thumbnail images'
       localizeRelations: false
       validateRelatedElements: ''
     contentColumnType: string
@@ -3508,6 +3508,12 @@ sections:
                   cfeb2873-7b57-40cd-89ca-956423fc2d63:
                     required: false
                     sortOrder: 1
+                  d9c72a60-67c9-4086-b918-069fa0ba21dd:
+                    required: false
+                    sortOrder: 5
+                  e09feac8-411a-42fa-b8a3-01cb28b49ce8:
+                    required: false
+                    sortOrder: 4
               -
                 name: Header
                 sortOrder: 2
@@ -3517,16 +3523,10 @@ sections:
                     sortOrder: 1
                   1e1f83a6-b350-412e-83b9-355478f75113:
                     required: false
-                    sortOrder: 5
-                  d9c72a60-67c9-4086-b918-069fa0ba21dd:
-                    required: false
                     sortOrder: 3
-                  e09feac8-411a-42fa-b8a3-01cb28b49ce8:
-                    required: false
-                    sortOrder: 2
                   f442e9c0-3dcf-45a3-8dac-3134afcea15b:
                     required: false
-                    sortOrder: 4
+                    sortOrder: 2
               -
                 name: Body
                 sortOrder: 3
@@ -3665,44 +3665,44 @@ sections:
                 fields:
                   6b43a75a-e6af-4df4-8ca9-5910e934a3ef:
                     required: false
-                    sortOrder: 4
+                    sortOrder: 3
                   b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                     required: false
                     sortOrder: 2
                   b7b021f8-e7a0-4d03-8243-f13e49183cea:
                     required: false
-                    sortOrder: 6
+                    sortOrder: 5
                   cfeb2873-7b57-40cd-89ca-956423fc2d63:
                     required: false
                     sortOrder: 1
                   d9c72a60-67c9-4086-b918-069fa0ba21dd:
                     required: false
-                    sortOrder: 5
-                  e08eb433-6275-40bd-ac89-ef297669541e:
-                    required: false
-                    sortOrder: 3
+                    sortOrder: 4
               -
                 name: Header
                 sortOrder: 2
                 fields:
                   1aa39e81-b095-4d9a-9fb5-68e65b990311:
                     required: false
-                    sortOrder: 6
+                    sortOrder: 7
                   1e1f83a6-b350-412e-83b9-355478f75113:
                     required: false
-                    sortOrder: 1
+                    sortOrder: 2
                   35faad0a-64da-476e-afcf-dd5cb5979569:
                     required: false
-                    sortOrder: 5
+                    sortOrder: 6
                   4d475249-13b3-46a6-981d-befb42899cef:
                     required: false
-                    sortOrder: 4
+                    sortOrder: 5
                   91e94580-5640-43f9-ab7f-efc779c3e379:
                     required: false
-                    sortOrder: 3
+                    sortOrder: 4
                   986f2e8c-a1f5-441b-b4d6-bc731bd63706:
                     required: false
-                    sortOrder: 2
+                    sortOrder: 3
+                  e08eb433-6275-40bd-ac89-ef297669541e:
+                    required: false
+                    sortOrder: 1
               -
                 name: 'Project Blocks'
                 sortOrder: 3

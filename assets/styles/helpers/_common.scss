@@ -1,5 +1,24 @@
 // Common styles
 
+// Thumbnails with second image hover
+.rollover-image {
+  position: relative;
+  img:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    @include transition(opacity);
+  }
+
+  &:hover {
+    img:nth-child(2) {
+      opacity: 1;
+    }
+  }
+}
+
+// Lined headers
 h4.lined {
   @include small-titles;
   margin: 0;
@@ -10,6 +29,7 @@ h4.lined {
   border-top: 1px solid color('black');
 }
 
+// Blockquotes
 %blockquote {
   margin: 0;
   padding: 0;
@@ -25,6 +45,7 @@ h4.lined {
   }
 }
 
+// Call. To. ACTION
 .section-cta {
   .button {
     width: 100%;
@@ -37,6 +58,7 @@ h4.lined {
   }
 }
 
+// Filter sections below text/image headers
 .top-section-header {
   .filter-links {
     text-align: right;
