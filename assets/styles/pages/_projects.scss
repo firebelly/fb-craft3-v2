@@ -60,13 +60,11 @@ body.project {
         @extend %semantic-list;
         margin: 0 0 beat(1.5);
 
-        li {
-          display: inline;
+        &.services {
+          li {
+            display: inline;
+          }
         }
-      }
-
-      .services {
-        margin-top: $padding-md;
       }
 
       // Desktop styles
