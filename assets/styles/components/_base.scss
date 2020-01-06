@@ -19,11 +19,11 @@ _/        _/_/_/
 
 html,
 body {
-  position: relative;
   overflow-x: hidden;
 }
 
 body {
+  position: relative;
   color: color('black');
   box-sizing: border-box;
   padding-top: $header-sm; // making room for the fixed header
