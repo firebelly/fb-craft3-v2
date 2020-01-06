@@ -20,7 +20,7 @@ export default {
     const $window = $(window);
     const $html = $('html');
     const pageAt = window.location.pathname;
-    const $siteNav = $('#site-nav');
+    const $siteNav = $('.site-nav');
 
     let $customCursor,
         breakpointIndicatorString,
@@ -58,6 +58,25 @@ export default {
         }
       });
     }
+
+    // Keyboard navigation and esc handlers
+    $(document).keyup(function(e) {
+      // esc
+      if (e.keyCode === 27) {
+        _closeNav();
+        // Unfocus any focused elements
+        if (document.activeElement != document.body) {
+          document.activeElement.blur();
+        }
+      }
+    }).on('click', 'body.nav-open', function(e) {
+      // Clicking outside of modal closes modal
+      let $target = $(e.target);
+      // Make sure target inside modal content
+      if ($target.parents('.nav-toggle').length === 0 && !$target.hasClass('site-nav')  && !$target.hasClass('nav-toggle') && $target.parents('.site-nav').length === 0) {
+        _closeNav();
+      }
+    });
 
     // Big ol' juicy custom cursors for your pleasure
     function _initCustomCursor() {
