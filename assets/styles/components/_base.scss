@@ -81,7 +81,7 @@ img {
 
 // Site Container
 .container {
-  padding: 0 $padding-sm;
+  padding: 0 13px;
   @include media-md {
     padding: 0 #{$padding-lg * 1} 0 #{$padding-lg * 2};
   }

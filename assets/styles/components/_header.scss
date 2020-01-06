@@ -18,10 +18,10 @@ $logo-sm-w: 32px;
 $logo-lg-w: 49px;
 
 #logo {
-  top: 16px;
+  top: 2px;
   margin: 0;
   z-index: 2;
-  left: $padding-sm;
+  left: 13px;
   position: absolute;
 
   a {
@@ -44,8 +44,8 @@ $logo-lg-w: 49px;
 
   #logo-wordmark {
     width: 88px;
-    height: 20px;
-    margin-left: 13px;
+    height: 22px;
+    margin: 4px 0 0 12px;
   }
 
   @include media-nav {
@@ -68,7 +68,7 @@ $logo-lg-w: 49px;
     #logo-wordmark {
       width: 80px;
       height: 19px;
-      margin: 47px 0 0 11px;
+      margin: 23px 0 0 13px;
       transform: rotate(90deg);
       transform-origin: bottom left;
     }

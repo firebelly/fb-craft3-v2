@@ -21,12 +21,20 @@
     @extend %semantic-list;
     li {
       @include p1;
-
-      &.-current a,
+      position: relative;
       a:hover,
       a:focus {
         color: color('red');
       }
+      &.-current::after {
+        content: '';
+        position: absolute;
+        bottom: -9px;
+        left: -2px;
+        right: -2px;
+        border-bottom: 1px solid color('black');
+      }
+
     }
   }
 
@@ -39,14 +47,13 @@
     right: $padding-lg;
     background-color: transparent;
     &::before {
-      top: 50%;
-      width: 6px;
-      left: -92px;
-      height: 6px;
       content: '';
-      border-radius: 50%;
       position: absolute;
-      transform: translateY(-3px);
+      top: 50%;
+      left: -75px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
       background-color: color('black');
     }
 
@@ -62,8 +69,8 @@
 
 .nav-toggle {
   cursor: pointer;
-  top: $padding-sm;
-  right: $padding-sm;
+  top: 19px;
+  right: 17px;
   position: absolute;
   @extend .button-reset;
 
@@ -71,15 +78,15 @@
     @include p2;
 
     &::before {
+      content: '';
+      position: absolute;
       top: 50%;
+      left: -28px;
       width: 6px;
       height: 6px;
-      content: '';
-      left: -28px;
-      position: absolute;
       border-radius: 50%;
       background-color: color('black');
-      transform: translate(-50%, -100%);
+      transform: translateY(-3px);
     }
   }
 
