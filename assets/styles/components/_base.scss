@@ -17,8 +17,13 @@ _/        _/_/_/
   --projectBlockColor: #{color('black')};
 }
 
+html,
 body {
+  position: relative;
   overflow-x: hidden;
+}
+
+body {
   color: color('black');
   box-sizing: border-box;
   padding-top: $header-sm; // making room for the fixed header
