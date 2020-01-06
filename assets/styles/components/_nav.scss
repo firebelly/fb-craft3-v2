@@ -26,15 +26,9 @@
       a:focus {
         color: color('red');
       }
-      &.-current::after {
-        content: '';
-        position: absolute;
-        bottom: -9px;
-        left: -2px;
-        right: -2px;
+      &.-current a {
         border-bottom: 1px solid color('black');
       }
-
     }
   }
 
@@ -59,6 +53,20 @@
 
     ul {
       display: flex;
+
+      li.-current {
+        a {
+          border: none;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -9px;
+          left: -2px;
+          right: -2px;
+          border-bottom: 1px solid color('black');
+        }
+      }
 
       li + li {
         margin-left: 60px;
