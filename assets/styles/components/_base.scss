@@ -37,7 +37,7 @@ body {
       top: 0;
       right: 0;
       bottom: 0;
-      z-index: 10;
+      z-index: z(edge);
       content: '';
       position: fixed;
       width: $padding-lg;
@@ -60,7 +60,7 @@ body {
 canvas {
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: z(blobs);
   position: absolute;
   pointer-events: none;
   // mix-blend-mode: multiply;

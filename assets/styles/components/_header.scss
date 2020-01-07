@@ -3,7 +3,7 @@
 .site-header {
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: z(header);
   width: 100%;
   position: fixed;
   height: $header-sm;
@@ -21,7 +21,7 @@ $logo-lg-w: 49px;
   top: 16px;
   margin: 0;
   line-height: 0;
-  z-index: 2;
+  z-index: z(logo);
   left: 13px;
   position: absolute;
 

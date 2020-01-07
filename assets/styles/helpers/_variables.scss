@@ -11,9 +11,25 @@ $colors: (
   'gray-dark': #757575,
   'red': #ff3d00
 );
-
 @function color($color-name) {
   @return map-get($colors, $color-name);
+}
+
+// Z-index maps
+$z-layers: (
+  bottomless-pit: -9999,
+  default: 1,
+  edge: 50,
+  carousels: 60,
+  header: 70,
+  nav: 100,
+  blobs: 150,
+  overlay: 200,
+  modal: 300,
+  cursor: 500
+);
+@function z($key) {
+  @return map-get($z-layers, $key);
 }
 
 // Header Height
