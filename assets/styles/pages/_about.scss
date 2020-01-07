@@ -43,6 +43,7 @@
       }
       ul {
         @extend %semantic-list;
+        @include p1;
       }
     }
     .person-bio {

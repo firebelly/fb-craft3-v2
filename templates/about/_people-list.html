@@ -43,7 +43,7 @@
                   {{ person.title }}
                 </h2>
                 {% if person.personTitle %}
-                  <h3>{{ person.personTitle }}</h3>
+                  <p>{{ person.personTitle }}</p>
                   {% if person.socialLinks|length %}
                     <ul class="social">
                     {% for link in person.socialLinks %}
