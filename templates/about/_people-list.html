@@ -11,9 +11,10 @@
     {% for person in entry.people.all() %}
       {% set image = person.photo.one() %}
       {% if image %}
-        {% set personImage = craft.imager.transformImage(image, { width: 800 }) %}
+        {% set personImage = craft.imager.transformImage(image, { width: 1100, height: 640, mode: 'crop' }) %}
       {% endif %}
-      <article class="col-md-1-2 person" id="{{ person.slug }}">
+      <article class="col-md-1-2 person" data-person="{{ person.slug }}">
+
         <div class="toggle-container">
           {% if personImage is defined %}
             <a class="-inner js-cursor" href="{{ person.getUrl() }}">
@@ -22,46 +23,48 @@
           {% endif %}
           <h4 class="heading-smallcaps">{{ person.tagline }}</h4>
           <h3>{{ person.title }}</h3>
-
         </div>
+
         <div class="modal-content">
-          {% if personImage is defined %}
-            <img class="" src="{{ personImage.getUrl() }}" alt="{{ person.title }}">
-          {% endif %}
-          <div class="-inner">
-            <div class="bio -left">
-              {% if personImage is defined %}
-                <div class="image">
-                  <img src="{{ personImage.getUrl() }}" alt="{{ person.title }}">
-                </div>
-              {% endif %}
-              {% if person.pronouns %}
-                <h4 class="smallcaps pronouns">
-                  {{ person.pronouns }}
-                </h4>
-              {% endif %}
-              <h2>
-                {{ person.title }}
-              </h2>
-              {% if person.personTitle %}
-                <h3>{{ person.personTitle }}</h3>
-                {% if person.socialLinks|length %}
-                  <ul class="social">
-                  {% for link in person.socialLinks %}
-                    <li>
-                      {% if link.type %}{{ link.type }}:{% endif %}
-                      <a href="{{ link.url }}" rel="noopener noreferrer" target="_blank">{{ link.text }}</a>
-                    </li>
-                  {% endfor %}
+          <div class="container">
+            <div class="grid spaced">
+              <div class="person-info col-md-1-2">
+                {% if personImage is defined %}
+                  <div class="image">
+                    <img src="{{ personImage.getUrl() }}" alt="{{ person.title }}">
+                  </div>
                 {% endif %}
-                </ul>
-              {% endif %}
-            </div>
-            <div class="-right">
-              {{ person.bio }}
+                {% if person.pronouns %}
+                  <h4 class="pronouns">
+                    {{ person.pronouns }}
+                  </h4>
+                {% endif %}
+                <h2>
+                  {{ person.title }}
+                </h2>
+                {% if person.personTitle %}
+                  <h3>{{ person.personTitle }}</h3>
+                  {% if person.socialLinks|length %}
+                    <ul class="social">
+                    {% for link in person.socialLinks %}
+                      <li>
+                        {% if link.type %}{{ link.type }}:{% endif %}
+                        <a href="{{ link.url }}" rel="noopener noreferrer" target="_blank">{{ link.text }}</a>
+                      </li>
+                    {% endfor %}
+                  {% endif %}
+                  </ul>
+                {% endif %}
+              </div>
+              <div class="person-bio col-md-1-2 user-content">
+                <div class="-inner">
+                  {{ person.bio }}
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
      </article>
     {% endfor %}
   </div>

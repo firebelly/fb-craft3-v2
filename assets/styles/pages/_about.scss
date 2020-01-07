@@ -8,6 +8,7 @@
   }
 
   .people-list {
+    // Hide modal-content until modal opens
     .modal-content {
       display: none;
     }
@@ -15,11 +16,52 @@
     // Less spacing for people than a work thumbnail-grid
     article {
       margin-bottom: 0;
+      img {
+        filter: grayscale(100%);
+      }
     }
 
     @include media-md {
       .person {
         padding-bottom: beat(4);
+      }
+    }
+  }
+
+  // Modals
+  .modal {
+    .person-info {
+      img {
+        filter: grayscale(100%);
+      }
+      h2 {
+        @include h1-sans;
+      }
+      h4 {
+        @include small-titles;
+        margin: 0;
+      }
+      ul {
+        @extend %semantic-list;
+      }
+    }
+    .person-bio {
+    }
+
+    @include media-md {
+      .person-info {
+        .image {
+          padding-bottom: beat(6);
+        }
+      }
+
+      .person-bio {
+        max-height: calc(100vh - 250px);
+        position: relative;
+        margin-top: 100px;
+        padding-top: 100px;
+        overflow: auto;
+        padding-bottom: beat(5);
       }
     }
   }
