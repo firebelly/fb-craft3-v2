@@ -17,8 +17,8 @@
       {% if block.treated %}
         {% set treatedImage = craft.imager.transformImage(image, { width: width, effects: { modulate: [100, 0, 100], clut: 'gradient:#000000-#ffffff' } }) %}
       {% else %}
-        {# Leave GIFs alone #}
-        {% if image.filename matches '/gif$/' %}
+        {# Leave GIFs & PNGs alone #}
+        {% if image.filename matches '/(gif|png)$/' %}
           {% set treatedImage = image %}
         {% else %}
           {% set treatedImage = craft.imager.transformImage(image, { width: width }) %}
