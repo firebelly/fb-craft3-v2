@@ -70,15 +70,17 @@ export default {
         }
       }
     }).on('click', 'body.nav-open', function(e) {
-      // Clicking outside of modal closes modal
+      // Clicking outside of nav closes nav
       let $target = $(e.target);
-      // Make sure target inside modal content
+      // Make sure target inside nav content
       if ($target.parents('.nav-toggle').length === 0 && !$target.hasClass('site-nav')  && !$target.hasClass('nav-toggle') && $target.parents('.site-nav').length === 0) {
         _closeNav();
       }
     });
 
-    // Big ol' juicy custom cursors for your pleasure
+
+
+    // Big ol' juicy custom cursors for your "pleasure"
     function _initCustomCursor() {
       if (!$('.js-cursor').length) {
         return;
