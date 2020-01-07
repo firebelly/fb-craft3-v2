@@ -29,6 +29,7 @@ def deploy(composer='y', assets='y'):
     composer_install()
   # build and sync production assets
   if assets != 'n':
+    local('rm -rf web/assets/dist')
     local('yarn build:production')
     run('mkdir -p ' + env.remotepath + '/web/assets/dist')
     put('web/assets/dist', env.remotepath + '/web/assets/')
