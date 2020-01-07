@@ -6,6 +6,7 @@ import Router from './util/Router';
 import colorChanges from './util/colorChanges';
 import common from './routes/common';
 import homepage from './routes/homepage';
+import work from './routes/work';
 import project from './routes/project';
 import about from './routes/about';
 
@@ -15,6 +16,7 @@ const routes = new Router({
   homepage,
   project,
   about,
+  work,
 });
 
 // Init color changes
