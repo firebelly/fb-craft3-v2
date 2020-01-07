@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1576957853
+dateModified: 1578425039
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -3532,7 +3532,7 @@ sections:
                 sortOrder: 3
                 fields:
                   b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
-                    required: true
+                    required: false
                     sortOrder: 1
                   e5facf83-ead7-410b-96f6-761ac8ecb2d0:
                     required: false
