@@ -36,6 +36,7 @@
       }
       h2 {
         @include h1-sans;
+        margin-bottom: 25px;
       }
       h4 {
         @include small-titles;
