@@ -25,7 +25,7 @@
   {% set headline = 'Check out all our %s projects.'|format(category.title|lower) %}
   {% set subhead = 'Feast your eyes.' %}
   {% set sectionHeader = 'All %s Projects'|format(category.title) %}
-  {% set filterLinks = '<a href="/work">Clear Filter</a>' %}
+  {% set filterLinks = '<a href="#" class="filter-projects">Change Filter</a>' %}
 
 {% else %}
   {% set projectEntries = craft.entries({
@@ -55,6 +55,25 @@
       {% for projectEntry in projectEntries.all() %}
         {% include 'work/_article' with { entry: projectEntry } %}
       {% endfor %}
+    </div>
+  </div>
+
+  <div class="modal-content hidden">
+    <div class="container">
+      {% set allCount = craft.entries.section('work').count() %}
+      <ul class="services-nav">
+        {% for service in craft.categories.group('services').all() %}
+          {% set serviceCount = craft.superTable.getRelatedElements({
+            relatedTo: {
+              targetElement: service,
+              field: 'services.service'
+            },
+            section: 'work'
+          }).count() %}
+          <li><a href="{{ service.getUrl() }}">{{ service.title }} <sup>{{ serviceCount }}</sup></a></li>
+        {% endfor %}
+        <li><a href="/work">All&thinsp;<sup>{{ allCount }}</sup></li>
+      </ul>
     </div>
   </div>
 
