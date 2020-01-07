@@ -16,7 +16,40 @@
   }
 }
 
-// Single projects
+// Work page
+body.work {
+  .modal-overlay {
+    background: color('white');
+  }
+  .modal {
+    color: color('black');
+
+    .services-nav {
+      @extend %semantic-list;
+      a {
+        display: inline-block;
+        position: relative;
+        @include h1-sans;
+        padding-right: 12px;
+        sup {
+          top: 14px;
+          right: 0;
+          display: block;
+          position: absolute;
+          font: normal 12px/1 $font-sans, sans-serif;
+        }
+      }
+    }
+
+    .close-modal {
+      svg {
+        fill: color('black');
+      }
+    }
+  }
+}
+
+// Single project
 .single-project {
   // For color change blocks that change bg + text colors
   transition: all 0.5s;
