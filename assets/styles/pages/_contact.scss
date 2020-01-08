@@ -1,5 +1,6 @@
 // Contact page
 #contact-page {
+  // Dark header
   .site-main {
     background: color('black');
     color: color('white');
@@ -8,11 +9,35 @@
     }
   }
 
+  // Light footer
+  .site-footer {
+    background: color('white-dark');
+    color: color('black');
+
+    .-bottom {
+      border-color: color('black');
+    }
+  }
+
+  // Form and contact details
+  .contact-form {
+    p {
+      @include p2;
+    }
+    input,
+    select {
+      margin-bottom: beat(2);
+    }
+  }
+
+  // Desktop styles
   @include media-md {
     .contact-form {
-      padding-top: beat(7);
+      padding-top: beat(3);
+      padding-bottom: beat(8);
     }
     .contact {
+      padding-top: 42px;
       flex: 0 1 columns(6);
     }
     form {

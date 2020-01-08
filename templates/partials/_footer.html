@@ -1,14 +1,16 @@
 <footer id="footer" class="site-footer" role="contentinfo">
   <div class="container">
 
-    <div class="-top grid">
-      <div class="col-md-1-2">
-        <p class="label-large">Have a project in mind?</p>
+    {% if craft.app.request.getSegment(1) != 'contact' %}
+      <div class="-top grid">
+        <div class="col-md-1-2">
+          <p class="label-large">Have a project in mind?</p>
+        </div>
+        <div class="col-md-1-2">
+          <a href="/contact" class="button hollow -white">We'd love to talk.</a>
+        </div>
       </div>
-      <div class="col-md-1-2">
-        <a href="#" class="button hollow -white">We'd love to talk.</a>
-      </div>
-    </div>
+    {% endif %}
 
     <div class="-bottom grid">
       <div class="col-md-1-2">
