@@ -1,0 +1,22 @@
+// Contact page
+#contact-page {
+  .site-main {
+    background: color('black');
+    color: color('white');
+    .block-section-header h3 {
+      border-color: color('white');
+    }
+  }
+
+  @include media-md {
+    .contact-form {
+      padding-top: beat(7);
+    }
+    .contact {
+      flex: 0 1 columns(6);
+    }
+    form {
+      flex: 0 1 columns(14);
+    }
+  }
+}

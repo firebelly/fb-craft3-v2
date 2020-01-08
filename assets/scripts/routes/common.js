@@ -40,6 +40,7 @@ export default {
     _initBlobs();
     _initFlickity();
     _initVideos();
+    _initForms();
 
     // Bigclicky™ (large clickable area that pulls first a[href] as URL)
     function _initBigClicky() {
