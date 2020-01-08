@@ -39,7 +39,10 @@
     "mmikkel/retcon": "^2.0",
     "verbb/smith": "1.0.0",
     "elivz/craft-single-cat": "1.2.1",
-    "verbb/field-manager": "2.1.1"
+    "verbb/field-manager": "2.1.1",
+    "craftcms/contact-form": "2.2.5",
+    "craftcms/contact-form-honeypot": "^1.0",
+    "rias/craft-contact-form-extensions": "1.2.0"
   },
   "autoload": {
     "psr-4": {

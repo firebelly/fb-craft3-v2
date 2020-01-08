@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1578425039
+dateModified: 1578514001
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -3244,6 +3244,42 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      toEmail: info@firebellydesign.com
+      prependSender: 'On behalf of'
+      prependSubject: ''
+      allowAttachments: ''
+      successFlashMessage: 'Your message has been sent.'
+  contact-form-extensions:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      enableDatabase: '1'
+      enableTemplateOverwrite: '1'
+      enableConfirmationEmail: ''
+      notificationTemplate: ''
+      confirmationTemplate: ''
+      confirmationSubject: ''
+      recaptcha: ''
+      recaptchaVersion: ''
+      recaptchaSiteKey: ''
+      recaptchaSecretKey: ''
+      recaptchaHideBadge: ''
+      recaptchaDataBadge: bottomright
+      recaptchaTimeout: '5'
+      recaptchaDebug: ''
+      recaptchaThreshold: '0.5'
+  contact-form-honeypot:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      honeypotParam: botsLoveTheHoney
 routes:
   1cdbb0b9-5e9e-4114-b636-6224ad91e535:
     template: ideas/index
