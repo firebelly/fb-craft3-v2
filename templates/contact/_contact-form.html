@@ -14,53 +14,69 @@
   <div class="container">
     <div class="grid">
       <div class="contact">
-        <p>773 489 3200 </p>
-        <p class="email"><a href="mailto:info@firebellydesign.com">info@firebellydesign.com</a></p>
+        <p>773 489 3200 <br>
+        &mdash;<br>
+        <a href="mailto:info@firebellydesign.com">info@firebellydesign.com</a>
+        </p>
       </div>
 
       <form class="-light" method="post" action="/contact">
         <div class="grid spaced">
           <div class="col-md-1-2">
             <div class="input-wrap">
-
+              <label for="from-name">Name*</label>
+              <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}" placeholder="Name*">
+              {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
             </div>
-            <label for="from-name">Name*</label>
-            <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}" placeholder="Name*">
-            {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
-
-            <label for="from-email">Email*</label>
-            <input required id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}" placeholder="Email*">
-            {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
           </div>
           <div class="col-md-1-2">
-            <label for="organization">Organization*</label>
-            <input id="organization" type="text" name="fromOrganization" value="{{ message.fromOrganization ?? '' }}" placeholder="Organization*">
-            {{ message is defined and message ? errorList(message.getErrors('fromOrganization')) }}
-
-            <label for="found-us">How'd you hear about Firebelly?</label>
-            <select id="found-us" name="foundUs">
-              <option value="">How'd you hear about Firebelly?</option>
-              <option value="websearch"{{ message.foundUs is defined and message.foundUs=='websearch' ? ' selected' : '' }}>Web Search</option>
-              <option value="newsletter"{{ message.foundUs is defined and message.foundUs=='newsletter' ? ' selected' : '' }}>Newsletter</option>
-              <option value="recommended"{{ message.foundUs is defined and message.foundUs=='recommended' ? ' selected' : '' }}>Recommended</option>
-              <option value="yellowpages"{{ message.foundUs is defined and message.foundUs=='yellowpages' ? ' selected' : '' }}>Yellow Pages</option>
-            </select>
-            {{ message is defined and message ? errorList(message.getErrors('foundUs')) }}
+            <div class="input-wrap">
+              <label for="organization">Organization*</label>
+              <input id="organization" type="text" name="message[From Organization]" value="{{ message.fromOrganization ?? '' }}" placeholder="Organization*">
+              {{ message is defined and message ? errorList(message.getErrors('fromOrganization')) }}
+            </div>
+          </div>
+        </div>
+        <div class="grid spaced">
+          <div class="col-md-1-2">
+            <div class="input-wrap">
+              <label for="from-email">Email*</label>
+              <input required id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}" placeholder="Email*">
+              {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+            </div>
+          </div>
+          <div class="col-md-1-2">
+            <div class="input-wrap">
+              <label for="found-us">How'd you hear about Firebelly?</label>
+              <div class="select-wrap">
+                <svg class="icon icon-select-arrow" aria-hidden="true"><use xlink:href="#icon-select-arrow"/></svg>
+                <select id="found-us" name="message[Found Us]">
+                  <option value="">How'd you hear about Firebelly?</option>
+                  <option value="websearch"{{ message.foundUs is defined and message.foundUs=='websearch' ? ' selected' : '' }}>Web Search</option>
+                  <option value="newsletter"{{ message.foundUs is defined and message.foundUs=='newsletter' ? ' selected' : '' }}>Newsletter</option>
+                  <option value="recommended"{{ message.foundUs is defined and message.foundUs=='recommended' ? ' selected' : '' }}>Recommended</option>
+                  <option value="yellowpages"{{ message.foundUs is defined and message.foundUs=='yellowpages' ? ' selected' : '' }}>Yellow Pages</option>
+                </select>
+              </div>
+              {{ message is defined and message ? errorList(message.getErrors('foundUs')) }}
+            </div>
           </div>
         </div>
 
-        <label for="message">What can we help you with?*</label>
-        <textarea rows="10" cols="40" id="message" name="message" placeholder="What can we help you with?*">{{ message.message ?? '' }}</textarea>
-        {{ message is defined and message ? errorList(message.getErrors('message')) }}
+        <div class="input-wrap">
+          <label for="message">What can we help you with?*</label>
+          <textarea required rows="10" cols="40" id="message[Main]" name="message[Main]" placeholder="What can we help you with?*">{{ message.message.main ?? '' }}</textarea>
+        </div>
 
         <div class="status"></div>
 
         <div class="actions">
           {{ csrfInput() }}
-          <input id="botsLoveTheHoney" name="botsLoveTheHoney" type="text">
+          <input name="botsLoveTheHoney" type="text">
           <input type="hidden" name="action" value="contact-form/send">
           <input type="hidden" name="subject" value="Firebelly Contact Submission">
           <input type="hidden" name="message[formName]" value="Firebelly Contact">
+
           <button class="button -white -small hollow">Submit</button>
         </div>
       </form>

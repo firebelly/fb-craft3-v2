@@ -1,10 +1,20 @@
 // Contact page
 #contact-page {
+  // Dark header
   .site-main {
     background: color('black');
     color: color('white');
     .block-section-header h3 {
       border-color: color('white');
+    }
+  }
+  .contact-form {
+    p {
+      @include p2;
+    }
+    input,
+    select {
+      margin-bottom: beat(2);
     }
   }
 

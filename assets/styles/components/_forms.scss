@@ -1,58 +1,163 @@
 // Forms
 
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-}
+form {
 
-.input-wrap {
-  position: relative;
-}
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-input {
-  @extend .input-reset;
-  @include p2;
-  width: 100%;
-  color: color('black');
-  padding: 19px $padding-sm 27px 0;
-  border-bottom: 1px solid color('black');
+  // Show labels once field has-input
+  .input-wrap {
+    position: relative;
+    label {
+      visibility: hidden;
+    }
+    &.has-input {
+      label {
+        visibility: visible;
+      }
+    }
+  }
 
-  &::placeholder {
+  // Hide honeypot
+  input[name=botsLoveTheHoney] {
+    display: none;
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  // Hide autofill styles
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+      -webkit-transition-delay: 9999s;
+      -webkit-transition: color 9999s ease-out, background-color 9999s ease-out;
+  }
+
+
+  .actions {
+    margin-top: beat(2);
+    text-align: right;
+
+    // Remove -> from submit buttons
+    .button::after {
+      display: none;
+    }
+  }
+
+  textarea,
+  input[type=email],
+  input[type=text] {
+    @extend .input-reset;
+    @include p2;
+    line-height: 1.2; // here to line up with selects
+    width: 100%;
     color: color('black');
-  }
-}
-
-label {
-  @include small-titles;
-  border: 0;
-  background: 0;
-  border-radius: 0;
-  letter-spacing: 0;
-  color: color('black');
-  &.error,
-  &.success {
-    display: block;
-    padding: .5em 0;
-  }
-  &.error {
-    background: color('red');
-  }
-  &.success {
-    background: color('gray-light');
-  }
-}
-
-// Light Colored Form Variant
-form.-light {
-  label {
-    color: color('white-dark');
-  }
-  input {
-    color: color('white-dark');
-    border-color: color('white-dark');
+    padding: 19px $padding-sm 27px 0;
+    border-bottom: 1px solid color('black');
 
     &::placeholder {
+      color: color('black');
+    }
+  }
+
+  label {
+    @include small-titles;
+    display: block;
+    letter-spacing: 0;
+    color: color('black');
+    &.error,
+    &.success {
+      display: block;
+      padding: .5em 0;
+    }
+    &.error {
+      background: color('red');
+    }
+    &.success {
+      background: color('gray-light');
+    }
+  }
+
+  // Dropdowns
+  .select-wrap {
+    width: 100%;
+    position: relative;
+    @include p2;
+    line-height: 1.2; // here to line up with inputs
+
+    select {
+      display: block;
+      width: 100%;
+      padding: 19px $padding-sm 27px 0;
+      margin: 0;
+      color: color('black');
+      background: none;
+      border: none;
+      border-bottom: 1px solid color('black');
+      border-radius: 0;
+      cursor: pointer;
+      outline: 0;
+      appearance: none;
+    }
+
+    // Undo the Firefox inner focus ring
+    select:focus:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 #000;
+    }
+
+    // Dropdown arrow
+    .icon-select-arrow {
+      position: absolute;
+      bottom: 32px;
+      right: 0;
+      width: 14px;
+      height: 9px;
+      pointer-events: none;
+      fill: color('white-dark');
+    }
+
+    // Focus
+    select:focus {
+    }
+
+    // Active/open
+    select:active {
+    }
+
+    // Hide the arrow in IE10 and up
+    select::-ms-expand {
+      display: none;
+    }
+  }
+
+  // Light Colored Form Variant
+  &.-light {
+    label {
       color: color('white-dark');
+    }
+    .select-wrap {
+      select {
+        color: color('white-dark');
+        border-bottom: 1px solid color('white-dark');
+      }
+    }
+    textarea,
+    input[type=email],
+    input[type=text] {
+      color: color('white-dark');
+      border-color: color('white-dark');
+
+      &::placeholder {
+        color: color('white-dark');
+      }
     }
   }
 }

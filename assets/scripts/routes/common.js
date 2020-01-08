@@ -42,6 +42,33 @@ export default {
     _initVideos();
     _initForms();
 
+    function _initForms() {
+      // Add .has-input for styling when field is changed
+      $document.on('keyup change blur', 'input,select,textarea', _checkFormInput);
+
+      // Initial state of fields
+      $('form').find('input,select,textarea').each(function() {
+        let $this = $(this);
+        if ($this.val()!=='' && $this.attr('type')!=='hidden') {
+          $this.addClass('has-input').parents('.input-wrap:first').addClass('has-input');
+        }
+      });
+
+      // Check form fields on state change for has-input or invalid for required
+      function _checkFormInput(e) {
+        console.log(e);
+        // Ignore tab keyup (would trigger error class when tabbing into field for the first time)
+        if (e.which === 9) {
+          return;
+        }
+
+        var has_input = $(e.target).val() !== '';
+        $(e.target).toggleClass('has-input', has_input).parents('.input-wrap:first').toggleClass('has-input', has_input);
+        $(e.target).parents('.input-wrap:first').toggleClass('invalid', ($(e.target).prop('required') && $(e.target).val() === ''));
+      }
+
+    }
+
     // Bigclicky™ (large clickable area that pulls first a[href] as URL)
     function _initBigClicky() {
       $document.on('click', '.bigclicky', function(e) {
