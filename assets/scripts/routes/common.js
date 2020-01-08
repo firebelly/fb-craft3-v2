@@ -37,7 +37,7 @@ export default {
     _initBlobs();
     _initFlickity();
     _initVideos();
-    // _initForms();
+    _initForms();
 
     function _initForms() {
       // Add .has-input for styling when field is changed
