@@ -1,0 +1,5 @@
+{% if craft.app.session.hasFlash('notice') %}
+  <p class="flash notice"><svg class="icon sprite-confirm" aria-hidden="true"><use xlink:href="#sprite-confirm"/></svg> {{ craft.app.session.getFlash('notice') }}</p>
+{% elseif craft.app.session.hasFlash('error') %}
+  <p class="flash error">{{ craft.app.session.getFlash('error') }}</p>
+{% endif %}
