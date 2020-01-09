@@ -240,12 +240,13 @@ h3.heading-medium {
 }
 
 p {
-  @include p1;
   margin: 0;
-
-  &.p2 {
-    @include p2;
-  }
+}
+p.p1 {
+  @include p1;
+}
+p.p2 {
+  @include p2;
 }
 
 ul,

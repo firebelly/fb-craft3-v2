@@ -1,26 +1,37 @@
 // Site Nav
 
+// nav-open adjustments
+body.nav-open {
+  #logo {
+    z-index: z(nav) + 10;
+    #logo-wordmark {
+      opacity: 0;
+    }
+  }
+  canvas {
+    opacity: 0;
+  }
+}
+
 .site-nav {
   top: 0;
   left: 0;
-  z-index: z(nav);
   width: 100%;
+  height: 100vh;
+  display: none;
+  z-index: z(nav);
   position: absolute;
-  transform: translateY(-100%);
   background-color: color(offwhite);
   border-top: 5px solid color('white');
   border-left: 5px solid color('white');
   border-right: 5px solid color('white');
+  border-bottom: 64px solid color('white');
   padding: #{$header-sm + $padding-sm} $padding-sm $padding-md;
-
-  &.-active {
-    transform: translateY(0);
-  }
 
   ul {
     @extend %semantic-list;
     li {
-      @include p1;
+      @include paragraph-style(32, 40, 0.01em, normal);
       position: relative;
       a:hover,
       a:focus {
@@ -35,7 +46,9 @@
   @include media-nav {
     left: auto;
     width: auto;
+    height: auto;
     border: none;
+    display: block;
     transform: none;
     padding-top: 40px;
     right: $padding-lg;
@@ -53,6 +66,10 @@
 
     ul {
       display: flex;
+
+      li {
+        @include paragraph-style(24, 32, 0.015em, normal);
+      }
 
       li.-current {
         a {

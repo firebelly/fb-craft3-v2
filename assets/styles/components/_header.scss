@@ -20,9 +20,9 @@ $logo-lg-w: 49px;
 #logo {
   top: 16px;
   margin: 0;
+  left: 13px;
   line-height: 0;
   z-index: z(logo);
-  left: 13px;
   position: absolute;
 
   a {
@@ -30,7 +30,9 @@ $logo-lg-w: 49px;
   }
 
   svg {
+    opacity: 1;
     fill: color('black');
+    transition: opacity .3s ease-out;
   }
 
   .logo-svg {

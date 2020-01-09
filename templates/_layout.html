@@ -4,6 +4,7 @@
 {% include '/partials/_head' %}
 
 <body class="{% if bodyClass is defined %}{{ bodyClass }}{% else %}index{% endif %}" id="{% if bodyId is defined %}{{ bodyId }}{% else %}{{ craft.app.request.getSegment(1)}}-page{% endif %}"{% if bodyDataAttributes is defined %} {{ bodyDataAttributes|raw }}{% endif %}>
+  <div id="breakpoint-indicator" class="hidden"></div>
 
   <header class="site-header clearfix" role="banner">
     <div class="container">

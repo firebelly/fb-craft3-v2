@@ -8,6 +8,7 @@ import * as p5 from 'p5';
 import fitvids from 'fitvids';
 
 import appState from '../util/appState';
+import Breakpoints from '../util/Breakpoints';
 
 export default {
   // JavaScript to be fired on all pages
@@ -23,14 +24,10 @@ export default {
     const $siteNav = $('.site-nav');
 
     let $customCursor,
-        breakpointIndicatorString,
-        breakpoint_xl = false,
-        breakpoint_nav = false,
-        breakpoint_lg = false,
-        breakpoint_md = false,
-        breakpoint_sm = false,
-        breakpoint_xs = false,
         players = [];
+
+    // Run resize functions on load
+    _resize();
 
     _initCustomCursor();
     _initBigClicky();
@@ -212,17 +209,29 @@ export default {
 
     function _openNav() {
       $body.addClass('nav-open');
-      $siteNav.addClass('-active');
       appState.navOpen = true;
+      $siteNav.velocity(
+        { opacity: 1 }, {
+        display: "flex",
+        complete: function() {
+          $siteNav.addClass('-active');
+        }
+      });
     }
 
     function _closeNav() {
       if (!appState.navOpen) {
         return;
       }
-      $body.removeClass('nav-open');
-      $siteNav.removeClass('-active');
       appState.navOpen = false;
+      $siteNav.velocity(
+        { opacity: 0 }, {
+        display: "none",
+        complete: function() {
+          $body.removeClass('nav-open');
+          $siteNav.removeClass('-active');
+        }
+      });
     }
 
     // Superfluous flesh!
@@ -393,6 +402,15 @@ export default {
       });
     }
 
+    // Called in quick succession as window is resized
+    function _resize() {
+      // Reset inline styles for navigation for medium breakpoint
+      if (Breakpoints.nav) {
+        $siteNav.attr('style', '');
+      }
+    }
+
+    $(window).resize(_resize);
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
