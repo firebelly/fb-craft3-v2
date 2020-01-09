@@ -8,12 +8,12 @@
   <meta name="p:domain_verify" content="54d124bc9c4618cfe38edde207b08e55">
 
   <link rel="stylesheet" href="{{ rev('styles/main.css') }}">
-  <link rel="shortcut icon" type="image/ico" href="{{ rev('images/favicon.png') }}">
+  <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <script src="{{ rev('scripts/modernizr.custom.js') }}"></script> -->
 
   {% if mainImage is defined %}
     {% set transformedImage = craft.imager.transformImage(mainImage, { width: 1800 }) %}
@@ -22,18 +22,6 @@
     <meta property="og:image" content=""/>
   {% endif %}
 
-  {#
-  todo: fb meta tags
-  <%= display_meta_tags image: @page_image, og: {
-      title: raw(browser_title_custom(yield(:title))),
-      description: :description,
-      image: request.protocol + request.host_with_port + @page_image,
-      url: request.url,
-    }, fb: {
-      app_id: '1675583716017779'
-    }
-  -%>
-   #}
   <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
   <!-- Inject SVGs Defs for SVG icon use -->
