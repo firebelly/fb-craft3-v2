@@ -8,7 +8,7 @@ export default {
 
   init() {
     // Init modal & specify scrollable container when modal is open
-    modals.init('.modal .person-bio .-inner');
+    modals.init('.modal');
 
     // Check for hash to open user
     if (window.location.hash) {
