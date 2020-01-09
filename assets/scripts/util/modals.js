@@ -59,7 +59,9 @@ const modals = {
           disableBodyScroll($(scrollableSelector)[0]);
           $html.css('overflow', 'hidden');
           appState.isAnimating = false;
-          window.location.hash = `#${hash}`;
+          if (typeof hash !== 'undefined') {
+            window.location.hash = `#${hash}`;
+          }
         }
       }
     )
