@@ -1,5 +1,15 @@
 // Projects
 
+// Project image rotator on hover
+@keyframes puls0r {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+
 .project-blocks {
   @include clearfix;
 }
@@ -31,12 +41,27 @@ body.work {
         position: relative;
         @include h1-sans;
         padding-right: 12px;
+
         sup {
-          top: 14px;
-          right: 0;
-          display: block;
-          position: absolute;
+          display: inline-block;
           font: bold 12px/1 $font-sans, sans-serif;
+          vertical-align: top;
+          margin: 1.5em 0 0 0.25em;
+        }
+
+        svg {
+          width: 175px;
+          height: 100px;
+          white-space: nowrap;
+          vertical-align: middle;
+          opacity: 0;
+        }
+
+        &:hover {
+          svg {
+            animation: puls0r 0.4s linear infinite;
+            opacity: 1;
+          }
         }
       }
     }
