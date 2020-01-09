@@ -31,6 +31,7 @@ export default {
     });
 
     function _openPerson($person) {
+      $('body').removeClass('-cursor-active');
       let html = $person.find('.modal-content').html();
       let hash = $person.attr('data-person');
       modals.openModal(html, hash);
