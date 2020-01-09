@@ -2449,9 +2449,9 @@ matrixBlockTypes:
         contentColumnType: string
         fieldGroup: null
       7f5535e1-62db-41db-8d49-8d37c639cbbe:
-        name: Treated
+        name: 'B&W Treatment'
         handle: treated
-        instructions: 'Add b&w treatment to image'
+        instructions: ''
         searchable: true
         translationMethod: none
         translationKeyFormat: null
@@ -2525,7 +2525,7 @@ matrixBlockTypes:
       daa3251f-e2b0-4219-bc04-d6642a932856:
         name: 'Browser Frame'
         handle: browserFrame
-        instructions: 'Include browser frame around image? Used for website screenshots/designs'
+        instructions: ''
         searchable: false
         translationMethod: site
         translationKeyFormat: null

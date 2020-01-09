@@ -62,10 +62,10 @@ form {
   input[type=text] {
     @extend .input-reset;
     @include p2;
-    line-height: 1.2; // here to line up with selects
+    line-height: 1.2; // ...to line up with selects
     width: 100%;
     color: color('black');
-    padding: 24px $padding-sm 27px 0;
+    padding: 22px $padding-sm 27px 0;
     border-bottom: 1px solid color('black');
 
     &::placeholder {
@@ -89,6 +89,12 @@ form {
     &.success {
       background: color('gray-light');
     }
+
+    // Override small-titles() line-height
+    line-height: 1.2;
+    @include media-md {
+      line-height: 1.2;
+    }
   }
 
   // Dropdowns
@@ -96,12 +102,12 @@ form {
     width: 100%;
     position: relative;
     @include p2;
-    line-height: 1.2; // here to line up with inputs
+    line-height: 1.2; // ...to line up with inputs
 
     select {
       display: block;
       width: 100%;
-      padding: 24px $padding-sm 27px 0;
+      padding: 22px $padding-sm 27px 0;
       margin: 0;
       color: color('black');
       background: none;

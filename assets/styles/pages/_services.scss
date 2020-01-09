@@ -5,6 +5,10 @@
 
 .services-list {
   li {
+    &,
+    svg {
+      @include transition(all);
+    }
     .label {
       padding-right: 150px;
       position: relative;
@@ -15,6 +19,12 @@
       position: absolute;
       right: 0;
       bottom: 40px;
+    }
+    &:hover {
+      color: color('red');
+      svg {
+        fill: color('red');
+      }
     }
   }
 }
