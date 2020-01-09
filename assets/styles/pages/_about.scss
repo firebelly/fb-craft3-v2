@@ -15,14 +15,17 @@
 
     // Less spacing for people than a work thumbnail-grid
     article {
-      margin-bottom: 0;
       img {
         filter: grayscale(100%);
+      }
+      h4 {
+        margin-top: 6px;
       }
     }
 
     @include media-md {
       .person {
+        margin-bottom: 0;
         padding-bottom: beat(4);
       }
     }

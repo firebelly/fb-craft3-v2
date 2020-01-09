@@ -64,6 +64,7 @@ form {
     @include p2;
     line-height: 1.2; // ...to line up with selects
     width: 100%;
+    border-radius: 0;
     color: color('black');
     padding: 22px $padding-sm 27px 0;
     border-bottom: 1px solid color('black');

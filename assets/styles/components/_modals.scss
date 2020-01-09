@@ -15,22 +15,15 @@
   width: 100%;
   height: 100%;
   display: none;
+  overflow: auto;
   position: fixed;
   z-index: z(modal);
   color: color('white');
   padding: $padding-sm 0;
-
-  > .inner {
-    height: 100%;
-    overflow: auto;
-  }
+  -webkit-overflow-scrolling: touch;
 
   @include media-md {
     padding: 103px 0;
-
-    > .inner {
-      height: auto;
-    }
   }
 
   .close-modal {
