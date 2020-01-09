@@ -3,7 +3,7 @@
 .staggered-image-header {
   padding-bottom: 128px;
 
-  @include media-md {
+  @include media-nav {
     .main-image {
       margin-top: -176px;
     }

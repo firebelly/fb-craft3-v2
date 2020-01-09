@@ -122,7 +122,7 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
   @include font-sans;
   @include paragraph-style(32, 40, 0.01em);
   @include media-md {
-    @include paragraph-style(64, 64, .01em);
+    @include paragraph-style(64, 64, 0.01em);
   }
   @include media-nav {
     @include paragraph-style(96, 96, 0.01em);
@@ -150,13 +150,16 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
   @include h2-sans;
 }
 
-// H3 - Surt
-@mixin h3-sans {
+// H3
+@mixin h3 {
   @include font-sans;
-  @include paragraph-style(32, 40, 0.01em);
+  @include paragraph-style(16, 24, 0.015em);
+  @include media-md {
+    @include paragraph-style(24, 32, 0.015em);
+  }
 }
-.h3-sans {
-  @include h3-sans;
+.h3 {
+  @include h3;
 }
 
 // H4
@@ -224,7 +227,7 @@ h2.heading-large {
 }
 
 h3 {
-  @include h3-sans;
+  @include h3;
   margin: 0;
 }
 h3.heading-small {

@@ -46,7 +46,7 @@
           </div>
 
           <div class="section-cta">
-            <div class="grid align-right">
+            <div class="grid spaced align-right">
               <div class="col-nav-1-2 align-left">
                 <a href="/services" class="button -black">All Services</a>
               </div>
@@ -71,7 +71,7 @@
             {% if featuredEntry.type == 'project' %}
               {% include 'work/_article' with { entry: featuredEntry } %}
             {% elseif featuredEntry.type == 'ideasPost' %}
-              {% include 'work/_article' with { entry: featuredEntry } %}
+              {% include 'ideas/_article' with { entry: featuredEntry } %}
             {% endif %}
           {% endfor %}
         </div>

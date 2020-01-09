@@ -12,7 +12,7 @@
 
   .label {
     &-large {
-      @include h3-sans;
+      @include h1-sans;
       margin: 0;
 
       @include media-lg {
@@ -30,12 +30,17 @@
       margin-bottom: 64px;
     }
 
+    @include media-md {
+      .label-large {
+        max-width: 400px;
+      }
+    }
+
     @include media-nav {
       align-items: flex-end;
       padding-bottom: 156px;
 
-      .label-large {
-        max-width: 400px;
+      .lable-large {
         margin-bottom: 0;
       }
 
@@ -125,4 +130,8 @@
   height: 95px;
   padding: 30px 0 0;
   background-color: color('white-dark');
+
+  @include media-nav {
+    padding-right: $padding-lg;
+  }
 }

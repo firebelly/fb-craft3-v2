@@ -1,7 +1,9 @@
 // Newsletter Form
 
 form.newsletter {
-  max-width: 498px;
+  @include media-md {
+    max-width: 498px;
+  }
 
   .form-row {
     justify-content: flex-end;

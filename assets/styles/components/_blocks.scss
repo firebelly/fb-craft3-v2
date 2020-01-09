@@ -74,7 +74,7 @@
     border-bottom: 1px solid var(--projectBlockColor);
     .figure {
       @include h1-sans;
-      margin: 0;
+      margin: 0 0 22px;
     }
     .label {
       p {
