@@ -5,7 +5,7 @@
 
 .services-list {
   li {
-    .figure,
+    &,
     svg {
       @include transition(all);
     }
@@ -21,9 +21,7 @@
       bottom: 40px;
     }
     &:hover {
-      .figure {
-        color: color('red');
-      }
+      color: color('red');
       svg {
         fill: color('red');
       }
