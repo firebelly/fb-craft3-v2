@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1578523514
+dateModified: 1578590631
 email:
   fromEmail: store@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -2449,9 +2449,9 @@ matrixBlockTypes:
         contentColumnType: string
         fieldGroup: null
       7f5535e1-62db-41db-8d49-8d37c639cbbe:
-        name: Treated
+        name: 'B&W Treatment'
         handle: treated
-        instructions: 'Add b&w treatment to image'
+        instructions: ''
         searchable: true
         translationMethod: none
         translationKeyFormat: null
@@ -2498,7 +2498,7 @@ matrixBlockTypes:
         translationKeyFormat: null
         type: craft\redactor\Field
         settings:
-          redactorConfig: Simple.json
+          redactorConfig: Standard.json
           purifierConfig: ''
           cleanupHtml: true
           removeInlineStyles: '1'
@@ -2525,7 +2525,7 @@ matrixBlockTypes:
       daa3251f-e2b0-4219-bc04-d6642a932856:
         name: 'Browser Frame'
         handle: browserFrame
-        instructions: 'Include browser frame around image? Used for website screenshots/designs'
+        instructions: ''
         searchable: false
         translationMethod: site
         translationKeyFormat: null
