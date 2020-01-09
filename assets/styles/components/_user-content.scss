@@ -7,6 +7,15 @@
       margin-top: beat(1);
     }
   }
+
+  p {
+    @include p2;
+
+    @include media-md {
+      @include p1;
+    }
+  }
+
   p + p,
   p + h3 {
     margin-top: beat(1.5);
