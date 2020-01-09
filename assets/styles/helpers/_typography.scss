@@ -122,6 +122,9 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
   @include font-sans;
   @include paragraph-style(32, 40, 0.01em);
   @include media-md {
+    @include paragraph-style(64, 64, .01em);
+  }
+  @include media-nav {
     @include paragraph-style(96, 96, 0.01em);
   }
 }
@@ -177,7 +180,10 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // Paragraph
 @mixin p1 {
   @include font-sans;
-  @include paragraph-style(24, 32, 0.015em);
+  @include paragraph-style(16, 24, 0.015em);
+  @include media-nav {
+    @include paragraph-style(24, 32, 0.015em);
+  }
 }
 .p1 {
   @include p1;
@@ -197,7 +203,7 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
   @extend %smooth;
   @include font-sans;
   @include paragraph-style(10, 24, 0.075em, bold, uppercase);
-  @include media-md {
+  @include media-nav {
     @include paragraph-style(12, 24, 0.075em, bold, uppercase);
   }
 }

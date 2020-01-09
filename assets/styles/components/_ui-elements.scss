@@ -3,7 +3,7 @@
 // Button Styles
 .button,
 a.button {
-  @include p2;
+  @include p1;
   @include button(color('black'), color('white'));
   height: 64px;
   text-align: left;
@@ -28,9 +28,8 @@ a.button {
     background-image: url('../images/arrow-black.svg');
   }
 
-  @include media-lg {
+  @include media-nav {
     &:not(.-small) {
-      @include p1;
       height: 96px;
       line-height: 96px;
       padding: 0 128px 0 36px;

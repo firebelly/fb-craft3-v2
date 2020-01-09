@@ -29,7 +29,7 @@
       white-space: nowrap;
     }
 
-    @include media-md {
+    @include media-nav {
       h1,
       h2 {
         display: inline;
@@ -49,7 +49,7 @@
     margin-top: beat(2);
   }
 
-  @include media-md {
+  @include media-nav {
     padding-bottom: 176px;
   }
 }

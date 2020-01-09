@@ -364,11 +364,11 @@ $column-width: 100% / $columns;
     @include media-md {
       content: 'md';
     }
-    @include media-lg {
-      content: 'lg';
-    }
     @include media-nav {
       content: 'nav';
+    }
+    @include media-lg {
+      content: 'lg';
     }
     @include media-xl {
       content: 'xl';

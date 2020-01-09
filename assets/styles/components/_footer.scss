@@ -5,7 +5,7 @@
   color: color('white-dark');
   background-color: color('black');
 
-  @include media-md {
+  @include media-nav {
     margin-right: 72px;
     padding: 156px 0;
   }
@@ -30,7 +30,7 @@
       margin-bottom: 64px;
     }
 
-    @include media-md {
+    @include media-nav {
       align-items: flex-end;
       padding-bottom: 156px;
 
@@ -55,7 +55,7 @@
       margin-bottom: $padding-md;
     }
 
-    @include media-md {
+    @include media-nav {
       margin-top: 0;
       padding: 15px 0 64px;
 
@@ -72,7 +72,7 @@
     padding-bottom: 45px;
     border-bottom: 1px solid color('white-dark');
 
-    @include media-md {
+    @include media-nav {
       margin-bottom: 0;
       padding-bottom: 0;
       padding-right: 56px;
@@ -89,7 +89,7 @@
       margin-bottom: 48px;
     }
 
-    @include media-md {
+    @include media-nav {
       > div {
         margin-bottom: 0;
         padding-right: 53px;

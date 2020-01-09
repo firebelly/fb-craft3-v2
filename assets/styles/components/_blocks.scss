@@ -29,7 +29,7 @@
   }
 
   // Desktop styles
-  @include media-md {
+  @include media-nav {
     margin-left: -#{$padding-md / 2};
     width: calc(100% + #{$padding-md});
     > .-inner {
@@ -68,8 +68,8 @@
     @extend %semantic-list;
   }
   li {
-    align-items: flex-end;
     padding: beat(2) 0;
+    align-items: flex-end;
     border-bottom: 1px solid color('black'); // for IE
     border-bottom: 1px solid var(--projectBlockColor);
     .figure {
@@ -82,15 +82,20 @@
         margin: 0 0 6px;
       }
     }
-  }
 
-  @include media-md {
-    li {
+    @include media-nav {
       .figure {
+        @include h2-sans;
         padding-right: #{$padding-md / 2};
       }
       .label {
         padding-left: #{$padding-md / 2};
+      }
+    }
+
+    @include media-lg {
+      .figure {
+        @include h1-sans;
       }
     }
   }
