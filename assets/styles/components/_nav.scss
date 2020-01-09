@@ -79,6 +79,7 @@ body.nav-open {
     ul {
       width: auto;
       display: flex;
+      overflow: visible;
 
       li {
         @include paragraph-style(24, 32, 0.015em, normal);
