@@ -70,9 +70,9 @@
             },
             section: 'work'
           }).count() %}
-          <li><a href="{{ service.getUrl() }}">{{ service.title }} <sup>{{ serviceCount }}</sup></a></li>
+          <li><a href="{{ service.getUrl() }}">{{ service.title }}<sup>{{ serviceCount }}</sup> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
         {% endfor %}
-        <li><a href="{{ entry.getUrl() }}">All&thinsp;<sup>{{ allCount }}</sup></a></li>
+        <li><a href="{{ entry.getUrl() }}">All<sup>{{ allCount }}</sup> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
       </ul>
     </div>
   </div>
