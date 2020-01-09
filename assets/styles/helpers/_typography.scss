@@ -111,7 +111,10 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // H1 - Stanley
 @mixin h1-serif {
   @include font-serif;
-  @include paragraph-style(128, 128, -0.015em, normal);
+  @include paragraph-style(52, 56, 0, normal);
+  @include media-md {
+    @include paragraph-style(128, 128, -0.015em, normal);
+  }
 }
 .h1-serif {
   @include h1-serif;

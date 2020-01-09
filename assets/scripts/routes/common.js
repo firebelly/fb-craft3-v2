@@ -241,14 +241,25 @@ export default {
       }
 
       const sketch = p5 => {
-        let maxWidth = 110,
+        let maxWidth,
             color = $body.attr('data-blob-color') || '#FF3D00',
             speed = 0.05,
+            thickness,
             frameSpeed = 30,
-            thickness = 48,
             minAmount = 4,
-            maxAmount = 14,
+            maxAmount,
             trail = false;
+
+        // Set thickness based on viewport size
+        if (Breakpoints.nav) {
+          maxWidth = 110;
+          thickness = 48;
+          maxAmount = 14;
+        } else {
+          maxWidth = 78;
+          thickness = 38;
+          maxAmount = 6;
+        }
 
         // make library globally available
         window.p5 = p5;
