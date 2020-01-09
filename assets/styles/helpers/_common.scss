@@ -91,6 +91,7 @@ h4.lined {
   article {
     margin-bottom: beat(3);
     img {
+      width: 100%;
       display: block;
     }
 
@@ -106,7 +107,7 @@ h4.lined {
     margin: beat(1) 0;
   }
   h3 {
-    @include p1;
+    @include h3;
     margin-top: beat(1);
   }
 }

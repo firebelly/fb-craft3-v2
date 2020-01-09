@@ -111,7 +111,10 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // H1 - Stanley
 @mixin h1-serif {
   @include font-serif;
-  @include paragraph-style(128, 128, -0.015em, normal);
+  @include paragraph-style(52, 56, 0, normal);
+  @include media-md {
+    @include paragraph-style(128, 128, -0.015em, normal);
+  }
 }
 .h1-serif {
   @include h1-serif;
@@ -122,6 +125,9 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
   @include font-sans;
   @include paragraph-style(32, 40, 0.01em);
   @include media-md {
+    @include paragraph-style(64, 64, 0.01em);
+  }
+  @include media-nav {
     @include paragraph-style(96, 96, 0.01em);
   }
 }
@@ -132,7 +138,10 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // H2 - Stanley
 @mixin h2-serif {
   @include font-serif;
-  @include paragraph-style(52, 56, 0, normal);
+  @include paragraph-style(30, 32, 0, normal);
+  @include media-nav {
+    @include paragraph-style(52, 56, 0, normal);
+  }
 }
 .h2-serif {
   @include h2-serif;
@@ -147,13 +156,16 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
   @include h2-sans;
 }
 
-// H3 - Surt
-@mixin h3-sans {
+// H3
+@mixin h3 {
   @include font-sans;
-  @include paragraph-style(32, 40, 0.01em);
+  @include paragraph-style(16, 24, 0.015em);
+  @include media-md {
+    @include paragraph-style(24, 32, 0.015em);
+  }
 }
-.h3-sans {
-  @include h3-sans;
+.h3 {
+  @include h3;
 }
 
 // H4
@@ -177,7 +189,10 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
 // Paragraph
 @mixin p1 {
   @include font-sans;
-  @include paragraph-style(24, 32, 0.015em);
+  @include paragraph-style(16, 24, 0.015em);
+  @include media-nav {
+    @include paragraph-style(24, 32, 0.015em);
+  }
 }
 .p1 {
   @include p1;
@@ -197,7 +212,7 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
   @extend %smooth;
   @include font-sans;
   @include paragraph-style(10, 24, 0.075em, bold, uppercase);
-  @include media-md {
+  @include media-nav {
     @include paragraph-style(12, 24, 0.075em, bold, uppercase);
   }
 }
@@ -218,7 +233,7 @@ h2.heading-large {
 }
 
 h3 {
-  @include h3-sans;
+  @include h3;
   margin: 0;
 }
 h3.heading-small {

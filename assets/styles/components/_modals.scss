@@ -1,47 +1,50 @@
 // Modal
 .modal-overlay {
-  display: none;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: z(overlay);
+  display: none;
   position: fixed;
+  z-index: z(overlay);
   background-color: color('black');
 }
 .modal {
-  display: none;
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  padding: $padding-sm 0;
+  display: none;
+  overflow: auto;
+  position: fixed;
   z-index: z(modal);
   color: color('white');
+  padding: $padding-sm 0;
+  -webkit-overflow-scrolling: touch;
 
   @include media-md {
     padding: 103px 0;
   }
 
   .close-modal {
+    z-index: 1;
     position: absolute;
-    width: 78px;
-    height: 78px;
-    right: 103px;
-    top: 72px;
+    top: $padding-sm * 2;
+    right: $padding-sm * 2;
     svg {
+      width: 39px;
+      height: 39px;
+      display: block;
       fill: color('white');
-      width: 78px;
-      height: 78px;
     }
 
     @include media-md {
+      top: 103px;
+      right: 103px;
       svg {
+        width: 78px;
+        height: 78px;
       }
     }
-  }
-
-  @include media-md {
   }
 }

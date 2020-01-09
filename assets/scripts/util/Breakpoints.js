@@ -9,9 +9,9 @@ function updateBreakpoints() {
   breakpointIndicatorString = window.getComputedStyle( document.querySelector('#breakpoint-indicator'), ':after' ).getPropertyValue('content').replace(/['"]+/g, '');
 
   Breakpoints['xl'] = breakpointIndicatorString === 'xl';
-  Breakpoints['nav'] = breakpointIndicatorString === 'nav' || Breakpoints['xl'];
-  Breakpoints['lg'] = breakpointIndicatorString === 'lg' || Breakpoints['nav'];
-  Breakpoints['md'] = breakpointIndicatorString === 'md' || Breakpoints['lg'];
+  Breakpoints['lg'] = breakpointIndicatorString === 'lg' || Breakpoints['xl'];
+  Breakpoints['nav'] = breakpointIndicatorString === 'nav' || Breakpoints['lg'];
+  Breakpoints['md'] = breakpointIndicatorString === 'md' || Breakpoints['nav'];
   Breakpoints['sm'] = breakpointIndicatorString === 'sm' || Breakpoints['md'];
   Breakpoints['xs'] = breakpointIndicatorString === 'xs' || Breakpoints['sm'];
 }

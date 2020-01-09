@@ -2,8 +2,9 @@
 #contact-page {
   // Dark header
   .site-main {
-    background: color('black');
     color: color('white');
+    padding-bottom: $padding-lg;
+    background: color('black');
     .block-section-header h3 {
       border-color: color('white');
     }
@@ -11,12 +12,20 @@
 
   // Light footer
   .site-footer {
-    background: color('white-dark');
+    padding-top: 0;
     color: color('black');
+    background: color('white-dark');
 
     .-bottom {
       border-color: color('black');
     }
+
+    @include media-nav {
+      padding-top: $padding-lg;
+    }
+  }
+  .outer-frame {
+    background-color: color('white');
   }
 
   // Form and contact details
