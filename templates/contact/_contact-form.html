@@ -70,7 +70,7 @@
           </div>
         </fieldset>
 
-        <div class="status">Thank you for reaching out!<br>We’ll be in touch soon.</div>
+        <div class="status">{{ craft.app.getModule('contact-form').getSettings().successFlashMessage }}</div>
 
         <div class="actions">
           {{ csrfInput() }}

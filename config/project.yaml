@@ -42,16 +42,16 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1578591634
+dateModified: 1578686149
 email:
-  fromEmail: store@firebellydesign.com
+  fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
   template: null
   transportType: craft\mail\transportadapters\Smtp
   transportSettings:
     host: smtp.webfaction.com
     port: '465'
-    useAuthentication: 1
+    useAuthentication: '1'
     username: $SMTP_USER
     password: $SMTP_PASSWORD
     encryptionMethod: ssl
@@ -3249,11 +3249,11 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
     settings:
-      toEmail: nate@firebellydesign.com
-      prependSender: 'On behalf of'
+      toEmail: developer@firebellydesign.com
+      prependSender: ''
       prependSubject: ''
       allowAttachments: ''
-      successFlashMessage: 'Your message has been sent.'
+      successFlashMessage: 'Thank you for reaching out! We’ll be in touch soon.'
   contact-form-extensions:
     edition: standard
     enabled: true
