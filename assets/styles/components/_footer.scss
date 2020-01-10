@@ -1,5 +1,26 @@
 // Footer
 
+// Back to Top
+.to-top {
+  text-align: right;
+  padding: beat(2) 0;
+
+  p {
+    @include p1;
+  }
+
+  @include media-nav {
+    height: auto;
+    padding: beat(3) 0;
+    padding-right: $padding-lg;
+    background-color: color('white');
+
+    p {
+      display: block;
+    }
+  }
+}
+
 .site-footer {
   padding: $padding-lg 0;
   color: color('white-dark');

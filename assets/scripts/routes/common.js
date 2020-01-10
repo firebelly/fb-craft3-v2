@@ -32,6 +32,7 @@ export default {
     _initCustomCursor();
     _initBigClicky();
     _initSmoothScroll();
+    _initScrollToTop();
     _initActiveToggle();
     _initSiteNav();
     _initBlobs();
@@ -185,10 +186,6 @@ export default {
 
     // Smooth scroll to an element
     function _scrollBody(element, offset, duration, delay) {
-      var headerOffset = $siteHeader.outerHeight();
-      if (typeof offset === 'undefined' || offset === null) {
-        offset = headerOffset;
-      }
       if (typeof duration === 'undefined' || duration === null) {
         duration = 300;
       }
@@ -210,6 +207,13 @@ export default {
       $body.on('click', '.smooth-scroll', function(e) {
         e.preventDefault();
         _scrollBody($($(this).attr('href')));
+      });
+    }
+
+    function _initScrollToTop() {
+      $body.on('click', '.scroll-to-top', function(e) {
+        e.preventDefault();
+        _scrollBody($body);
       });
     }
 

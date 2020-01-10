@@ -36,7 +36,9 @@
     fill: $secondary;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
+    outline: none;
     color: $primary;
     border-color: $secondary;
     background-color: $secondary;
@@ -56,7 +58,8 @@
     fill: $primary;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $secondary;
     border-color: $primary;
     background-color: $primary;
