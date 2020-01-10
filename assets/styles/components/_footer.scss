@@ -88,10 +88,13 @@
   .contact-section {
     display: flex;
     flex-wrap: wrap;
+    margin-left: -$padding-sm;
     justify-content: space-between;
+    width: calc(100% + #{$padding-sm * 2});
 
-    > div {
+    > * {
       margin-bottom: 48px;
+      padding: 0 $padding-sm;
     }
 
     @include media-nav {
