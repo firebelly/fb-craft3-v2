@@ -1,0 +1,38 @@
+// Careers page
+#careers-page {
+  .position {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    padding: beat(4) $padding-sm;
+    h2 {
+      @include h1-sans;
+    }
+    p {
+      @include p2;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: $padding-sm;
+      right: $padding-sm;
+      border-bottom: 1px solid color('black');
+    }
+  }
+
+  // Desktop styles
+  @include media-md {
+    .position {
+      margin-left: -#{$padding-md / 2};
+      width: calc(100% + #{$padding-md});
+      > .-inner {
+        padding: beat(8) #{$padding-lg * 1} beat(8) #{$padding-lg * 2};
+      }
+      &::after {
+        left: $padding-sm * 2;
+        right: $padding-sm * 2;
+      }
+    }
+  }
+}

@@ -23,8 +23,16 @@
         <div class="current-positions">
         {% for block in entry.openPositions.all() %}
           <div class="position">
-            <h2>{{ block.positionTitle }}</h2>
-            {{ block.positionDescription }}
+            <div class="block-text user-content halfWidth">
+              <div class="-inner">
+                <h2>{{ block.positionTitle }}</h2>
+              </div>
+            </div>
+            <div class="block-text user-content halfWidth">
+              <div class="-inner">
+                {{ block.description }}
+              </div>
+            </div>
           </div>
         {% endfor %}
         </div>
