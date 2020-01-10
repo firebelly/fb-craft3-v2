@@ -1,15 +1,5 @@
 // Projects
 
-// Project image rotator on hover
-@keyframes puls0r {
-  0% {
-    margin-left: 0;
-  }
-  100% {
-    margin-left: 50px;
-  }
-}
-
 .project-blocks {
   @include clearfix;
 }
@@ -22,54 +12,6 @@
   @include media-md {
     .filter-links {
       padding: beat(1) 0 beat(4);
-    }
-  }
-}
-
-// Work page
-body.work {
-  .modal-overlay {
-    background: color('white');
-  }
-  .modal {
-    color: color('black');
-
-    .services-nav {
-      @extend %semantic-list;
-      a {
-        display: inline-block;
-        position: relative;
-        @include h1-sans;
-        padding-right: 12px;
-
-        sup {
-          display: inline-block;
-          font: bold 12px/1 $font-sans, sans-serif;
-          vertical-align: top;
-          margin: 1.5em 0 0 0.25em;
-        }
-
-        svg {
-          width: 175px;
-          height: 100px;
-          white-space: nowrap;
-          vertical-align: middle;
-          opacity: 0;
-        }
-
-        &:hover {
-          svg {
-            animation: puls0r 0.4s linear infinite;
-            opacity: 1;
-          }
-        }
-      }
-    }
-
-    .close-modal {
-      svg {
-        fill: color('black');
-      }
     }
   }
 }
@@ -159,8 +101,7 @@ body.project {
     }
   }
 
-  // A hacky fix for the unwanted borders created around fit-vid'ed video blocks due to iframes and subpixel rounding
-  // Tried hard, but couldn't find a better way.  May god have mercy on my soul.
+  // These will go away, shown as (deprecated) in admin
   .block-html {
     @include clearfix;
     overflow: hidden;
