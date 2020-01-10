@@ -61,11 +61,8 @@
       }
 
       .person-bio {
-        max-height: calc(100vh - 250px);
-        position: relative;
         margin-top: 100px;
         padding-top: 100px;
-        overflow: auto;
         padding-bottom: beat(5);
       }
     }
