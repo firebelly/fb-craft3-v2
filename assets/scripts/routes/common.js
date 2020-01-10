@@ -38,12 +38,25 @@ export default {
     _initFlickity();
     _initVideos();
     _initForms();
+    _initAccordions();
 
+    // Simple accordions used on careers page
+    function _initAccordions() {
+      $('.accordion').each(function() {
+        let $this = $(this);
+        $this.find('a.expand,a.collapse').on('click', (e) => {
+          e.preventDefault();
+          $this.toggleClass('active');
+        });
+      });
+    }
+
+    // Forms handling: add has-input to input-wrap after typing for styling labels
     function _initForms() {
       // Add .has-input for styling when field is changed
       $document.on('keyup change blur', 'input,select,textarea', _checkFormInput);
 
-      // Initial state of fields
+      // Check initial state of fields on load
       $('form').find('input,select,textarea').each(function() {
         let $this = $(this);
         if ($this.val()!=='' && $this.attr('type')!=='hidden') {
@@ -53,13 +66,12 @@ export default {
 
       // Check form fields on state change for has-input or invalid for required
       function _checkFormInput(e) {
-        console.log(e);
         // Ignore tab keyup (would trigger error class when tabbing into field for the first time)
         if (e.which === 9) {
           return;
         }
 
-        var has_input = $(e.target).val() !== '';
+        let has_input = $(e.target).val() !== '';
         $(e.target).toggleClass('has-input', has_input).parents('.input-wrap:first').toggleClass('has-input', has_input);
         $(e.target).parents('.input-wrap:first').toggleClass('invalid', ($(e.target).prop('required') && $(e.target).val() === ''));
       }
@@ -71,8 +83,8 @@ export default {
       $document.on('click', '.bigclicky', function(e) {
         if (!$(e.target).is('a')) {
           e.preventDefault();
-          var link = $(this).find('a:first');
-          var href = link.attr('href');
+          let link = $(this).find('a:first');
+          let href = link.attr('href');
           if (href) {
             if (e.metaKey || link.attr('target')) {
               window.open(href);
