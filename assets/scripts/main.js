@@ -1,7 +1,12 @@
-// import external dependencies
+// Import external dependencies
 import Velocity from 'velocity-animate';
+import Swup from 'swup';
+import SwupBodyClassPlugin from '@swup/body-class-plugin';
+import SwupScrollPlugin from '@swup/scroll-plugin';
+import SwupDebugPlugin from '@swup/debug-plugin';
+import Waypoint from 'waypoints/lib/jquery.waypoints.js';
 
-// import local dependencies
+// Import local dependencies
 import Router from './util/Router';
 import colorChanges from './util/colorChanges';
 import common from './routes/common';
@@ -11,7 +16,22 @@ import about from './routes/about';
 import work from './routes/work';
 import contact from './routes/contact';
 
-/** Populate Router instance with DOM routes */
+const swup = new Swup({
+  plugins: [
+    new SwupBodyClassPlugin(),
+    new SwupScrollPlugin({
+      animateScroll: false
+    }),
+    new SwupDebugPlugin(),
+  ],
+  linkSelector:
+    'a[href^="' +
+    window.location.origin +
+    '"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup])',
+  containers: ["#page", "#site-nav"]
+});
+
+// Populate Router instance with DOM routes
 const routes = new Router({
   common,
   homepage,
@@ -26,6 +46,16 @@ colorChanges.init();
 
 // Load Events
 $(document).ready(() => routes.loadEvents());
+
+// Reload events when swup replaces content
+swup.on('contentReplaced', () => {
+  routes.loadEvents();
+});
+
+// Cleanup call for js
+swup.on('willReplaceContent', () => {
+  routes.unload();
+});
 
 // Flickity fix for iOS 13
 (function() {

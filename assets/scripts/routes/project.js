@@ -1,13 +1,15 @@
+// Project page js
+
 export default {
   init() {
     // JavaScript to be fired on project pages
-
     _initTypeTester();
 
     // Add hover class to rollover images on hover for Next Project links
     $('.pagination.-next').each(function() {
-      let $rolloverImages = $(this).find('.rollover-images');
-      $(this).find('a').hover(function() {
+      let $this = $(this);
+      let $rolloverImages = $this.find('.rollover-images');
+      $this.find('a').hover(function() {
         $rolloverImages.toggleClass('hover');
       });
     });
@@ -15,16 +17,16 @@ export default {
     function _initTypeTester() {
       // If there's a type tester present
       $('.type-tester').each(function() {
-        var $typeTester = $(this);
-        var $typeTesterInner = $typeTester.find('.-inner');
-        var $para = $typeTester.find('.test-para');
-        var $svgContainer = $('.type-tester').find('.typeTesterSvgFont');
-        var $glyphChart = $('.type-tester').find('.glyphChart');
+        let $typeTester = $(this),
+            $typeTesterInner = $typeTester.find('.-inner'),
+            $para = $typeTester.find('.test-para'),
+            $svgContainer = $('.type-tester').find('.typeTesterSvgFont'),
+            $glyphChart = $('.type-tester').find('.glyphChart'),
 
-        var fontFamily = $typeTester.attr('data-font');
-        var startingFontSize = $typeTester.attr('data-font-size');
-        var lineHeight = $typeTester.attr('data-line-height');
-        var svgUrl = $typeTester.attr('data-svg-url');
+            fontFamily = $typeTester.attr('data-font'),
+            startingFontSize = $typeTester.attr('data-font-size'),
+            lineHeight = $typeTester.attr('data-line-height'),
+            svgUrl = $typeTester.attr('data-svg-url');
 
         // Initialize CSS for tester
         $typeTesterInner.css({
@@ -33,8 +35,8 @@ export default {
         });
 
         // Set Up Tools
-        var $tools = $('<div class="typetools"></div>').prependTo($typeTester);
-        var $toolsContainer = $('<div class="typetools-container block-wrap"></div>').appendTo($tools);
+        let $tools = $('<div class="typetools"></div>').prependTo($typeTester);
+        let $toolsContainer = $('<div class="typetools-container block-wrap"></div>').appendTo($tools);
 
         // Get SVG font file if it is set and generate the glyph chart
         if ($typeTester.attr('data-svg-url')) {
@@ -221,19 +223,14 @@ export default {
 
       });
     }
-
-    function _hexToRgba(hex, alpha) {
-      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-      if (result) {
-        return 'rgba('+parseInt(result[1], 16)+', '+parseInt(result[2], 16)+', '+parseInt(result[3], 16)+', '+alpha+')';
-      } else {
-        return null;
-      }
-    }
-
   },
 
   finalize() {
     // JavaScript to be fired on project pages, after the init JS
   },
+
+  unload() {
+    // JavaScript to clean up before live page reload
+  },
+
 };

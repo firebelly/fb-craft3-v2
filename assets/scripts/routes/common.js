@@ -1,3 +1,5 @@
+// Common js
+
 import jQueryBridget from 'jquery-bridget';
 import Flickity from 'flickity/dist/flickity.pkgd.js';
 require('flickity-imagesloaded');
@@ -10,21 +12,26 @@ import fitvids from 'fitvids';
 import appState from '../util/appState';
 import Breakpoints from '../util/Breakpoints';
 
+// Shared vars
+export let blobMaster,
+           vimeoPlayers = [],
+           $window,
+           $body,
+           $document;
+
 export default {
   // JavaScript to be fired on all pages
   init() {
     // Set up libraries to be used with jQuery
     jQueryBridget('flickity', Flickity, $);
 
-    const $document = $(document);
-    const $body = $('body');
-    const $window = $(window);
-    const $html = $('html');
-    const pageAt = window.location.pathname;
-    const $siteNav = $('.site-nav');
+    $document = $(document);
+    $body = $('body');
+    $window = $(window);
 
-    let $customCursor,
-        players = [];
+    let pageAt = window.location.pathname,
+        $siteNav = $('.site-nav'),
+        $customCursor;
 
     // Run resize functions on load
     _resize();
@@ -33,7 +40,6 @@ export default {
     _initBigClicky();
     _initSmoothScroll();
     _initScrollToTop();
-    _initActiveToggle();
     _initSiteNav();
     _initBlobs();
     _initFlickity();
@@ -55,7 +61,7 @@ export default {
     // Forms handling: add has-input to input-wrap after typing for styling labels
     function _initForms() {
       // Add .has-input for styling when field is changed
-      $document.on('keyup change blur', 'input,select,textarea', _checkFormInput);
+      $document.on('keyup.forms change.forms blur.forms', 'input,select,textarea', _checkFormInput);
 
       // Check initial state of fields on load
       $('form').find('input,select,textarea').each(function() {
@@ -81,7 +87,7 @@ export default {
 
     // Bigclicky™ (large clickable area that pulls first a[href] as URL)
     function _initBigClicky() {
-      $document.on('click', '.bigclicky', function(e) {
+      $document.on('click.bigClicky', '.bigclicky', function(e) {
         if (!$(e.target).is('a')) {
           e.preventDefault();
           let link = $(this).find('a:first');
@@ -98,7 +104,7 @@ export default {
     }
 
     // Keyboard navigation and esc handlers
-    $(document).keyup(function(e) {
+    $document.keyup(function(e) {
       // esc
       if (e.keyCode === 27) {
         _closeNav();
@@ -107,7 +113,7 @@ export default {
           document.activeElement.blur();
         }
       }
-    }).on('click', 'body.nav-open', function(e) {
+    }).on('click.closeNav', 'body.nav-open', function(e) {
       // Clicking outside of nav closes nav
       let $target = $(e.target);
       // Make sure target inside nav content
@@ -138,8 +144,7 @@ export default {
         return;
       }
 
-      $customCursor = $('<div id="cursor"></div>').appendTo($body);
-
+      var $customCursor = $('#cursor');
       var lastMousePosition = { x: 0, y: 0 };
 
       // Update the mouse position
@@ -179,9 +184,9 @@ export default {
       }
 
       // Listen for mouse movement
-      $document.on('mousemove', onMouseMove);
+      $document.on('mousemove.customCursor', onMouseMove);
       // Make sure a user is still hovered on an element when they start scrolling
-      $document.on('scroll', update);
+      $document.on('scroll.customCursor', update);
     }
 
     // Smooth scroll to an element
@@ -204,37 +209,22 @@ export default {
     }
 
     function _initSmoothScroll() {
-      $body.on('click', '.smooth-scroll', function(e) {
+      $document.on('click.smoothScroll', '.smooth-scroll', function(e) {
         e.preventDefault();
         _scrollBody($($(this).attr('href')));
       });
     }
 
     function _initScrollToTop() {
-      $body.on('click', '.scroll-to-top', function(e) {
+      $document.on('click.scrollToTop', '.scroll-to-top', function(e) {
         e.preventDefault();
         _scrollBody($body);
       });
     }
 
-    function _initActiveToggle() {
-      $(document).on('click', '[data-active-toggle].-active', function(e) {
-        if ($(this).attr('data-active-toggle') !== '') {
-          $(this).removeClass('-active');
-          $($(this).attr('data-active-toggle')).removeClass('-active');
-        }
-      });
-      $(document).on('click', '[data-active-toggle]:not(.-active)', function(e) {
-        if ($(this).attr('data-active-toggle') !== '') {
-          $(this).addClass('-active');
-          $($(this).attr('data-active-toggle')).addClass('-active');
-        }
-      });
-    }
-
     function _initSiteNav() {
-      $(document).on('click', '#nav-open', _openNav);
-      $(document).on('click', '#nav-close', _closeNav);
+      $document.on('click.siteNavOpen', '#nav-open', _openNav);
+      $document.on('click.siteNavClose', '#nav-close', _closeNav);
     }
 
     function _openNav() {
@@ -270,7 +260,7 @@ export default {
         return;
       }
 
-      const sketch = p5 => {
+      const bloblob = (p5) => {
         let maxWidth,
             color = $body.attr('data-blob-color') || '#FF3D00',
             speed = 0.05,
@@ -355,7 +345,7 @@ export default {
         }
       }
 
-      new p5(sketch);
+      blobMaster = new p5(bloblob);
     }
 
     // Carousels
@@ -410,11 +400,11 @@ export default {
           opts.height = $this.attr('data-height');
         }
         if (el) {
-          players[i] = {
+          vimeoPlayers[i] = {
             player: new Vimeo.Player(el, opts),
             status: 'pause'
           };
-          players[i].player.ready().then(function() {
+          vimeoPlayers[i].player.ready().then(function() {
             if ($this.attr('data-url')) {
               // Hide image once loaded
               $this.find('img').remove();
@@ -428,16 +418,16 @@ export default {
           if (isBackgroundVideo) {
             $this.waypoint({
               handler: function(direction) {
-                if (players[i].status !== 'play') {
-                  players[i].player.play();
-                  players[i].status = 'play';
+                if (vimeoPlayers[i].status !== 'play') {
+                  vimeoPlayers[i].player.play();
+                  vimeoPlayers[i].status = 'play';
                 }
               },
               offset: '50%'
             });
           }
           if (isBannerVideo) {
-            players[i].player.play();
+            vimeoPlayers[i].player.play();
           }
         }
       });
@@ -451,9 +441,30 @@ export default {
       }
     }
 
-    $(window).resize(_resize);
+    $window.resize(_resize);
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
+  },
+  unload() {
+    // JavaScript to clean up before live page reload
+
+    // Remove blobs if present
+    if (blobMaster) {
+      blobMaster.remove();
+    }
+
+    // Remove flickity instances
+    $('.flickity').each(function() {
+      $(this).flickity('destroy');
+    });
+
+    // Remove custom event watchers
+    $document.off('mousemove.customCursor scroll.customCursor click.smoothScroll click.scrollToTop click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms');
+
+    // Remove vimeo players
+    $.each(vimeoPlayers, function(){
+      this.player.destroy();
+    });
   },
 };

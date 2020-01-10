@@ -2,8 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 
 {% include '/partials/_head' %}
+{% if entry is defined and craft.app.request.getSegment(1) %}
+  {% set pageClass = (bodyClass is defined and bodyClass matches '/page\-/') ? '' : 'page-' ~ craft.app.request.getSegment(1) %}
+{% else %}
+  {% set pageClass = '' %}
+{% endif %}
 
-<body class="{% if bodyClass is defined %}{{ bodyClass }}{% else %}index{% endif %}" id="{% if bodyId is defined %}{{ bodyId }}{% else %}{{ craft.app.request.getSegment(1)}}-page{% endif %}"{% if bodyDataAttributes is defined %} {{ bodyDataAttributes|raw }}{% endif %}>
+<body class="{% if bodyClass is defined %}{{ bodyClass }} {% endif %}{{ pageClass }}">
   <div id="breakpoint-indicator" class="hidden"></div>
 
   <header class="site-header clearfix" role="banner">
@@ -26,15 +31,16 @@
 
   {% include 'partials/_flash' %}
 
-  <main id="main" class="site-main" role="main">
+  <main id="swup" class="site-main" role="main">
 
-    <div id='page'>
+    <div id="page" class="transition-fade">
       {% block content %}{% endblock %}
-    </div><!-- END #page -->
+    </div>
 
-  </main> <!-- END #main -->
+  </main>
 
   {% include "/partials/_footer" %}
 
+  <div id="cursor"></div>
 </body>
 </html>

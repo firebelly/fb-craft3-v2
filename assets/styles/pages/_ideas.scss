@@ -1,5 +1,7 @@
 // Ideas pages
-#ideas-page {
+
+body.page-ideas {
+
   // Reduce padding on pagination
   .pagination {
     .container {
@@ -15,6 +17,7 @@
       padding-bottom: beat(4);
     }
   }
+
 }
 
 // Single ideas post

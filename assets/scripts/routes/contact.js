@@ -47,4 +47,8 @@ export default {
     // JavaScript fired after the init JS
   },
 
+  unload() {
+    // JavaScript to clean up before live page reload
+  },
+
 };

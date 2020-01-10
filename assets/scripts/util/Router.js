@@ -55,9 +55,7 @@ class Router {
 
     // Fire page-specific init JS, and then finalize JS
     document.body.className
-      .toLowerCase()
-      .replace(/-/g, '_')
-      .split(/\s+/)
+      .match(/page\-([^ ]+)/)
       .map(camelCase)
       .forEach((className) => {
         this.fire(className);
@@ -66,6 +64,24 @@ class Router {
 
     // Fire common finalize JS
     this.fire('common', 'finalize');
+  }
+
+  /**
+   * Cleanup called from swup for live page reloads
+   *
+   * e.g. any carousels, scroll handlers, etc
+   */
+  unload() {
+    // Fire common unload JS
+    this.fire('common', 'unload');
+
+    // Fire page-specific unload JS
+    document.body.className
+      .match(/page\-([^ ]+)/)
+      .map(camelCase)
+      .forEach((className) => {
+        this.fire(className, 'unload');
+      });
   }
 }
 

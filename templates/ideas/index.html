@@ -1,15 +1,13 @@
 {% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? '_ajax-layout' : '_layout' %}
-{% set title = "Ideas" %}
 
 {% if entry is not defined %}
   {% set entry = craft.entries.section('ideasIndex').one() %}
 {% endif %}
 
 {% set title = entry.title %}
+{% set bodyClass = 'with-blobs' %}
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
-{% set bodyClass = 'single page ideas with-blobs' %}
-{% set bodyDataAttributes = 'data-blob-color="#FF3D00"' %}
 
 {% if category is defined %}
   {% paginate craft.entries({
