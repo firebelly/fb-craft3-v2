@@ -1,7 +1,6 @@
 // Forms
 
 form {
-
   .form-row {
     display: flex;
     flex-wrap: wrap;
@@ -96,6 +95,11 @@ form {
     @include media-md {
       line-height: 1.2;
     }
+  }
+
+  // Submit Button
+  input[type=submit] {
+    cursor: pointer;
   }
 
   // Dropdowns

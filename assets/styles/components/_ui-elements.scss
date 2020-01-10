@@ -47,6 +47,13 @@ a.button {
     padding: 0 30px;
   }
 
+  &.-full {
+    width: 100%;
+    @include media-sm {
+      width: auto;
+    }
+  }
+
   // Hollow Variation
   &.hollow {
     @include buttonHollow(color('black'), color('white'));
