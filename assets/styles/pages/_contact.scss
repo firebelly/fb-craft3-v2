@@ -37,6 +37,19 @@
     select {
       margin-bottom: beat(2);
     }
+    // Feedback div
+    .status {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      @include transition(all);
+      @include h2-sans;
+      &.active {
+        padding-top: beat(2);
+        max-height: 500px;
+        opacity: 1;
+      }
+    }
   }
 
   // Desktop styles

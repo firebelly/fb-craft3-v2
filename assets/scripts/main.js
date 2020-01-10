@@ -6,9 +6,10 @@ import Router from './util/Router';
 import colorChanges from './util/colorChanges';
 import common from './routes/common';
 import homepage from './routes/homepage';
-import work from './routes/work';
 import project from './routes/project';
 import about from './routes/about';
+import work from './routes/work';
+import contact from './routes/contact';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -17,6 +18,7 @@ const routes = new Router({
   project,
   about,
   work,
+  contact,
 });
 
 // Init color changes

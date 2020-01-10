@@ -21,54 +21,56 @@
       </div>
 
       <form class="-light" method="post" action="/contact">
-        <div class="grid spaced">
-          <div class="col-md-1-2">
-            <div class="input-wrap">
-              <label for="from-name">Name*</label>
-              <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}" placeholder="Name*">
-              {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
-            </div>
-          </div>
-          <div class="col-md-1-2">
-            <div class="input-wrap">
-              <label for="organization">Organization*</label>
-              <input id="organization" type="text" name="message[From Organization]" value="{{ message.fromOrganization ?? '' }}" placeholder="Organization*">
-              {{ message is defined and message ? errorList(message.getErrors('fromOrganization')) }}
-            </div>
-          </div>
-        </div>
-        <div class="grid spaced">
-          <div class="col-md-1-2">
-            <div class="input-wrap">
-              <label for="from-email">Email*</label>
-              <input required id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}" placeholder="Email*">
-              {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
-            </div>
-          </div>
-          <div class="col-md-1-2">
-            <div class="input-wrap">
-              <label for="found-us-how">How'd you hear about Firebelly?</label>
-              <div class="select-wrap">
-                <svg class="icon icon-select-arrow" aria-hidden="true"><use xlink:href="#icon-select-arrow"/></svg>
-                <select id="found-us-how" name="message[Found Us How]">
-                  <option value="">How'd you hear about Firebelly?</option>
-                  <option value="websearch"{{ message.foundUsHow is defined and message.foundUsHow=='websearch' ? ' selected' : '' }}>Web Search</option>
-                  <option value="newsletter"{{ message.foundUsHow is defined and message.foundUsHow=='newsletter' ? ' selected' : '' }}>Newsletter</option>
-                  <option value="recommended"{{ message.foundUsHow is defined and message.foundUsHow=='recommended' ? ' selected' : '' }}>Recommended</option>
-                  <option value="yellowpages"{{ message.foundUsHow is defined and message.foundUsHow=='yellowpages' ? ' selected' : '' }}>Yellow Pages</option>
-                </select>
+        <fieldset>
+          <div class="grid spaced">
+            <div class="col-md-1-2">
+              <div class="input-wrap">
+                <label for="from-name">Name*</label>
+                <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}" placeholder="Name*">
+                {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
               </div>
-              {{ message is defined and message ? errorList(message.getErrors('foundUsHow')) }}
+            </div>
+            <div class="col-md-1-2">
+              <div class="input-wrap">
+                <label for="organization">Organization*</label>
+                <input id="organization" type="text" name="message[From Organization]" value="{{ message.fromOrganization ?? '' }}" placeholder="Organization*">
+                {{ message is defined and message ? errorList(message.getErrors('fromOrganization')) }}
+              </div>
             </div>
           </div>
-        </div>
+          <div class="grid spaced">
+            <div class="col-md-1-2">
+              <div class="input-wrap">
+                <label for="from-email">Email*</label>
+                <input required id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}" placeholder="Email*">
+                {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+              </div>
+            </div>
+            <div class="col-md-1-2">
+              <div class="input-wrap">
+                <label for="found-us-how">How'd you hear about Firebelly?</label>
+                <div class="select-wrap">
+                  <svg class="icon icon-select-arrow" aria-hidden="true"><use xlink:href="#icon-select-arrow"/></svg>
+                  <select id="found-us-how" name="message[Found Us How]">
+                    <option value="">How'd you hear about Firebelly?</option>
+                    <option value="websearch"{{ message.foundUsHow is defined and message.foundUsHow=='websearch' ? ' selected' : '' }}>Web Search</option>
+                    <option value="newsletter"{{ message.foundUsHow is defined and message.foundUsHow=='newsletter' ? ' selected' : '' }}>Newsletter</option>
+                    <option value="recommended"{{ message.foundUsHow is defined and message.foundUsHow=='recommended' ? ' selected' : '' }}>Recommended</option>
+                    <option value="yellowpages"{{ message.foundUsHow is defined and message.foundUsHow=='yellowpages' ? ' selected' : '' }}>Yellow Pages</option>
+                  </select>
+                </div>
+                {{ message is defined and message ? errorList(message.getErrors('foundUsHow')) }}
+              </div>
+            </div>
+          </div>
 
-        <div class="input-wrap">
-          <label for="message">What can we help you with?*</label>
-          <textarea required rows="10" cols="40" id="message[Query]" name="message[Query]" placeholder="What can we help you with?*">{{ message.message.query ?? '' }}</textarea>
-        </div>
+          <div class="input-wrap">
+            <label for="message">What can we help you with?*</label>
+            <textarea required rows="10" cols="40" id="message[Query]" name="message[Query]" placeholder="What can we help you with?*">{{ message.message.query ?? '' }}</textarea>
+          </div>
+        </fieldset>
 
-        <div class="status"></div>
+        <div class="status">Thank you for reaching out!<br>We’ll be in touch soon.</div>
 
         <div class="actions">
           {{ csrfInput() }}
