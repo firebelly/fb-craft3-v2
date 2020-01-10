@@ -28,7 +28,7 @@ export default {
         data: $this.serialize(),
         success: (response) => {
           if (response.success) {
-            $this.find('fieldset').slideUp(250);
+            $this.prop('disabled', true).find('fieldset, button').slideUp(250);
             $status.html(thanksHtml);
           } else {
             $status.html('Oh no! Something went wrong.<br>Please check everything and try again.');

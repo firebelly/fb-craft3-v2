@@ -4,7 +4,8 @@ const appState = {
   isAnimating: false,
   navOpen: false,
   modalOpen: false,
-  navStuck: false
+  navStuck: false,
+  requestInProgress: false,
 };
 
 export default appState
