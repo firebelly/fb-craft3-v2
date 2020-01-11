@@ -732,6 +732,13 @@
   dependencies:
     "@swup/plugin" "^1.0.0"
 
+"@swup/ga-plugin@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@swup/ga-plugin/-/ga-plugin-1.0.1.tgz#21f4dd1c444c636fb4ef57755a8a9faa80bcdf05"
+  integrity sha512-2c/WGe1PAYB0yGzCKAAVi2bLoDB491PdMqHKVefe8gRwFU3mh9LlRy7WEzbwDfku1TvFr2AK2gH+SHBtwM73xQ==
+  dependencies:
+    "@swup/plugin" "^1.0.0"
+
 "@swup/plugin@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@swup/plugin/-/plugin-1.0.1.tgz#10606322508724a5beaed6a09326d8c30c7041fa"
