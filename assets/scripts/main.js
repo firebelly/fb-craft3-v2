@@ -62,7 +62,7 @@ swup.on('popState', () => {
 });
 
 // Cleanup call for js
-swup.on('willReplaceContent', () => {
+swup.on('transitionStart', () => {
   routes.unload();
 });
 
