@@ -91,12 +91,17 @@ export default {
         if (!$(e.target).is('a')) {
           e.preventDefault();
           let link = $(this).find('a:first');
-          let href = link.attr('href');
+          let href = link[0].href;
           if (href) {
             if (e.metaKey || link.attr('target')) {
               window.open(href);
             } else {
-              location.href = href;
+              // Use swup if available
+              if (typeof swup !== 'undefined') {
+                swup.loadPage({ url: link[0].pathname });
+              } else {
+                location.href = href;
+              }
             }
           }
         }

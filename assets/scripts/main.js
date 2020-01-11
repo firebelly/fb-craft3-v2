@@ -9,6 +9,7 @@ import Waypoint from 'waypoints/lib/jquery.waypoints.js';
 // Import local dependencies
 import Router from './util/Router';
 import colorChanges from './util/colorChanges';
+import modals from './util/modals';
 import common from './routes/common';
 import homepage from './routes/homepage';
 import project from './routes/project';
@@ -44,12 +45,14 @@ const routes = new Router({
 // Init color changes
 colorChanges.init();
 
-// Load Events
+// Load events
 $(document).ready(() => routes.loadEvents());
 
 // Reload events when swup replaces content
 swup.on('contentReplaced', () => {
   routes.loadEvents();
+  // Close any modals in case we hit back button
+  modals.closeModal();
 });
 
 // Cleanup call for js
