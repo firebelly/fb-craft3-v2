@@ -4,7 +4,6 @@ import Swup from 'swup';
 import SwupBodyClassPlugin from '@swup/body-class-plugin';
 import SwupScrollPlugin from '@swup/scroll-plugin';
 import SwupGaPlugin from '@swup/ga-plugin'
-import SwupDebugPlugin from '@swup/debug-plugin';
 import Waypoint from 'waypoints/lib/jquery.waypoints.js';
 
 // Import local dependencies
@@ -24,7 +23,6 @@ const swup = new Swup({
     new SwupScrollPlugin({
       animateScroll: false
     }),
-    new SwupDebugPlugin(),
     new SwupGaPlugin(),
   ],
   linkSelector:
@@ -33,6 +31,9 @@ const swup = new Swup({
     '"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup])',
   containers: ["#page", "#site-nav"]
 });
+
+// Set to global to share with modules
+window.swup = swup;
 
 // Populate Router instance with DOM routes
 const routes = new Router({
@@ -53,8 +54,6 @@ $(document).ready(() => routes.loadEvents());
 // Reload events when swup replaces content
 swup.on('contentReplaced', () => {
   routes.loadEvents();
-  // Close any modals in case we hit back button
-  modals.closeModal();
 });
 
 // Cleanup call for js

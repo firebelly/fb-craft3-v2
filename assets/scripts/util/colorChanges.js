@@ -1,6 +1,6 @@
 // Color change blocks
 
-export let $colorChangeBlocks = [],
+let $colorChangeBlocks = [],
     defaultColors = { 'white': '#ffffff', 'gray': '#F2F2F0', 'black': '#232323' }, // Default, named colors
     colorChangeValues = [{ 'background': defaultColors.gray, 'color': defaultColors.black }], // Initial project-block bg + color
     $rootElement,

@@ -44,6 +44,7 @@ export default {
 
   unload() {
     // JavaScript to clean up before live page reload
+    modals.unload();
   },
 
 };

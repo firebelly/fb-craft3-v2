@@ -6,8 +6,8 @@ const appState = {
   modalOpen: false,
   navStuck: false,
   requestInProgress: false,
-  breakpoints: [],
-  updateBreakpoints: () => {
+  breakpoints: {},
+  updateBreakpoints() {
   	// Check breakpoint indicator in DOM ( :after { content } is controlled by CSS media queries )
   	let breakpointIndicatorString = window.getComputedStyle( document.querySelector('#breakpoint-indicator'), ':after' ).getPropertyValue('content').replace(/['"]+/g, '');
   	appState.breakpoints['xl'] = breakpointIndicatorString === 'xl';
@@ -19,7 +19,8 @@ const appState = {
   }
 };
 
+// Bind updateBreakpoints to domready and resize
+document.addEventListener('DOMContentLoaded', appState.updateBreakpoints);
 window.addEventListener('resize', appState.updateBreakpoints);
-appState.updateBreakpoints();
 
 export default appState

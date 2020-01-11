@@ -12,11 +12,11 @@ import fitvids from 'fitvids';
 import appState from '../util/appState';
 
 // Shared vars
-export let blobMaster,
-           vimeoPlayers = [],
-           $window,
-           $body,
-           $document;
+let blobMaster,
+    vimeoPlayers = [],
+    $window,
+    $body,
+    $document;
 
 export default {
   // JavaScript to be fired on all pages
