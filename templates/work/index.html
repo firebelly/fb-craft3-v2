@@ -71,7 +71,7 @@
           }).count() %}
           <li><a data-no-swup href="{{ service.getUrl() }}">{{ service.title }}<sup>{{ serviceCount }}</sup> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
         {% endfor %}
-        <li><a href="{{ entry.getUrl() }}">All<sup>{{ allCount }}</sup> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
+        <li><a data-no-swup href="{{ entry.getUrl() }}">All<sup>{{ allCount }}</sup> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
       </ul>
     </div>
   </div>
