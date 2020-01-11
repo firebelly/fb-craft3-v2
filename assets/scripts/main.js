@@ -56,6 +56,11 @@ swup.on('contentReplaced', () => {
   routes.loadEvents();
 });
 
+swup.on('popState', () => {
+  // Close any open modals
+  modals.closeModal();
+});
+
 // Cleanup call for js
 swup.on('willReplaceContent', () => {
   routes.unload();
