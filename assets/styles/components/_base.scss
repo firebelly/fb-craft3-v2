@@ -65,7 +65,10 @@ canvas {
   position: absolute;
   pointer-events: none;
   // mix-blend-mode: multiply;
-  transition: opacity .3s ease-out;
+  transition: opacity 0.3s ease-out;
+  &.-fading {
+    opacity: 0;
+  }
 }
 
 a {

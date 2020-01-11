@@ -263,6 +263,7 @@ export default {
       if (!$body.is('.with-blobs')) {
         return;
       }
+      $('canvas').removeClass('-fading');
 
       const bloblob = (p5) => {
         let maxWidth,
@@ -455,7 +456,8 @@ export default {
 
     // Remove blobs if present
     if (blobMaster) {
-      blobMaster.remove();
+      $('canvas').addClass('-fading');
+      setTimeout(blobMaster.remove, 500);
     }
 
     // Remove flickity instances
