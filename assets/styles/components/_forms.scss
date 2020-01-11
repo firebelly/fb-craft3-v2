@@ -6,6 +6,26 @@ form {
     flex-wrap: wrap;
   }
 
+  // Form feedback
+  .status {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    color: color('black');
+    @include transition(all);
+    @include h2-sans;
+
+    &.error,
+    &.success {
+      padding-top: beat(2);
+      max-height: 500px;
+      opacity: 1;
+    }
+    &.error {
+      color: color('red');
+    }
+  }
+
   // Show labels once field has-input
   .input-wrap {
     position: relative;
@@ -78,17 +98,6 @@ form {
     display: block;
     letter-spacing: 0;
     color: color('black');
-    &.error,
-    &.success {
-      display: block;
-      padding: .5em 0;
-    }
-    &.error {
-      background: color('red');
-    }
-    &.success {
-      background: color('gray-light');
-    }
 
     // Override small-titles() line-height
     line-height: 1.2;
@@ -165,6 +174,9 @@ form {
         color: color('white-dark');
         border-bottom: 1px solid color('white-dark');
       }
+    }
+    .status:not(.error) {
+      color: color('white-dark');
     }
     textarea,
     input[type=email],

@@ -44,7 +44,39 @@ export default {
     _initFlickity();
     _initVideos();
     _initForms();
+    _initNewsletterForm();
     _initAccordions();
+
+    // Ajaxify newsletter form
+    function _initNewsletterForm() {
+      $('form.newsletter').each(function() {
+        let $form = $(this);
+        let $status = $form.find('.status');
+        $form.on('submit', e => {
+          e.preventDefault();
+          $status.removeClass('error success');
+          $form.addClass('working');
+          if ($form.find('input[name=EMAIL]').val()=='') {
+            $status.addClass('error').text('Please enter your email.');
+          } else {
+            $.getJSON($form.attr('action'), $form.serialize())
+              .done(function(data) {
+                if (data.result != 'success') {
+                  if (data.msg.match(/already subscribed/)) {
+                    $status.addClass('error').text('Oops! You are already subscribed to our newsletter.');
+                  } else {
+                    $status.addClass('error').text('Oops! ' + data.msg);
+                  }
+                } else {
+                  $status.removeClass('error').addClass('success').text('Success! Check your email to confirm.');
+                }
+              })
+              .fail(() => $status.addClass('error').text('There was an error subscribing. Please try again.'))
+              .always(() => $form.removeClass('working'));
+          }
+        });
+      });
+    }
 
     // Simple accordions used on careers page
     function _initAccordions() {
@@ -453,6 +485,9 @@ export default {
   },
   unload() {
     // JavaScript to clean up before live page reload
+
+    // Clear out newsletter form
+    $('form.newsletter').find('.status').removeClass('error success').end().trigger('reset');
 
     // Remove blobs if present
     if (blobMaster) {

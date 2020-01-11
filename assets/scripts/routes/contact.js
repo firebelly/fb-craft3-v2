@@ -5,40 +5,44 @@ import appState from '../util/appState';
 export default {
 
   init() {
+    // This should probably just be done in CSS ¯\_(ツ)_/¯
+    $('form.newsletter').removeClass('-light').find('button').removeClass('-white');
+
     // Hijack contact form submit
     $('.contact-form form').submit(function(e) {
       e.preventDefault();
       if (appState.requestInProgress) {
         return false;
       }
-      let $this = $(this);
+      let $form = $(this);
+      let $status = $form.find('.status');
 
       // Set appState flag to avoid multiple submits
       appState.requestInProgress = true;
-      let $status = $this.find('.status');
 
       // Store initial thanks copy if replaced by error
       let thanksHtml = $status.html();
-      $status.removeClass('active');
+      $status.removeClass('success error');
+      $form.addClass('working');
 
       // Submit form
       $.post({
         url: '/',
         dataType: 'json',
-        data: $this.serialize(),
+        data: $form.serialize(),
         success: (response) => {
           if (response.success) {
-            $this.prop('disabled', true).find('fieldset, button').slideUp(250);
-            $status.html(thanksHtml);
+            $form.prop('disabled', true).find('fieldset, button').slideUp(250);
+            $status.addClass('success').html(thanksHtml);
           } else {
-            $status.html('Oh no! Something went wrong.<br>Please check everything and try again.');
+            $status.addClass('error').html('Oh no! Something went wrong.<br>Please check everything and try again.');
           }
         }
       }).fail(() => {
-        $status.html('Oh no! Something went wrong.<br>Please check everything and try again.');
+        $status.addClass('error').html('Oh no! Something went wrong.<br>Please check everything and try again.');
       }).always(() => {
+        $form.removeClass('working');
         appState.requestInProgress = false;
-        $status.addClass('active');
       });
     });
   },
@@ -49,6 +53,7 @@ export default {
 
   unload() {
     // JavaScript to clean up before live page reload
+    $('form.newsletter').addClass('-light').find('button').addClass('-white');
   },
 
 };
