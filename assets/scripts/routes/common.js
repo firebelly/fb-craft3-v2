@@ -10,7 +10,6 @@ import * as p5 from 'p5';
 import fitvids from 'fitvids';
 
 import appState from '../util/appState';
-import Breakpoints from '../util/Breakpoints';
 
 // Shared vars
 export let blobMaster,
@@ -276,7 +275,7 @@ export default {
             trail = false;
 
         // Set thickness based on viewport size
-        if (Breakpoints.nav) {
+        if (appState.breakpoints.nav) {
           maxWidth = 110;
           thickness = 48;
           maxAmount = 14;
@@ -441,7 +440,7 @@ export default {
     // Called in quick succession as window is resized
     function _resize() {
       // Reset inline styles for navigation for medium breakpoint
-      if (Breakpoints.nav) {
+      if (appState.breakpoints.nav) {
         $siteNav.attr('style', '');
       }
     }
