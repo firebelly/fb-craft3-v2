@@ -16,7 +16,6 @@ class Router {
    */
   constructor(routes) {
     this.routes = routes;
-    // console.log(this.routes);
   }
 
   /**
@@ -54,13 +53,15 @@ class Router {
     this.fire('common');
 
     // Fire page-specific init JS, and then finalize JS
-    document.body.className
-      .match(/page\-([^ ]+)/)
-      .map(camelCase)
-      .forEach((className) => {
-        this.fire(className);
-        this.fire(className, 'finalize');
-      });
+    if (document.body.className.match(/page\-/)) {
+      document.body.className
+        .match(/page\-([^ ]+)/)
+        .map(camelCase)
+        .forEach((className) => {
+          this.fire(className);
+          this.fire(className, 'finalize');
+        });
+      }
 
     // Fire common finalize JS
     this.fire('common', 'finalize');
@@ -76,12 +77,14 @@ class Router {
     this.fire('common', 'unload');
 
     // Fire page-specific unload JS
-    document.body.className
-      .match(/page\-([^ ]+)/)
-      .map(camelCase)
-      .forEach((className) => {
-        this.fire(className, 'unload');
+    if (document.body.className.match(/page\-/)) {
+      document.body.className
+        .match(/page\-([^ ]+)/)
+        .map(camelCase)
+        .forEach((className) => {
+          this.fire(className, 'unload');
       });
+    }
   }
 }
 
