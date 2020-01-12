@@ -9,7 +9,10 @@ import Waypoint from 'waypoints/lib/jquery.waypoints.js';
 // Import local dependencies
 import Router from './util/Router';
 import colorChanges from './util/colorChanges';
+import appState from './util/appState';
 import modals from './util/modals';
+
+// Routes
 import common from './routes/common';
 import homepage from './routes/homepage';
 import project from './routes/project';
@@ -47,6 +50,9 @@ const routes = new Router({
 
 // Init color changes
 colorChanges.init();
+
+// Init appState
+appState.init();
 
 // Load events
 $(document).ready(() => routes.loadEvents());
