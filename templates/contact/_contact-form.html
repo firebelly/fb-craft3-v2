@@ -53,10 +53,9 @@
                   <svg class="icon icon-select-arrow" aria-hidden="true"><use xlink:href="#icon-select-arrow"/></svg>
                   <select id="found-us-how" name="message[Found Us How]">
                     <option value="">How'd you hear about Firebelly?</option>
-                    <option value="websearch"{{ message.foundUsHow is defined and message.foundUsHow=='websearch' ? ' selected' : '' }}>Web Search</option>
-                    <option value="newsletter"{{ message.foundUsHow is defined and message.foundUsHow=='newsletter' ? ' selected' : '' }}>Newsletter</option>
-                    <option value="recommended"{{ message.foundUsHow is defined and message.foundUsHow=='recommended' ? ' selected' : '' }}>Recommended</option>
-                    <option value="yellowpages"{{ message.foundUsHow is defined and message.foundUsHow=='yellowpages' ? ' selected' : '' }}>Yellow Pages</option>
+                    {% for option in entry.contactFormOptions.howFoundUs %}
+                      <option value="{{ option.option }}"{{ message.foundUsHow is defined and message.foundUsHow==option.option ? ' selected' : '' }}>{{ option.option }}</option>
+                    {% endfor %}
                   </select>
                 </div>
                 {{ message is defined and message ? errorList(message.getErrors('foundUsHow')) }}
@@ -70,12 +69,13 @@
           </div>
         </fieldset>
 
-        <div class="status">{{ craft.app.getModule('contact-form').getSettings().successFlashMessage }}</div>
+        <div class="status">{{ entry.contactFormOptions.successMessage ?? craft.app.getModule('contact-form').getSettings().successFlashMessage }}</div>
 
         <div class="actions">
           {{ csrfInput() }}
           <input name="botsLoveTheHoney" type="text">
           <input type="hidden" name="action" value="contact-form/send">
+          <input type="hidden" name="toEmail" value="{{ entry.contactFormOptions.toEmail ? entry.contactFormOptions.toEmail|hash : craft.app.getModule('contact-form').getSettings().toEmail|hash }}">
           <input type="hidden" name="subject" value="Firebelly Contact Submission">
           <input type="hidden" name="message[formName]" value="Firebelly Contact">
 
