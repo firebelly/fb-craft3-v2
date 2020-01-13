@@ -1,7 +1,6 @@
 {% set thumbnailImage = entry.thumbnailImage[0] ?? null %}
 {% set thumbnailImageHover = entry.thumbnailImage|length > 1 ? entry.thumbnailImage[1] : thumbnailImage %}
 {% set orientation = orientationOverride ?? entry.thumbnailOrientation %}
-{% set ideaType = entry.ideaType.one() %}
 
 {% if thumbnailImage %}
   {% if orientation == 'portrait' %}
@@ -25,7 +24,7 @@
 
   <div class="idea-meta">
     {% if entry.ideaType|length %}
-      <h4 class="category">{{ entry.ideaType.one().title }}</h4>
+      <h4 class="category">{{ entry.ideaType[0].title }}</h4>
     {% endif %}
     <h3><a href="{{ entry.getUrl() }}"><span>{{ entry.title }}</span></a></h3>
   </div>

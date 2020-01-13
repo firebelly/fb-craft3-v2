@@ -18,7 +18,11 @@
       targetElement: category,
       field: 'services.service'
     },
-    section: 'work'
+    section: 'work',
+    with: [
+      'altImage',
+      'services.service'
+    ]
   }) %}
   {# todo: make these fields on services? or is this hardcoded? #}
   {% set headline = 'Check out all our %s projects.'|format(category.title|lower) %}
@@ -31,6 +35,7 @@
     section: 'work',
     with: [
       'altImage',
+      'services.service'
     ]
   }) %}
 {% endif %}

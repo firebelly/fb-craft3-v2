@@ -1,6 +1,11 @@
 {% set blockWrapped = false %}
 
-{% for block in entry.projectBlocks.all() %}
+{% for block in entry.projectBlocks.with([
+    'blockPaddedImage:image',
+    'blockImages:images',
+    'blockImagesWithText:images',
+    'blockImagesWithText:images',
+  ]).all() %}
   {% switch block.type %}
 
     {% case 'blockColorChange' %}
@@ -40,7 +45,7 @@
         {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
         <div class="block-carousel">
           <div class="flickity js-cursor">
-            {% for image in block.images.all() %}
+            {% for image in block.images %}
               {% set embeddedAsset = craft.embeddedAssets.get(image) %}
               {% if embeddedAsset %}
                 {# Custom vimeo handling #}
@@ -66,7 +71,7 @@
       {% else %}
         {# todo: remove this support for old fullbleed image projects #}
         {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
-        {% for image in block.images.all() %}
+        {% for image in block.images %}
           <div class="block-image fullWidth">
             <div class="-inner">
               {% set embeddedAsset = craft.embeddedAssets.get(image) %}
@@ -88,7 +93,7 @@
       {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
       <div class="block-carousel">
         <div class="flickity js-cursor with-captions">
-          {% for image in block.images.all() %}
+          {% for image in block.images %}
             {% set treatedImage = craft.imager.transformImage(image, { mode: 'fit', width: 1800, height: 900 }) %}
             <figure class="slide {{ image.captionLabel or image.caption ? ' with-caption' : '' }}" style="background-image:url('{{ treatedImage.getUrl() }}');">
               {% if image.captionLabel or image.caption %}

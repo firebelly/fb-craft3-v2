@@ -14,14 +14,16 @@
     section: 'ideas',
     relatedTo: category,
     with: [
-      'thumbnailImage'
+      'thumbnailImage',
+      'ideaType'
     ]
   }).limit(11) as paginationInfo, ideasEntries %}
 {% else %}
   {% paginate craft.entries({
     section: 'ideas',
     with: [
-      'thumbnailImage'
+      'thumbnailImage',
+      'ideaType'
     ]
   }).limit(11) as paginationInfo, ideasEntries %}
 {% endif %}

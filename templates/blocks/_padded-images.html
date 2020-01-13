@@ -1,4 +1,4 @@
-{% for image in block.image.all() %}
+{% for image in block.image %}
   {% set width = (block.size == 'halfWidth' ? 900 : 1800) %}
   {% set embeddedAsset = craft.embeddedAssets.get(image) %}
   <div class="block-image {{ block.size }}">
