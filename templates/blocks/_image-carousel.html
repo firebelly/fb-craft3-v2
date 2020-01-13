@@ -1,5 +1,5 @@
 <div class="fullbleed-images">
-  <div class="flickity js-cursor">
+  <div class="flickity js-cursor -reveal">
     {% for image in block.images %}
       {% set embeddedAsset = craft.embeddedAssets.get(image) %}
       {% if embeddedAsset %}

@@ -1,7 +1,7 @@
 {% for image in block.image %}
   {% set width = (block.size == 'halfWidth' ? 900 : 1800) %}
   {% set embeddedAsset = craft.embeddedAssets.get(image) %}
-  <div class="block-image {{ block.size }}">
+  <div class="block-image -reveal {{ block.size }}">
     <div class="-inner">
     {% if embeddedAsset %}
       {# Custom vimeo handling #}

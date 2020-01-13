@@ -20,6 +20,22 @@ body:not(.-is-touch) {
   }
 }
 
+// Image reveals
+.-reveal {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition: transform 1s $cubic-ease2, opacity 0.5s $cubic-ease2;
+
+  @include media-md {
+    transform: translate3d(0, 150px, 0);
+  }
+
+  &.-active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 // Lined headers
 h4.lined {
   @include small-titles;

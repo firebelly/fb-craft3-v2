@@ -13,7 +13,7 @@
       {% if image %}
         {% set personImage = craft.imager.transformImage(image, { width: 1100, height: 640, mode: 'crop' }) %}
       {% endif %}
-      <article class="col-md-1-2 person" data-person="{{ person.slug }}">
+      <article class="col-md-1-2 person -reveal" data-person="{{ person.slug }}">
 
         <div class="toggle-container">
           {% if personImage is defined %}

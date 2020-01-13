@@ -15,9 +15,9 @@ import appState from '../util/appState';
 let blobMaster,
     isTouchDevice,
     vimeoPlayers = [],
-    $window,
-    $body,
-    $document,
+    $window = $(window),
+    $body = $('body'),
+    $document = $(document),
     $siteNav;
 
 export default {
@@ -27,9 +27,6 @@ export default {
     jQueryBridget('flickity', Flickity, $);
 
     // Init shared vars
-    $document = $(document);
-    $body = $('body');
-    $window = $(window);
     $siteNav = $('.site-nav');
     isTouchDevice = _isTouchDevice();
 

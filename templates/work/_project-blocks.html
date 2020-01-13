@@ -43,7 +43,7 @@
     {% case 'blockImages' %}
       {% if block.carousel %}
         {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
-        <div class="block-carousel">
+        <div class="block-carousel -reveal">
           <div class="flickity js-cursor">
             {% for image in block.images %}
               {% set embeddedAsset = craft.embeddedAssets.get(image) %}
@@ -72,7 +72,7 @@
         {# todo: remove this support for old fullbleed image projects #}
         {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
         {% for image in block.images %}
-          <div class="block-image fullWidth">
+          <div class="block-image fullWidth -reveal">
             <div class="-inner">
               {% set embeddedAsset = craft.embeddedAssets.get(image) %}
               {% if embeddedAsset %}
@@ -91,7 +91,7 @@
 
     {% case 'blockImagesWithText' %}
       {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
-      <div class="block-carousel">
+      <div class="block-carousel -reveal">
         <div class="flickity js-cursor with-captions">
           {% for image in block.images %}
             {% set treatedImage = craft.imager.transformImage(image, { mode: 'fit', width: 1800, height: 900 }) %}

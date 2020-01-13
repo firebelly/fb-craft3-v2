@@ -9,6 +9,7 @@ import Waypoint from 'waypoints/lib/jquery.waypoints.js';
 // Import local dependencies
 import Router from './util/Router';
 import colorChanges from './util/colorChanges';
+import imageReveals from './util/imageReveals';
 import appState from './util/appState';
 import modals from './util/modals';
 
@@ -48,10 +49,9 @@ const routes = new Router({
   contact,
 });
 
-// Init color changes
+// Inits
 colorChanges.init();
-
-// Init appState
+imageReveals.init();
 appState.init();
 
 // Load events
@@ -61,6 +61,7 @@ $(document).ready(() => routes.loadEvents());
 swup.on('contentReplaced', () => {
   routes.loadEvents();
   colorChanges.init();
+  imageReveals.init();
 });
 
 swup.on('popState', () => {
@@ -71,6 +72,8 @@ swup.on('popState', () => {
 // Cleanup call for js
 swup.on('transitionStart', () => {
   routes.unload();
+  colorChanges.unload();
+  imageReveals.unload();
 });
 
 // Flickity fix for iOS 13
