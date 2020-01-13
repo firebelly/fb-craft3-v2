@@ -60,6 +60,7 @@ $(document).ready(() => routes.loadEvents());
 // Reload events when swup replaces content
 swup.on('contentReplaced', () => {
   routes.loadEvents();
+  colorChanges.init();
 });
 
 swup.on('popState', () => {
