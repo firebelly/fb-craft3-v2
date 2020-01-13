@@ -42,7 +42,8 @@
     "verbb/field-manager": "2.1.1",
     "craftcms/contact-form": "2.2.6",
     "craftcms/contact-form-honeypot": "^1.0",
-    "rias/craft-contact-form-extensions": "1.2.0"
+    "rias/craft-contact-form-extensions": "1.2.0",
+    "nesbot/carbon": "2 as 1.24.1"
   },
   "autoload": {
     "psr-4": {
@@ -52,7 +53,7 @@
   "config": {
     "optimize-autoloader": true,
     "platform": {
-      "php": "7.0"
+      "php": "7.2"
     }
   },
   "scripts": {
