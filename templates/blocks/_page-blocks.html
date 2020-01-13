@@ -1,6 +1,6 @@
 {% set blockWrapped = false %}
 
-{% for block in entry.pageBlocks.with(['imageCarousel:images', 'blockPaddedImage:image']) %}
+{% for block in entry.pageBlocks.with(['imageCarousel:images', 'blockPaddedImage:image']).all() %}
   {% switch block.type %}
 
     {% case "sectionHeader" %}
