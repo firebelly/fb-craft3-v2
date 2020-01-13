@@ -21,6 +21,13 @@
   svg {
     display: none;
   }
+  // Pull buttons to edges to avoid custom cursor flashing "View"
+  &.previous {
+    left: 0;
+  }
+  &.next {
+    right: 0;
+  }
 }
 // Hide next/prev div (used for custom cursors) on touch devices
 body.-is-touch {
