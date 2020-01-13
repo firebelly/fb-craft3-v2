@@ -192,29 +192,24 @@ export default {
       }
 
       function update() {
-        // Get the element we're hovered on
-        var hoveredEl = document.elementFromPoint(lastMousePosition.x, lastMousePosition.y);
+        // Get the element we're hovering over
+        let hoveredEl = document.elementFromPoint(lastMousePosition.x, lastMousePosition.y),
+            $hoveredEl = $(hoveredEl);
 
-        // Check if the element or any of its parents have a .js-cursor class
-        if ($(hoveredEl).parents('.js-cursor').length || $(hoveredEl).hasClass('js-cursor')) {
-          $body.addClass('-cursor-active');
-
-          if ($(hoveredEl).is('.previous')) {
-            $customCursor.addClass('previous');
-          } else {
-            $customCursor.removeClass('previous');
-          }
-
-          if ($(hoveredEl).is('.next')) {
-            $customCursor.addClass('next');
-          } else {
-            $customCursor.removeClass('next');
-          }
-        } else {
+        // Check if element is js-cursor or child of js-cursor
+        if (!appState.breakpoints.sm || (!$hoveredEl.hasClass('js-cursor') && !$hoveredEl.parents('.js-cursor').length)) {
           $body.removeClass('-cursor-active');
+          return;
         }
 
-        // now draw object at lastMousePosition
+        // Enable custom cursor visibility
+        $body.addClass('-cursor-active');
+
+        // Set class of custom cursor
+        let hoveredClass = $hoveredEl.hasClass('next') ? 'next' : ($hoveredEl.hasClass('previous') ? 'previous' : 'view');
+        $customCursor[0].className = hoveredClass;
+
+        // Now position cursor at lastMousePosition
         $customCursor.css({
           'transform': 'translate3d(' + lastMousePosition.x + 'px, ' + lastMousePosition.y + 'px, 0)'
         });
@@ -222,8 +217,8 @@ export default {
 
       // Listen for mouse movement
       $document.on('mousemove.customCursor', onMouseMove);
-      // Make sure a user is still hovered on an element when they start scrolling
-      $document.on('scroll.customCursor', update);
+      // Make sure a user is still hovered on an element scrolling or resizing window
+      $document.on('scroll.customCursor resize.customCursor', update);
     }
 
     // Smooth scroll to an element
@@ -502,7 +497,7 @@ export default {
     });
 
     // Remove custom event watchers
-    $document.off('mousemove.customCursor scroll.customCursor click.smoothScroll click.scrollToTop click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms');
+    $document.off('mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.scrollToTop click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms');
 
     // Remove vimeo players
     $.each(vimeoPlayers, function(){

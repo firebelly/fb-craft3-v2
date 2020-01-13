@@ -120,7 +120,7 @@
   }
 
   // Desktop styles
-  @include media-md {
+  @include media-sm {
     .flickity-prev-next-button {
       display: block;
     }
