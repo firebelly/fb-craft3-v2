@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1578942154
+dateModified: 1578955308
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -306,7 +306,9 @@ fields:
       propagationMethod: all
       staticField: '1'
       columns:
-        7ab40ec3-e503-491b-8450-62d432aa80ae:
+        34a5f75e-3e0f-4152-8f58-0716a4127bc2:
+          width: ''
+        d55fe46e-1f0f-49ca-9699-76a225854940:
           width: ''
       fieldLayout: row
       selectionLabel: ''
@@ -4270,30 +4272,6 @@ superTableBlockTypes:
           columnType: text
         contentColumnType: text
         fieldGroup: null
-      7ab40ec3-e503-491b-8450-62d432aa80ae:
-        name: 'How Found Us'
-        handle: howFoundUs
-        instructions: 'Shown in `How''d you hear about Firebelly?` dropdown'
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\fields\Table
-        settings:
-          addRowLabel: 'Add an option'
-          maxRows: ''
-          minRows: ''
-          columns:
-            col1:
-              heading: Option
-              handle: option
-              width: ''
-              type: singleline
-          defaults:
-            -
-              col1: ''
-          columnType: text
-        contentColumnType: text
-        fieldGroup: null
       d55fe46e-1f0f-49ca-9699-76a225854940:
         name: 'To Email'
         handle: toEmail
@@ -4320,13 +4298,10 @@ superTableBlockTypes:
             fields:
               34a5f75e-3e0f-4152-8f58-0716a4127bc2:
                 required: false
-                sortOrder: 3
-              7ab40ec3-e503-491b-8450-62d432aa80ae:
-                required: false
-                sortOrder: 1
+                sortOrder: 2
               d55fe46e-1f0f-49ca-9699-76a225854940:
                 required: false
-                sortOrder: 2
+                sortOrder: 1
   5cb85ec1-60f9-450b-a8b0-8a7c312b03ad:
     field: 1aa39e81-b095-4d9a-9fb5-68e65b990311
     fields:
