@@ -13,6 +13,7 @@ import appState from '../util/appState';
 
 // Shared vars
 let blobMaster,
+    isTouchDevice,
     vimeoPlayers = [],
     $window,
     $body,
@@ -30,6 +31,10 @@ export default {
     $body = $('body');
     $window = $(window);
     $siteNav = $('.site-nav');
+    isTouchDevice = _isTouchDevice();
+
+    // Add is-touch class for styling (mostly to hide carousel pagination divs on ipads)
+    $body.toggleClass('-is-touch', isTouchDevice);
 
     // Run resize functions on load
     _resize();
@@ -177,7 +182,7 @@ export default {
 
     // Big ol' juicy custom cursors for your "pleasure"
     function _initCustomCursor() {
-      if (_isTouchDevice() || !$('.js-cursor').length) {
+      if (isTouchDevice || !$('.js-cursor').length) {
         return;
       }
 
