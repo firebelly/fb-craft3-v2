@@ -19,10 +19,6 @@
       field: 'services.service'
     },
     section: 'work',
-    with: [
-      'altImage',
-      'services.service'
-    ]
   }) %}
   {# todo: make these fields on services? or is this hardcoded? #}
   {% set headline = 'Check out all our %s projects.'|format(category.title|lower) %}
@@ -33,10 +29,6 @@
 {% else %}
   {% set projectEntries = craft.entries({
     section: 'work',
-    with: [
-      'altImage',
-      'services.service'
-    ]
   }) %}
 {% endif %}
 
@@ -56,7 +48,10 @@
       </div>
     </div>
     <div class="thumbnail-grid grid spaced">
-      {% for projectEntry in projectEntries.all() %}
+      {% for projectEntry in projectEntries.with([
+          'altImage',
+          'services.service',
+        ]).all() %}
         {% include 'work/_article' with { entry: projectEntry } %}
       {% endfor %}
     </div>
