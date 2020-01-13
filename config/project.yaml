@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1578686149
+dateModified: 1578941495
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -63,6 +63,8 @@ fieldGroups:
     name: Work
   544f7f96-7297-4753-bfde-ed6ea24b1117:
     name: Careers
+  562ca0e8-d342-4bd3-92c5-6c1a46bb1e26:
+    name: Contact
   6437dede-d24a-41aa-b80e-ca2691b7f29b:
     name: Ideas
   7d6b2f37-d8cf-429f-8b3f-f3d7df5d814b:
@@ -289,6 +291,27 @@ fields:
       maxLength: '255'
     contentColumnType: string(255)
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+  3d11dc56-b4bf-4f4d-b797-c50fffb724a5:
+    name: 'Contact Form Options'
+    handle: contactFormOptions
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_contactformoptions}}'
+      propagationMethod: all
+      staticField: '1'
+      columns:
+        7ab40ec3-e503-491b-8450-62d432aa80ae:
+          width: ''
+      fieldLayout: row
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: 562ca0e8-d342-4bd3-92c5-6c1a46bb1e26
   4d475249-13b3-46a6-981d-befb42899cef:
     name: Client
     handle: client
@@ -498,7 +521,7 @@ fields:
   92519b8f-b52c-4b39-9bc7-a7df62593778:
     name: 'Caption Label'
     handle: captionLabel
-    instructions: 'An optional label displayed above image captions.'
+    instructions: ''
     searchable: true
     translationMethod: none
     translationKeyFormat: null
@@ -590,7 +613,7 @@ fields:
   ac9c369c-9a19-4d6f-9050-70c68705b2b9:
     name: Caption
     handle: caption
-    instructions: 'Optional image caption'
+    instructions: ''
     searchable: true
     translationMethod: none
     translationKeyFormat: null
@@ -598,8 +621,8 @@ fields:
     settings:
       placeholder: ''
       code: ''
-      multiline: ''
-      initialRows: '4'
+      multiline: '1'
+      initialRows: '2'
       charLimit: '360'
       columnType: text
     contentColumnType: text
@@ -3663,6 +3686,9 @@ sections:
                 name: Main
                 sortOrder: 1
                 fields:
+                  3d11dc56-b4bf-4f4d-b797-c50fffb724a5:
+                    required: false
+                    sortOrder: 3
                   c0291894-b365-432f-a00c-8368fce83e0b:
                     required: false
                     sortOrder: 2
@@ -4224,6 +4250,83 @@ superTableBlockTypes:
               ff17b8dd-04eb-43b7-b2e2-3f73a408f503:
                 required: false
                 sortOrder: 1
+  5610a566-053f-4e87-a88d-36f25edb2f3f:
+    field: 3d11dc56-b4bf-4f4d-b797-c50fffb724a5
+    fields:
+      34a5f75e-3e0f-4152-8f58-0716a4127bc2:
+        name: 'Success Message'
+        handle: successMessage
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '2'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      7ab40ec3-e503-491b-8450-62d432aa80ae:
+        name: 'How Found Us'
+        handle: howFoundUs
+        instructions: 'Shown in `How''d you hear about Firebelly?` dropdown'
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Table
+        settings:
+          addRowLabel: 'Add an option'
+          maxRows: ''
+          minRows: ''
+          columns:
+            col1:
+              heading: Option
+              handle: option
+              width: ''
+              type: singleline
+          defaults:
+            -
+              col1: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      d55fe46e-1f0f-49ca-9699-76a225854940:
+        name: 'To Email'
+        handle: toEmail
+        instructions: 'Where to send submissions, separate multiple emails with comma'
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: info@firebellydesign.com
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      f628e66a-791f-4b6c-94f5-7e272b77968d:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              34a5f75e-3e0f-4152-8f58-0716a4127bc2:
+                required: false
+                sortOrder: 3
+              7ab40ec3-e503-491b-8450-62d432aa80ae:
+                required: false
+                sortOrder: 1
+              d55fe46e-1f0f-49ca-9699-76a225854940:
+                required: false
+                sortOrder: 2
   5cb85ec1-60f9-450b-a8b0-8a7c312b03ad:
     field: 1aa39e81-b095-4d9a-9fb5-68e65b990311
     fields:
@@ -4660,11 +4763,20 @@ volumes:
     handle: global
     type: craft\volumes\Local
     hasUrls: true
-    url: null
+    url: /uploads/
     settings:
       path: uploads/
-      url: /uploads/
     sortOrder: 1
+    fieldLayouts:
+      de1aaaf0-67a0-472b-897a-dc5d51555c4e:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              ac9c369c-9a19-4d6f-9050-70c68705b2b9:
+                required: false
+                sortOrder: 1
   cd389634-6297-4886-ac1a-17f7ff2050c8:
     name: People
     handle: people

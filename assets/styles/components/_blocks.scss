@@ -168,6 +168,17 @@
   }
 }
 
+.block-image {
+  // Style captions on image blocks
+  figure {
+    margin: 0;
+    figcaption {
+      margin: beat(1) 0 0;
+      @include small-titles;
+    }
+  }
+}
+
 // Browser Frame
 // optionally used on image blocks
 .browser-frame {

@@ -31,9 +31,16 @@
           <div class="site{% if browserFrame.browserFrameScroll %} scroll{% endif %}"{% if browserFrame.browserFrameScroll %} style="padding-bottom:{{ browserFrame.scrollHeight }}%;"{% endif %}>
             {%- if browserFrame.browserFrameScroll %}<div class="scroll-content">{% endif -%}
       {% endif -%}
+
+      <figure>
       {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
         <img class="lazyload" data-src="{{ treatedImage.getUrl() }}" alt="{{ image.title }}">
       {%- if block.imageLinkUrl %}</a>{% endif -%}
+      {% if image.caption %}
+        <figcaption>{{ image.caption }}</figcaption>
+      {% endif %}
+      </figure>
+
       {%- if browserFrame is defined and browserFrame.browserFrameActive %}
           {%- if browserFrame.browserFrameScroll %}</div>{% endif -%}
           </div><!-- .site -->
