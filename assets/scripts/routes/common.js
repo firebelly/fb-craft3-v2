@@ -202,7 +202,7 @@ export default {
             $hoveredEl = $(hoveredEl);
 
         // Check if element is js-cursor or child of js-cursor
-        if (!appState.breakpoints.sm || (!$hoveredEl.hasClass('js-cursor') && !$hoveredEl.parents('.js-cursor').length)) {
+        if (!$hoveredEl.hasClass('js-cursor') && !$hoveredEl.parents('.js-cursor').length) {
           $body.removeClass('-cursor-active');
           return;
         }
