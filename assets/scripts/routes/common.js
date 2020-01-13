@@ -16,7 +16,8 @@ let blobMaster,
     vimeoPlayers = [],
     $window,
     $body,
-    $document;
+    $document,
+    $siteNav;
 
 export default {
   // JavaScript to be fired on all pages
@@ -24,13 +25,11 @@ export default {
     // Set up libraries to be used with jQuery
     jQueryBridget('flickity', Flickity, $);
 
+    // Init shared vars
     $document = $(document);
     $body = $('body');
     $window = $(window);
-
-    let pageAt = window.location.pathname,
-        $siteNav = $('.site-nav'),
-        $customCursor;
+    $siteNav = $('.site-nav');
 
     // Run resize functions on load
     _resize();
@@ -182,8 +181,8 @@ export default {
         return;
       }
 
-      var $customCursor = $('#cursor');
-      var lastMousePosition = { x: 0, y: 0 };
+      let $customCursor = $('#cursor');
+      let lastMousePosition = { x: 0, y: 0 };
 
       // Update the mouse position
       function onMouseMove(evt) {
