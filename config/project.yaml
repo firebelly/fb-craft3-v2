@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1578941495
+dateModified: 1578942154
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -4758,6 +4758,16 @@ volumes:
     settings:
       path: uploads/ideas/
     sortOrder: 4
+    fieldLayouts:
+      84a8d9e1-e36f-4b4e-8914-60eeae0eb838:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              ac9c369c-9a19-4d6f-9050-70c68705b2b9:
+                required: false
+                sortOrder: 1
   42068817-6f6f-4a12-8420-4c2bf823fa58:
     name: Global
     handle: global
@@ -4782,11 +4792,20 @@ volumes:
     handle: people
     type: craft\volumes\Local
     hasUrls: true
-    url: null
+    url: /uploads/people/
     settings:
       path: uploads/people/
-      url: /uploads/people/
     sortOrder: 3
+    fieldLayouts:
+      1e4d2cec-6615-412f-878b-2ebffdd87048:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              ac9c369c-9a19-4d6f-9050-70c68705b2b9:
+                required: false
+                sortOrder: 1
   d0e9262d-3cc0-46bc-aa1c-76d99cb9f385:
     name: Work
     handle: work
