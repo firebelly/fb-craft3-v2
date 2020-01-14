@@ -19,19 +19,19 @@
         <h3>Open Positions</h3>
       </div>
 
-      {% if entry.openPositions|length %}
+      {% if entry.positions|length %}
         <div class="current-positions">
-        {% for block in entry.openPositions.all() %}
+        {% for position in entry.positions.all() %}
           <div class="position accordion">
             <div class="block-text user-content halfWidth">
               <div class="-inner">
-                <h2>{{ block.positionTitle }}</h2>
+                <h2>{{ position.title }}</h2>
               </div>
             </div>
             <div class="block-text user-content halfWidth">
               <div class="-inner">
                 <div class="intro">
-                  {{ block.intro }}
+                  {{ position.positionInfo.intro }}
                   <a href="#" class="expand">
                     <svg class="icon icon-plus" aria-hidden="true"><use xlink:href="#icon-plus"/></svg>
                   </a>
@@ -40,7 +40,7 @@
                   </a>
                 </div>
                 <div class="description">
-                  {{ block.description }}
+                  {{ position.positionInfo.description }}
                 </div>
               </div>
             </div>
@@ -51,7 +51,7 @@
 
       <div class="block-text user-content fullWidthPaddedLeft">
         <div class="-inner">
-          {% if entry.openPositions|length == 0 %}
+          {% if entry.positions|length == 0 %}
             <p>Nothing at the moment. ¯\_(ツ)_/¯</p>
           {% endif %}
 

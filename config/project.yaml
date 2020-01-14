@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1578955308
+dateModified: 1578969538
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -314,6 +314,26 @@ fields:
       selectionLabel: ''
     contentColumnType: string
     fieldGroup: 562ca0e8-d342-4bd3-92c5-6c1a46bb1e26
+  4c723610-9810-42d8-b81c-c75c426a7b52:
+    name: Positions
+    handle: positions
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Entries
+    settings:
+      sources:
+        - 'section:cd1bb424-9ba2-4cdf-9c77-4ffdabc78271'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: ''
+      selectionLabel: 'Add a position'
+      localizeRelations: false
+      validateRelatedElements: ''
+    contentColumnType: string
+    fieldGroup: 544f7f96-7297-4753-bfde-ed6ea24b1117
   4d475249-13b3-46a6-981d-befb42899cef:
     name: Client
     handle: client
@@ -573,6 +593,29 @@ fields:
       validateRelatedElements: false
     contentColumnType: string
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+  9cca299e-1dbc-4979-90fc-f41d2bbb1937:
+    name: 'Position Info'
+    handle: positionInfo
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_positioninfo}}'
+      propagationMethod: all
+      staticField: '1'
+      columns:
+        12d191c1-4cf6-4a3e-be8f-bed2806425f8:
+          width: ''
+        ccc6bfde-ea63-4c3a-b1ab-62fa533a9d93:
+          width: ''
+      fieldLayout: row
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: 544f7f96-7297-4753-bfde-ed6ea24b1117
   a2483d09-6798-40be-8f35-c45413ed2e03:
     name: 'Featured Services'
     handle: featuredServices
@@ -3469,12 +3512,18 @@ sections:
                   216d4589-17fe-484e-9a60-707a9dc09536:
                     required: false
                     sortOrder: 2
-                  973f412f-a0f6-4f53-b5b9-847caeb87763:
+                  4c723610-9810-42d8-b81c-c75c426a7b52:
                     required: false
                     sortOrder: 4
-                  c2b1d20c-3703-4b5c-911f-f7b0b0367bf9:
+                  68692063-3da9-4055-b678-06af18aebc8e:
                     required: false
                     sortOrder: 6
+                  973f412f-a0f6-4f53-b5b9-847caeb87763:
+                    required: false
+                    sortOrder: 5
+                  c2b1d20c-3703-4b5c-911f-f7b0b0367bf9:
+                    required: false
+                    sortOrder: 8
                   d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9:
                     required: false
                     sortOrder: 1
@@ -3483,7 +3532,7 @@ sections:
                     sortOrder: 3
                   e9ddbb67-3421-4553-9f71-b1b5c342fd51:
                     required: false
-                    sortOrder: 5
+                    sortOrder: 7
     siteSettings:
       8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
         enabledByDefault: true
@@ -3875,6 +3924,39 @@ sections:
                     required: false
                     sortOrder: 2
                   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
+                    required: false
+                    sortOrder: 1
+  cd1bb424-9ba2-4cdf-9c77-4ffdabc78271:
+    name: Positions
+    handle: position
+    type: structure
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
+        enabledByDefault: true
+        hasUrls: false
+        uriFormat: ''
+        template: null
+    structure:
+      uid: 608be182-02b8-4338-8787-930cc77e3e8f
+      maxLevels: null
+    entryTypes:
+      a4ed5cc3-6351-4be1-87b5-c62cbafb7dce:
+        name: Position
+        handle: position
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          ad2d8d4a-40ec-4488-b252-7d48e941f512:
+            tabs:
+              -
+                name: Main
+                sortOrder: 1
+                fields:
+                  9cca299e-1dbc-4979-90fc-f41d2bbb1937:
                     required: false
                     sortOrder: 1
   cd633440-efa8-44c2-af6d-c74c19378f79:
@@ -4461,6 +4543,60 @@ superTableBlockTypes:
               9e1c0bbe-9830-45d8-a937-79e6a96da817:
                 required: false
                 sortOrder: 1
+  b48f23bd-181e-4b20-b486-24bfb9116b14:
+    field: 9cca299e-1dbc-4979-90fc-f41d2bbb1937
+    fields:
+      12d191c1-4cf6-4a3e-be8f-bed2806425f8:
+        name: Intro
+        handle: intro
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '2'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      ccc6bfde-ea63-4c3a-b1ab-62fa533a9d93:
+        name: Description
+        handle: description
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: Standard.json
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      1904a232-23d3-483a-a31d-31d8b3c0e48c:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              12d191c1-4cf6-4a3e-be8f-bed2806425f8:
+                required: false
+                sortOrder: 1
+              ccc6bfde-ea63-4c3a-b1ab-62fa533a9d93:
+                required: false
+                sortOrder: 2
   b83f05b4-948e-4ddb-9c08-14b211c362fa:
     field: ee6e50bd-8324-47a2-ae1d-a4a9aa232b49
     fields:
