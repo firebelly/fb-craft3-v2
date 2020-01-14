@@ -21,7 +21,8 @@ body.page-contact {
     color: color('black');
     background: color('offwhite');
 
-    .-bottom {
+    .-bottom,
+    .newsletter-section {
       border-color: color('black');
     }
 
