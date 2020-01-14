@@ -4,7 +4,7 @@
   * + * {
     margin-top: beat(1);
     @include media-md {
-      margin-top: beat(1);
+      margin-top: beat(2);
     }
   }
 
@@ -33,14 +33,36 @@
     @extend %blockquote;
   }
 
-  ul, ol {
-    margin: $padding-md auto 0;
+  ol {
+    padding: 0 0 0 1.5em;
     li {
       line-height: 1.375em;
       list-style: disc;
-      margin-bottom: .5em;
+      + li {
+        margin-top: 0;
+      }
     }
   }
+
+  // Smaller bullets than "disc" on lists
+  ul {
+    padding: 0;
+    li {
+      list-style-type: none;
+      position: relative;
+      &:before {
+        content: '•';
+        color: color(black);
+        display: block;
+        position: absolute;
+        left: -1em;
+      }
+      + li {
+        margin-top: 0;
+      }
+    }
+  }
+
   ol li {
     list-style: decimal;
   }
@@ -58,4 +80,5 @@
     font-style: italic;
     font-weight: bold;
   }
+
 }
