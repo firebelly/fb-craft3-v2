@@ -4,6 +4,7 @@
 .to-top {
   text-align: right;
   padding: beat(2) 0;
+  background-color: color('white');
 
   p {
     @include p1;
@@ -20,7 +21,6 @@
   @include media-nav {
     height: auto;
     padding: beat(3) 0;
-    background-color: color('white');
 
     p {
       display: block;

@@ -18,9 +18,8 @@ body.page-contact {
 
   // Light footer
   .site-footer {
-    padding-top: 0;
     color: color('black');
-    background: color('white-dark');
+    background: color('offwhite');
 
     .-bottom {
       border-color: color('black');
@@ -36,6 +35,9 @@ body.page-contact {
 
   // Form and contact details
   .contact-form {
+    padding-top: 94px;
+    padding-bottom: 64px;
+
     p {
       @include p2;
     }
