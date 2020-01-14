@@ -49,11 +49,12 @@
 
     <div class="container client-logos">
       <ul>
-        {% for logo in entry.clients.logos.all() %}
-          {% set treatedImage = craft.imager.transformImage(logo, { mode: 'fit', width: 260, height: 120 }) %}
-          {% if treatedImage %}
-            <li><img src="{{ treatedImage.getUrl() }}" alt="{{ logo.title }}"></li>
-          {% endif %}
+        {% for group in entry.clients.clients.with(['clientGroup:clientLogos']).all() %}
+          <li>
+            {% for logo in group.clientLogos %}
+              <span><img src="{{ logo.getUrl() }}" alt="{{ logo.title }}"></span>
+            {% endfor %}
+          </li>
         {% endfor %}
       </ul>
     </div>
