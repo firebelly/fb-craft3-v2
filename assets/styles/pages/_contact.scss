@@ -35,9 +35,13 @@ body.page-contact {
   }
 
   // Form and contact details
+  .contact {
+    padding-bottom: beat(4);
+  }
+
   .contact-form {
-    padding-top: 94px;
-    padding-bottom: 64px;
+    padding-top: beat(4);
+    padding-bottom: beat(4);
 
     p {
       @include p2;
@@ -55,7 +59,7 @@ body.page-contact {
       padding-bottom: beat(8);
     }
     .contact {
-      padding-top: 42px;
+      padding-top: 20px;
       flex: 0 1 columns(6);
     }
     form {
