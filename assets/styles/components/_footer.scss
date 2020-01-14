@@ -9,15 +9,17 @@
     @include p1;
   }
 
-  a:hover,
-  a:focus {
-    color: color('red');
+  a {
+    color: color('black');
+    &:hover,
+    &:focus {
+      color: color('red');
+    }
   }
 
   @include media-nav {
     height: auto;
     padding: beat(3) 0;
-    padding-right: $padding-lg;
     background-color: color('white');
 
     p {
