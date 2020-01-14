@@ -108,19 +108,21 @@ body.nav-open {
 
 .nav-toggle {
   cursor: pointer;
-  top: 19px;
-  right: 17px;
+  padding: 15px;
+  top: 10px;
+  right: 3px;
   position: absolute;
   @extend .button-reset;
 
   &.open {
     @include p2;
+    line-height: 1;
 
     &::before {
       content: '';
       position: absolute;
       top: 50%;
-      left: -28px;
+      left: -20px;
       width: 6px;
       height: 6px;
       border-radius: 50%;
