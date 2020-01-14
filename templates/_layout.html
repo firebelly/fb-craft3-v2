@@ -31,10 +31,16 @@
 
   {% include 'partials/_flash' %}
 
-  <main id="swup" class="site-main" role="main">
+  <main class="site-main" role="main">
 
     <div id="page" class="transition-fade">
       {% block content %}{% endblock %}
+
+      {% if entry is defined and entry.section.type != 'channel' and entry.section.type != 'structure' %}
+        <div class="to-top">
+          <p class="container"><a href="#" class="scroll-to-top">Back to Top</a></p>
+        </div>
+      {% endif %}
     </div>
 
   </main>
