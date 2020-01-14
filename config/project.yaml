@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1578970451
+dateModified: 1579033813
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -961,6 +961,13 @@ fields:
       contentTable: '{{%stc_clients}}'
       propagationMethod: all
       staticField: '1'
+      columns:
+        98ee58ee-5a3c-41cf-abb7-d8018a02ead4:
+          width: ''
+        a8a2e11c-d1f1-4994-a783-d224857107ac:
+          width: ''
+        ca8ba7dd-574a-45c4-8248-6ff797a9e22e:
+          width: ''
       fieldLayout: row
       selectionLabel: ''
     contentColumnType: string
@@ -2819,6 +2826,49 @@ matrixBlockTypes:
               c99a9e7d-614a-49a4-9a5d-18acff432d20:
                 required: true
                 sortOrder: 1
+  ef2e9525-4cc9-48ae-9ae0-95702421a87c:
+    field: a8a2e11c-d1f1-4994-a783-d224857107ac
+    name: 'Client Group'
+    handle: clientGroup
+    sortOrder: 1
+    fields:
+      b23b3bfc-8991-42df-8a09-75c8df7204f6:
+        name: 'Client Logos'
+        handle: clientLogos
+        instructions: ''
+        searchable: false
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: '1'
+          defaultUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+          singleUploadLocationSubpath: logos
+          restrictFiles: '1'
+          allowedKinds:
+            - image
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: list
+          limit: ''
+          selectionLabel: 'Add client logos'
+          localizeRelations: false
+          validateRelatedElements: ''
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      d38ce7a7-0b80-4546-9b4e-1cf44fb8b90e:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              b23b3bfc-8991-42df-8a09-75c8df7204f6:
+                required: false
+                sortOrder: 1
   f5a2db3c-0e4c-4b44-b933-a05090df42a5:
     name: 'Page Section'
     handle: pageSection
@@ -4589,30 +4639,18 @@ superTableBlockTypes:
         contentColumnType: text
         fieldGroup: null
       a8a2e11c-d1f1-4994-a783-d224857107ac:
-        name: Logos
-        handle: logos
+        name: Clients
+        handle: clients
         instructions: ''
-        searchable: true
+        searchable: false
         translationMethod: site
         translationKeyFormat: null
-        type: craft\fields\Assets
+        type: craft\fields\Matrix
         settings:
-          useSingleFolder: ''
-          defaultUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
-          defaultUploadLocationSubpath: ''
-          singleUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
-          singleUploadLocationSubpath: ''
-          restrictFiles: '1'
-          allowedKinds:
-            - image
-          sources: '*'
-          source: null
-          targetSiteId: null
-          viewMode: large
-          limit: ''
-          selectionLabel: 'Add logos'
-          localizeRelations: false
-          validateRelatedElements: ''
+          minBlocks: ''
+          maxBlocks: ''
+          contentTable: '{{%matrixcontent_clients}}'
+          propagationMethod: all
         contentColumnType: string
         fieldGroup: null
       ca8ba7dd-574a-45c4-8248-6ff797a9e22e:

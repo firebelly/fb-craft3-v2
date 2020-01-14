@@ -42,7 +42,38 @@
     @extend %semantic-list;
     padding: beat(1) 0;
     li {
-      display: inline-block;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(35, 35, 35, 0.5);
+      padding: beat(1) 0;
+      &:last-of-type {
+        border-bottom: none;
+      }
+      span {
+        // Smaller logos for mobile
+        img {
+          display: block;
+          max-width: 110px;
+          height: auto;
+        }
+      }
+    }
+
+    @include media-sm {
+      li {
+        // Stretch out logos from here on
+        flex-wrap: nowrap;
+        span {
+          display: block;
+          flex: 1 1 auto;
+          img {
+            width: 100%;
+            max-width: 220px;
+          }
+        }
+      }
     }
 
     @include media-md {
