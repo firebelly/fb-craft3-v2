@@ -9,23 +9,22 @@
           <div class="col-md-1-2">
             {% if prevEntry %}
               <a rel="prev" href="{{ prevEntry.getUrl() }}">
-                <span class="link">
-                  <span class="padded">
-                    <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg> Prev<br>Post</span>
-                  </span>
-                <span class="title padded">{{ prevEntry.title }}</span>
+                <span class="padded">
+                  <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg>
+                  <span class="link">Previous Post</span>
+                  <span class="title">{{ prevEntry.title }}</span>
+                </span>
               </a>
             {% endif %}
           </div>
           <div class="col-md-1-2">
             {% if nextEntry %}
               <a rel="next" href="{{ nextEntry.getUrl() }}">
-                <span class="link">
-                  <span class="padded">
-                    Next<br>Post <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg>
-                  </span>
+                <span class="padded">
+                  <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg>
+                  <span class="link">Next Post</span>
+                  <span class="title">{{ nextEntry.title }}</span>
                 </span>
-                <span class="title padded">{{ nextEntry.title }}</span>
               </a>
             {% endif %}
           </div>

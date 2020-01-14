@@ -12,6 +12,7 @@
   }
 }
 
+// Shared pagination styles
 .pagination {
   @include h1-sans;
   padding-top: beat(4);
@@ -36,7 +37,23 @@
     }
   }
 
+  // Mobile only styles
+  &.-next-prev {
+    a {
+      position: relative;
+    }
+    .title {
+      // Make sure arrows line up ok with small titles
+      min-height: 80px;
+    }
+    // Hide previous link on mobile
+    a[rel="prev"] {
+      display: none;
+    }
+  }
+
   @include media-md {
+    // Rollover slideshow in Next Project links
     .rollover-images.hover {
       opacity: 1;
       // Support 2-5 images in nextProjectImages field
@@ -58,14 +75,17 @@
   a {
     display: block;
     @include transition(color);
+    &[rel="prev"] {
+      text-align: right;
+    }
     .link {
       position: relative;
       display: block;
+      @include small-titles;
     }
     .title {
       display: block;
-      @include p2;
-      text-decoration: underline;
+      @include p1;
     }
 
     // Next Project styles
@@ -128,17 +148,23 @@
     }
     a {
       .title {
-        padding-top: beat(2);
+        padding-top: beat(1);
       }
     }
+
+    // Next/prev styles (single Ideas posts)
     &.-next-prev {
       .padded {
         display: block;
       }
+      a {
+        height: 100%;
+      }
       a[rel="prev"] {
+        display: block;
         .padded {
-          padding-left: columns(3, 8);
-          padding-right: columns(1, 8);
+          padding-left: 170px;
+          padding-right: columns(1.5, 8);
         }
         .icon-big-arrow {
           right: auto;
@@ -148,8 +174,8 @@
       }
       a[rel="next"] {
         .padded {
-          padding-left: columns(2, 8);
-          padding-right: columns(2, 8);
+          padding-left: columns(1.5, 8);
+          padding-right: 170px;
         }
       }
     }
