@@ -297,7 +297,7 @@ export default {
 
       const bloblob = (p5) => {
         let maxWidth,
-            color = $body.attr('data-blob-color') || '#FF3D00',
+            color = $body.attr('data-blob-color') || '#FF3D00', //00C2FF
             speed = 0.05,
             thickness,
             frameSpeed = 30,
@@ -311,8 +311,8 @@ export default {
           thickness = 48;
           maxAmount = 14;
         } else {
-          maxWidth = 78;
-          thickness = 38;
+          maxWidth = 46;
+          thickness = 16;
           maxAmount = 6;
         }
 
@@ -323,7 +323,8 @@ export default {
         let amount = Math.ceil(p5.random(minAmount,maxAmount));
 
         p5.setup = () => {
-          p5.createCanvas(window.innerWidth * 1.1, window.innerHeight * 1.1);
+          var canvas = p5.createCanvas(window.innerWidth * 1.1, window.innerHeight * 1.1);
+          canvas.id('blobs');
           p5.angleMode(p5.DEGREES);
           p5.noStroke();
           p5.frameRate(frameSpeed);

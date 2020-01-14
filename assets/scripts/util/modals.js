@@ -95,6 +95,7 @@ const modals = {
     );
     modals.toggleOverlay();
     $body.removeClass('modal-open');
+    $('.modal').scrollTop(0);
   },
 
   // Toggle modal overlay
