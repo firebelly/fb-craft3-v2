@@ -87,8 +87,8 @@
     display: block;
     padding: beat(1) 0;
   }
+
   @include media-md {
-    padding: beat(14) 0;
     ul {
       padding: beat(8) 0 0;
       display: flex;
