@@ -18,11 +18,11 @@ body.page-contact {
 
   // Light footer
   .site-footer {
-    padding-top: 0;
     color: color('black');
-    background: color('white-dark');
+    background: color('offwhite');
 
-    .-bottom {
+    .-bottom,
+    .newsletter-section {
       border-color: color('black');
     }
 
@@ -35,7 +35,14 @@ body.page-contact {
   }
 
   // Form and contact details
+  .contact {
+    padding-bottom: beat(4);
+  }
+
   .contact-form {
+    padding-top: beat(4);
+    padding-bottom: beat(4);
+
     p {
       @include p2;
     }
@@ -52,7 +59,7 @@ body.page-contact {
       padding-bottom: beat(8);
     }
     .contact {
-      padding-top: 42px;
+      padding-top: 20px;
       flex: 0 1 columns(6);
     }
     form {

@@ -25,7 +25,8 @@ form.newsletter {
     }
   }
 
-  input[type="submit"] {
+  input[type="submit"],
+  button.submit {
     margin-top: 32px;
     margin-left: 36px;
 

@@ -4,6 +4,7 @@
 .to-top {
   text-align: right;
   padding: beat(2) 0;
+  background-color: color('white');
 
   p {
     @include p1;
@@ -20,7 +21,6 @@
   @include media-nav {
     height: auto;
     padding: beat(3) 0;
-    background-color: color('white');
 
     p {
       display: block;
@@ -55,7 +55,7 @@
   .-top {
     .label-large {
       max-width: 224px;
-      margin-bottom: 64px;
+      margin-bottom: beat(4);
     }
 
     @include media-md {
@@ -79,8 +79,8 @@
   }
 
   .-bottom {
-    margin-top: 64px;
     padding-top: 15px;
+    margin-top: beat(4);
     border-top: 1px solid color('white-dark');
 
     .label-small {
@@ -90,7 +90,7 @@
 
     @include media-nav {
       margin-top: 0;
-      padding: 15px 0 64px;
+      padding: 15px 0 beat(4);
 
       > div {
         display: flex;
