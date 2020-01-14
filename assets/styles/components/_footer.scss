@@ -9,6 +9,11 @@
     @include p1;
   }
 
+  a:hover,
+  a:focus {
+    color: color('red');
+  }
+
   @include media-nav {
     height: auto;
     padding: beat(3) 0;
@@ -154,6 +159,11 @@
   height: 95px;
   padding: 30px 0 0;
   background-color: color('white-dark');
+
+  a:hover,
+  a:focus {
+    color: color('red');
+  }
 
   @include media-nav {
     padding-right: $padding-lg;
