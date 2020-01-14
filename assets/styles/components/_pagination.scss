@@ -42,6 +42,9 @@
     a {
       position: relative;
     }
+    .link {
+      @include small-titles;
+    }
     .title {
       // Make sure arrows line up ok with small titles
       min-height: 80px;
@@ -81,7 +84,6 @@
     .link {
       position: relative;
       display: block;
-      @include small-titles;
     }
     .title {
       display: block;
