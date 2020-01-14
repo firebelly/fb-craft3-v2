@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1578969538
+dateModified: 1578970451
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -423,20 +423,6 @@ fields:
       columnType: string
     contentColumnType: string
     fieldGroup: 7d6b2f37-d8cf-429f-8b3f-f3d7df5d814b
-  68692063-3da9-4055-b678-06af18aebc8e:
-    name: 'Past Positions'
-    handle: pastPositions
-    instructions: ''
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\Matrix
-    settings:
-      maxBlocks: null
-      localizeBlocks: false
-      contentTable: '{{%matrixcontent_pastpositions}}'
-    fieldGroup: 544f7f96-7297-4753-bfde-ed6ea24b1117
-    contentColumnType: string
   6b43a75a-e6af-4df4-8ca9-5910e934a3ef:
     name: 'Thumbnail Images'
     handle: altImage
@@ -557,21 +543,6 @@ fields:
       columnType: text
     contentColumnType: text
     fieldGroup: d2d1260a-da85-41ec-8e8a-c16e376cf34f
-  973f412f-a0f6-4f53-b5b9-847caeb87763:
-    name: 'Open Positions'
-    handle: openPositions
-    instructions: ''
-    searchable: true
-    translationMethod: site
-    translationKeyFormat: null
-    type: craft\fields\Matrix
-    settings:
-      minBlocks: ''
-      maxBlocks: ''
-      contentTable: '{{%matrixcontent_openpositions}}'
-      propagationMethod: all
-    contentColumnType: string
-    fieldGroup: 544f7f96-7297-4753-bfde-ed6ea24b1117
   986f2e8c-a1f5-441b-b4d6-bc731bd63706:
     name: Industry
     handle: industry
@@ -1556,61 +1527,6 @@ matrixBlockTypes:
               ae4062a8-a6a9-44ba-a654-1aed2e7a7ee4:
                 required: false
                 sortOrder: 2
-  21a449c5-00d7-4691-897b-ea4ff6b08c48:
-    name: 'Past Position'
-    handle: pastPosition
-    sortOrder: 1
-    field: 68692063-3da9-4055-b678-06af18aebc8e
-    fieldLayouts:
-      449b117c-ab2f-4425-98b0-9af545198e76:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-            fields:
-              978c01f4-908e-4a59-b336-d7a6c99ceb91:
-                required: false
-                sortOrder: 1
-              c494df9a-ab29-4ca3-9c5f-93c1b3d1fdea:
-                required: false
-                sortOrder: 2
-    fields:
-      978c01f4-908e-4a59-b336-d7a6c99ceb91:
-        name: 'Position Title'
-        handle: positionTitle
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\fields\PlainText
-        settings:
-          placeholder: ''
-          multiline: ''
-          initialRows: '4'
-          charLimit: ''
-          columnType: text
-        fieldGroup: null
-        contentColumnType: text
-      c494df9a-ab29-4ca3-9c5f-93c1b3d1fdea:
-        name: 'Position Description'
-        handle: positionDescription
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\redactor\Field
-        settings:
-          availableTransforms: '*'
-          purifyHtml: '1'
-          purifierConfig: ''
-          columnType: text
-          availableVolumes: '*'
-          redactorConfig: ''
-          removeInlineStyles: '1'
-          removeEmptyTags: '1'
-          removeNbsp: '1'
-        fieldGroup: null
-        contentColumnType: text
   32384cfc-f3e2-42eb-85c0-be7a5d323483:
     field: e5facf83-ead7-410b-96f6-761ac8ecb2d0
     name: Images/Videos
@@ -2403,83 +2319,6 @@ matrixBlockTypes:
             sortOrder: 1
             fields:
               56ccc2db-d89f-4e56-b202-b67887baa187:
-                required: false
-                sortOrder: 1
-  b34f0c52-4e7b-4baf-b7e9-e5e0d652c952:
-    field: 973f412f-a0f6-4f53-b5b9-847caeb87763
-    name: Position
-    handle: position
-    sortOrder: 1
-    fields:
-      bfffd827-7f67-48a7-9c2e-90ab56621d37:
-        name: Intro
-        handle: intro
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\fields\PlainText
-        settings:
-          placeholder: ''
-          code: ''
-          multiline: '1'
-          initialRows: '2'
-          charLimit: ''
-          columnType: text
-        contentColumnType: text
-        fieldGroup: null
-      cc61cc8f-1a70-4a5f-a078-ac910a598b26:
-        name: Description
-        handle: description
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\redactor\Field
-        settings:
-          redactorConfig: ''
-          purifierConfig: ''
-          cleanupHtml: true
-          removeInlineStyles: '1'
-          removeEmptyTags: '1'
-          removeNbsp: '1'
-          purifyHtml: '1'
-          columnType: text
-          availableVolumes: '*'
-          availableTransforms: '*'
-        contentColumnType: text
-        fieldGroup: null
-      dff78dca-1c40-46dd-9207-1430fc4816c2:
-        name: Title
-        handle: positionTitle
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\fields\PlainText
-        settings:
-          placeholder: ''
-          code: ''
-          multiline: ''
-          initialRows: '4'
-          charLimit: ''
-          columnType: text
-        contentColumnType: text
-        fieldGroup: null
-    fieldLayouts:
-      84746df1-cd4e-4d08-80fb-83b6d13fbeb0:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-            fields:
-              bfffd827-7f67-48a7-9c2e-90ab56621d37:
-                required: false
-                sortOrder: 2
-              cc61cc8f-1a70-4a5f-a078-ac910a598b26:
-                required: false
-                sortOrder: 3
-              dff78dca-1c40-46dd-9207-1430fc4816c2:
                 required: false
                 sortOrder: 1
   ce15a666-1d0d-4208-9577-a17c1187b7f2:
@@ -3515,12 +3354,6 @@ sections:
                   4c723610-9810-42d8-b81c-c75c426a7b52:
                     required: false
                     sortOrder: 4
-                  68692063-3da9-4055-b678-06af18aebc8e:
-                    required: false
-                    sortOrder: 6
-                  973f412f-a0f6-4f53-b5b9-847caeb87763:
-                    required: false
-                    sortOrder: 5
                   c2b1d20c-3703-4b5c-911f-f7b0b0367bf9:
                     required: false
                     sortOrder: 8
