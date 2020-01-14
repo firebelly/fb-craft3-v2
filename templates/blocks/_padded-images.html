@@ -1,7 +1,7 @@
-{% for image in block.image.all() %}
+{% for image in block.image %}
   {% set width = (block.size == 'halfWidth' ? 900 : 1800) %}
   {% set embeddedAsset = craft.embeddedAssets.get(image) %}
-  <div class="block-image {{ block.size }}">
+  <div class="block-image -reveal {{ block.size }}">
     <div class="-inner">
     {% if embeddedAsset %}
       {# Custom vimeo handling #}
@@ -31,9 +31,16 @@
           <div class="site{% if browserFrame.browserFrameScroll %} scroll{% endif %}"{% if browserFrame.browserFrameScroll %} style="padding-bottom:{{ browserFrame.scrollHeight }}%;"{% endif %}>
             {%- if browserFrame.browserFrameScroll %}<div class="scroll-content">{% endif -%}
       {% endif -%}
+
+      <figure>
       {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
         <img class="lazyload" data-src="{{ treatedImage.getUrl() }}" alt="{{ image.title }}">
       {%- if block.imageLinkUrl %}</a>{% endif -%}
+      {% if image.caption %}
+        <figcaption>{{ image.caption }}</figcaption>
+      {% endif %}
+      </figure>
+
       {%- if browserFrame is defined and browserFrame.browserFrameActive %}
           {%- if browserFrame.browserFrameScroll %}</div>{% endif -%}
           </div><!-- .site -->

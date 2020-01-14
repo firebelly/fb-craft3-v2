@@ -1,29 +1,80 @@
-// import external dependencies
+// Import external dependencies
 import Velocity from 'velocity-animate';
+import Swup from 'swup';
+import SwupBodyClassPlugin from '@swup/body-class-plugin';
+import SwupScrollPlugin from '@swup/scroll-plugin';
+import SwupGaPlugin from '@swup/ga-plugin'
+import Waypoint from 'waypoints/lib/jquery.waypoints.js';
 
-// import local dependencies
+// Import local dependencies
 import Router from './util/Router';
 import colorChanges from './util/colorChanges';
+import imageReveals from './util/imageReveals';
+import appState from './util/appState';
+import modals from './util/modals';
+
+// Routes
 import common from './routes/common';
 import homepage from './routes/homepage';
-import work from './routes/work';
 import project from './routes/project';
 import about from './routes/about';
+import work from './routes/work';
+import contact from './routes/contact';
 
-/** Populate Router instance with DOM routes */
+const swup = new Swup({
+  plugins: [
+    new SwupBodyClassPlugin(),
+    new SwupScrollPlugin({
+      animateScroll: false
+    }),
+    new SwupGaPlugin(),
+  ],
+  linkSelector:
+    'a[href^="' +
+    window.location.origin +
+    '"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup])',
+  containers: ["#page", "#site-nav"]
+});
+
+// Set to global to share with modules
+window.swup = swup;
+
+// Populate Router instance with DOM routes
 const routes = new Router({
   common,
   homepage,
   project,
   about,
   work,
+  contact,
 });
 
-// Init color changes
+// Inits
 colorChanges.init();
+imageReveals.init();
+appState.init();
 
-// Load Events
+// Load events
 $(document).ready(() => routes.loadEvents());
+
+// Reload events when swup replaces content
+swup.on('contentReplaced', () => {
+  routes.loadEvents();
+  colorChanges.init();
+  imageReveals.init();
+});
+
+swup.on('popState', () => {
+  // Close any open modals
+  modals.closeModal();
+});
+
+// Cleanup call for js
+swup.on('transitionStart', () => {
+  routes.unload();
+  colorChanges.unload();
+  imageReveals.unload();
+});
 
 // Flickity fix for iOS 13
 (function() {

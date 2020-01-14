@@ -1,3 +1,5 @@
+// Common js
+
 import jQueryBridget from 'jquery-bridget';
 import Flickity from 'flickity/dist/flickity.pkgd.js';
 require('flickity-imagesloaded');
@@ -8,7 +10,15 @@ import * as p5 from 'p5';
 import fitvids from 'fitvids';
 
 import appState from '../util/appState';
-import Breakpoints from '../util/Breakpoints';
+
+// Shared vars
+let blobMaster,
+    isTouchDevice,
+    vimeoPlayers = [],
+    $window = $(window),
+    $body = $('body'),
+    $document = $(document),
+    $siteNav;
 
 export default {
   // JavaScript to be fired on all pages
@@ -16,15 +26,12 @@ export default {
     // Set up libraries to be used with jQuery
     jQueryBridget('flickity', Flickity, $);
 
-    const $document = $(document);
-    const $body = $('body');
-    const $window = $(window);
-    const $html = $('html');
-    const pageAt = window.location.pathname;
-    const $siteNav = $('.site-nav');
+    // Init shared vars
+    $siteNav = $('.site-nav');
+    isTouchDevice = _isTouchDevice();
 
-    let $customCursor,
-        players = [];
+    // Add is-touch class for styling (mostly to hide carousel pagination divs on ipads)
+    $body.toggleClass('-is-touch', isTouchDevice);
 
     // Run resize functions on load
     _resize();
@@ -33,13 +40,46 @@ export default {
     _initBigClicky();
     _initSmoothScroll();
     _initScrollToTop();
-    _initActiveToggle();
     _initSiteNav();
     _initBlobs();
     _initFlickity();
     _initVideos();
     _initForms();
+    _initNewsletterForm();
     _initAccordions();
+
+    // Ajaxify newsletter form
+    function _initNewsletterForm() {
+      $('form.newsletter').each(function() {
+        let $form = $(this);
+        let $status = $form.find('.status');
+        $form.on('submit', e => {
+          e.preventDefault();
+          $status.removeClass('error success');
+          $form.addClass('working');
+          if ($form.find('input[name=EMAIL]').val()=='') {
+            $status.addClass('error').text('Please enter your email.');
+          } else {
+            $.getJSON($form.attr('action'), $form.serialize())
+              .done(function(data) {
+                if (data.result != 'success') {
+                  if (data.msg.match(/already subscribed/)) {
+                    $status.addClass('error').text('Oops! You’re already subscribed to our newsletter.');
+                  } else if (data.msg.match(/Too many subscribe attempts/)) {
+                    $status.addClass('error').text('You’ve tried too many times. Check your email to confirm.');
+                  } else {
+                    $status.addClass('error').text('Oops! ' + data.msg);
+                  }
+                } else {
+                  $status.removeClass('error').addClass('success').text('Success! Check your email to confirm.');
+                }
+              })
+              .fail(() => $status.addClass('error').text('There was an error subscribing. Please try again.'))
+              .always(() => $form.removeClass('working'));
+          }
+        });
+      });
+    }
 
     // Simple accordions used on careers page
     function _initAccordions() {
@@ -55,7 +95,7 @@ export default {
     // Forms handling: add has-input to input-wrap after typing for styling labels
     function _initForms() {
       // Add .has-input for styling when field is changed
-      $document.on('keyup change blur', 'input,select,textarea', _checkFormInput);
+      $document.on('keyup.forms change.forms blur.forms', 'input,select,textarea', _checkFormInput);
 
       // Check initial state of fields on load
       $('form').find('input,select,textarea').each(function() {
@@ -81,16 +121,21 @@ export default {
 
     // Bigclicky™ (large clickable area that pulls first a[href] as URL)
     function _initBigClicky() {
-      $document.on('click', '.bigclicky', function(e) {
+      $document.on('click.bigClicky', '.bigclicky', function(e) {
         if (!$(e.target).is('a')) {
           e.preventDefault();
           let link = $(this).find('a:first');
-          let href = link.attr('href');
+          let href = link[0].href;
           if (href) {
             if (e.metaKey || link.attr('target')) {
               window.open(href);
             } else {
-              location.href = href;
+              // Use swup if available
+              if (typeof swup !== 'undefined') {
+                swup.loadPage({ url: link[0].pathname });
+              } else {
+                location.href = href;
+              }
             }
           }
         }
@@ -98,7 +143,7 @@ export default {
     }
 
     // Keyboard navigation and esc handlers
-    $(document).keyup(function(e) {
+    $document.keyup(function(e) {
       // esc
       if (e.keyCode === 27) {
         _closeNav();
@@ -107,7 +152,7 @@ export default {
           document.activeElement.blur();
         }
       }
-    }).on('click', 'body.nav-open', function(e) {
+    }).on('click.closeNav', 'body.nav-open', function(e) {
       // Clicking outside of nav closes nav
       let $target = $(e.target);
       // Make sure target inside nav content
@@ -134,13 +179,12 @@ export default {
 
     // Big ol' juicy custom cursors for your "pleasure"
     function _initCustomCursor() {
-      if (_isTouchDevice() || !$('.js-cursor').length) {
+      if (isTouchDevice || !$('.js-cursor').length) {
         return;
       }
 
-      $customCursor = $('<div id="cursor"></div>').appendTo($body);
-
-      var lastMousePosition = { x: 0, y: 0 };
+      let $customCursor = $('#cursor');
+      let lastMousePosition = { x: 0, y: 0 };
 
       // Update the mouse position
       function onMouseMove(evt) {
@@ -150,38 +194,33 @@ export default {
       }
 
       function update() {
-        // Get the element we're hovered on
-        var hoveredEl = document.elementFromPoint(lastMousePosition.x, lastMousePosition.y);
+        // Get the element we're hovering over
+        let hoveredEl = document.elementFromPoint(lastMousePosition.x, lastMousePosition.y),
+            $hoveredEl = $(hoveredEl);
 
-        // Check if the element or any of its parents have a .js-cursor class
-        if ($(hoveredEl).parents('.js-cursor').length || $(hoveredEl).hasClass('js-cursor')) {
-          $body.addClass('-cursor-active');
-
-          if ($(hoveredEl).is('.previous')) {
-            $customCursor.addClass('previous');
-          } else {
-            $customCursor.removeClass('previous');
-          }
-
-          if ($(hoveredEl).is('.next')) {
-            $customCursor.addClass('next');
-          } else {
-            $customCursor.removeClass('next');
-          }
-        } else {
+        // Check if element is js-cursor or child of js-cursor
+        if (!$hoveredEl.hasClass('js-cursor') && !$hoveredEl.parents('.js-cursor').length) {
           $body.removeClass('-cursor-active');
+          return;
         }
 
-        // now draw object at lastMousePosition
+        // Enable custom cursor visibility
+        $body.addClass('-cursor-active');
+
+        // Set class of custom cursor
+        let hoveredClass = $hoveredEl.hasClass('next') ? 'next' : ($hoveredEl.hasClass('previous') ? 'previous' : 'view');
+        $customCursor[0].className = hoveredClass;
+
+        // Now position cursor at lastMousePosition
         $customCursor.css({
           'transform': 'translate3d(' + lastMousePosition.x + 'px, ' + lastMousePosition.y + 'px, 0)'
         });
       }
 
       // Listen for mouse movement
-      $document.on('mousemove', onMouseMove);
-      // Make sure a user is still hovered on an element when they start scrolling
-      $document.on('scroll', update);
+      $document.on('mousemove.customCursor', onMouseMove);
+      // Make sure a user is still hovered on an element scrolling or resizing window
+      $document.on('scroll.customCursor resize.customCursor', update);
     }
 
     // Smooth scroll to an element
@@ -204,37 +243,22 @@ export default {
     }
 
     function _initSmoothScroll() {
-      $body.on('click', '.smooth-scroll', function(e) {
+      $document.on('click.smoothScroll', '.smooth-scroll', function(e) {
         e.preventDefault();
         _scrollBody($($(this).attr('href')));
       });
     }
 
     function _initScrollToTop() {
-      $body.on('click', '.scroll-to-top', function(e) {
+      $document.on('click.scrollToTop', '.scroll-to-top', function(e) {
         e.preventDefault();
         _scrollBody($body);
       });
     }
 
-    function _initActiveToggle() {
-      $(document).on('click', '[data-active-toggle].-active', function(e) {
-        if ($(this).attr('data-active-toggle') !== '') {
-          $(this).removeClass('-active');
-          $($(this).attr('data-active-toggle')).removeClass('-active');
-        }
-      });
-      $(document).on('click', '[data-active-toggle]:not(.-active)', function(e) {
-        if ($(this).attr('data-active-toggle') !== '') {
-          $(this).addClass('-active');
-          $($(this).attr('data-active-toggle')).addClass('-active');
-        }
-      });
-    }
-
     function _initSiteNav() {
-      $(document).on('click', '#nav-open', _openNav);
-      $(document).on('click', '#nav-close', _closeNav);
+      $document.on('click.siteNavOpen', '#nav-open', _openNav);
+      $document.on('click.siteNavClose', '#nav-close', _closeNav);
     }
 
     function _openNav() {
@@ -269,8 +293,9 @@ export default {
       if (!$body.is('.with-blobs')) {
         return;
       }
+      $('canvas').removeClass('-fading');
 
-      const sketch = p5 => {
+      const bloblob = (p5) => {
         let maxWidth,
             color = $body.attr('data-blob-color') || '#FF3D00',
             speed = 0.05,
@@ -281,7 +306,7 @@ export default {
             trail = false;
 
         // Set thickness based on viewport size
-        if (Breakpoints.nav) {
+        if (appState.breakpoints.nav) {
           maxWidth = 110;
           thickness = 48;
           maxAmount = 14;
@@ -355,7 +380,7 @@ export default {
         }
       }
 
-      new p5(sketch);
+      blobMaster = new p5(bloblob);
     }
 
     // Carousels
@@ -410,11 +435,11 @@ export default {
           opts.height = $this.attr('data-height');
         }
         if (el) {
-          players[i] = {
+          vimeoPlayers[i] = {
             player: new Vimeo.Player(el, opts),
             status: 'pause'
           };
-          players[i].player.ready().then(function() {
+          vimeoPlayers[i].player.ready().then(function() {
             if ($this.attr('data-url')) {
               // Hide image once loaded
               $this.find('img').remove();
@@ -428,16 +453,16 @@ export default {
           if (isBackgroundVideo) {
             $this.waypoint({
               handler: function(direction) {
-                if (players[i].status !== 'play') {
-                  players[i].player.play();
-                  players[i].status = 'play';
+                if (vimeoPlayers[i].status !== 'play') {
+                  vimeoPlayers[i].player.play();
+                  vimeoPlayers[i].status = 'play';
                 }
               },
               offset: '50%'
             });
           }
           if (isBannerVideo) {
-            players[i].player.play();
+            vimeoPlayers[i].player.play();
           }
         }
       });
@@ -446,14 +471,39 @@ export default {
     // Called in quick succession as window is resized
     function _resize() {
       // Reset inline styles for navigation for medium breakpoint
-      if (Breakpoints.nav) {
+      if (appState.breakpoints.nav) {
         $siteNav.attr('style', '');
       }
     }
 
-    $(window).resize(_resize);
+    $window.resize(_resize);
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
+  },
+  unload() {
+    // JavaScript to clean up before live page reload
+
+    // Clear out newsletter form
+    $('form.newsletter').find('.status').removeClass('error success').end().trigger('reset');
+
+    // Remove blobs if present
+    if (blobMaster) {
+      $('canvas').addClass('-fading');
+      setTimeout(blobMaster.remove, 500);
+    }
+
+    // Remove flickity instances
+    $('.flickity').each(function() {
+      $(this).flickity('destroy');
+    });
+
+    // Remove custom event watchers
+    $document.off('mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.scrollToTop click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms');
+
+    // Remove vimeo players
+    $.each(vimeoPlayers, function(){
+      this.player.destroy();
+    });
   },
 };

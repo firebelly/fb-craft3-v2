@@ -6,22 +6,38 @@
     z-index: z(carousels);
   }
 }
+.flickity-prev-next-button {
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  transform: none;
+  border-radius: 0;
+  cursor: none!important;
+  &,
+  &:hover {
+    background: none;
+  }
+  svg {
+    display: none;
+  }
+  // Pull buttons to edges to avoid custom cursor flashing "View"
+  &.previous {
+    left: 0;
+  }
+  &.next {
+    right: 0;
+  }
+}
+// Hide next/prev div (used for custom cursors) on touch devices
+body.-is-touch {
+  .flickity-prev-next-button {
+    display: none;
+  }
+}
+
 .flickity {
   position: relative;
-  .flickity-prev-next-button {
-    top: 0;
-    bottom: 0;
-    width: 50%;
-    height: 100%;
-    display: none;
-    transform: none;
-    background: none;
-    border-radius: 0;
-    cursor: none!important;
-    svg {
-      display: none;
-    }
-  }
   .slide {
     margin-right: 25px;
     img {
@@ -121,9 +137,6 @@
 
   // Desktop styles
   @include media-md {
-    .flickity-prev-next-button {
-      display: block;
-    }
     .slide {
       &.landscape {
         width: calc(100% - 288px);

@@ -16,7 +16,6 @@ class Router {
    */
   constructor(routes) {
     this.routes = routes;
-    // console.log(this.routes);
   }
 
   /**
@@ -54,18 +53,38 @@ class Router {
     this.fire('common');
 
     // Fire page-specific init JS, and then finalize JS
-    document.body.className
-      .toLowerCase()
-      .replace(/-/g, '_')
-      .split(/\s+/)
-      .map(camelCase)
-      .forEach((className) => {
-        this.fire(className);
-        this.fire(className, 'finalize');
-      });
+    if (document.body.className.match(/page\-/)) {
+      document.body.className
+        .match(/page\-([^ ]+)/)
+        .map(camelCase)
+        .forEach((className) => {
+          this.fire(className);
+          this.fire(className, 'finalize');
+        });
+      }
 
     // Fire common finalize JS
     this.fire('common', 'finalize');
+  }
+
+  /**
+   * Cleanup called from swup for live page reloads
+   *
+   * e.g. any carousels, scroll handlers, etc
+   */
+  unload() {
+    // Fire common unload JS
+    this.fire('common', 'unload');
+
+    // Fire page-specific unload JS
+    if (document.body.className.match(/page\-/)) {
+      document.body.className
+        .match(/page\-([^ ]+)/)
+        .map(camelCase)
+        .forEach((className) => {
+          this.fire(className, 'unload');
+      });
+    }
   }
 }
 

@@ -168,6 +168,18 @@
   }
 }
 
+.block-image {
+  // Style captions on image blocks
+  figure {
+    margin: 0;
+    figcaption {
+      margin: beat(1) 0;
+      @include p2;
+      color: color('gray');
+    }
+  }
+}
+
 // Browser Frame
 // optionally used on image blocks
 .browser-frame {

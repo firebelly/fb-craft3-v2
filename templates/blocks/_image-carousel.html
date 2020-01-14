@@ -1,6 +1,6 @@
 <div class="fullbleed-images">
-  <div class="flickity js-cursor">
-    {% for image in block.images.all() %}
+  <div class="flickity js-cursor -reveal">
+    {% for image in block.images %}
       {% set embeddedAsset = craft.embeddedAssets.get(image) %}
       {% if embeddedAsset %}
         {# Custom vimeo handling #}

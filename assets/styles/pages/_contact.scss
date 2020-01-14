@@ -1,5 +1,12 @@
 // Contact page
-#contact-page {
+
+body.page-contact {
+
+  // Hide contact CTA in footer
+  .contact-cta {
+    display: none;
+  }
+
   // Dark header
   .site-main {
     color: color('white');

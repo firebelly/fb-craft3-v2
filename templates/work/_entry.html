@@ -4,7 +4,7 @@
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
 
-{% set bodyClass = 'single project' %}
+{% set bodyClass = 'page-project' %}
 {% if entry.mainImage|length %}
   {% set mainImage = entry.mainImage.one() %}
 {% endif %}

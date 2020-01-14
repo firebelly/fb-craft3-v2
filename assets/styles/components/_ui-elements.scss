@@ -107,7 +107,7 @@ a.button {
 }
 
 body.-cursor-active {
-  cursor: none;
+  &,
   a:hover {
     cursor: none;
   }

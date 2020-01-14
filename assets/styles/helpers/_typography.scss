@@ -128,7 +128,7 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
     @include paragraph-style(64, 64, 0.01em);
   }
   @include media-nav {
-    @include paragraph-style(96, 96, 0.01em);
+    @include paragraph-style(96, 105.6, 0.01em);
   }
 }
 .h1-sans {

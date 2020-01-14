@@ -1,10 +1,10 @@
 // Color change blocks
 
-export let $colorChangeBlocks = [],
+let $colorChangeBlocks = [],
     defaultColors = { 'white': '#ffffff', 'gray': '#F2F2F0', 'black': '#232323' }, // Default, named colors
     colorChangeValues = [{ 'background': defaultColors.gray, 'color': defaultColors.black }], // Initial project-block bg + color
     $rootElement,
-    $window,
+    $window = $(window),
     scrollTop,
     windowHeight,
     ticking;
@@ -14,15 +14,14 @@ const colorChanges = {
   // Init color changes
   init() {
     if ($('.color-change').length) {
-      $window = $(window);
       $rootElement = $('.single-project');
       $colorChangeBlocks = $('.color-change');
 
       colorChanges.setBlockPositions();
 
-      $window.off('scroll.colorChanges').on('scroll.colorChanges', colorChanges.scrolling);
-      $window.off('resize.colorChanges').on('resize.colorChanges', colorChanges.resizing);
-      $window.off('load.colorChanges').on('load.colorChanges', colorChanges.resizing);
+      $window.on('scroll.colorChanges', colorChanges.scrolling);
+      $window.on('resize.colorChanges', colorChanges.resizing);
+      $window.on('load.colorChanges', colorChanges.resizing);
 
       // Reposition color changes after lazyloaded images show
       document.addEventListener('lazyloaded', function(e){
@@ -83,7 +82,12 @@ const colorChanges = {
   scrolling(event) {
     scrollTop = $window.scrollTop();
     colorChanges.requestTick();
-  }
+  },
+
+  // Garbage collection
+  unload() {
+    $window.off('scroll.colorChanges resize.colorChanges load.colorChanges');
+  },
 
 };
 

@@ -1,6 +1,6 @@
 // About
 
-#about-page {
+body.page-about {
   .the-team {
     @include media-md {
       padding: beat(4) 0;

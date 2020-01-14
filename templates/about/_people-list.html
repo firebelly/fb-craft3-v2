@@ -8,16 +8,16 @@
 
 <div class="container">
   <div class="thumbnail-grid grid spaced people-list">
-    {% for person in entry.people.all() %}
-      {% set image = person.photo.one() %}
+    {% for person in entry.people.with(['photo']).all() %}
+      {% set image = person.photo[0] %}
       {% if image %}
         {% set personImage = craft.imager.transformImage(image, { width: 1100, height: 640, mode: 'crop' }) %}
       {% endif %}
-      <article class="col-md-1-2 person" data-person="{{ person.slug }}">
+      <article class="col-md-1-2 person -reveal" data-person="{{ person.slug }}">
 
         <div class="toggle-container">
           {% if personImage is defined %}
-            <a class="-inner js-cursor" href="{{ person.getUrl() }}">
+            <a data-no-swup class="-inner js-cursor" href="#{{ person.slug }}">
               <img src="{{ personImage.getUrl() }}" alt="{{ person.title }}">
             </a>
           {% endif %}

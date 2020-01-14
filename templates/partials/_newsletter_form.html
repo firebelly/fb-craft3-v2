@@ -1,15 +1,14 @@
-{% set lightForm = (craft.app.request.getSegment(1) != 'contact' ? true : false) %}
 <div id="newsletter-form">
     <div id="mc_embed_signup">
-    <form class="newsletter{% if lightForm %} -light{% endif %}" action="//firebellydesign.us9.list-manage.com/subscribe/post-json?u=1932df0a20bd716fbbecce7db&amp;id=b085ede764&amp;c=?" method="post" name="mc-embedded-subscribe-form">
+    <form class="newsletter -light" action="//firebellydesign.us9.list-manage.com/subscribe/post-json?u=1932df0a20bd716fbbecce7db&amp;id=b085ede764&amp;c=?" method="post" name="mc-embedded-subscribe-form">
       <div class="form-row">
         <div class="input-wrap">
           <label>Email:</label>
           <input type="email" name="EMAIL" class="required email" placeholder="Enter your email for GoodNews" required>
         </div>
-        <input class="button{% if lightForm %} -white{% endif %} -small hollow" name="subscribe" id="mc-embedded-subscribe" type="submit" value="Submit">
+        <button class="button -white -small hollow">Submit</button>
       </div>
-      <label class="status"></label>
+      <div class="status"></div>
       <!-- die bots --><div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_1932df0a20bd716fbbecce7db_b085ede764" tabindex="-1" value=""></div>
     </form>
   </div>

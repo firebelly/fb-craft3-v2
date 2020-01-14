@@ -1,12 +1,14 @@
 // Pagination
 
 // Project image rotator on hover
-@keyframes imgRotator {
-  0%, 20% {
-    opacity: 1;
-  }
-  21%, 100% {
-    opacity: 0;
+@for $i from 2 through 5 {
+  @keyframes imgRotator#{$i} {
+    0%, #{100 / $i}% {
+      opacity: 1;
+    }
+    #{100 / $i + 0.0000000001}%, 100% {
+      opacity: 0;
+    }
   }
 }
 
@@ -37,11 +39,16 @@
   @include media-md {
     .rollover-images.hover {
       opacity: 1;
-      img {
-        animation: imgRotator 3s linear infinite;
-        @for $i from 0 through 4 {
-          &:nth-child(#{5 - $i}) {
-            animation-delay: #{(-0.6 * $i)}s;
+      // Support 2-5 images in nextProjectImages field
+      @for $j from 2 through 5 {
+        &[data-num-images="#{$j}"] {
+          img {
+            animation: imgRotator#{$j} #{0.6 * $j}s linear infinite;
+            @for $i from 0 through ($j - 1) {
+              &:nth-child(#{$j - $i}) {
+                animation-delay: #{(-0.6 * $i)}s;
+              }
+            }
           }
         }
       }

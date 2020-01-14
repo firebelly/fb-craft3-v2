@@ -3,25 +3,29 @@
 import appState from '../util/appState';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
-export let $body = $('body'),
-    $html = $('html'),
-    $modal,
-    $modalOverlay,
-    $modalContainer,
-    scrollableSelector;
+// Shared vars
+let $body = $('body'),
+            $document = $(document),
+            $html = $('html'),
+            $modal,
+            $modalOverlay,
+            $modalContainer,
+            scrollableSelector;
 
 const modals = {
 
   // Init modals
   init: function(scrollableSelectorValue) {
-    // Inject modal html
-    $body.append(`
-      <div class="modal-overlay"></div>
-      <div class="modal">
-        <a href="#" class="close-modal"><svg class="icon icon-close-lg" aria-hidden="true"><use xlink:href="#icon-close-lg"/></svg></a>
-        <div class="inner"></div>
-      </div>
-    `);
+    // Inject modal html if not in DOM
+    if ($('.modal-overlay').length === 0) {
+      $body.append(`
+        <div class="modal-overlay"></div>
+        <div class="modal">
+          <a href="#" class="close-modal"><svg class="icon icon-close-lg" aria-hidden="true"><use xlink:href="#icon-close-lg"/></svg></a>
+          <div class="inner"></div>
+        </div>
+      `);
+    }
     $modal = $('.modal');
     $modalOverlay = $('.modal-overlay');
     $modalContainer = $modal.find('.inner');
@@ -30,12 +34,12 @@ const modals = {
     scrollableSelector = scrollableSelectorValue;
 
     // Keyboard-triggered functions
-    $(document).keyup(function(e) {
+    $document.keyup(e => {
       // Escape key
       if (e.keyCode === 27) {
         modals.closeModal();
       }
-    }).on('click', '.modal a.close-modal', function(e) {
+    }).on('click.modal', '.modal a.close-modal', e => {
       // Clicking on X (close) button
       e.preventDefault();
       modals.closeModal();
@@ -59,9 +63,9 @@ const modals = {
           disableBodyScroll($(scrollableSelector)[0]);
           $html.css('overflow', 'hidden');
           appState.isAnimating = false;
-          if (typeof hash !== 'undefined') {
-            window.location.hash = `#${hash}`;
-          }
+          // if (typeof hash !== 'undefined') {
+          //   window.location.hash = `#${hash}`;
+          // }
         }
       }
     )
@@ -85,7 +89,7 @@ const modals = {
           enableBodyScroll($(scrollableSelector)[0]);
           $html.css('overflow', '');
           // Remove hash
-          history.replaceState(null, null, ' ');
+          // history.replaceState(null, null, ' ');
         }
       }
     );
@@ -103,6 +107,11 @@ const modals = {
         display: (appState.modalOpen ? 'block' : 'none')
       });
   },
+
+  // Remove events
+  unload: function() {
+    $document.off('click.modal');
+  }
 
 };
 

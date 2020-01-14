@@ -10,11 +10,29 @@
     opacity: 0;
     @include transition(opacity);
   }
-
-  &:hover {
+}
+// Rollover states for non-touch (was requiring double-tap to open projects on ipads)
+body:not(.-is-touch) {
+  .rollover-image:hover {
     img:nth-child(2) {
       opacity: 1;
     }
+  }
+}
+
+// Image reveals
+.-reveal {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition: opacity 1s ease-out, transform .5s ease-out;
+
+  @include media-md {
+    transform: translate3d(0, 60px, 0);
+  }
+
+  &.-active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 

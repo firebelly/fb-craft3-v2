@@ -4,6 +4,10 @@ form.newsletter {
   @include media-md {
     max-width: 498px;
   }
+  // Hide arrow
+  button::after {
+    display: none;
+  }
 
   .form-row {
     justify-content: flex-end;

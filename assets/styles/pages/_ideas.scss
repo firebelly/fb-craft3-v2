@@ -1,5 +1,7 @@
 // Ideas pages
-#ideas-page {
+
+body.page-ideas {
+
   // Reduce padding on pagination
   .pagination {
     .container {
@@ -15,22 +17,22 @@
       padding-bottom: beat(4);
     }
   }
+
 }
 
 // Single ideas post
 .ideas-single {
   padding: beat(8) 0;
 
-  figure {
-    margin: 0;
-    padding: beat(1) 0;
+  // Inline images in deprecated body field
+  .ideas-body {
+    figure {
+      margin: 0;
+      padding: beat(1) 0;
 
-    figcaption {
-      @include small-titles;
-    }
-
-    @include media-md {
-      padding: beat(6) 0;
+      @include media-md {
+        padding: beat(6) 0;
+      }
     }
   }
 }

@@ -3,15 +3,13 @@
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
 
-{% set bodyClass = 'homepage with-blobs' %}
-{% set bodyId = 'homepage' %}
-{% set bodyDataAttributes = 'data-blob-color="#FF3D00"' %}
+{% set bodyClass = 'page-homepage with-blobs' %}
 
 {% block content %}
 
   {% include 'partials/_text-header' with { headerTag: 'h2' } %}
 
-  {% set recentWork = entry.recentWork.all() %}
+  {% set recentWork = entry.recentWork.with(['altImage', 'services.service']).all() %}
 
   {% if recentWork|length %}
     <div class="recent-work section">
@@ -61,6 +59,8 @@
       'headerImage',
       'thumbnailImage',
       'altImage',
+      'ideasType',
+      'services.service',
     ]).all() %}
 
   {% if featuredWork|length %}
