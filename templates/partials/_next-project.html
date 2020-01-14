@@ -17,7 +17,7 @@
 
 <nav class="pagination -next">
   {% if rolloverImages|length %}
-    <div class="rollover-images">
+    <div class="rollover-images" data-num-images="{{ nextEntry.nextProjectImages|length }}">
       {% for image in rolloverImages %}
         <img src="{{ image.transformedImage.getUrl() }}" alt="{{ image.title }}">
       {% endfor %}
