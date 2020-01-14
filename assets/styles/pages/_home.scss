@@ -47,9 +47,27 @@ body.page-homepage {
   .featured-work {
     .thumbnail-grid {
       @include media-nav {
-        @include clearfix;
+        display: grid;
+        padding-bottom: 430px;
+        grid-gap: 0 $padding-md;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr 1fr;
         margin-left: -#{$padding-md / 2};
         width: calc(100% + #{$padding-md});
+
+        article {
+          width: 100%;
+          max-width: none;
+          margin-bottom: 0;
+          &:nth-child(2n+3) {
+            grid-column-start: 2;
+          }
+
+          .idea-meta,
+          .project-content {
+            position: absolute;
+          }
+        }
       }
     }
   }

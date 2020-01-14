@@ -3,7 +3,7 @@
 {% set orientation = orientationOverride ?? entry.thumbnailOrientation %}
 
 {% if thumbnailImage %}
-  {% if orientation == 'portrait' %}
+  {% if firstPost is defined and firstPost == 1 or orientation == 'portrait' %}
     {% set transformedImage = craft.imager.transformImage(thumbnailImage, { width: 1116, height: 1504, mode: 'crop' }) %}
     {% set transformedImageHover = craft.imager.transformImage(thumbnailImageHover, { width: 1116, height: 1504, mode: 'crop' }) %}
   {% else %}
@@ -23,15 +23,17 @@
     </a>
   {% endif %}
 
-  {% if entry.services|length %}
-    <ul class="services">
-      {% for service in entry.services %}
-        {% set service = service.service[0] %}
-        <li>
-          <a href="{{ service.getUrl() }}">{{ service.title }}</a>{{ not loop.last ? ',' }}
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-  <h3 class="project-title">{{ entry.title }}: {{ entry.subtitle }}</h3>
+  <div class="project-content">
+    {% if entry.services|length %}
+      <ul class="services">
+        {% for service in entry.services %}
+          {% set service = service.service[0] %}
+          <li>
+            <a href="{{ service.getUrl() }}">{{ service.title }}</a>{{ not loop.last ? ',' }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <h3 class="project-title">{{ entry.title }}: {{ entry.subtitle }}</h3>
+  </div>
 </article>

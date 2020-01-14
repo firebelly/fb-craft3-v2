@@ -3,7 +3,7 @@
 {% set orientation = orientationOverride ?? entry.thumbnailOrientation %}
 
 {% if thumbnailImage %}
-  {% if orientation == 'portrait' %}
+  {% if firstPost is defined and firstPost == 1  or orientation == 'portrait' %}
     {% set transformedImage = craft.imager.transformimage(thumbnailImage, { width: 1116, height: 1504, mode: 'crop' }) %}
     {% set transformedImageHover = craft.imager.transformimage(thumbnailImageHover, { width: 1116, height: 1504, mode: 'crop' }) %}
   {% else %}
@@ -12,7 +12,7 @@
   {% endif %}
 {% endif %}
 
-<article class="ideas {{ entry.thumbnailOrientation == 'fullWidth' ? 'md-full' : 'col-md-1-2' }} -reveal">
+<article class="ideas {{ entry.thumbnailOrientation == 'fullWidth' ? 'nav-full' : 'col-nav-1-2' }} -reveal">
   {% if transformedImage is defined %}
     <a class="-inner js-cursor" href="{{ entry.getUrl() }}">
       <div class="rollover-image">
@@ -28,5 +28,4 @@
     {% endif %}
     <h3><a href="{{ entry.getUrl() }}"><span>{{ entry.title }}</span></a></h3>
   </div>
-
 </article>

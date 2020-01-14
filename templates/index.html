@@ -66,12 +66,12 @@
   {% if featuredWork|length %}
     <div class="featured-work section">
       <div class="container">
-        <div class="thumbnail-grid grid spaced">
+        <div class="thumbnail-grid">
           {% for featuredEntry in featuredWork %}
             {% if featuredEntry.type == 'project' %}
-              {% include 'work/_article' with { entry: featuredEntry } %}
+              {% include 'work/_article' with { entry: featuredEntry, firstPost: loop.first } %}
             {% elseif featuredEntry.type == 'ideasPost' %}
-              {% include 'ideas/_article' with { entry: featuredEntry } %}
+              {% include 'ideas/_article' with { entry: featuredEntry, firstPost: loop.first } %}
             {% endif %}
           {% endfor %}
         </div>
