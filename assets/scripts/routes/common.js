@@ -291,7 +291,7 @@ export default {
       const bloblob = (p5) => {
         let maxWidth,
             color = $body.attr('data-blob-color') || '#FF3D00', //00C2FF
-            speed = 0.05,
+            speed = 0.1,
             thickness,
             frameSpeed = 30,
             minAmount = 4,
