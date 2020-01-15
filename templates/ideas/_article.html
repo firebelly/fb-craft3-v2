@@ -3,7 +3,7 @@
 {% set orientation = orientationOverride ?? entry.thumbnailOrientation %}
 
 {% if thumbnailImage %}
-  {% if firstPost is defined and firstPost == 1  or orientation == 'portrait' %}
+  {% if orientation == 'portrait' %}
     {% set transformedImage = craft.imager.transformimage(thumbnailImage, { width: 1116, height: 1504, mode: 'crop' }) %}
     {% set transformedImageHover = craft.imager.transformimage(thumbnailImageHover, { width: 1116, height: 1504, mode: 'crop' }) %}
   {% else %}

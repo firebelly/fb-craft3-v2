@@ -48,7 +48,7 @@ body.page-homepage {
     .thumbnail-grid {
       @include media-nav {
         display: grid;
-        padding-bottom: 430px;
+        padding-bottom: 190px;
         grid-gap: 0 $padding-md;
         grid-template-rows: auto;
         grid-template-columns: 1fr 1fr;

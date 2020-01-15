@@ -69,11 +69,23 @@
         <div class="thumbnail-grid">
           {% for featuredEntry in featuredWork %}
             {% if featuredEntry.type == 'project' %}
-              {% include 'work/_article' with { entry: featuredEntry, firstPost: loop.first } %}
+              {% include 'work/_article' with { entry: featuredEntry, orientationOverride: (loop.first ? 'portrait' : 'landscape') } %}
             {% elseif featuredEntry.type == 'ideasPost' %}
-              {% include 'ideas/_article' with { entry: featuredEntry, firstPost: loop.first } %}
+              {% include 'ideas/_article' with { entry: featuredEntry, orientationOverride: (loop.first ? 'portrait' : 'landscape') } %}
             {% endif %}
           {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="pagination">
+      <div class="container">
+        <div class="-inner">
+          <a href="/work">
+            <span class="link">
+              More<br>Projects <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg>
+            </span>
+          </a>
         </div>
       </div>
     </div>
