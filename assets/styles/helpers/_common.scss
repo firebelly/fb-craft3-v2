@@ -83,6 +83,7 @@ h4.lined {
     a {
       @include p1;
       text-decoration: underline;
+      @include inline-link;
     }
   }
 }
@@ -102,6 +103,9 @@ h4.lined {
       li {
         @include small-titles;
         display: inline-block;
+        a:hover {
+          color: color('red');
+        }
       }
     }
   }
