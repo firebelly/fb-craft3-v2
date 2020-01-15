@@ -155,12 +155,12 @@ $column-width: 100% / $columns;
 }
 
 @include media-sm {
-  .sm-auto {
+  .col-sm-auto {
     width: auto;
     max-width: none;
     flex-basis: auto;
   }
-  .sm-full {
+  .col-sm-full {
     width: 100%;
     max-width: none;
     flex-basis: 100%;
@@ -194,12 +194,12 @@ $column-width: 100% / $columns;
 }
 
 @include media-md {
-  .md-auto {
+  .col-md-auto {
     width: auto;
     max-width: none;
     flex-basis: auto;
   }
-  .md-full {
+  .col-md-full {
     width: 100%;
     max-width: none;
     flex-basis: 100%;
@@ -233,12 +233,12 @@ $column-width: 100% / $columns;
 }
 
 @include media-lg {
-  .lg-auto {
+  .col-lg-auto {
     width: auto;
     max-width: none;
     flex-basis: auto;
   }
-  .lg-full {
+  .col-lg-full {
     width: 100%;
     max-width: none;
     flex-basis: 100%;
@@ -272,12 +272,12 @@ $column-width: 100% / $columns;
 }
 
 @include media-nav {
-  .nav-auto {
+  .col-nav-auto {
     width: auto;
     max-width: none;
     flex-basis: auto;
   }
-  .nav-full {
+  .col-nav-full {
     width: 100%;
     max-width: none;
     flex-basis: 100%;
@@ -311,12 +311,12 @@ $column-width: 100% / $columns;
 }
 
 @include media-xl {
-  .xl-auto {
+  .col-xl-auto {
     width: auto;
     max-width: none;
     flex-basis: auto;
   }
-  .xl-full {
+  .col-xl-full {
     width: 100%;
     max-width: none;
     flex-basis: 100%;
