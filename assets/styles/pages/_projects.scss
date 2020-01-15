@@ -32,6 +32,7 @@ body.page-project {
   // Project Intro
   .intro {
     .project-summary {
+      margin: $padding-sm 0 $padding-lg;
     }
     h4 {
       @include small-titles;
@@ -42,16 +43,19 @@ body.page-project {
 
     // Desktop styles
     @include media-md {
+      margin: 0;
       padding: beat(7) 0;
     }
 
     .project-meta {
+      margin-bottom: $padding-md;
+
       a {
         text-decoration: underline;
         @include inline-link;
       }
       h4 {
-        margin: 0 0 16px;
+        margin: 0;
       }
       p {
         @include p2;
@@ -70,10 +74,16 @@ body.page-project {
 
       // Desktop styles
       @include media-md {
+        margin-bottom: 0;
+
         > .-inner {
           padding: 0 0 0 columns(4, 8);
         }
         text-align: left;
+
+        h4 {
+          margin-bottom: $beat;
+        }
 
         .services {
           margin-top: 0;
