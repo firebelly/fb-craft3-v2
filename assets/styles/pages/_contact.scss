@@ -30,6 +30,11 @@ body.page-contact {
     .newsletter-section {
       border-color: color('black');
     }
+    .contact-section {
+      a {
+        @include inline-link;
+      }
+    }
 
     @include media-nav {
       padding-top: $padding-lg;
