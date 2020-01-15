@@ -15,6 +15,7 @@
     &:hover,
     &:focus {
       color: color('red');
+      text-decoration: underline;
     }
   }
 
