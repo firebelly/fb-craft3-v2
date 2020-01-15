@@ -4,9 +4,15 @@ body.page-homepage {
 
   // Recent Work
   .recent-work {
-    padding-bottom: 255px;
+    padding-bottom: beat(2);
 
     @include media-nav {
+      padding-bottom: beat(16);
+
+      .project {
+        margin-bottom: 0;
+      }
+
       .project:first-of-type {
         margin-top: 144px;
       }
@@ -68,6 +74,12 @@ body.page-homepage {
             position: absolute;
           }
         }
+      }
+    }
+
+    .pagination {
+      @include media-nav {
+        padding-bottom: $beat;
       }
     }
   }
