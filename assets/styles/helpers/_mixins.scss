@@ -1,10 +1,10 @@
 // Mixins
 
 // Global UI Transition
-@mixin transition($properties...) {
+@mixin transition($property) {
   transition-duration: $transition-duration;
-  transition-property: $properties;
   transition-timing-function: $transition-easing;
+  transition-property: $property;
 }
 
 // Ye olde clearfix
@@ -13,6 +13,25 @@
     content: '';
     clear: both;
     display: table;
+  }
+}
+
+// Animated white bg hover for user-content links
+@mixin inline-link($color:'white', $slide-target:'&') {
+  #{$slide-target} {
+    background-image: linear-gradient(to top, color(#{$color}) 0%, color(#{$color}) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0%;
+    background-position: bottom;
+    text-decoration: underline;
+    transition: background-size 0.2s;
+  }
+  &:hover,
+  &:focus {
+    #{$slide-target} {
+      background-size: 100% 100%;
+      transition-delay: 0s;
+    }
   }
 }
 

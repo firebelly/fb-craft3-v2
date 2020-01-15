@@ -21,7 +21,7 @@ export default {
     }
 
     // Person links to modals
-    $('.person img').on('click', function(e) {
+    $('.person a').on('click', function(e) {
       e.preventDefault();
       if (appState.isAnimating) {
         return;

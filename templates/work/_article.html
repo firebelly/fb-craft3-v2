@@ -34,6 +34,6 @@
         {% endfor %}
       </ul>
     {% endif %}
-    <h3 class="project-title">{{ entry.title }}: {{ entry.subtitle }}</h3>
+    <h3 class="project-title"><a href="{{ entry.getUrl() }}">{{ entry.title }}: {{ entry.subtitle }}</a></h3>
   </div>
 </article>

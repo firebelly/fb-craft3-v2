@@ -48,6 +48,7 @@ body.page-project {
     .project-meta {
       a {
         text-decoration: underline;
+        @include inline-link;
       }
       h4 {
         margin: 0 0 16px;

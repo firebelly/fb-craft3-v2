@@ -19,6 +19,9 @@
     }
     &:hover {
       color: color('red');
+      .label {
+        text-decoration: underline;
+      }
       svg {
         fill: color('red');
       }

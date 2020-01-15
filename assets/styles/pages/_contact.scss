@@ -14,6 +14,11 @@ body.page-contact {
     .block-section-header h3 {
       border-color: color('white');
     }
+    .user-content {
+      a {
+        @include inline-link('red');
+      }
+    }
   }
 
   // Light footer
@@ -24,6 +29,11 @@ body.page-contact {
     .-bottom,
     .newsletter-section {
       border-color: color('black');
+    }
+    .contact-section {
+      a {
+        @include inline-link;
+      }
     }
 
     @include media-nav {
