@@ -82,8 +82,10 @@ h4.lined {
     text-align: right;
     a {
       @include p1;
-      text-decoration: underline;
-      @include inline-link;
+      &:hover {
+        color: color('red');
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -132,6 +134,7 @@ h4.lined {
     @include h3;
     margin-top: beat(1);
     a:hover {
+      color: color('red');
       text-decoration: underline;
     }
   }

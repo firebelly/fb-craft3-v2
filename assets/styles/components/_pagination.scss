@@ -108,6 +108,9 @@
     @include media-md {
       &:hover {
         color: color('red');
+        .title {
+          text-decoration: underline;
+        }
         .icon-big-arrow {
           fill: color('red');
         }

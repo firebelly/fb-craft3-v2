@@ -8,7 +8,7 @@
   {% set pageClass = '' %}
 {% endif %}
 
-<body class="{% if bodyClass is defined %}{{ bodyClass }} {% endif %}{{ pageClass }}">
+<body class="{% if bodyClass is defined %}{{ bodyClass }} {% endif %}{{ pageClass }}" id="top">
   <div id="breakpoint-indicator" class="hidden"></div>
 
   <header class="site-header clearfix" role="banner">
@@ -38,7 +38,7 @@
 
       {% if entry is defined and entry.section.type != 'channel' and entry.section.type != 'structure' %}
         <div class="to-top">
-          <p class="container"><a href="#" class="scroll-to-top">Back to Top</a></p>
+          <p class="container"><a href="#top" class="smooth-scroll scroll-to-top">Back to Top</a></p>
         </div>
       {% endif %}
     </div>

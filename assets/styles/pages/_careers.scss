@@ -53,12 +53,14 @@ body.page-careers {
     }
     .description {
       display: none;
-      padding: beat(4) 0 beat(2);
+      opacity: 0;
+      padding: beat(2) 0;
+      @include transition(opacity);
     }
 
     &.active {
       .description {
-        display: block;
+        opacity: 1;
       }
       a.expand {
         display: none;
