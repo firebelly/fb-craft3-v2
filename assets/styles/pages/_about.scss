@@ -49,8 +49,14 @@ body.page-about {
         @extend %semantic-list;
         @include p1;
       }
+      a:hover {
+        text-decoration: underline;
+      }
     }
     .person-bio {
+      a {
+        @include inline-link('red');
+      }
     }
 
     @include media-md {
