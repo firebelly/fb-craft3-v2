@@ -95,6 +95,8 @@
     }
 
     @include media-lg {
+      padding-bottom: 42px;
+
       .figure {
         @include h1-sans;
       }
