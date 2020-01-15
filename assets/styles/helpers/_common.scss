@@ -130,7 +130,7 @@ h4.lined {
 }
 // Rollover states for non-touch (was requiring double-tap to open projects on ipads)
 body:not(.-is-touch) {
-  .thumbnail-grid .project:hover {
+  .thumbnail-grid article:hover {
     .rollover-image img:nth-child(2) {
       opacity: 1;
     }
