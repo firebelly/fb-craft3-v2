@@ -62,6 +62,7 @@ h4.lined {
     text-align: right;
     a {
       @include p1;
+      text-decoration: underline;
       &:hover {
         color: color('red');
         text-decoration: underline;

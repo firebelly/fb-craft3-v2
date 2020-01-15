@@ -2,17 +2,21 @@
 {% set thumbnailImageHover = entry.thumbnailImage|length > 1 ? entry.thumbnailImage[1] : thumbnailImage %}
 {% set orientation = orientationOverride ?? entry.thumbnailOrientation %}
 
+{# todo: srcset these motherfunkers! #}
 {% if thumbnailImage %}
   {% if orientation == 'portrait' %}
-    {% set transformedImage = craft.imager.transformimage(thumbnailImage, { width: 1116, height: 1504, mode: 'crop' }) %}
-    {% set transformedImageHover = craft.imager.transformimage(thumbnailImageHover, { width: 1116, height: 1504, mode: 'crop' }) %}
+    {% set transformedImage = craft.imager.transformImage(thumbnailImage, { width: 1116, height: 1504, mode: 'crop' }) %}
+    {% set transformedImageHover = craft.imager.transformImage(thumbnailImageHover, { width: 1116, height: 1504, mode: 'crop' }) %}
+  {% elseif orientation == 'fullWidth' %}
+    {% set transformedImage = craft.imager.transformImage(thumbnailImage, { width: 1728, height: 972, mode: 'crop' }) %}
+    {% set transformedImageHover = craft.imager.transformImage(thumbnailImageHover, { width: 1728, height: 972, mode: 'crop' }) %}
   {% else %}
-    {% set transformedImage = craft.imager.transformimage(thumbnailImage, { width: 1116, height: 640, mode: 'crop' }) %}
-    {% set transformedImageHover = craft.imager.transformimage(thumbnailImageHover, { width: 1116, height: 640, mode: 'crop' }) %}
+    {% set transformedImage = craft.imager.transformImage(thumbnailImage, { width: 1116, height: 640, mode: 'crop' }) %}
+    {% set transformedImageHover = craft.imager.transformImage(thumbnailImageHover, { width: 1116, height: 640, mode: 'crop' }) %}
   {% endif %}
 {% endif %}
 
-<article class="ideas {{ entry.thumbnailOrientation == 'fullWidth' ? 'nav-full' : 'col-nav-1-2' }} -reveal">
+<article class="ideas {{ entry.thumbnailOrientation == 'fullWidth' ? 'col-nav-full' : 'col-nav-1-2' }} -reveal">
   {% if transformedImage is defined %}
     <a class="-inner js-cursor" href="{{ entry.getUrl() }}">
       <div class="rollover-image">

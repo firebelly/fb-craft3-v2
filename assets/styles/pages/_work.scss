@@ -15,6 +15,17 @@ body.page-work {
 
     .services-nav {
       @extend %semantic-list;
+
+      li.-active {
+        a {
+          color: color('red');
+
+          svg {
+            fill: color('red');
+          }
+        }
+      }
+
       a {
         display: inline-block;
         position: relative;
@@ -66,12 +77,9 @@ body.page-work {
       width: auto;
       border: none;
       top: $header-md;
+      padding-top: 28px;
       right: $padding-lg;
       height: calc(100% - #{$header-md});
-
-      > .inner {
-        padding-bottom: $padding-lg;
-      }
 
       .close-modal {
         right: 98px;

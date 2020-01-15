@@ -35,7 +35,7 @@
 .our-clients {
   padding: beat(1) 0;
   @include media-md {
-    padding: beat(8) 0;
+    padding: beat(8) 0 beat(16);
   }
 }
 
@@ -86,12 +86,21 @@
 }
 
 .industries {
-  li {
-    display: block;
-    padding: beat(1) 0;
+  margin-top: beat(7);
+  padding-bottom: beat(3);
+
+  ul {
+    li {
+      border: none;
+      display: block;
+      padding: beat(1) 0;
+    }
   }
 
   @include media-md {
+    margin-top: 0;
+    padding-bottom: beat(20);
+
     ul {
       padding: beat(8) 0 0;
       display: flex;
