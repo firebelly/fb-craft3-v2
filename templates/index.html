@@ -69,9 +69,9 @@
         <div class="thumbnail-grid">
           {% for featuredEntry in featuredWork %}
             {% if featuredEntry.type == 'project' %}
-              {% include 'work/_article' with { entry: featuredEntry, firstPost: loop.first } %}
+              {% include 'work/_article' with { entry: featuredEntry, orientationOverride: (loop.first ? 'portrait' : 'landscape') } %}
             {% elseif featuredEntry.type == 'ideasPost' %}
-              {% include 'ideas/_article' with { entry: featuredEntry, firstPost: loop.first } %}
+              {% include 'ideas/_article' with { entry: featuredEntry, orientationOverride: (loop.first ? 'portrait' : 'landscape') } %}
             {% endif %}
           {% endfor %}
         </div>
