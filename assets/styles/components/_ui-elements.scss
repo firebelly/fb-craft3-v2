@@ -106,6 +106,13 @@ a.button {
   }
 }
 
+// Show arrow cursor in mid-page-transition state between hiding "+ View" and new page showing via swup
+body.-cursor-default {
+  &,
+  a:hover {
+    cursor: default!important;
+  }
+}
 body.-cursor-active {
   &,
   a:hover {
