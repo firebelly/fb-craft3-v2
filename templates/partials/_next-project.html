@@ -17,10 +17,12 @@
 
 <nav class="pagination -next">
   {% if rolloverImages|length %}
-    <div class="rollover-images" data-num-images="{{ nextEntry.nextProjectImages|length }}">
-      {% for image in rolloverImages %}
+    <div class="rollover-images" data-num-images="{{ rolloverImages|length }}">
+      {% for image in rolloverImages[1:] %}
         <img src="{{ image.transformedImage.getUrl() }}" alt="{{ image.title }}">
       {% endfor %}
+      {# Put first image last because of CSS animator behavior #}
+      <img src="{{ rolloverImages|first.transformedImage.getUrl() }}" alt="{{ rolloverImages|first.title }}">
     </div>
   {% endif %}
 

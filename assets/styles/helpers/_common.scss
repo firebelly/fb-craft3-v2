@@ -114,10 +114,6 @@ h4.lined {
   h3 {
     @include h3;
     margin-top: beat(1);
-    a:hover {
-      color: color('red');
-      text-decoration: underline;
-    }
   }
 }
 
@@ -137,6 +133,10 @@ body:not(.-is-touch) {
   .thumbnail-grid .project:hover {
     .rollover-image img:nth-child(2) {
       opacity: 1;
+    }
+    h3 {
+      color: color('red');
+      text-decoration: underline;
     }
   }
 }
