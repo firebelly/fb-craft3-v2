@@ -32,7 +32,7 @@ export default {
         data: $form.serialize(),
         success: (response) => {
           if (response.success) {
-            $form.prop('disabled', true).find('fieldset, button').slideUp(250);
+            $form.prop('disabled', true).find('fieldset, button').velocity('slideUp', 250, 'easeOutCubic');
             $status.addClass('success').html(thanksHtml);
           } else {
             $status.addClass('error').html('Oh no! Something went wrong.<br>Please check everything and try again.');

@@ -39,7 +39,6 @@ export default {
     _initCustomCursor();
     _initBigClicky();
     _initSmoothScroll();
-    _initScrollToTop();
     _initSiteNav();
     _initBlobs();
     _initFlickity();
@@ -88,6 +87,7 @@ export default {
         $this.find('a.expand,a.collapse').on('click', (e) => {
           e.preventDefault();
           $this.toggleClass('active');
+          $this.find('.description').velocity(($this.is('.active') ? 'slideDown' : 'slideUp'), 500, 'easeOutCubic' );
         });
       });
     }
@@ -226,7 +226,7 @@ export default {
     // Smooth scroll to an element
     function _scrollBody(element, offset, duration, delay) {
       if (typeof duration === 'undefined' || duration === null) {
-        duration = 300;
+        duration = 500;
       }
 
       if ($(element).length) {
@@ -238,21 +238,14 @@ export default {
           complete: function(elements) {
             appState.isAnimating = false;
           }
-        }, 'easeOutSine');
+        }, 'easeOutCubic');
       }
     }
 
     function _initSmoothScroll() {
       $document.on('click.smoothScroll', '.smooth-scroll', function(e) {
         e.preventDefault();
-        _scrollBody($($(this).attr('href')));
-      });
-    }
-
-    function _initScrollToTop() {
-      $document.on('click.scrollToTop', '.scroll-to-top', function(e) {
-        e.preventDefault();
-        _scrollBody($body);
+        _scrollBody($(this.hash));
       });
     }
 
@@ -500,7 +493,7 @@ export default {
     });
 
     // Remove custom event watchers
-    $document.off('mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.scrollToTop click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms');
+    $document.off('mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms');
 
     // Remove vimeo players
     $.each(vimeoPlayers, function(){
