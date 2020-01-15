@@ -17,20 +17,18 @@
 }
 
 // Animated white bg hover for user-content links
-@mixin inline-link($color:'white', $slide-target:'&') {
-  #{$slide-target} {
-    background-image: linear-gradient(to top, color(#{$color}) 0%, color(#{$color}) 100%);
-    background-repeat: no-repeat;
-    background-size: 100% 0%;
-    background-position: bottom;
-    text-decoration: underline;
-    transition: background-size 0.2s;
-  }
+@mixin inline-link($hover-bg:'red', $hover-color:'white') {
+  background-color: rgba(color($hover-bg), 0);
+  transition: all 0.1s;
+
   &:hover,
   &:focus {
-    #{$slide-target} {
-      background-size: 100% 100%;
-      transition-delay: 0s;
+    color: color($hover-color);
+    border-color: color($hover-color);
+    background-color: rgba(color($hover-bg), 1);
+    box-shadow: .2em .1em 0 rgba(color($hover-bg), 1), -.2em .1em 0 rgba(color($hover-bg), 1), -.2em 0 0 rgba(color($hover-bg), 1), .2em 0 0 rgba(color($hover-bg), 1);
+    svg {
+      fill: color($hover-color);
     }
   }
 }
@@ -50,8 +48,11 @@
   color: $secondary;
   border: 1px solid $primary;
   background-color: $primary;
+  transition: all 0.1s;
+  cursor: pointer;
 
   svg {
+    transition: all 0.1s;
     fill: $secondary;
   }
 
@@ -72,8 +73,12 @@
   color: $primary;
   border-color: $primary;
   background-color: transparent;
+  cursor: pointer;
+  transition: all 0.1s;
 
   svg {
+    transition: fill 0.1s;
+    transition: fill 0.1s;
     fill: $primary;
   }
 
