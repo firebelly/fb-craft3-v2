@@ -15,9 +15,7 @@
 
     {% case 'sectionHeader' %}
       {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
-      <div class="block-section-header">
-        <h3>{{ block.headline }}</h3>
-      </div>
+      {% include "blocks/_section-header" with { block: block } %}
 
     {% case 'spacer' %}
       <div class="block-spacer {{ block.size }}"></div>
