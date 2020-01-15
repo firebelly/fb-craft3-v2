@@ -36,6 +36,9 @@ body.nav-open {
     li {
       @include paragraph-style(32, 40, 0.01em, normal);
       position: relative;
+      a {
+        @include transition(color);
+      }
       a:hover,
       a:focus {
         color: color('red');

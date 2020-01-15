@@ -11,6 +11,7 @@
   }
 
   a {
+    @include transition(color);
     color: color('black');
     &:hover,
     &:focus {
