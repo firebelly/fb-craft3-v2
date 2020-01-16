@@ -6,6 +6,7 @@
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
 
 {% block content %}
+  {% cache unless currentUser %}
 
   {% include 'partials/_text-header' %}
 
@@ -15,4 +16,5 @@
 
   {% include 'about/_people-list' %}
 
+  {% endcache %}
 {% endblock %}

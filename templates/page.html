@@ -6,7 +6,11 @@
 {% set bodyClass = 'common-page' %}
 
 {% block content %}
+  {% cache unless currentUser %}
+
   {% include 'partials/_text-header' %}
 
   {% include 'blocks/_page-blocks' %}
+
+  {% endcache %}
 {% endblock %}
