@@ -106,7 +106,8 @@ a.button {
   }
 }
 
-// Show arrow cursor in mid-page-transition state between hiding "+ View" and new page showing via swup
+// Show arrow cursor in mid-page-transition state between hiding "+"
+// and new page showing via swup (felt like page was frozen)
 body.-cursor-default {
   &,
   a:hover {

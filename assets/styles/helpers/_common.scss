@@ -93,7 +93,8 @@ h4.lined {
       li {
         @include small-titles;
         display: inline-block;
-        a:hover {
+        a:hover,
+        a:focus {
           color: color('red');
         }
       }
