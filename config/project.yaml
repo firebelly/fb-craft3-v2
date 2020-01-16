@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1579204035
+dateModified: 1579210670
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -644,9 +644,9 @@ fields:
     contentColumnType: text
     fieldGroup: d2d1260a-da85-41ec-8e8a-c16e376cf34f
   ae9536dc-70b1-4e78-b8a8-eff55a877bb7:
-    name: 'Featured Work'
+    name: 'Featured Work + Ideas'
     handle: featuredWork
-    instructions: 'Projects to be displayed in a list at the bottom of the homepage layout'
+    instructions: 'Up to 5 Work and/or Ideas posts to be displayed at the bottom of the homepage'
     searchable: true
     translationMethod: site
     translationKeyFormat: null
