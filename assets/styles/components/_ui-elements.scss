@@ -119,28 +119,31 @@ body.-cursor-active {
     cursor: none;
   }
   #cursor {
-    display: block;
+    opacity: 1;
+    @include transition(opacity, 0.5s);
   }
 }
 #cursor {
   top: 0;
   left: 0;
-  z-index: z(cursor);
-  display: none;
+  opacity: 0;
   position: fixed;
-  margin-top: -50px;
-  margin-left: -50px;
+  margin-top: -56px;
+  z-index: z(cursor);
+  margin-left: -56px;
   pointer-events: none;
 
   // Default view cursor
   width: 112px;
-  height: 151px;
+  height: 112px;
   mix-blend-mode: exclusion;
   background: url('/assets/dist/images/view-cursor.svg');
 
   &.previous {
     width: 100px;
     height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
     mix-blend-mode: difference;
     background-image: url('/assets/dist/images/left-arrow-v2.svg');
     background-size: 100px 100px;
@@ -148,6 +151,8 @@ body.-cursor-active {
   &.next {
     width: 100px;
     height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
     mix-blend-mode: difference;
     background-image: url('/assets/dist/images/right-arrow-v2.svg');
     background-size: 100px 100px;
