@@ -34,6 +34,8 @@ body.page-about {
   // Modals
   .modal {
     .person-info {
+      margin-bottom: beat(3);
+
       img {
         filter: grayscale(100%);
       }
@@ -63,6 +65,7 @@ body.page-about {
 
     @include media-md {
       .person-info {
+        margin-bottom: 0;
         .image {
           padding-bottom: beat(6);
         }
