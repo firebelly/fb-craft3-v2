@@ -11,7 +11,7 @@
 
   // More inline header spacing
   .block-text.user-content {
-    p + h3 {
+    * + h3 {
       margin-top: beat(3);
     }
   }
