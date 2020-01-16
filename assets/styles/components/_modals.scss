@@ -36,6 +36,13 @@
       height: 39px;
       display: block;
       fill: color('white');
+      @include transition(fill);
+    }
+    &:hover,
+    &:focus {
+      svg {
+        fill: color('red');
+      }
     }
 
     @include media-md {

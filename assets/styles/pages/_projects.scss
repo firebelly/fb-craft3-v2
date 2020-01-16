@@ -19,7 +19,7 @@
 // Single project
 .single-project {
   // For color change blocks that change bg + text colors
-  transition: all 0.5s;
+  @include transition(all);
 }
 body.page-project {
   .portfolio {

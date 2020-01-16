@@ -8,6 +8,7 @@
 {% endif %}
 
 {% block content %}
+  {% cache unless currentUser %}
 
   <article class="ideas clearfix">
 
@@ -29,4 +30,5 @@
 
   {% include 'partials/_pagination' with { 'paginationSection': 'ideas' } %}
 
+  {% endcache %}
 {% endblock %}

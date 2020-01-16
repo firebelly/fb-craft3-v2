@@ -3,17 +3,14 @@
 {% set title = entry.title %}
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
+{% set bodyClass = 'common-page' %}
 
 {% block content %}
-  <article class="clearfix">
-    <div class="container">
+  {% cache unless currentUser %}
 
-      <header class="section-title">
-        <h1>{{ entry.title }}</h1>
-      </header>
-      <section class="summary user-content">
-        {{ entry.body }}
-      </section>
-    </div>
-  </article>
+  {% include 'partials/_text-header' %}
+
+  {% include 'blocks/_page-blocks' %}
+
+  {% endcache %}
 {% endblock %}

@@ -4,7 +4,7 @@
 .-reveal {
   opacity: 0;
   transform: translate3d(0, 40px, 0);
-  transition: opacity 1s ease-out, transform .5s ease-out;
+  transition: opacity 1s ease-out, transform 0.5s ease-out;
 
   @include media-md {
     transform: translate3d(0, 60px, 0);
@@ -93,7 +93,8 @@ h4.lined {
       li {
         @include small-titles;
         display: inline-block;
-        a:hover {
+        a:hover,
+        a:focus {
           color: color('red');
         }
       }

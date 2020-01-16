@@ -29,6 +29,7 @@
 {% endif %}
 
 {% block content %}
+  {% cache unless currentUser %}
 
   {% include 'partials/_text-header' %}
 
@@ -58,4 +59,5 @@
     </nav>
   {% endif %}
 
+  {% endcache %}
 {% endblock %}
