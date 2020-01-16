@@ -18,10 +18,15 @@ $logo-sm-w: 32px;
 $logo-lg-w: 49px;
 
 .logo-wordmark {
-  top: 24px;
-  left: 57px;
+  top: 14px;
+  left: 47px;
   position: fixed;
   z-index: z(header);
+  transition: opacity 0.2s;
+  a {
+    display: block;
+    padding: 10px;
+  }
 
   svg {
     width: 88px;
@@ -31,8 +36,8 @@ $logo-lg-w: 49px;
   }
 
   @include media-nav {
-    top: 104px;
-    left: 61px;
+    top: 74px;
+    left: 51px;
     pointer-events: none;
     transform: rotate(90deg);
     mix-blend-mode: difference;

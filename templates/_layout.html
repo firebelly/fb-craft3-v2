@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 
-{% include '/partials/_head' %}
+{% include 'partials/_head' %}
 {% if entry is defined and craft.app.request.getSegment(1) %}
   {% set pageClass = (bodyClass is defined and bodyClass matches '/page\-/') ? '' : 'page-' ~ craft.app.request.getSegment(1) %}
 {% else %}
@@ -18,16 +18,16 @@
       {% endif %}
 
       <{{ craft.app.request.getUrl() == '/' ? 'h1' : 'div' }} id="logo">
-        <a href="/"><span class="visually-hidden">Firebelly</span>{% include '/partials/_logo' %}</a>
+        <a href="/"><span class="visually-hidden">Firebelly</span>{% include 'partials/_logo' %}</a>
       </{{ craft.app.request.getUrl() == '/' ? 'h1' : 'div' }}>
 
-      {% include "/partials/_sitenav" %}
+      {% include 'partials/_sitenav' %}
 
       <button id="nav-open" type="button" class="nav-toggle open">Menu</button>
     </div>
   </header>
 
-  {% include "/partials/_wordmark" %}
+  {% include 'partials/_wordmark' %}
 
   {% include 'partials/_flash' %}
 
@@ -45,7 +45,7 @@
 
   </main>
 
-  {% include "/partials/_footer" %}
+  {% include 'partials/_footer' %}
 
   <div id="cursor"></div>
 </body>
