@@ -4,7 +4,7 @@
   {% set entry = craft.entries.section('workIndex').one() %}
 {% endif %}
 
-{% set title = entry.title %}
+{% set title = 'Work' %}
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
 {% set bodyClass = 'with-blobs' %}

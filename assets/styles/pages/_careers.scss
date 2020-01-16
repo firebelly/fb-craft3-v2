@@ -5,7 +5,13 @@ body.page-careers {
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    // padding: 0 $padding-sm;
+    h2,
+    .intro {
+      @include transition(color);
+    }
+    svg {
+      @include transition(fill);
+    }
     &:not(.active):hover {
       color: color('red');
       cursor: pointer;
