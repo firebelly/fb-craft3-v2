@@ -85,7 +85,7 @@ $logo-lg-w: 49px;
   }
 
   @include media-nav {
-    top: 32px;
+    top: 25px;
     left: $padding-lg - ($logo-lg-w / 2);
 
     .logo-svg {

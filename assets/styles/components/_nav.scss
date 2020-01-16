@@ -63,8 +63,9 @@ body.nav-open {
     border: none;
     display: block;
     transform: none;
-    padding: 40px 0 $padding-md;
+    height: $header-md;
     right: $padding-lg;
+    padding: $padding-md 0 0;
     background-color: transparent;
     &::before {
       content: '';

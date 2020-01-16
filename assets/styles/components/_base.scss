@@ -78,6 +78,7 @@ body {
 }
 
 a {
+  @include transition(color);
   color: inherit;
   text-decoration: none;
   &:visited {

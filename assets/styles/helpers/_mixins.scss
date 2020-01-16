@@ -1,8 +1,8 @@
 // Mixins
 
 // Global UI Transition
-@mixin transition($property) {
-  transition-duration: $transition-duration;
+@mixin transition($property, $duration: $transition-duration) {
+  transition-duration: $duration;
   transition-timing-function: $transition-easing;
   transition-property: $property;
 }

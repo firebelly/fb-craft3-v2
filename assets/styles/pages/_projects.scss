@@ -7,9 +7,9 @@
 // Filter block
 .top-section-header {
   .filter-links {
-    padding: beat(1) 0;
+    padding: beat(1) 0 60px;
   }
-  @include media-md {
+  @include media-nav {
     .filter-links {
       padding: beat(1) 0 beat(4);
     }
@@ -37,14 +37,15 @@ body.page-project {
     h4 {
       @include small-titles;
     }
-    .visit-website {
-      padding-top: beat(2);
-    }
 
     // Desktop styles
     @include media-md {
       margin: 0;
       padding: beat(7) 0;
+
+      .visit-website {
+        padding-top: beat(2);
+      }
     }
 
     .project-meta {
