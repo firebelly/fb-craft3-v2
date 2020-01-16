@@ -44,10 +44,6 @@
                 <label for="from-email">Email</label>
                 <input required id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}" placeholder="Email">
                 {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
-                <ul class="errors">
-                  <li>This field is required.</li>
-                </ul>
-
               </div>
             </div>
             <div class="col-md-1-2">
