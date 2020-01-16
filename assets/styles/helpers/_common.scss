@@ -73,6 +73,8 @@ h4.lined {
 
 // Thumbnail grid (project/ideas)
 .thumbnail-grid {
+  align-items: flex-start;
+
   .project {
     .project-image {
       img {
