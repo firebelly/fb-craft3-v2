@@ -30,7 +30,8 @@ body.page-careers {
       right: $padding-sm / 2;
       border-bottom: 1px solid color('black');
     }
-    a[href="#"] {
+    a.expand,
+    a.collapse {
       display: block;
       position: absolute;
       width: 60px;
@@ -48,14 +49,12 @@ body.page-careers {
       height: 40px;
     }
 
+    // Initial state before expanded
     a.collapse {
       display: none;
     }
 
-    a.collapse,
-    a.expand {
-      background: none;
-    }
+    // Hide description to start
     .description {
       display: none;
       opacity: 0;
@@ -63,6 +62,7 @@ body.page-careers {
       @include transition(opacity);
     }
 
+    // Accordion expanded
     &.active {
       .description {
         opacity: 1;
@@ -86,6 +86,11 @@ body.page-careers {
       }
       .intro {
         padding: beat(2) 140px 0 0;
+      }
+      a.expand,
+      a.collapse {
+        top: 92px;
+        right: 24px;
       }
       &::after {
         left: $padding-sm * 2;
