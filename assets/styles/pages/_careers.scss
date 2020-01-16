@@ -5,7 +5,17 @@ body.page-careers {
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    padding: 0 $padding-sm;
+    // padding: 0 $padding-sm;
+    &:not(.active):hover {
+      color: color('red');
+      cursor: pointer;
+      .intro {
+        text-decoration: underline;
+      }
+      svg {
+        fill: color('red');
+      }
+    }
     h2 {
       @include h1-sans;
     }
@@ -16,21 +26,17 @@ body.page-careers {
       content: '';
       position: absolute;
       bottom: 0;
-      left: $padding-sm;
-      right: $padding-sm;
+      left: $padding-sm / 2;
+      right: $padding-sm / 2;
       border-bottom: 1px solid color('black');
-    }
-    .intro {
-      position: relative;
-      padding: beat(2) 140px 0 0;
     }
     a[href="#"] {
       display: block;
       position: absolute;
       width: 60px;
       height: 60px;
-      top: 25px;
-      right: 10px;
+      top: 5px;
+      right: 0;
       padding: 10px;
       &:hover svg {
         fill: color('red');
@@ -43,7 +49,6 @@ body.page-careers {
     }
 
     a.collapse {
-      top: 25px;
       display: none;
     }
 
@@ -76,11 +81,11 @@ body.page-careers {
     .position {
       margin-left: -#{$padding-md / 2};
       width: calc(100% + #{$padding-md});
-      a.collapse {
-        // top: 20px;
-      }
       > .-inner {
         padding: beat(8) #{$padding-lg * 1} 0 #{$padding-lg * 2};
+      }
+      .intro {
+        padding: beat(2) 140px 0 0;
       }
       &::after {
         left: $padding-sm * 2;
