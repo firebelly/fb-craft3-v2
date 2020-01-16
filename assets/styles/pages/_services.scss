@@ -2,9 +2,11 @@
 
 .services-list {
   li {
-    &,
+    & {
+      @include transition(color);
+    }
     svg {
-      @include transition(all);
+      @include transition(fill);
     }
     .label {
       padding-right: 150px;

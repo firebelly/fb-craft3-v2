@@ -8,7 +8,6 @@
   position: fixed;
   height: $header-sm;
   background-color: color('white');
-  transition: padding .4s $cubic-ease1, top .3s ease-out, background .2s ease-out;
   @include media-nav {
     height: $header-md;
   }
@@ -22,7 +21,7 @@ $logo-lg-w: 49px;
   left: 47px;
   position: fixed;
   z-index: z(header);
-  transition: opacity 0.2s;
+  @include transition(opacity);
   a {
     display: block;
     padding: 10px;
@@ -65,7 +64,7 @@ $logo-lg-w: 49px;
   svg {
     opacity: 1;
     fill: color('black');
-    transition: opacity .3s ease-out;
+    @include transition(opacity)
   }
 
   .logo-svg {
