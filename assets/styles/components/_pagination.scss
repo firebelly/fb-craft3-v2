@@ -230,11 +230,19 @@
 
   // Mobile only styles
   &.-next-prev {
+    .padded {
+      display: block;
+      position: relative;
+    }
     a {
       position: relative;
     }
+    .icon-big-arrow {
+      top: -10px;
+    }
     .link {
       @include small-titles;
+      margin-bottom: 45px;
     }
     .title {
       // Make sure arrows line up ok with small titles
@@ -244,18 +252,26 @@
     a[rel="prev"] {
       display: none;
     }
+    &.no-next {
+      a[rel="prev"] {
+        display: block;
+      }
+    }
+    a[rel="prev"] {
+      .padded {
+        padding-left: 120px;
+      }
+      .icon-big-arrow {
+        left: 0;
+        transform: rotate(180deg);
+      }
+    }
     a[rel="next"] {
       .padded {
-        display: block;
-        position: relative;
         padding-right: 120px;
       }
       .icon-big-arrow {
         right: 0;
-        top: -10px;
-      }
-      .link {
-        margin-bottom: 45px;
       }
     }
 
@@ -266,6 +282,9 @@
       a {
         height: 100%;
       }
+      .link {
+        margin: 0;
+      }
       a[rel="prev"] {
         display: block;
         .padded {
@@ -275,16 +294,12 @@
         .icon-big-arrow {
           left: 0;
           right: auto;
-          transform: rotate(180deg);
         }
       }
       a[rel="next"] {
         .padded {
           padding-right: 170px;
           padding-left: columns(1.5, 8);
-        }
-        .link {
-          margin: 0;
         }
         .icon-big-arrow {
           top: auto;
