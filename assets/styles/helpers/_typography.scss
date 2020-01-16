@@ -75,6 +75,10 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@mixin smooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 /// Mixin to allow us to concisely define all aspects of a paragraph style (except for family.)
 /// @param {number} $size - Font size specified in pixels (without 'px')

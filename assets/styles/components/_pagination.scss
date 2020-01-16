@@ -14,70 +14,13 @@
 
 // Shared pagination styles
 .pagination {
-  @include h1-sans;
+  position: relative;
   padding-top: beat(4);
   padding-bottom: beat(4);
-  position: relative;
 
-  // Next Project link styles
-  .rollover-images {
-    position: absolute;
-    top: beat(12);
-    left: 0;
-    width: columns(10);
-    opacity: 0;
-    @include transition(opacity);
-    img {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-    }
-  }
-
-  // Mobile only styles
-  &.-next-prev {
-    a {
-      position: relative;
-    }
-    .link {
-      @include small-titles;
-    }
-    .title {
-      // Make sure arrows line up ok with small titles
-      min-height: 80px;
-    }
-    // Hide previous link on mobile
-    a[rel="prev"] {
-      display: none;
-    }
-  }
-
-  @include media-md {
-    // Rollover slideshow in Next Project links
-    .rollover-images.hover {
-      opacity: 1;
-      // Support 2-5 images in nextProjectImages field
-      @for $j from 2 through 5 {
-        &[data-num-images="#{$j}"] {
-          img {
-            animation: imgRotator#{$j} #{0.6 * $j}s linear infinite;
-            @for $i from 0 through ($j - 1) {
-              &:nth-child(#{$j - $i}) {
-                animation-delay: #{(-0.6 * $i)}s;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
+  //  Begin Common Styles
   a {
     display: block;
-    @include transition(color);
     &[rel="prev"] {
       text-align: right;
     }
@@ -86,27 +29,16 @@
       display: block;
     }
     .title {
-      display: block;
       @include p1;
-    }
-
-    // Next Project styles
-    .project-title {
-      @include small-titles;
-      align-self: flex-end;
-      opacity: 0;
-      color: color('red');
-      position: relative;
-      @include transition(opacity);
-      .subtitle {
-        display: block;
-        padding-top: beat(1);
-        @include p1;
-        text-decoration: underline;
-      }
+      display: block;
+      text-decoration: underline;
     }
 
     @include media-md {
+      .title {
+        text-decoration: none;
+      }
+
       &:hover {
         color: color('red');
         .title {
@@ -128,19 +60,21 @@
     background-size: 16px 1px;
     padding-top: beat(3);
   }
+
   .icon-big-arrow {
-    display: block;
-    position: absolute;
+    right: 0;
+    top: auto;
+    bottom: 0;
     width: 81px;
     height: 45px;
-    bottom: 0;
-    right: 0;
+    display: block;
+    position: absolute;
     @include transition(fill);
   }
 
   @include media-md {
     padding-top: 0;
-    padding-bottom: beat(12);
+    padding-bottom: beat(7);
 
     .icon-big-arrow {
       width: 162px;
@@ -150,16 +84,182 @@
     .container {
       position: relative;
       padding-top: beat(15);
-      padding-bottom: beat(2);
     }
     a {
       .title {
         padding-top: beat(1);
       }
     }
+  }
 
-    // Next/prev styles (single Ideas posts)
-    &.-next-prev {
+  @include media-nav {
+    padding-bottom: beat(12);
+  }
+  // End Common Styles
+
+  // Next page (only) for Ideas index
+  &.-next-page {
+    @include h1-sans;
+  }
+
+  // Next Project (single Work posts)
+  &.-next-project {
+    .grid {
+      display: block;
+      padding-right: 120px;
+    }
+    .label {
+      @include small-titles;
+      margin-bottom: 45px;
+      br {
+        display: none;
+      }
+    }
+    .icon-big-arrow {
+      top: -10px;
+    }
+    .project-title {
+      @include p1;
+      @include transition(opacity);
+      position: relative;
+      align-self: flex-end;
+      text-decoration: underline;
+      .subtitle {
+        display: block;
+      }
+    }
+
+    @include media-md {
+      padding-bottom: beat(13);
+
+      .grid {
+        padding: 0;
+        display: flex;
+      }
+      .label {
+        @include h1-sans;
+        margin-bottom: 0;
+        br {
+          display: block;
+        }
+      }
+      .icon-big-arrow {
+        top: auto;
+        bottom: 0;
+      }
+      .project-title {
+        @include smooth;
+        @include paragraph-style(10, 24, 0.075em, bold, uppercase);
+        opacity: 0;
+        color: color('red');
+        text-decoration: none;
+        .colon {
+          display: none;
+        }
+        .subtitle {
+          @include p1;
+          display: block;
+          padding-top: beat(1);
+          text-decoration: underline;
+        }
+      }
+    }
+
+    @include media-nav {
+      .project-title {
+        @include smooth;
+        @include paragraph-style(12, 24, 0.075em, bold, uppercase);
+      }
+    }
+  }
+
+  // Rollover Images
+  .rollover-images {
+    @include transition(opacity);
+    left: 0;
+    opacity: 0;
+    top: beat(12);
+    bottom: beat(9);
+    overflow: hidden;
+    position: absolute;
+    width: calc(50% - #{$padding-md / 2});
+    img {
+      top: 0;
+      left: 0;
+      width: auto;
+      height: 100%;
+      display: block;
+      max-width: none;
+      position: absolute;
+    }
+
+    @include media-md {
+      // Rollover slideshow in Next Project links
+      &.hover {
+        opacity: 1;
+        // Support 2-5 images in nextProjectImages field
+        @for $j from 2 through 5 {
+          &[data-num-images="#{$j}"] {
+            img {
+              animation: imgRotator#{$j} #{0.6 * $j}s linear infinite;
+              @for $i from 0 through ($j - 1) {
+                &:nth-child(#{$j - $i}) {
+                  animation-delay: #{(-0.6 * $i)}s;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include media-nav {
+      width: 51%;
+    }
+
+    @include media-xl {
+      width: 50%;
+      bottom: auto;
+      overflow: visible;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  // Mobile only styles
+  &.-next-prev {
+    a {
+      position: relative;
+    }
+    .link {
+      @include small-titles;
+    }
+    .title {
+      // Make sure arrows line up ok with small titles
+      min-height: 80px;
+    }
+    // Hide previous link on mobile
+    a[rel="prev"] {
+      display: none;
+    }
+    a[rel="next"] {
+      .padded {
+        display: block;
+        position: relative;
+        padding-right: 120px;
+      }
+      .icon-big-arrow {
+        right: 0;
+        top: -10px;
+      }
+      .link {
+        margin-bottom: 45px;
+      }
+    }
+
+    @include media-md {
       .padded {
         display: block;
       }
@@ -173,15 +273,21 @@
           padding-right: columns(1.5, 8);
         }
         .icon-big-arrow {
-          right: auto;
           left: 0;
+          right: auto;
           transform: rotate(180deg);
         }
       }
       a[rel="next"] {
         .padded {
-          padding-left: columns(1.5, 8);
           padding-right: 170px;
+          padding-left: columns(1.5, 8);
+        }
+        .link {
+          margin: 0;
+        }
+        .icon-big-arrow {
+          top: auto;
         }
       }
     }

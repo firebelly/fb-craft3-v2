@@ -6,7 +6,7 @@ export default {
     _initTypeTester();
 
     // Add hover class to rollover images on hover for Next Project links
-    $('.pagination.-next').each(function() {
+    $('.pagination.-next-project').each(function() {
       let $this = $(this);
       let $rolloverImages = $this.find('.rollover-images');
       $this.find('a').hover(function() {
