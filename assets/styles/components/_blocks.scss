@@ -20,7 +20,7 @@
     padding: beat(1) #{$padding-sm / 2};
   }
   .block-section-header {
-    padding: 0 #{$padding-sm / 2};
+    padding: beat(3) #{$padding-sm / 2} beat(2);
   }
 
   // Text inside image blocks
