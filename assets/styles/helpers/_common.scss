@@ -59,14 +59,19 @@ h4.lined {
 // Filter sections below text/image headers
 .top-section-header {
   .filter-links {
-    text-align: right;
     a {
-      @include p1;
+      @include paragraph-style(24, 32, 0.015em);
       text-decoration: underline;
       &:hover {
         color: color('red');
         text-decoration: underline;
       }
+    }
+  }
+
+  @include media-nav {
+    .filter-links {
+      text-align: right;
     }
   }
 }
@@ -128,7 +133,7 @@ h4.lined {
     top: 0;
     left: 0;
     opacity: 0;
-    @include transition(opacity);
+    @include transition(opacity, 0.5s);
   }
 }
 // Rollover states for non-touch (was requiring double-tap to open projects on ipads)
