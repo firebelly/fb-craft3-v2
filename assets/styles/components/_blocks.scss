@@ -56,7 +56,9 @@
 
 .block-quote {
   &.rightAligned {
-    text-align: right;
+    @include media-md {
+      text-align: right;
+    }
   }
 }
 
