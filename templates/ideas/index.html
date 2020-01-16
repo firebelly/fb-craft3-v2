@@ -32,7 +32,7 @@
 
   {% include 'partials/_text-header' %}
 
-  <div class="container">
+  <div class="container" id="posts">
     <div class="block-section-header">
       <h3>Ideas</h3>
     </div>
@@ -47,7 +47,7 @@
     <nav class="pagination -next">
       <div class="container">
         <div class="-inner">
-          <a rel="next" href="{{ paginationInfo.nextUrl }}">
+          <a rel="next" href="{{ paginationInfo.nextUrl }}#posts">
             <span class="link">
               Next<br>Page <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg>
             </span>

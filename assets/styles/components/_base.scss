@@ -122,16 +122,21 @@ h3 {
 
 // Edit link
 .edit-link {
-  position: absolute;
-  top: 46px;
-  left: 120px;
-  transition: 0.2s opacity;
-  opacity: 0;
-  a {
-    transition: 0.2s color;
-    color: rgba(35,31,32,.5);
-    &:hover {
-      color: rgba(35,31,32,1);
+  display: none;
+
+  @include media-nav {
+    display: block;
+    position: absolute;
+    top: 46px;
+    left: 120px;
+    transition: 0.2s opacity;
+    opacity: 0;
+    a {
+      transition: 0.2s color;
+      color: rgba(35,31,32,.5);
+      &:hover {
+        color: rgba(35,31,32,1);
+      }
     }
   }
 }

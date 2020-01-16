@@ -4,11 +4,9 @@
 body.nav-open {
   #logo {
     z-index: z(nav) + 10;
-    #logo-wordmark {
-      opacity: 0;
-    }
   }
-  canvas {
+  .logo-wordmark,
+  #blobs {
     opacity: 0;
   }
 }
@@ -50,7 +48,7 @@ body.nav-open {
   }
 
 
-  @include media-md {
+  @include media-nav {
     ul {
       li {
         @include paragraph-style(96, 96, 0.01em);
