@@ -83,7 +83,7 @@ body.page-homepage {
 
     .pagination {
       @include media-nav {
-        padding-bottom: $beat;
+        padding-bottom: beat(2);
       }
     }
   }
