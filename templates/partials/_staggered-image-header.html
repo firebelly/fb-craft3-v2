@@ -9,14 +9,14 @@
   <div class="container">
     <h4 class="lined">{{ header.headline }}</h4>
     <div class="grid spaced">
-      <div class="main-image col-md-1-2">
-        {% if transformedMainImage %}
-          <img class="-reveal" src="{{ transformedMainImage.getUrl() }}" alt="{{ header.mainImage.title }}">
-        {% endif %}
-      </div>
       <div class="secondary-image col-md-1-2">
         {% if transformedMainImage %}
           <img class="-reveal" src="{{ transformedSecondaryImage.getUrl() }}" alt="{{ header.secondaryImage.title }}">
+        {% endif %}
+      </div>
+      <div class="main-image col-md-1-2">
+        {% if transformedMainImage %}
+          <img class="-reveal" src="{{ transformedMainImage.getUrl() }}" alt="{{ header.mainImage.title }}">
         {% endif %}
       </div>
     </div>
