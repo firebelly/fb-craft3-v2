@@ -48,7 +48,13 @@
 
   // Smaller bullets than "disc" on lists
   ul {
-    padding: 0;
+    // Make • flush left on mobile
+    padding: 0 0 0 1em;
+
+    // Make • hanging left on desktop
+    @include media-md {
+      padding: 0;
+    }
     li {
       list-style-type: none;
       position: relative;
