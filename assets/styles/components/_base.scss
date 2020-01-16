@@ -24,6 +24,7 @@ body {
 
 body {
   position: relative;
+  background: color('white');
   color: color('black');
   box-sizing: border-box;
   padding-top: $header-sm; // making room for the fixed header
@@ -32,17 +33,6 @@ body {
 
   @include media-nav {
     padding-top: $header-md;
-
-    &::after {
-      top: 0;
-      right: 0;
-      bottom: 0;
-      z-index: z(edge);
-      content: '';
-      position: fixed;
-      width: $padding-lg;
-      background-color: color('white');
-    }
   }
 }
 
@@ -50,6 +40,7 @@ body {
   background-color: color('offwhite');
   border-left: 5px solid color('white');
   border-right: 5px solid color('white');
+
   @include media-nav {
     border: none;
     margin-right: 72px;
