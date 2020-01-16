@@ -7,7 +7,8 @@
       margin-top: beat(2);
     }
   }
-
+  ol,
+  ul,
   p {
     @include p2;
 
@@ -41,7 +42,7 @@
       line-height: 1.375em;
       list-style: disc;
       + li {
-        margin-top: 0;
+        margin-top: 0.5em;
       }
     }
   }
@@ -66,7 +67,7 @@
         left: -1em;
       }
       + li {
-        margin-top: 0;
+        margin-top: 0.5em;
       }
     }
   }

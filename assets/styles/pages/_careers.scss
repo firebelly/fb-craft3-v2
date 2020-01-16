@@ -25,6 +25,8 @@ body.page-careers {
     h2 {
       @include h1-sans;
     }
+    ol,
+    ul,
     p {
       @include p2;
     }

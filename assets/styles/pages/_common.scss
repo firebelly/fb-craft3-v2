@@ -1,0 +1,18 @@
+// Common page styles
+
+// Basic page (currently just /privacy-policy)
+.common-page {
+  // More compact header
+  .text-header {
+    @include media-md {
+      padding-bottom: beat(3);
+    }
+  }
+
+  // More inline header spacing
+  .block-text.user-content {
+    p + h3 {
+      margin-top: beat(3);
+    }
+  }
+}
