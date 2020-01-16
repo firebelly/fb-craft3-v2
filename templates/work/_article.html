@@ -32,9 +32,7 @@
       <ul class="services">
         {% for service in entry.services %}
           {% set service = service.service[0] %}
-          <li>
-            <a href="{{ service.getUrl() }}">{{ service.title }}</a>{{ not loop.last ? ',' }}
-          </li>
+          <li>{{ service.title }}{{ not loop.last ? ', ' }}</li>
         {% endfor %}
       </ul>
     {% endif %}
