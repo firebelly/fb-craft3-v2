@@ -24,6 +24,12 @@
         <div class="current-positions">
         {% for position in entry.positions.all() %}
           <div class="position accordion">
+            <a href="#" class="expand">
+              <svg class="icon icon-plus" aria-hidden="true"><use xlink:href="#icon-plus"/></svg>
+            </a>
+            <a href="#" class="toggle collapse">
+              <svg class="icon icon-minus" aria-hidden="true"><use xlink:href="#icon-minus"/></svg>
+            </a>
             <div class="block-text halfWidth">
               <div class="-inner">
                 <h2>{{ position.title }}</h2>
@@ -33,12 +39,6 @@
               <div class="-inner">
                 <div class="intro">
                   {{ position.positionInfo.intro }}
-                  <a href="#" class="expand">
-                    <svg class="icon icon-plus" aria-hidden="true"><use xlink:href="#icon-plus"/></svg>
-                  </a>
-                  <a href="#" class="collapse">
-                    <svg class="icon icon-minus" aria-hidden="true"><use xlink:href="#icon-minus"/></svg>
-                  </a>
                 </div>
                 <div class="description user-content">
                   {{ position.positionInfo.description }}
@@ -64,9 +64,11 @@
         <h3>Apprenticeship Program</h3>
       </div>
 
-      <div class="block-text user-content fullWidthPaddedLeft">
+      <div class="block-quote user-content fullWidthPaddedLeft">
         <div class="-inner">
-          {{ entry.apprenticeshipProgram.intro }}
+          <blockquote>
+            <p>{{ entry.apprenticeshipProgram.intro }}</p>
+          </blockquote>
         </div>
       </div>
 

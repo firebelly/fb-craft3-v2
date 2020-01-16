@@ -45,7 +45,6 @@ export default {
     _initVideos();
     _initForms();
     _initNewsletterForm();
-    _initAccordions();
 
     // Ajaxify newsletter form
     function _initNewsletterForm() {
@@ -76,18 +75,6 @@ export default {
               .fail(() => $status.addClass('error').text('There was an error subscribing. Please try again.'))
               .always(() => $form.removeClass('working'));
           }
-        });
-      });
-    }
-
-    // Simple accordions used on careers page
-    function _initAccordions() {
-      $('.accordion').each(function() {
-        let $this = $(this);
-        $this.find('a.expand,a.collapse').on('click', (e) => {
-          e.preventDefault();
-          $this.toggleClass('active');
-          $this.find('.description').velocity(($this.is('.active') ? 'slideDown' : 'slideUp'), 500, 'easeOutCubic' );
         });
       });
     }

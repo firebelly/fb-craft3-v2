@@ -1,7 +1,7 @@
 // Page headers
 
 .staggered-image-header {
-  padding-bottom: 128px;
+  padding-bottom: beat(2);
 
   @include media-nav {
     .main-image {

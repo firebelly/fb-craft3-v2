@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1579033813
+dateModified: 1579195950
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -4079,18 +4079,14 @@ superTableBlockTypes:
         searchable: true
         translationMethod: none
         translationKeyFormat: null
-        type: craft\redactor\Field
+        type: craft\fields\PlainText
         settings:
-          redactorConfig: Standard.json
-          purifierConfig: ''
-          cleanupHtml: true
-          removeInlineStyles: '1'
-          removeEmptyTags: '1'
-          removeNbsp: '1'
-          purifyHtml: '1'
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '2'
+          charLimit: ''
           columnType: text
-          availableVolumes: '*'
-          availableTransforms: '*'
         contentColumnType: text
         fieldGroup: null
       d1fe725b-a0fe-4932-a9cd-b20aeff2760d:

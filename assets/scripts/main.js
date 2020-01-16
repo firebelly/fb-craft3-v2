@@ -20,6 +20,7 @@ import project from './routes/project';
 import about from './routes/about';
 import work from './routes/work';
 import contact from './routes/contact';
+import careers from './routes/careers';
 
 const swup = new Swup({
   plugins: [
@@ -47,6 +48,7 @@ const routes = new Router({
   about,
   work,
   contact,
+  careers,
 });
 
 // Inits

@@ -54,6 +54,7 @@ body.page-about {
       }
     }
     .person-bio {
+      padding-bottom: 60px;
       a {
         @include inline-link('red');
       }

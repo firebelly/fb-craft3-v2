@@ -228,8 +228,7 @@ h2 {
   margin: 0;
 }
 h2.heading-large {
-  color: inherit;
-  font: 52px/1.07 $font-serif, sans-serif;
+  @include h2-serif;
 }
 
 h3 {
