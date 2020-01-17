@@ -63,8 +63,6 @@ export default {
                 if (data.result != 'success') {
                   if (data.msg.match(/already subscribed/)) {
                     $status.addClass('error').text('Oops! You’re already subscribed to our newsletter.');
-                  } else if (data.msg.match(/Too many subscribe attempts/)) {
-                    $status.addClass('error').text('You’ve tried too many times. Check your email to confirm.');
                   } else {
                     $status.addClass('error').text('Oops! ' + data.msg);
                   }
