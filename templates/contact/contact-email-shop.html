@@ -1,0 +1,16 @@
+{% extends "_email-layout" %}
+{% block content %}
+  <h2>New contact!</h2>
+
+  <h3>Name</h3>
+  {{ submission.fromName }}
+
+  <h3>Email</h3>
+  {{ submission.fromEmail }}
+
+  <h3>Organization</h3>
+  {{ submission.message["From Organization"] }}
+
+  <h3>Query</h3>
+  {{ submission.message["Query"] }}
+{% endblock %}

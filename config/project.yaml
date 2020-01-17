@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1579289359
+dateModified: 1579294946
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -307,6 +307,8 @@ fields:
       staticField: '1'
       columns:
         34a5f75e-3e0f-4152-8f58-0716a4127bc2:
+          width: ''
+        538acca9-6fb7-45a5-a7a8-8d5d7798fc6c:
           width: ''
         d55fe46e-1f0f-49ca-9699-76a225854940:
           width: ''
@@ -3260,10 +3262,10 @@ plugins:
     settings:
       enableDatabase: '1'
       enableTemplateOverwrite: '1'
-      enableConfirmationEmail: ''
-      notificationTemplate: contact/contact-email.html
-      confirmationTemplate: ''
-      confirmationSubject: ''
+      enableConfirmationEmail: '1'
+      notificationTemplate: contact/contact-email-shop.html
+      confirmationTemplate: contact/contact-email.html
+      confirmationSubject: 'Firebelly Contact'
       recaptcha: ''
       recaptchaVersion: ''
       recaptchaSiteKey: ''
@@ -4278,6 +4280,27 @@ superTableBlockTypes:
           columnType: text
         contentColumnType: text
         fieldGroup: null
+      538acca9-6fb7-45a5-a7a8-8d5d7798fc6c:
+        name: 'Note to Submitter'
+        handle: noteToSubmitter
+        instructions: 'Shown at top of confirmation email sent to submitter'
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: Standard.json
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: ''
+          availableTransforms: ''
+        contentColumnType: text
+        fieldGroup: null
       d55fe46e-1f0f-49ca-9699-76a225854940:
         name: 'To Email'
         handle: toEmail
@@ -4305,6 +4328,9 @@ superTableBlockTypes:
               34a5f75e-3e0f-4152-8f58-0716a4127bc2:
                 required: false
                 sortOrder: 2
+              538acca9-6fb7-45a5-a7a8-8d5d7798fc6c:
+                required: false
+                sortOrder: 3
               d55fe46e-1f0f-49ca-9699-76a225854940:
                 required: false
                 sortOrder: 1

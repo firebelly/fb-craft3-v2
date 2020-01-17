@@ -1,6 +1,17 @@
 {% extends "_email-layout" %}
+
+{% if entry is not defined %}
+  {% set entry = craft.entries.section('contact').one() %}
+{% endif %}
+
 {% block content %}
-  <h2>New contact!</h2>
+
+  {% if entry.contactFormOptions.noteToSubmitter %}
+    {{ entry.contactFormOptions.noteToSubmitter }}
+  {% else %}
+    <h2>Thanks so much!</h2>
+    <p>Your message has landed in our general mailbox and we do our best to respond to all messages within 24 hours on normal business days. If you need to reach us sooner, please give us a call Monday-Friday between 9am-5pm CST at 773-489-3200.</p>
+  {% endif %}
 
   <h3>Name</h3>
   {{ submission.fromName }}
