@@ -76,6 +76,9 @@ body.page-project {
       // Desktop styles
       @include media-md {
         margin-bottom: 0;
+        .project-summary {
+          margin: 0;
+        }
 
         > .-inner {
           padding: 0 0 0 columns(4, 8);
