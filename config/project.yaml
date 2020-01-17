@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1579221924
+dateModified: 1579289359
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -972,6 +972,34 @@ fields:
       selectionLabel: ''
     contentColumnType: string
     fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
+  eda76d5c-fc33-4224-bc43-f163bafe5593:
+    name: 'Share Image'
+    handle: shareImage
+    instructions: 'General share image used for pages with no inherent shareable image.'
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+      singleUploadLocationSubpath: ''
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources:
+        - 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+      source: null
+      targetSiteId: null
+      viewMode: list
+      limit: '1'
+      selectionLabel: ''
+      localizeRelations: false
+      validateRelatedElements: ''
+    contentColumnType: string
+    fieldGroup: 9ace857e-959b-4a74-b0e0-42873080c846
   f442e9c0-3dcf-45a3-8dac-3134afcea15b:
     name: 'Header Image Caption'
     handle: headerImageCaption
@@ -1022,6 +1050,20 @@ fields:
       contentTable: '{{%matrixcontent_endeavors}}'
     fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
     contentColumnType: string
+globalSets:
+  12b7a6d0-5005-42c1-8ec5-e14e69818bde:
+    name: 'Global SEO'
+    handle: globalSeo
+    fieldLayouts:
+      28f935c5-af4d-4e7b-a845-3055289751ee:
+        tabs:
+          -
+            name: Settings
+            sortOrder: 1
+            fields:
+              eda76d5c-fc33-4224-bc43-f163bafe5593:
+                required: false
+                sortOrder: 1
 imageTransforms:
   d13aab8e-a0af-4784-a02f-ba9b5c5a358e:
     name: Hero

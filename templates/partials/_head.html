@@ -15,11 +15,39 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Facebook/og meta -->
+  <meta property="fb:app_id" content="1675583716017779" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_us" />
+  <meta property="og:url" content="https://firebellydesign.com/" />
+  <meta property="og:site_name" content="{{ siteName }}" />
+  <meta property="og:title" content="{% if seoTitle is defined %}{{ seoTitle }}{% elseif title is defined %}{{ title }} | {{ siteName }}{% else %}{{ siteName }}{% endif %}" />
+  {% if seoDescription is defined %}
+  <meta name="description" content="{{ seoDescription }}">
+  {% endif %}
   {% if mainImage is defined %}
-    {% set transformedImage = craft.imager.transformImage(mainImage, { width: 1800 }) %}
-    <meta property="og:image" content="{{ transformedImage.getUrl() }}"/>
-  {% else %}
-    <meta property="og:image" content=""/>
+    {% set transformedImage = craft.imager.transformImage(mainImage, { width: 1200, height: 630, mode: 'crop' }) %}
+  <meta property="og:image" content="{{ transformedImage.getUrl() }}"/>
+  <meta property="og:image:type" content="image/jpeg" />
+  {% elseif globalSeo.shareImage %}
+    {% set transformedImage = craft.imager.transformImage(globalSeo.shareImage.first(), { width: 1200, height: 630, mode: 'crop' }) %}
+  <meta property="og:image" content="{{ transformedImage.getUrl() }}"/>
+  <meta property="og:image:type" content="image/jpeg" />
+  {% endif %}
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@firebellydesign" />
+  <meta name="twitter:creator" content="@firebellydesign" />
+  <meta name="twitter:title" content="{% if seoTitle is defined %}{{ seoTitle }}{% elseif title is defined %}{{ title }} | {{ siteName }}{% else %}{{ siteName }}{% endif %}" />
+  {% if seoDescription is defined %}
+  <meta name="twitter:description" content="{{ seoDescription }}">
+  {% endif %}
+  {% if mainImage is defined %}
+    {% set transformedImage = craft.imager.transformImage(mainImage, { width: 1200, height: 600, mode: 'crop' }) %}
+  <meta property="twitter:image" content="{{ transformedImage.getUrl() }}"/>
+  {% elseif globalSeo.shareImage %}
+    {% set transformedImage = craft.imager.transformImage(globalSeo.shareImage.first(), { width: 1200, height: 600, mode: 'crop' }) %}
+  <meta property="twitter:image" content="{{ transformedImage.getUrl() }}"/>
   {% endif %}
 
   <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
