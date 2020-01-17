@@ -84,6 +84,15 @@ body.page-careers {
     }
   }
 
+  // Mobile only styles
+  @include max-screen($breakpoint-md) {
+    .block-wrap {
+      .block-section-header {
+        padding: beat(3) #{$padding-sm / 2} beat(2);
+      }
+    }
+  }
+
   // Desktop styles
   @include media-md {
     .position {
