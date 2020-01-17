@@ -15,12 +15,13 @@
 // Shared pagination styles
 .pagination {
   position: relative;
-  padding-top: beat(4);
-  padding-bottom: beat(4);
+  padding-top: beat(1);
+  padding-bottom: beat(1);
 
   //  Begin Common Styles
   a {
     display: block;
+    padding: beat(3) 0;
     &[rel="prev"] {
       text-align: right;
     }
@@ -58,7 +59,6 @@
     // Custom longer-dashed border
     background: linear-gradient(to right, currentColor 0%, currentColor 50%, transparent 50%, transparent 100%) repeat-x left top;
     background-size: 16px 1px;
-    padding-top: beat(3);
   }
 
   .icon-big-arrow {
