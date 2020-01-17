@@ -31,6 +31,10 @@
     @include inline-link;
   }
 
+  a.button {
+    margin-top: beat(3);
+  }
+
   blockquote {
     @extend %blockquote;
   }
