@@ -31,6 +31,18 @@ body.page-about {
     }
   }
 
+  .section-cta {
+    .button {
+      width: 100%;
+    }
+    .grid {
+      padding: 0 0 beat(2);
+      @include media-md {
+        padding: 0 0 beat(3);
+      }
+    }
+  }
+
   // Modals
   .modal {
     .person-info {
