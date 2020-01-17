@@ -34,7 +34,8 @@ a.button {
       background-image: url('../images/arrow-black.svg');
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       &::before {
         opacity: 0;
       }
