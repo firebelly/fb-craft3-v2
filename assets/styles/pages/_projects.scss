@@ -43,6 +43,9 @@ body.page-project {
       margin: 0;
       padding: beat(7) 0;
 
+      .project-summary {
+        margin: 0;
+      }
       .visit-website {
         padding-top: beat(2);
       }
@@ -76,9 +79,6 @@ body.page-project {
       // Desktop styles
       @include media-md {
         margin-bottom: 0;
-        .project-summary {
-          margin: 0;
-        }
 
         > .-inner {
           padding: 0 0 0 columns(4, 8);
