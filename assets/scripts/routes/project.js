@@ -5,14 +5,16 @@ export default {
     // JavaScript to be fired on project pages
     _initTypeTester();
 
-    // Add hover class to rollover images on hover for Next Project links
-    $('.pagination.-next-project').each(function() {
-      let $this = $(this);
-      let $rolloverImages = $this.find('.rollover-images');
-      $this.find('a').hover(function() {
-        $rolloverImages.toggleClass('hover');
+    // Add hover class to rollover images on hover for Next Project links (if not touch)
+    if (!document.body.classList.contains('-is-touch')) {
+      $('.pagination.-next-project').each(function() {
+        let $this = $(this);
+        let $rolloverImages = $this.find('.rollover-images');
+        $this.find('a').hover(function() {
+          $rolloverImages.toggleClass('hover');
+        });
       });
-    });
+    }
 
     function _initTypeTester() {
       // If there's a type tester present

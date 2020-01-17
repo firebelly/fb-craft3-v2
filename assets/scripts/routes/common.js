@@ -30,7 +30,7 @@ export default {
     $siteNav = $('.site-nav');
     isTouchDevice = _isTouchDevice();
 
-    // Add is-touch class for styling (mostly to hide carousel pagination divs on ipads)
+    // Add is-touch class for styling (hide carousel pagination divs on ipads, no Next Project rollover images, etc)
     $body.toggleClass('-is-touch', isTouchDevice);
 
     // Run resize functions on load
