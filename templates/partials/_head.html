@@ -29,8 +29,8 @@
     {% set transformedImage = craft.imager.transformImage(mainImage, { width: 1200, height: 630, mode: 'crop' }) %}
   <meta property="og:image" content="{{ transformedImage.getUrl() }}"/>
   <meta property="og:image:type" content="image/jpeg" />
-  {% elseif globalSeo.shareImage %}
-    {% set transformedImage = craft.imager.transformImage(globalSeo.shareImage.first(), { width: 1200, height: 630, mode: 'crop' }) %}
+  {% elseif globalSeo.shareImage|length %}
+    {% set transformedImage = craft.imager.transformImage(globalSeo.shareImage.one(), { width: 1200, height: 630, mode: 'crop' }) %}
   <meta property="og:image" content="{{ transformedImage.getUrl() }}"/>
   <meta property="og:image:type" content="image/jpeg" />
   {% endif %}
@@ -45,8 +45,8 @@
   {% if mainImage is defined %}
     {% set transformedImage = craft.imager.transformImage(mainImage, { width: 1200, height: 600, mode: 'crop' }) %}
   <meta property="twitter:image" content="{{ transformedImage.getUrl() }}"/>
-  {% elseif globalSeo.shareImage %}
-    {% set transformedImage = craft.imager.transformImage(globalSeo.shareImage.first(), { width: 1200, height: 600, mode: 'crop' }) %}
+  {% elseif globalSeo.shareImage|length %}
+    {% set transformedImage = craft.imager.transformImage(globalSeo.shareImage.one(), { width: 1200, height: 600, mode: 'crop' }) %}
   <meta property="twitter:image" content="{{ transformedImage.getUrl() }}"/>
   {% endif %}
 
