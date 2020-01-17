@@ -5,6 +5,7 @@ body.page-careers {
     display: flex;
     position: relative;
     flex-wrap: wrap;
+    // Faux link hover states of h2, intro, svg before expanding
     h2,
     .intro {
       @include transition(color);
@@ -30,6 +31,8 @@ body.page-careers {
     p {
       @include p2;
     }
+
+    // Dividers
     &::after {
       content: '';
       position: absolute;
@@ -38,13 +41,15 @@ body.page-careers {
       right: $padding-sm / 2;
       border-bottom: 1px solid color('black');
     }
+
+    // +/- buttons
     a.expand,
     a.collapse {
       display: block;
       position: absolute;
       width: 60px;
       height: 60px;
-      top: 5px;
+      top: 10px;
       right: 0;
       padding: 10px;
       &:hover svg {
@@ -86,7 +91,11 @@ body.page-careers {
 
   // Mobile only styles
   @include max-screen($breakpoint-md) {
+    // Give section headers some padding
     .block-wrap {
+      h2 {
+        padding-right: 50px;
+      }
       .block-section-header {
         padding: beat(3) #{$padding-sm / 2} beat(2);
       }
