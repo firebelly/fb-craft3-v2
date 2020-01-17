@@ -92,6 +92,9 @@ form {
       color: color('black');
     }
   }
+  textarea {
+    line-height: 1.5; // to not suck typing in
+  }
 
   label {
     @include small-titles;
