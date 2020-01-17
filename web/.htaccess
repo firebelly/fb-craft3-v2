@@ -21,15 +21,22 @@
     RewriteRule ^WorkshoppingWorkshops/?$ /uploads/Firebelly-Workshopping-Workshops.pdf [R=301,L]
 
     # Redirect store -> homepage
-    RewriteRule ^store(.*) / [R=301,NE,L]
+    RewriteRule ^store(.*) / [R=301,L]
 
     # Redirect thoughts -> ideas
-    RewriteRule ^thoughts(.*) /ideas$1 [R=301,NE,L]
-    # Redirect tagged pages to landing page for now
-    RewriteRule ^ideas/tagged* /ideas [R=301,NE,L]
+    RewriteRule ^thoughts(.*) /ideas$1 [R=301,L]
 
-    # Redirect people & endeavors single URLs to hashes
-    RewriteRule ^(endeavors|people)/([^/]+)/? /$1#$2 [R=301,NE,L]
+    # Redirect tagged pages to landing page for now
+    RewriteRule ^ideas/tagged* /ideas [R=301,L]
+
+    # Redirect endeavors to about
+    RewriteRule ^endeavors(.*) /about [R=301,L]
+
+    # Redirect process to services
+    RewriteRule ^process(.*)? /services [R=301,L]
+
+    # Redirect people posts to team page modals
+    RewriteRule ^people/([^/]+)/? /about#$1 [R=301,NE,L]
 
     # Send would-be 404 requests to Craft
     RewriteCond %{REQUEST_FILENAME} !-f
