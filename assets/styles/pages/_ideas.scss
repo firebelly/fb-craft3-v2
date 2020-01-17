@@ -27,6 +27,12 @@ body.page-ideas {
   // Inline images in deprecated body field
   .ideas-body {
     figure {
+      // Make images full width
+      img {
+        max-width: none;
+        width: 100%;
+      }
+
       margin: 0;
       padding: beat(1) 0;
 
