@@ -32,7 +32,11 @@
   }
 
   a.button {
-    margin-top: beat(3);
+    margin: 24px 0 beat(3);
+
+    @include media-md {
+      margin: 72px 0 beat(3);
+    }
   }
 
   blockquote {
