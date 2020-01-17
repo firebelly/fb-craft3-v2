@@ -108,10 +108,45 @@ a.button {
 
 // Show arrow cursor in mid-page-transition state between hiding "+"
 // and new page showing via swup (felt like page was frozen)
-body.-cursor-default {
+html.is-animating {
+  #cursor {
+    opacity: 0!important;
+  }
   &,
   a:hover {
     cursor: default!important;
+  }
+  .site-header {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: color('black');
+      animation: 3s ease-in-out 0s 1 slideInFromLeft;
+    }
+  }
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(-70%);
+  }
+  80% {
+    transform: translateX(-50%);
+  }
+  90% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 body.-cursor-active {

@@ -79,7 +79,6 @@ swup.on('transitionStart', () => {
 
   // Disable custom cursor to make it not seem like site has frozen
   document.body.classList.remove('-cursor-active');
-  document.body.classList.add('-cursor-default');
 });
 
 // Flickity fix for iOS 13
