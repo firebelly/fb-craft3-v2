@@ -30,10 +30,17 @@
   <div class="project-content">
     {% if entry.services|length %}
       <ul class="services">
-        {% for service in entry.services %}
-          {% set service = service.service[0] %}
-          <li>{{ service.title }}{{ not loop.last ? ', ' }}</li>
-        {% endfor %}
+        {% if servicesLength is defined %}
+          {% for service in entry.services|slice(0, servicesLength) %}
+            {% set service = service.service[0] %}
+            <li>{{ service.title }}{{ not loop.last ? ', ' }}</li>
+          {% endfor %}
+        {% else %}
+          {% for service in entry.services %}
+            {% set service = service.service[0] %}
+            <li>{{ service.title }}{{ not loop.last ? ', ' }}</li>
+          {% endfor %}
+        {% endif %}
       </ul>
     {% endif %}
     <h3 class="project-title"><a href="{{ entry.getUrl() }}">{{ entry.title }}: {{ entry.subtitle }}</a></h3>

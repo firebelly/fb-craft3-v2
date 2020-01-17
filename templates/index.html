@@ -18,7 +18,7 @@
         <h4 class="lined">Recent</h4>
         <div class="thumbnail-grid grid spaced">
           {% for project in recentWork %}
-            {% include 'work/_article' with { entry: project, orientationOverride: (loop.last ? 'portrait' : 'landscape') } %}
+            {% include 'work/_article' with { entry: project, orientationOverride: (loop.last ? 'portrait' : 'landscape'), servicesLength: 3 } %}
           {% endfor %}
         </div>
       </div>
@@ -70,9 +70,9 @@
         <div class="thumbnail-grid">
           {% for featuredEntry in featuredWork %}
             {% if featuredEntry.type == 'project' %}
-              {% include 'work/_article' with { entry: featuredEntry, orientationOverride: (loop.first ? 'portrait' : 'landscape') } %}
+              {% include 'work/_article' with { entry: featuredEntry, orientationOverride: (loop.first ? 'portrait' : 'landscape'), servicesLength: 3 } %}
             {% elseif featuredEntry.type == 'ideasPost' %}
-              {% include 'ideas/_article' with { entry: featuredEntry, orientationOverride: (loop.first ? 'portrait' : 'landscape') } %}
+              {% include 'ideas/_article' with { entry: featuredEntry, orientationOverride: (loop.first ? 'portrait' : 'landscape'), servicesLength: 3 } %}
             {% endif %}
           {% endfor %}
         </div>
