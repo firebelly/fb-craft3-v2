@@ -79,7 +79,7 @@ header.image-header {
     max-height: 1200px;
     padding-bottom: 56px;
     align-items: flex-end;
-    height: calc(100vh - 96px);
+    height: calc(75vh - #{$header-sm});
 
     .header-banner {
       top: 0;
@@ -107,6 +107,10 @@ header.image-header {
           transform: translateX(-50%);
         }
       }
+    }
+
+    @include media-nav {
+      height: calc(100vh - #{$header-md});
     }
   }
 }
