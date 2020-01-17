@@ -1,5 +1,15 @@
 {
   "formatting": ["h3", "p"],
+  "formattingAdd": {
+    "button": {
+      "title": "Button",
+      "api": "module.block.format",
+      "args": {
+        "tag": "a",
+        "class": "button -black"
+      }
+    }
+  },
   "buttons": ["formatting", "lists", "link", "html"],
   "plugins": ["fullscreen", "alignment"],
   "toolbarFixed": true,
