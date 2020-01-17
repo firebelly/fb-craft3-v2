@@ -11,6 +11,7 @@
 
 {% block content %}
   {% cache unless currentUser %}
+
   <div class="single-project" data-id="{{ entry.id }}">
 
     {% if entry.mainImage|length %}

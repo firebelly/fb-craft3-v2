@@ -33,8 +33,8 @@
             <div class="col-md-1-2">
               <div class="input-wrap">
                 <label for="organization">Organization</label>
-                <input id="organization" type="text" name="message[From Organization]" value="{{ message.fromOrganization ?? '' }}" placeholder="Organization">
-                {{ message is defined and message ? errorList(message.getErrors('fromOrganization')) }}
+                <input id="organization" type="text" name="message[From Organization]" value="{{ message.message.fromOrganization ?? '' }}" placeholder="Organization">
+                {{ message is defined and message ? errorList(message.getErrors('message.message.fromOrganization')) }}
               </div>
             </div>
           </div>
