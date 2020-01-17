@@ -101,7 +101,6 @@ header.image-header {
           left: 50%;
           width: 100vw;
           height: 56.25vw;
-          max-height: 100%;
           min-width: 177.77vh;
           transform: translateX(-50%);
           min-height: calc(75vh - #{$header-sm});
@@ -112,8 +111,10 @@ header.image-header {
     @include media-nav {
       height: calc(100vh - #{$header-md});
 
-      &.video {
-        min-height: calc(75vh - #{$header-md});
+      .header-banner.video {
+        iframe {
+          min-height: 100vh;
+        }
       }
     }
   }
