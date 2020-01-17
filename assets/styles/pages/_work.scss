@@ -81,8 +81,8 @@ body.page-work {
       height: calc(100% - #{$header-md});
 
       .close-modal {
-        right: 98px;
-        top: beat(12);
+        right: beat(3);
+        top: beat(3);
       }
     }
   }
