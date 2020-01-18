@@ -61,7 +61,6 @@ h4.lined {
   .filter-links {
     a {
       @include paragraph-style(24, 32, 0.015em);
-      text-decoration: underline;
       &:hover {
         color: color('red');
         text-decoration: underline;
