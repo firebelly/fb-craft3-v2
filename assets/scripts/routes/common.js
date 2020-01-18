@@ -430,7 +430,7 @@ export default {
           // todo: add support for pausing when exiting viewport w/ rewind, make loop an option
           // Only autoplay with waypoints if background video
           if (isBackgroundVideo) {
-            $this.waypoint({
+            vimeoPlayers[i].waypoint = $this.waypoint({
               handler: function(direction) {
                 if (vimeoPlayers[i].status !== 'play') {
                   vimeoPlayers[i].player.play();
@@ -482,6 +482,9 @@ export default {
 
     // Remove vimeo players
     $.each(vimeoPlayers, function(){
+      if (this.waypoint) {
+        this.waypoint[0].destroy();
+      }
       this.player.destroy();
     });
     vimeoPlayers = [];
