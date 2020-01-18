@@ -78,9 +78,16 @@
                   <img class="lazyload" data-src="{{ embeddedAsset.images[0].url }}">
                 </div>
               {% else %}
+                {# Leave GIFs & PNGs alone #}
+                {% if image.filename matches '/(gif|png)$/' %}
+                  {% set treatedImage = image %}
+                {% else %}
+                  {% set treatedImage = craft.imager.transformImage(image, { width: 1800 }) %}
+                {% endif %}
+
                 <figure class="-aspect-ratio-pad" style="padding-bottom: {{ image.height / image.width * 100 }}%">
                 {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
-                  <img class="lazyload" data-src="{{ image.getUrl() }}" alt="{{ image.title }}">
+                  <img class="lazyload" data-src="{{ treatedImage.getUrl() }}" alt="{{ image.title }}">
                 {%- if block.imageLinkUrl %}</a>{% endif -%}
                 </figure>
               {% endif %}
