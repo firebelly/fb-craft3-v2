@@ -484,5 +484,6 @@ export default {
     $.each(vimeoPlayers, function(){
       this.player.destroy();
     });
+    vimeoPlayers = [];
   },
 };
