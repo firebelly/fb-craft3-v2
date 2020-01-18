@@ -78,9 +78,11 @@
                   <img class="lazyload" data-src="{{ embeddedAsset.images[0].url }}">
                 </div>
               {% else %}
+                <figure class="-aspect-ratio-pad" style="padding-bottom: {{ image.height / image.width * 100 }}%">
                 {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
                   <img class="lazyload" data-src="{{ image.getUrl() }}" alt="{{ image.title }}">
                 {%- if block.imageLinkUrl %}</a>{% endif -%}
+                </figure>
               {% endif %}
             </div><!-- /.-inner -->
           </div>
