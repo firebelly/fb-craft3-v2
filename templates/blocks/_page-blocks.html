@@ -8,7 +8,7 @@
       {% include "blocks/_section-header" with { block: block } %}
 
     {% case "imageCarousel" %}
-      {% if blockWrapped %}</div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
+      {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
       {% include "blocks/_image-carousel" with { block: block } %}
 
     {% case "blockText" %}
