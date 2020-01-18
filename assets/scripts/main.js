@@ -72,15 +72,13 @@ swup.on('popState', () => {
 });
 
 swup.on('transitionStart', () => {
-  // Disable custom cursor to make it not seem like site has frozen
-  document.body.classList.remove('-cursor-active');
-});
-
-swup.on('willReplaceContent', () => {
   // Cleanup calls for js
-  imageReveals.unload();
   routes.unload();
   colorChanges.unload();
+  imageReveals.unload();
+
+  // Disable custom cursor to make it not seem like site has frozen
+  document.body.classList.remove('-cursor-active');
 });
 
 // Flickity fix for iOS 13

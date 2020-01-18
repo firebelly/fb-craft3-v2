@@ -474,7 +474,7 @@ export default {
 
     // Remove flickity instances
     $('.flickity').each(function() {
-      $(this).flickity('destroy');
+      $(this).css({'opacity': 0}).flickity('destroy');
     });
 
     // Remove custom event watchers
