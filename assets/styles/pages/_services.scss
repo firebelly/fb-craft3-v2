@@ -6,7 +6,6 @@
       @include transition(fill);
     }
     .label {
-      padding-right: 150px;
       position: relative;
       p {
         @include transition(color);
@@ -16,8 +15,8 @@
       width: 53px;
       height: 22px;
       position: absolute;
+      top: -54px;
       right: 0;
-      bottom: 40px;
     }
     &:hover {
       color: color('red');
@@ -30,6 +29,18 @@
     }
     &:last-of-type {
       border-bottom: none;
+    }
+  }
+
+  @include media-md {
+    li {
+      .label {
+        padding-right: 150px;
+      }
+      svg {
+        top: auto;
+        bottom: 40px;
+      }
     }
   }
 }
