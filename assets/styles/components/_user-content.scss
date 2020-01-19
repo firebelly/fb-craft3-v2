@@ -33,8 +33,10 @@
 
   a.button {
     margin: 24px 0 beat(3);
+    width: 100%;
 
     @include media-md {
+      width: auto;
       margin: 72px 0 beat(3);
     }
   }
