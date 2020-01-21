@@ -23,7 +23,7 @@
       {% if entry.positions|length %}
         <div class="current-positions">
         {% for position in entry.positions.all() %}
-          <div class="position accordion">
+          <div class="position accordion" data-position="{{ position.slug }}">
             <a href="#" class="expand">
               <svg class="icon icon-plus" aria-hidden="true"><use xlink:href="#icon-plus"/></svg>
             </a>

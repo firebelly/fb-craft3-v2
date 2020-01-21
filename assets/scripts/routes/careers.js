@@ -6,19 +6,31 @@ export default {
 
   init() {
 
+    // Check for hash to open user
+    if (window.location.hash) {
+      let $position = $(`[data-position="${window.location.hash.replace('#','')}"]`);
+      if ($position.length) {
+        $(window).scrollTop($position.offset().top - $('.site-header').outerHeight() - 50);
+        _toggleAccordion($position);
+      }
+    }
+
     // Position accordions
     $('.accordion').each(function() {
       let $this = $(this);
       $this.on('click', (e) => {
         if (!$this.hasClass('active')) {
-          _toggleAccordion(e, $this);
+          e.preventDefault();
+          _toggleAccordion($this);
         }
       });
-      $this.find('a.toggle').on('click', (e) => _toggleAccordion(e, $this));
+      $this.find('a.toggle').on('click', (e) => {
+        e.preventDefault();
+        _toggleAccordion($this)
+      });
     });
 
-    function _toggleAccordion(e, $accordion) {
-      e.preventDefault();
+    function _toggleAccordion($accordion) {
       if (appState.isAnimating) {
         return false;
       }
