@@ -209,16 +209,13 @@ export default {
     }
 
     // Smooth scroll to an element
-    function _scrollBody(element, offset, duration, delay) {
-      if (typeof duration === 'undefined' || duration === null) {
-        duration = 500;
-      }
+    function _scrollBody(element) {
+      let offset = $('.site-header').outerHeight();
 
       if ($(element).length) {
         appState.isAnimating = true;
         element.velocity('scroll', {
-          duration: duration,
-          delay: delay,
+          duration: 500,
           offset: -offset,
           complete: function(elements) {
             appState.isAnimating = false;
@@ -457,9 +454,11 @@ export default {
 
     $window.resize(_resize);
   },
+
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
   },
+
   unload() {
     // JavaScript to clean up before live page reload
 
