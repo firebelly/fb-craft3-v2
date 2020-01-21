@@ -35,8 +35,9 @@
     # Redirect process to services
     RewriteRule ^process(.*)? /services [R=301,L]
 
-    # Redirect people posts to team page modals
-    RewriteRule ^people/([^/]+)/? /about#$1 [R=301,NE,L]
+    # Redirect old people page, and people posts to team page modals
+    RewriteRule ^people/? /about [R=301,NE,L]
+    RewriteRule ^people/(.*)/?$ /about#$1 [R=301,R,NE,L]
 
     # Send would-be 404 requests to Craft
     RewriteCond %{REQUEST_FILENAME} !-f
