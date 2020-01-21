@@ -23,7 +23,7 @@
   <meta property="og:site_name" content="{{ siteName }}" />
   <meta property="og:title" content="{% if seoTitle is defined %}{{ seoTitle }}{% elseif title is defined %}{{ title }} | {{ siteName }}{% else %}{{ siteName }}{% endif %}" />
   {% if seoDescription is defined %}
-  <meta name="description" content="{{ seoDescription }}">
+  <meta property="og:description" content="{{ seoDescription }}">
   {% endif %}
   {% if seoImage is defined %}
     {% set transformedImage = craft.imager.transformImage(seoImage, { width: 1200, height: 630, mode: 'crop' }) %}
