@@ -7,7 +7,7 @@
 {% if entry.seoImage|length %}
   {% set seoImage = entry.seoImage.one() %}
 {% elseif entry.staggeredImageHeader.mainImage|length %}
-  {% set seoImage = craft.imager.transformImage(entry.staggeredImageHeader.mainImage.one(), { width: 1116, height: 1504, mode: 'crop' }) %}
+  {% set seoImage = entry.staggeredImageHeader.mainImage.one() %}
 {% endif %}
 
 {% block content %}
