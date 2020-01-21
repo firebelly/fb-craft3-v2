@@ -2,6 +2,8 @@
 
 body.page-about {
   .the-team {
+    padding: beat(3) 0 beat(2);
+
     @include media-md {
       padding: beat(4) 0;
     }
