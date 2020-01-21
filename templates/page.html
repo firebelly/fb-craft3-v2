@@ -1,9 +1,10 @@
 {% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? '_ajax-layout' : '_layout' %}
 
 {% set title = entry.title %}
+{% set bodyClass = 'common-page' %}
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
-{% set bodyClass = 'common-page' %}
+{% if entry.seoImage|length %}{% set seoImage = entry.seoImage.one() %}{% endif %}
 
 {% block content %}
   {% cache unless currentUser %}

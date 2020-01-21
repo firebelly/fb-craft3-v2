@@ -4,6 +4,11 @@
 {% set bodyClass = 'with-blobs' %}
 {% if entry.seoTitle %}{% set seoTitle = entry.seoTitle %}{% endif %}
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
+{% if entry.seoImage|length %}
+  {% set seoImage = entry.seoImage.one() %}
+{% elseif entry.staggeredImageHeader.mainImage|length %}
+  {% set seoImage = craft.imager.transformImage(entry.staggeredImageHeader.mainImage.one(), { width: 1116, height: 1504, mode: 'crop' }) %}
+{% endif %}
 
 {% block content %}
   {% cache unless currentUser %}

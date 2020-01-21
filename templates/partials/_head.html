@@ -25,8 +25,8 @@
   {% if seoDescription is defined %}
   <meta name="description" content="{{ seoDescription }}">
   {% endif %}
-  {% if mainImage is defined %}
-    {% set transformedImage = craft.imager.transformImage(mainImage, { width: 1200, height: 630, mode: 'crop' }) %}
+  {% if seoImage is defined %}
+    {% set transformedImage = craft.imager.transformImage(seoImage, { width: 1200, height: 630, mode: 'crop' }) %}
   <meta property="og:image" content="{{ transformedImage.getUrl() }}"/>
   <meta property="og:image:type" content="image/jpeg" />
   {% elseif globalSeo.shareImage|length %}
@@ -42,8 +42,8 @@
   {% if seoDescription is defined %}
   <meta name="twitter:description" content="{{ seoDescription }}">
   {% endif %}
-  {% if mainImage is defined %}
-    {% set transformedImage = craft.imager.transformImage(mainImage, { width: 1200, height: 600, mode: 'crop' }) %}
+  {% if seoImage is defined %}
+    {% set transformedImage = craft.imager.transformImage(seoImage, { width: 1200, height: 600, mode: 'crop' }) %}
   <meta property="twitter:image" content="{{ transformedImage.getUrl() }}"/>
   {% elseif globalSeo.shareImage|length %}
     {% set transformedImage = craft.imager.transformImage(globalSeo.shareImage.one(), { width: 1200, height: 600, mode: 'crop' }) %}
