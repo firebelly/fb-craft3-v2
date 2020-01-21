@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1579294946
+dateModified: 1579641075
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -3375,9 +3375,9 @@ sections:
     siteSettings:
       8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
         enabledByDefault: true
-        hasUrls: false
-        uriFormat: ''
-        template: null
+        hasUrls: true
+        uriFormat: 'about#{slug}'
+        template: ''
     structure:
       uid: 6956db8e-eaf3-49f4-bdbf-3434d0e7566b
       maxLevels: 1
@@ -3865,9 +3865,9 @@ sections:
     siteSettings:
       8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
         enabledByDefault: true
-        hasUrls: false
-        uriFormat: ''
-        template: null
+        hasUrls: true
+        uriFormat: 'careers#{slug}'
+        template: ''
     structure:
       uid: 608be182-02b8-4338-8787-930cc77e3e8f
       maxLevels: null
