@@ -35,12 +35,17 @@ return [
 
         // Enable Project Config
         'useProjectConfigFile' => true,
+
+        // Base site URL
+        'siteUrl' => getenv('SITE_URL'),
+
+        'aliases' => [
+            '@rootUrl' => getenv('SITE_URL'),
+        ],
     ],
 
     // Dev environment settings
     'dev' => [
-        // Base site URL
-        'siteUrl' => 'http://fb-craft3-v2.localhost',
         // Fix backing up mysql on dev w/ homebrew mysql
         'backupCommand' =>  "/usr/local/bin/mysqldump -h localhost -u root -proot --add-drop-table --comments --create-options --dump-date --no-autocommit --routines --set-charset --triggers --single-transaction --no-data --result-file=\"{file}\" {database} && /usr/local/bin/mysqldump -h localhost -u root -proot --add-drop-table --comments --create-options --dump-date --no-autocommit --routines --set-charset --triggers --no-create-info --ignore-table={database}.assetindexdata --ignore-table={database}.assettransformindex --ignore-table={database}.cache --ignore-table={database}.sessions --ignore-table={database}.templatecaches --ignore-table={database}.templatecachecriteria --ignore-table={database}.templatecacheelements {database} >> \"{file}\"",
         'restoreCommand' => "/usr/local/bin/mysql -h localhost -u root -proot {database} < \"{file}\"",
@@ -50,8 +55,6 @@ return [
 
     // Staging environment settings
     'staging' => [
-        // Base site URL
-        'siteUrl' => 'https://craft3.firebelly.co/',
         // Disable project config changes & updates on staging
         'allowAdminChanges' => false,
         'allowUpdates' => false,
@@ -59,8 +62,6 @@ return [
 
     // Production environment settings
     'production' => [
-        // Base site URL
-        'siteUrl' => 'https://www.firebellydesign.com/',
         // Disable project config changes & updates on production
         'allowAdminChanges' => false,
         'allowUpdates' => false,
