@@ -105,22 +105,28 @@ body.page-careers {
   // Desktop styles
   @include media-md {
     .position {
-      margin-left: -#{$padding-md / 2};
-      width: calc(100% + #{$padding-md});
-      > .-inner {
-        padding: beat(8) #{$padding-lg * 1} 0 #{$padding-lg * 2};
-      }
       .intro {
-        padding: beat(2) 140px 0 0;
+        padding: 0 60px 0 0;
       }
+      &::after {
+        left: #{ $padding-sm / 2 };
+        right: #{ $padding-sm / 2 };
+      }
+    }
+  }
+  @include media-nav {
+    .position {
       a.expand,
       a.collapse {
         top: 92px;
         right: 24px;
       }
+      .intro {
+        padding: beat(2) 140px 0 0;
+      }
       &::after {
-        left: $padding-sm * 2;
-        right: $padding-sm * 2;
+        left: $padding-sm;
+        right: $padding-sm;
       }
     }
   }
