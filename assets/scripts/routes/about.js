@@ -16,6 +16,7 @@ export default {
       if ($person.length) {
         setTimeout(function() {
           _openPerson($person);
+          $(window).scrollTop($person.offset().top - $('.site-header').outerHeight() - 50);
         }, 500);
       }
     }
