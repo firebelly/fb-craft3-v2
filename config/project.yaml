@@ -42,7 +42,7 @@ categoryGroups:
               b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
                 required: false
                 sortOrder: 1
-dateModified: 1579641075
+dateModified: 1579644983
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -528,6 +528,33 @@ fields:
       selectionLabel: 'Add a service'
     contentColumnType: string
     fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+  91fc4a09-bb0c-423f-bf42-fea3573b74a9:
+    name: 'SEO Image'
+    handle: seoImage
+    instructions: 'Used when sharing a post or page on social'
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+      singleUploadLocationSubpath: ''
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources: '*'
+      source: null
+      targetSiteId: null
+      viewMode: large
+      limit: '1'
+      selectionLabel: 'Add an image'
+      localizeRelations: false
+      validateRelatedElements: ''
+    contentColumnType: string
+    fieldGroup: 9ace857e-959b-4a74-b0e0-42873080c846
   92519b8f-b52c-4b39-9bc7-a7df62593778:
     name: 'Caption Label'
     handle: captionLabel
@@ -975,9 +1002,9 @@ fields:
     contentColumnType: string
     fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
   eda76d5c-fc33-4224-bc43-f163bafe5593:
-    name: 'Share Image'
+    name: 'Global Share Image'
     handle: shareImage
-    instructions: 'General share image used for pages with no inherent shareable image.'
+    instructions: 'Default share image used for pages with no inherent shareable image'
     searchable: true
     translationMethod: site
     translationKeyFormat: null
@@ -1001,7 +1028,7 @@ fields:
       localizeRelations: false
       validateRelatedElements: ''
     contentColumnType: string
-    fieldGroup: 9ace857e-959b-4a74-b0e0-42873080c846
+    fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
   f442e9c0-3dcf-45a3-8dac-3134afcea15b:
     name: 'Header Image Caption'
     handle: headerImageCaption
@@ -3320,6 +3347,19 @@ sections:
                   e5facf83-ead7-410b-96f6-761ac8ecb2d0:
                     required: false
                     sortOrder: 2
+              -
+                name: SEO
+                sortOrder: 2
+                fields:
+                  7a978b7f-cab5-448c-88dc-d4e1a9d281cf:
+                    required: false
+                    sortOrder: 2
+                  8dd0581c-6902-4a9c-8ddd-e11ce7656351:
+                    required: false
+                    sortOrder: 1
+                  91fc4a09-bb0c-423f-bf42-fea3573b74a9:
+                    required: false
+                    sortOrder: 3
     siteSettings:
       8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
         enabledByDefault: true
@@ -3366,6 +3406,9 @@ sections:
                   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
                     required: false
                     sortOrder: 1
+                  91fc4a09-bb0c-423f-bf42-fea3573b74a9:
+                    required: false
+                    sortOrder: 3
   4b622926-f41b-4a90-af05-e9b6802d5276:
     name: People
     handle: people
@@ -3424,6 +3467,9 @@ sections:
                   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
                     required: false
                     sortOrder: 1
+                  91fc4a09-bb0c-423f-bf42-fea3573b74a9:
+                    required: false
+                    sortOrder: 3
   53bb7143-5489-4408-8bed-d0ae79b93aa2:
     name: Careers
     handle: careers
@@ -3453,7 +3499,7 @@ sections:
                     sortOrder: 4
                   c2b1d20c-3703-4b5c-911f-f7b0b0367bf9:
                     required: false
-                    sortOrder: 8
+                    sortOrder: 6
                   d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9:
                     required: false
                     sortOrder: 1
@@ -3462,7 +3508,20 @@ sections:
                     sortOrder: 3
                   e9ddbb67-3421-4553-9f71-b1b5c342fd51:
                     required: false
-                    sortOrder: 7
+                    sortOrder: 5
+              -
+                name: SEO
+                sortOrder: 2
+                fields:
+                  7a978b7f-cab5-448c-88dc-d4e1a9d281cf:
+                    required: false
+                    sortOrder: 2
+                  8dd0581c-6902-4a9c-8ddd-e11ce7656351:
+                    required: false
+                    sortOrder: 1
+                  91fc4a09-bb0c-423f-bf42-fea3573b74a9:
+                    required: false
+                    sortOrder: 3
     siteSettings:
       8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
         enabledByDefault: true
@@ -3480,7 +3539,7 @@ sections:
         name: Endeavors
         handle: endeavors
         hasTitleField: false
-        titleLabel: null
+        titleLabel: ''
         titleFormat: '{section.name|raw}'
         sortOrder: 1
         fieldLayouts:
@@ -3506,6 +3565,9 @@ sections:
                   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
                     required: false
                     sortOrder: 1
+                  91fc4a09-bb0c-423f-bf42-fea3573b74a9:
+                    required: false
+                    sortOrder: 3
     siteSettings:
       8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
         enabledByDefault: true
@@ -3591,6 +3653,9 @@ sections:
                   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
                     required: false
                     sortOrder: 1
+                  91fc4a09-bb0c-423f-bf42-fea3573b74a9:
+                    required: false
+                    sortOrder: 3
   921f0035-0aaf-4e2b-8e5d-73f64451b838:
     name: Services
     handle: services
@@ -3640,6 +3705,9 @@ sections:
                   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
                     required: false
                     sortOrder: 1
+                  91fc4a09-bb0c-423f-bf42-fea3573b74a9:
+                    required: false
+                    sortOrder: 3
   9c06ab3b-a616-46e8-9f17-26bbc55b0f9b:
     name: Contact
     handle: contact
@@ -3686,6 +3754,9 @@ sections:
                   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
                     required: false
                     sortOrder: 1
+                  91fc4a09-bb0c-423f-bf42-fea3573b74a9:
+                    required: false
+                    sortOrder: 3
   a622d82a-9cfa-44de-b537-5a453e294cc7:
     name: Work
     handle: work
@@ -3767,55 +3838,15 @@ sections:
                   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
                     required: false
                     sortOrder: 1
+                  91fc4a09-bb0c-423f-bf42-fea3573b74a9:
+                    required: false
+                    sortOrder: 3
     siteSettings:
       8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
         enabledByDefault: true
         hasUrls: true
         uriFormat: 'work/{slug}'
         template: work/_entry
-  afb05d74-c6fa-4a94-9662-b965d04c0cda:
-    name: Process
-    handle: process
-    type: single
-    enableVersioning: true
-    propagationMethod: all
-    entryTypes:
-      8846c49f-36df-4baa-a0bb-3b16ade179fb:
-        name: Process
-        handle: expertise
-        hasTitleField: false
-        titleLabel: ''
-        titleFormat: '{section.name|raw}'
-        sortOrder: 1
-        fieldLayouts:
-          b1925b13-c508-4e53-9527-34712dddf298:
-            tabs:
-              -
-                name: Main
-                sortOrder: 1
-                fields:
-                  b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
-                    required: false
-                    sortOrder: 1
-                  e51fc2d2-3662-458a-a01c-4f431657b645:
-                    required: false
-                    sortOrder: 2
-              -
-                name: SEO
-                sortOrder: 2
-                fields:
-                  7a978b7f-cab5-448c-88dc-d4e1a9d281cf:
-                    required: false
-                    sortOrder: 2
-                  8dd0581c-6902-4a9c-8ddd-e11ce7656351:
-                    required: false
-                    sortOrder: 1
-    siteSettings:
-      8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
-        enabledByDefault: true
-        hasUrls: true
-        uriFormat: process
-        template: process
   b42df835-538d-4bb9-a73b-a5e5e3c0fb6a:
     name: 'Ideas Index'
     handle: ideasIndex
@@ -3856,6 +3887,9 @@ sections:
                   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
                     required: false
                     sortOrder: 1
+                  91fc4a09-bb0c-423f-bf42-fea3573b74a9:
+                    required: false
+                    sortOrder: 3
   cd1bb424-9ba2-4cdf-9c77-4ffdabc78271:
     name: Positions
     handle: position
@@ -3932,6 +3966,9 @@ sections:
                   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
                     required: false
                     sortOrder: 1
+                  91fc4a09-bb0c-423f-bf42-fea3573b74a9:
+                    required: false
+                    sortOrder: 3
     siteSettings:
       8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
         enabledByDefault: true
@@ -3981,6 +4018,9 @@ sections:
                   8dd0581c-6902-4a9c-8ddd-e11ce7656351:
                     required: false
                     sortOrder: 1
+                  91fc4a09-bb0c-423f-bf42-fea3573b74a9:
+                    required: false
+                    sortOrder: 3
     siteSettings:
       8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
         enabledByDefault: true
