@@ -72,7 +72,6 @@ swup.on('contentReplaced', () => {
   routes.loadEvents();
   colorChanges.init();
   imageReveals.init();
-  // appState.modalJustClosed = false;
 });
 
 swup.on('popState', () => {

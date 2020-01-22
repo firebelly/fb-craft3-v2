@@ -81,10 +81,9 @@ const modals = {
 
   // Close the modal
   closeModal: function() {
-    // Disabling this check in case you hit next/back in quick succession, it wasn't closing modal
-    // if (appState.isAnimating || !appState.modalOpen) {
-    //   return;
-    // }
+    if (!appState.modalOpen) {
+      return;
+    }
     appState.modalOpen = false;
     $('.modal').velocity({
         opacity: [0, 1],
