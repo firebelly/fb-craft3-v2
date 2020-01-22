@@ -29,7 +29,7 @@
       white-space: nowrap;
     }
 
-    @include media-nav {
+    @include media-md {
       h1,
       h2 {
         display: inline;
