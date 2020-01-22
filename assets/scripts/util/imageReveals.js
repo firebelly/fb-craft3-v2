@@ -2,6 +2,8 @@
 //
 // Fades and slides in images as they appear in the viewport
 
+import appState from '../util/appState';
+
 let $reveals,
     activated = [],
     $window = $(window),
@@ -17,6 +19,7 @@ const imageReveals = {
       // Reset activated
       activated = [];
       $reveals = $('.-reveal');
+
       imageReveals.resize();
       imageReveals.update();
 
@@ -47,6 +50,9 @@ const imageReveals = {
     $reveals.each(function(i) {
       if (!activated[i] && this.getAttribute('data-originalPosition') <= (scrollTop + windowHeight - (windowHeight * 0.05))) {
         $(this).addClass('-active');
+        if (appState.popState) {
+          $(this).addClass('-instant');
+        }
         activated[i] = 1;
       }
     });

@@ -3,7 +3,9 @@
 const appState = {
   isAnimating: false,
   navOpen: false,
+  popState: false,
   modalOpen: false,
+  initialHash: '',
   navStuck: false,
   requestInProgress: false,
   breakpoints: {},

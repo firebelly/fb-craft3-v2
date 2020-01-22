@@ -14,10 +14,11 @@
         {% set personImage = craft.imager.transformImage(image, { width: 1100, height: 640, mode: 'crop' }) %}
       {% endif %}
       <article class="col-md-1-2 person -reveal" data-person="{{ person.slug }}">
+        <div class="anchor" id="{{ person.slug }}"></div>
 
         <div class="toggle-container">
           {% if personImage is defined %}
-            <a data-no-swup class="-inner js-cursor" href="#{{ person.slug }}">
+            <a data-no-swup class="-inner js-cursor" href="{{ person.getUrl() }}">
               <img src="{{ personImage.getUrl() }}" alt="{{ person.title }}">
             </a>
           {% endif %}

@@ -29,10 +29,12 @@
         <div class="current-positions">
         {% for position in entry.positions.all() %}
           <div class="position accordion" data-position="{{ position.slug }}">
-            <a href="#" class="expand">
+            <div class="anchor" id="{{ position.slug }}"></div>
+
+            <a href="#{{ position.slug }}" class="expand">
               <svg class="icon icon-plus" aria-hidden="true"><use xlink:href="#icon-plus"/></svg>
             </a>
-            <a href="#" class="toggle collapse">
+            <a href="#{{ position.slug }}" class="toggle collapse">
               <svg class="icon icon-minus" aria-hidden="true"><use xlink:href="#icon-minus"/></svg>
             </a>
             <div class="block-text halfWidth">

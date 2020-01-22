@@ -3,9 +3,10 @@
 // Image reveals
 .-reveal {
   opacity: 0;
-  transform: translate3d(0, 40px, 0);
-  transition: opacity 1s ease-out, transform 0.5s ease-out;
-
+  &:not(.-instant) {
+    transform: translate3d(0, 40px, 0);
+    transition: opacity 1s ease-out, transform 0.5s ease-out;
+  }
   @include media-md {
     transform: translate3d(0, 60px, 0);
   }
@@ -159,5 +160,13 @@ body:not(.-is-touch) {
       color: color('red');
       text-decoration: underline;
     }
+  }
+}
+
+.anchor {
+  position: relative;
+  top: -80px; // 64px .site-header
+  @include media-md {
+    top: -110px; // 96px .site-header
   }
 }

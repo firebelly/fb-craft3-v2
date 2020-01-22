@@ -241,7 +241,7 @@ export default {
       appState.navOpen = true;
       $siteNav.velocity(
         { opacity: 1 }, {
-        display: "flex",
+        display: 'flex',
         complete: function() {
           $siteNav.addClass('-active');
         }
@@ -255,7 +255,7 @@ export default {
       appState.navOpen = false;
       $siteNav.velocity(
         { opacity: 0 }, {
-        display: "none",
+        display: 'none',
         complete: function() {
           $body.removeClass('nav-open');
           $siteNav.removeClass('-active');

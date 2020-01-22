@@ -35,20 +35,29 @@ const modals = {
 
     // Keyboard-triggered functions
     $document.keyup(e => {
-      // Escape key
-      if (e.keyCode === 27) {
-        modals.closeModal();
-      }
+      // Escape key (disabling for now as it was causing multiple back() to trigger -- ??)
+      // if (e.keyCode === 27 && !appState.isAnimating && appState.modalOpen) {
+      //   history.back();
+      // }
     }).on('click.modal', '.modal a.close-modal', e => {
       // Clicking on X (close) button
       e.preventDefault();
-      modals.closeModal();
+      history.back();
     });
+
+    // Watch for back button and close modal if open
+    window.addEventListener('popstate', modals.checkModal);
 
   },
 
-  // Open a modal with html, set window.hash for linkability
-  openModal: function(html, hash) {
+  checkModal: function() {
+    if (appState.modalOpen) {
+      modals.closeModal();
+    }
+  },
+
+  // Open a modal with html
+  openModal: function(html) {
     $modalContainer.html(html);
     // Set isAnimating to ignore any other triggers until modal is open
     appState.isAnimating = true;
@@ -63,9 +72,6 @@ const modals = {
           disableBodyScroll($(scrollableSelector)[0]);
           $html.css('overflow', 'hidden');
           appState.isAnimating = false;
-          // if (typeof hash !== 'undefined') {
-          //   window.location.hash = `#${hash}`;
-          // }
         }
       }
     )
@@ -75,9 +81,10 @@ const modals = {
 
   // Close the modal
   closeModal: function() {
-    if (appState.isAnimating || !appState.modalOpen) {
-      return;
-    }
+    // Disabling this check in case you hit next/back in quick succession, it wasn't closing modal
+    // if (appState.isAnimating || !appState.modalOpen) {
+    //   return;
+    // }
     appState.modalOpen = false;
     $('.modal').velocity({
         opacity: [0, 1],
@@ -86,10 +93,9 @@ const modals = {
         duration: 250,
         display: 'none',
         complete: function() {
+          // appState.modalJustClosed = true;
           enableBodyScroll($(scrollableSelector)[0]);
           $html.css('overflow', '');
-          // Remove hash
-          // history.replaceState(null, null, ' ');
         }
       }
     );
@@ -111,6 +117,7 @@ const modals = {
   // Remove events
   unload: function() {
     $document.off('click.modal');
+    window.removeEventListener('popstate', modals.checkModal);
   }
 
 };

@@ -4,6 +4,7 @@ import Swup from 'swup';
 import SwupBodyClassPlugin from '@swup/body-class-plugin';
 import SwupScrollPlugin from '@swup/scroll-plugin';
 import SwupGaPlugin from '@swup/ga-plugin'
+// import SwupDebugPlugin from '@swup/debug-plugin';
 import Waypoint from 'waypoints/lib/jquery.waypoints.js';
 
 // Import local dependencies
@@ -22,12 +23,19 @@ import work from './routes/work';
 import contact from './routes/contact';
 import careers from './routes/careers';
 
+// Store hash and remove before swup init to avoid ingesting it, so back works on initial modal
+if (window.location.hash) {
+  appState.initialHash = window.location.hash;
+  history.replaceState(null, null, ' ');
+}
+
 const swup = new Swup({
   plugins: [
     new SwupBodyClassPlugin(),
     new SwupScrollPlugin({
       animateScroll: false
     }),
+    // new SwupDebugPlugin(),
     new SwupGaPlugin(),
   ],
   linkSelector:
@@ -64,11 +72,18 @@ swup.on('contentReplaced', () => {
   routes.loadEvents();
   colorChanges.init();
   imageReveals.init();
+  // appState.modalJustClosed = false;
 });
 
 swup.on('popState', () => {
-  // Close any open modals when hitting back button
-  modals.closeModal();
+  // Triggers image reveals to be instant to avoid re-animating them in on back/next
+  appState.popState = true;
+});
+
+swup.on('transitionEnd', () => {
+  about.checkModal();
+  careers.checkAccordion();
+  appState.popState = false;
 });
 
 swup.on('transitionStart', () => {

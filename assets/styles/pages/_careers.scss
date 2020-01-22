@@ -13,7 +13,7 @@ body.page-careers {
     svg {
       @include transition(fill);
     }
-    &:not(.active):hover {
+    &:not(.-active):hover {
       color: color('red');
       cursor: pointer;
       .intro {
@@ -76,7 +76,7 @@ body.page-careers {
     }
 
     // Accordion expanded
-    &.active {
+    &.-active {
       .description {
         opacity: 1;
       }
