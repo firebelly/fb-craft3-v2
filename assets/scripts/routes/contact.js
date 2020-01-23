@@ -16,6 +16,11 @@ export default {
       }
       let $form = $(this);
       let $status = $form.find('.status');
+      let $subject = $form.find('input[name=subject]');
+      let fromName = $form.find('input[name=fromName]').val();
+
+      // Set dynamic subject line to avoid gmail making a conversation thread and hiding text
+      $subject.val($subject.data('original-value').replace('{fromName}', fromName));
 
       // Set appState flag to avoid multiple submits
       appState.requestInProgress = true;
