@@ -7,9 +7,9 @@ env.remotepath = '/home/firebelly/webapps/fb_craft3_dev'
 env.git_branch = 'master'
 env.warn_only = True
 
-def production():
-  env.hosts = ['firebellydesign.com']
-  env.remotepath = '/home/firebelly/webapps/fb_craft3'
+# def production():
+#   env.hosts = ['firebellydesign.com']
+#   env.remotepath = '/home/firebelly/webapps/fb_craft3'
 
 # def syncstaging():
 #   with cd(env.remotepath):
