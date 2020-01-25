@@ -76,7 +76,7 @@
           <input name="botsLoveTheHoney" type="text">
           <input type="hidden" name="action" value="contact-form/send">
           <input type="hidden" name="toEmail" value="{{ entry.contactFormOptions.toEmail ? entry.contactFormOptions.toEmail|hash : craft.app.getModule('contact-form').getSettings().toEmail|hash }}">
-          <input type="hidden" name="subject" value="Firebelly Contact Submission from {fromName}" data-original-value="Firebelly Contact Submission from {fromName}">
+          <input type="hidden" name="subject" value="Firebelly Contact Submission" data-original-value="Firebelly Contact Submission">
           <input type="hidden" name="message[formName]" value="Firebelly Contact">
 
           <button class="button -white -small hollow">Submit</button>
