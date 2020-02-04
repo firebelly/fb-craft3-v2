@@ -38,17 +38,26 @@ const careers = {
     if ($accordion.hasClass('-active') || appState.isAnimating) {
       return false;
     }
-
-    // Collapse open accordions
-    $('.accordion.-active').each(function() {
-      $(this).removeClass('-active').find('.description').velocity('slideUp', 0, () => {
-        $accordion.velocity('scroll', { duration: 150, offset: -document.querySelector('.site-header').offsetHeight });
-      });
-    });
-
     appState.isAnimating = true;
-    $accordion.addClass('-active');
-    $accordion.find('.description').velocity('slideDown', 500, 'easeOutCubic', () => appState.isAnimating = false);
+
+    // Accordion already open? Collapse, scroll to position, and open selected
+    if ($('.accordion.-active').length) {
+      $('.accordion.-active').each(function() {
+        $(this).removeClass('-active')
+          .find('.description')
+          .velocity('scroll', { duration: 0, offset: -document.querySelector('.site-header').offsetHeight })
+          .velocity('slideUp', 0, () => {
+            $accordion.velocity('scroll', { duration: 50, offset: -document.querySelector('.site-header').offsetHeight })
+              .addClass('-active')
+              .find('.description')
+              .velocity('slideDown', 500, 'easeOutCubic', () => appState.isAnimating = false);
+          });
+      });
+    } else {
+      // Just open accordion if none are already open
+      $accordion.addClass('-active');
+      $accordion.find('.description').velocity('slideDown', 500, 'easeOutCubic', () => appState.isAnimating = false);
+    }
   },
 
   closeAccordions() {
