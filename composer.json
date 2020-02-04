@@ -25,15 +25,15 @@
     }
   ],
   "require": {
-    "craftcms/cms": "3.3.20.1",
+    "craftcms/cms": "3.4.3",
     "vlucas/phpdotenv": "^3.4.0",
     "clubstudioltd/craft-asset-rev": "6.0.2",
     "craftcms/redactor": "2.4.0",
     "aelvan/imager": "v2.3.1",
     "firebelly/fb-redactor-css": "^1.0",
     "pelago/emogrifier": "^2.0",
-    "verbb/expanded-singles": "1.0.7",
-    "verbb/super-table": "2.3.2",
+    "verbb/expanded-singles": "1.0.8",
+    "verbb/super-table": "2.3.3",
     "mmikkel/cp-field-inspect": "1.0.7",
     "spicyweb/craft-embedded-assets": "2.1.1.1",
     "mmikkel/retcon": "^2.0",
