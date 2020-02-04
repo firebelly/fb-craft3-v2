@@ -18,7 +18,7 @@
 
         <div class="toggle-container">
           {% if personImage is defined %}
-            <a data-no-swup class="-inner js-cursor" href="{{ person.getUrl() }}">
+            <a data-no-swup class="-inner" href="{{ person.getUrl() }}">
               <img src="{{ personImage.getUrl() }}" alt="{{ person.title }}">
             </a>
           {% endif %}
