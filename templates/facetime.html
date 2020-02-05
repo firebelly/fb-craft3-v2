@@ -2,18 +2,18 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 <script>
+  // adapted from Neil Pullman's CATHS pen: https://codepen.io/neiltron/pen/PGroqQ
   let width = window.innerWidth,
   height = window.innerHeight,
   canvas = document.querySelector('canvas'),
   ctx = canvas.getContext('2d'),
   things = [],
-  textures = [new Image(), new Image(), new Image(), new Image()];
+  faces = [new Image(), new Image(), new Image(), new Image()];
 
-  textures[0].src = '/assets/dist/images/carl.png';
-  textures[1].src = '/assets/dist/images/beaty.png';
-  textures[2].src = '/assets/dist/images/mattmama.png';
-  textures[3].src = '/assets/dist/images/mimsy.png';
-
+  faces[0].src = '/assets/dist/images/carl.png';
+  faces[1].src = '/assets/dist/images/beaty.png';
+  faces[2].src = '/assets/dist/images/mattmama.png';
+  faces[3].src = '/assets/dist/images/mimsy.png';
 
   canvas.width = width;
   canvas.height = height;
@@ -29,7 +29,7 @@
       this.velocityX = Math.random() * 3;
       this.velocityY = Math.random() * 3;
       this.velocityZ = (Math.random() - .5) / 200;
-      this.texture = textures[Math.floor(Math.random() * 4)];
+      this.face = faces[Math.floor(Math.random() * 4)];
       this.width = 128;
       this.height = 128;
     }
@@ -44,10 +44,9 @@
       if (this.z < 0 || this.z > 1) {this.directionZ *= -1;}
 
       ctx.beginPath();
-      ctx.drawImage(this.texture, this.x, this.y, this.width * this.z, this.height * this.z);
+      ctx.drawImage(this.face, this.x, this.y, this.width * this.z, this.height * this.z);
       ctx.fill();
     }}
-
 
   for (var i = 0; i < 100; i++) {
     things.push(new Thing());
@@ -61,7 +60,7 @@
     requestAnimationFrame(render);
   };
 
-  textures[0].addEventListener('load', () => {
+  faces[0].addEventListener('load', () => {
     render();
   });
 </script>
