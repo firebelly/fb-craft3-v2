@@ -182,6 +182,10 @@
       color: color('gray');
     }
   }
+  // In case videos don't init properly, don't completely bork layout
+  iframe {
+    max-width: 100%;
+  }
 }
 
 // Browser Frame
