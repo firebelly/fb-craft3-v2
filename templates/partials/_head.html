@@ -19,7 +19,9 @@
   <meta property="fb:app_id" content="1675583716017779" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_us" />
-  <meta property="og:url" content="{{ entry.url }}" />
+  {% if entry is defined %}
+    <meta property="og:url" content="{{ entry.url }}" />
+  {% endif %}
   <meta property="og:site_name" content="{{ siteName }}" />
   <meta property="og:title" content="{% if seoTitle is defined %}{{ seoTitle }}{% elseif title is defined %}{{ title }} | {{ siteName }}{% else %}{{ siteName }}{% endif %}" />
   {% if seoDescription is defined %}

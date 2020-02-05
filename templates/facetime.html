@@ -1,0 +1,67 @@
+<canvas></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+<script>
+  let width = window.innerWidth,
+  height = window.innerHeight,
+  canvas = document.querySelector('canvas'),
+  ctx = canvas.getContext('2d'),
+  things = [],
+  textures = [new Image(), new Image(), new Image(), new Image()];
+
+  textures[0].src = '/assets/dist/images/carl.png';
+  textures[1].src = '/assets/dist/images/beaty.png';
+  textures[2].src = '/assets/dist/images/mattmama.png';
+  textures[3].src = '/assets/dist/images/mimsy.png';
+
+
+  canvas.width = width;
+  canvas.height = height;
+
+  class Thing {
+    constructor() {
+      this.x = width / 2;
+      this.y = height / 2;
+      this.z = Math.random();
+      this.directionX = Math.random() > .5 ? 1 : -1;
+      this.directionY = Math.random() > .5 ? 1 : -1;
+      this.directionZ = Math.random() > .5 ? 1 : -1;
+      this.velocityX = Math.random() * 3;
+      this.velocityY = Math.random() * 3;
+      this.velocityZ = (Math.random() - .5) / 200;
+      this.texture = textures[Math.floor(Math.random() * 4)];
+      this.width = 128;
+      this.height = 128;
+    }
+
+    render() {
+      this.x += this.velocityX * this.directionX;
+      this.y += this.velocityY * this.directionY;
+      this.z += this.velocityZ * this.directionZ;
+
+      if (this.x < 0 || this.x > width - this.width) {this.directionX *= -1;}
+      if (this.y < 0 || this.y > height - this.height) {this.directionY *= -1;}
+      if (this.z < 0 || this.z > 1) {this.directionZ *= -1;}
+
+      ctx.beginPath();
+      ctx.drawImage(this.texture, this.x, this.y, this.width * this.z, this.height * this.z);
+      ctx.fill();
+    }}
+
+
+  for (var i = 0; i < 100; i++) {
+    things.push(new Thing());
+  }
+
+  var render = () => {
+    for (var i = 0; i < things.length; i++) {
+      things[i].render();
+    }
+
+    requestAnimationFrame(render);
+  };
+
+  textures[0].addEventListener('load', () => {
+    render();
+  });
+</script>
