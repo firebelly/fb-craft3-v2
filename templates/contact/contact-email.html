@@ -14,14 +14,14 @@
   {% endif %}
 
   <h3>Name</h3>
-  {{ submission.fromName }}
+  <p>{{ submission.fromName }}</p>
 
   <h3>Email</h3>
-  {{ submission.fromEmail }}
+  <p>{{ submission.fromEmail }}</p>
 
   <h3>Organization</h3>
-  {{ submission.message["From Organization"] }}
+  <p>{{ submission.message["From Organization"] }}</p>
 
   <h3>Query</h3>
-  {{ submission.message["Query"] }}
+  <p>{{ submission.message["Query"] }}</p>
 {% endblock %}
