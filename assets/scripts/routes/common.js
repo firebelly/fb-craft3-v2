@@ -18,7 +18,8 @@ let blobMaster,
     $window = $(window),
     $body = $('body'),
     $document = $(document),
-    $siteNav;
+    $siteNav,
+    mousedownTimer;
 
 export default {
   // JavaScript to be fired on all pages
@@ -193,7 +194,7 @@ export default {
         }
 
         // Enable custom cursor visibility
-        $body.addClass('-cursor-active').removeClass('-mousedown');
+        $body.addClass('-cursor-active');
 
         // Set class of custom cursor
         let hoveredClass = $hoveredEl.data('cursor') ? $hoveredEl.data('cursor') : 'view';
@@ -208,11 +209,10 @@ export default {
         });
       }
 
-      $document.on('mousedown', () => {
+      $document.on('mousedown.customCursor', () => {
         $body.addClass('-mousedown');
-      });
-      $document.on('mouseup', () => {
-        $body.removeClass('-mousedown');
+        if (mousedownTimer) { clearTimeout(mousedownTimer); }
+        mousedownTimer = setTimeout(() => $body.removeClass('-mousedown'), 150);
       });
 
       // Listen for mouse movement
@@ -490,7 +490,7 @@ export default {
     });
 
     // Remove custom event watchers
-    $document.off('mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms');
+    $document.off('mousedown.customCursor mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms');
 
     // Remove vimeo players
     $.each(vimeoPlayers, function(){
