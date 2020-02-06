@@ -175,6 +175,14 @@ body.-cursor-active {
     opacity: 1;
     @include transition(opacity, 0.5s);
   }
+  // Click states
+  &.-mousedown {
+    #cursor.hand {
+      background: url('/assets/dist/images/hand-cursor-active.svg');
+      width: 140px;
+      height: 104px;
+    }
+  }
 }
 #cursor {
   top: 0;
@@ -197,11 +205,6 @@ body.-cursor-active {
     background: url('/assets/dist/images/hand-cursor.svg');
     width: 100px;
     height: 95px;
-    &.active {
-      background: url('/assets/dist/images/hand-cursor-active.svg');
-      width: 140px;
-      height: 104px;
-    }
   }
 
   &.previous,

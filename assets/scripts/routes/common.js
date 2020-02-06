@@ -193,7 +193,7 @@ export default {
         }
 
         // Enable custom cursor visibility
-        $body.addClass('-cursor-active');
+        $body.addClass('-cursor-active').removeClass('-mousedown');
 
         // Set class of custom cursor
         let hoveredClass = $hoveredEl.data('cursor') ? $hoveredEl.data('cursor') : 'view';
@@ -207,6 +207,13 @@ export default {
           'transform': 'translate3d(' + lastMousePosition.x + 'px, ' + lastMousePosition.y + 'px, 0)'
         });
       }
+
+      $document.on('mousedown', () => {
+        $body.addClass('-mousedown');
+      });
+      $document.on('mouseup', () => {
+        $body.removeClass('-mousedown');
+      });
 
       // Listen for mouse movement
       $document.on('mousemove.customCursor', onMouseMove);
