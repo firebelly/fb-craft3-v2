@@ -191,8 +191,21 @@ body.-cursor-active {
   height: 112px;
   mix-blend-mode: exclusion;
   background: url('/assets/dist/images/view-cursor.svg');
+  fill: #FAFAFA;
 
-  &.previous {
+  &.hand {
+    background: url('/assets/dist/images/hand-cursor.svg');
+    width: 100px;
+    height: 95px;
+    &.active {
+      background: url('/assets/dist/images/hand-cursor-active.svg');
+      width: 140px;
+      height: 104px;
+    }
+  }
+
+  &.previous,
+  &.next {
     width: 100px;
     height: 100px;
     margin-top: -50px;
@@ -202,12 +215,6 @@ body.-cursor-active {
     background-size: 100px 100px;
   }
   &.next {
-    width: 100px;
-    height: 100px;
-    margin-top: -50px;
-    margin-left: -50px;
-    mix-blend-mode: difference;
     background-image: url('/assets/dist/images/right-arrow-v2.svg');
-    background-size: 100px 100px;
   }
 }

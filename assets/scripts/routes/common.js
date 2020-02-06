@@ -188,12 +188,18 @@ export default {
           $body.removeClass('-cursor-active');
           return;
         }
+        if (!$hoveredEl.hasClass('js-cursor')) {
+          $hoveredEl = $hoveredEl.parents('.js-cursor');
+        }
 
         // Enable custom cursor visibility
         $body.addClass('-cursor-active');
 
         // Set class of custom cursor
-        let hoveredClass = $hoveredEl.hasClass('next') ? 'next' : ($hoveredEl.hasClass('previous') ? 'previous' : 'view');
+        let hoveredClass = $hoveredEl.data('cursor') ? $hoveredEl.data('cursor') : 'view';
+        if ($hoveredEl[0].className.match(/(next|previous)/)) {
+          hoveredClass = $hoveredEl[0].className;
+        }
         $customCursor[0].className = hoveredClass;
 
         // Now position cursor at lastMousePosition
