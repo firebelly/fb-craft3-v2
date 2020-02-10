@@ -35,10 +35,11 @@ const modals = {
 
     // Keyboard-triggered functions
     $document.keyup(e => {
-      // Escape key (disabling for now as it was causing multiple back() to trigger -- ??)
-      // if (e.keyCode === 27 && !appState.isAnimating && appState.modalOpen) {
-      //   history.back();
-      // }
+      // Escape key goes back (closing modal)
+      if (e.keyCode === 27 && !appState.isAnimating && appState.modalOpen) {
+        e.preventDefault();
+        history.back();
+      }
     }).on('click.modal', '.modal a.close-modal', e => {
       // Clicking on X (close) button
       e.preventDefault();
