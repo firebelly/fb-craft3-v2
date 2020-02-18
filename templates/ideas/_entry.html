@@ -5,7 +5,9 @@
 {% if entry.seoDescription %}{% set seoDescription = entry.seoDescription %}{% endif %}
 {% if entry.headerImage|length %}
   {% set headerImage = entry.headerImage.one() %}
+  {% set seoImage = headerImage %}
 {% endif %}
+{% if entry.seoImage|length %}{% set seoImage = entry.seoImage.one() %}{% endif %}
 
 {% block content %}
   {% cache unless currentUser %}
