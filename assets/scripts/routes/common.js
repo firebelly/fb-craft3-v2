@@ -198,8 +198,9 @@ export default {
 
         // Set class of custom cursor
         let hoveredClass = $hoveredEl.data('cursor') ? $hoveredEl.data('cursor') : 'view';
-        if ($hoveredEl[0].className.match(/(next|previous)/)) {
-          hoveredClass = $hoveredEl[0].className;
+        let nextPrevClass = hoveredEl.className.match(/ (next|previous)$/);
+        if (nextPrevClass) {
+          hoveredClass = nextPrevClass[0].trim();
         }
         $customCursor[0].className = hoveredClass;
 
