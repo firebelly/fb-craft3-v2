@@ -42,7 +42,7 @@ categoryGroups:
     structure:
       maxLevels: null
       uid: fc5b02e8-6367-450b-84a1-45b214a20262
-dateModified: 1580856111
+dateModified: 1583263212
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -822,6 +822,24 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Entries
+  b2a88991-30b5-43d2-84f3-9f214ba26717:
+    contentColumnType: string(480)
+    fieldGroup: d2d1260a-da85-41ec-8e8a-c16e376cf34f
+    handle: altText
+    instructions: ''
+    name: 'Alt Text'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: 120
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
   b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58:
     contentColumnType: text
     fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
@@ -5460,6 +5478,9 @@ volumes:
             fields:
               ac9c369c-9a19-4d6f-9050-70c68705b2b9:
                 required: false
+                sortOrder: 2
+              b2a88991-30b5-43d2-84f3-9f214ba26717:
+                required: false
                 sortOrder: 1
             name: Content
             sortOrder: 1
@@ -5478,6 +5499,9 @@ volumes:
           -
             fields:
               ac9c369c-9a19-4d6f-9050-70c68705b2b9:
+                required: false
+                sortOrder: 2
+              b2a88991-30b5-43d2-84f3-9f214ba26717:
                 required: false
                 sortOrder: 1
             name: Content
@@ -5498,6 +5522,9 @@ volumes:
             fields:
               ac9c369c-9a19-4d6f-9050-70c68705b2b9:
                 required: false
+                sortOrder: 2
+              b2a88991-30b5-43d2-84f3-9f214ba26717:
+                required: false
                 sortOrder: 1
             name: Content
             sortOrder: 1
@@ -5517,10 +5544,13 @@ volumes:
             fields:
               92519b8f-b52c-4b39-9bc7-a7df62593778:
                 required: false
-                sortOrder: 1
+                sortOrder: 2
               ac9c369c-9a19-4d6f-9050-70c68705b2b9:
                 required: false
-                sortOrder: 2
+                sortOrder: 3
+              b2a88991-30b5-43d2-84f3-9f214ba26717:
+                required: false
+                sortOrder: 1
             name: Content
             sortOrder: 1
     handle: work

@@ -35,7 +35,7 @@
       <figure>
         <div class="-aspect-ratio-pad" style="padding-bottom: {{ image.height / image.width * 100 }}%">
           {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
-            <img class="lazyload" data-src="{{ treatedImage.getUrl() }}" alt="{{ image.title }}">
+            <img class="lazyload" data-src="{{ treatedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
           {%- if block.imageLinkUrl %}</a>{% endif -%}
         </div>
         {% if image.caption %}

@@ -9,7 +9,7 @@
     {% if not (image.filename matches '/(gif|svg|json)$/') %}
       {% set transformedImage = craft.imager.transformImage(image, { width: 800, height: 450, mode: 'crop', quality: 75 }) %}
       {% if transformedImage %}
-        {% set rolloverImages = rolloverImages|merge([ { transformedImage: transformedImage, title: image.title } ]) %}
+        {% set rolloverImages = rolloverImages|merge([ { transformedImage: transformedImage, altText: image.altText, title: image.title } ]) %}
       {% endif %}
     {% endif %}
   {% endfor %}
@@ -19,10 +19,10 @@
   {% if rolloverImages|length %}
     <div class="rollover-images" data-num-images="{{ rolloverImages|length }}">
       {% for image in rolloverImages[1:] %}
-        <img src="{{ image.transformedImage.getUrl() }}" alt="{{ image.title }}">
+        <img src="{{ image.transformedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
       {% endfor %}
       {# Put first image last because of CSS animator behavior #}
-      <img src="{{ rolloverImages|first.transformedImage.getUrl() }}" alt="{{ rolloverImages|first.title }}">
+      <img src="{{ rolloverImages|first.transformedImage.getUrl() }}" alt="{{ rolloverImages|first.altText | length ? rolloverImages|first.altText : rolloverImages|first.title }}">
     </div>
   {% endif %}
 

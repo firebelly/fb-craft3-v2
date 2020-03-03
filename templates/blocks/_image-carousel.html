@@ -16,7 +16,7 @@
         {% set orientation = image.getWidth() > image.getHeight() ? 'landscape' : 'portrait' %}
         <div class="slide {{ orientation }}">
           {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
-            <img src="{{ treatedImage.getUrl() }}" alt="{{ image.title }}">
+            <img src="{{ treatedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
           {%- if block.imageLinkUrl %}</a>{% endif -%}
         </div>
       {% endif %}

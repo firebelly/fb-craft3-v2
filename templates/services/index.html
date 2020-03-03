@@ -54,7 +54,7 @@
         {% for group in entry.clients.clients.with(['clientGroup:clientLogos']).all() %}
           <li>
             {% for logo in group.clientLogos %}
-              <span><img src="{{ logo.getUrl() }}" alt="{{ logo.title }}"></span>
+              <span><img src="{{ logo.getUrl() }}" alt="{{ logo.altText | length ? logo.altText : logo.title }}"></span>
             {% endfor %}
           </li>
         {% endfor %}

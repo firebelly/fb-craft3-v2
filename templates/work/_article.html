@@ -21,8 +21,8 @@
   {% if transformedImage is defined %}
     <a class="-inner js-cursor" href="{{ entry.getUrl() }}" data-cursor-class="view">
       <div class="rollover-image">
-        <img src="{{ transformedImage.getUrl() }}" alt="{{ thumbnailImage.title }}">
-        <img src="{{ transformedImageHover.getUrl() }}" alt="{{ thumbnailImageHover.title }}">
+        <img src="{{ transformedImage.getUrl() }}" alt="{{ thumbnailImage.altText | length ? thumbnailImage.altText : thumbnailImage.title }}">
+        <img src="{{ transformedImageHover.getUrl() }}" alt="{{ thumbnailImageHover.altText | length ? thumbnailImageHover.altText : thumbnailImageHover.title }}">
       </div>
     </a>
   {% endif %}

@@ -11,12 +11,12 @@
     <div class="grid spaced">
       <div class="secondary-image col-md-1-2">
         {% if transformedMainImage %}
-          <img class="-reveal" src="{{ transformedSecondaryImage.getUrl() }}" alt="{{ header.secondaryImage.title }}">
+          <img class="-reveal" src="{{ transformedSecondaryImage.getUrl() }}" alt="{{ header.secondaryImage.altText | length ? header.secondaryImage.altText : header.secondaryImage.title }}">
         {% endif %}
       </div>
       <div class="main-image col-md-1-2">
         {% if transformedMainImage %}
-          <img class="-reveal" src="{{ transformedMainImage.getUrl() }}" alt="{{ header.mainImage.title }}">
+          <img class="-reveal" src="{{ transformedMainImage.getUrl() }}" alt="{{ header.mainImage.altText | length ? header.mainImage.altText : header.mainImage.title }}">
         {% endif %}
       </div>
     </div>

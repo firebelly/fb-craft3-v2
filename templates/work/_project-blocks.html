@@ -59,7 +59,7 @@
                 {% set orientation = image.getWidth() > image.getHeight() ? 'landscape' : 'portrait' %}
                 <div class="slide {{ orientation }}">
                   {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
-                    <img src="{{ treatedImage.getUrl() }}" alt="{{ image.title }}">
+                    <img src="{{ treatedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
                   {%- if block.imageLinkUrl %}</a>{% endif -%}
                 </div>
               {% endif %}
@@ -87,7 +87,7 @@
 
                 <figure class="-aspect-ratio-pad" style="padding-bottom: {{ image.height / image.width * 100 }}%">
                 {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
-                  <img class="lazyload" data-src="{{ treatedImage.getUrl() }}" alt="{{ image.title }}">
+                  <img class="lazyload" data-src="{{ treatedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
                 {%- if block.imageLinkUrl %}</a>{% endif -%}
                 </figure>
               {% endif %}

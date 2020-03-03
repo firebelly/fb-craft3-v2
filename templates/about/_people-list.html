@@ -19,7 +19,7 @@
         <div class="toggle-container">
           {% if personImage is defined %}
             <a data-no-swup class="-inner js-cursor" data-cursor="hand" href="{{ person.getUrl() }}">
-              <img src="{{ personImage.getUrl() }}" alt="{{ person.title }}">
+              <img src="{{ personImage.getUrl() }}" alt="{{ person.altText | length ? person.altText : person.title }}">
             </a>
           {% endif %}
           <h4 class="heading-smallcaps">{{ person.tagline }}</h4>
@@ -32,7 +32,7 @@
               <div class="person-info col-md-1-2">
                 {% if personImage is defined %}
                   <div class="image">
-                    <img src="{{ personImage.getUrl() }}" alt="{{ person.title }}">
+                    <img src="{{ personImage.getUrl() }}" alt="{{ person.altText | length ? person.altText : person.title }}">
                   </div>
                 {% endif %}
                 {% if person.pronouns %}
