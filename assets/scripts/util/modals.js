@@ -10,7 +10,8 @@ let $body = $('body'),
             $modal,
             $modalOverlay,
             $modalContainer,
-            scrollableSelector;
+            scrollableSelector,
+            useHistory = true;
 
 const modals = {
 
@@ -38,12 +39,20 @@ const modals = {
       // Escape key goes back (closing modal)
       if (e.keyCode === 27 && !appState.isAnimating && appState.modalOpen) {
         e.preventDefault();
-        history.back();
+        if (useHistory) {
+          history.back();
+        } else {
+          modals.closeModal();
+        }
       }
     }).on('click.modal', '.modal a.close-modal', e => {
       // Clicking on X (close) button
       e.preventDefault();
-      history.back();
+      if (useHistory) {
+        history.back();
+      } else {
+        modals.closeModal();
+      }
     });
 
     // Watch for back button and close modal if open
@@ -58,7 +67,13 @@ const modals = {
   },
 
   // Open a modal with html
-  openModal: function(html) {
+  openModal: function(html, noHistory) {
+    if (typeof noHistory !== 'undefined') {
+      useHistory = false;
+    } else {
+      useHistory = true;
+    }
+
     $modalContainer.html(html);
     // Set isAnimating to ignore any other triggers until modal is open
     appState.isAnimating = true;

@@ -77,12 +77,6 @@ $logo-lg-w: 49px;
     height: $logo-sm-w;
   }
 
-  #logo-wordmark {
-    width: 88px;
-    height: 22px;
-    margin: 4px 0 0 12px;
-  }
-
   @include media-nav {
     top: 25px;
     left: $padding-lg - ($logo-lg-w / 2);
@@ -98,14 +92,6 @@ $logo-lg-w: 49px;
     #logo-f {
       width: $logo-lg-w;
       height: $logo-lg-w;
-    }
-
-    #logo-wordmark {
-      width: 80px;
-      height: 19px;
-      margin: 23px 0 0 13px;
-      transform: rotate(90deg);
-      transform-origin: bottom left;
     }
   }
 }

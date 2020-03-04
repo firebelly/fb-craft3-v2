@@ -17,7 +17,7 @@ export default {
     let filtersHtml = $('.modal-content').html();
     $document.on('click.filters', 'a.filter-projects', function(e) {
       e.preventDefault();
-      modals.openModal(filtersHtml);
+      modals.openModal(filtersHtml, 'noHistory');
     });
 
     // Hijack clicks in filters modal
