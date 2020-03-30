@@ -1,9 +1,14 @@
 <head>
   <meta charset="utf-8">
   <title>{% if seoTitle is defined %}{{ seoTitle }}{% elseif title is defined %}{{ title }} | {{ siteName }}{% else %}{{ siteName }}{% endif %}</title>
-  {% if seoDescription is defined %}
+  {% if canonicalUrl is defined -%}
+  <link rel="canonical" href="{{ canonicalUrl }}">
+  {% else -%}
+  <link rel="canonical" href="{{ craft.request.getUrl() }}">
+  {% endif -%}
+  {% if seoDescription is defined -%}
   <meta name="description" content="{{ seoDescription }}">
-  {% endif %}
+  {% endif -%}
   <meta name="google-site-verification" content="clcwIm8zAwhSWBVXOhz9UBllB3mZpdOAXeoL2AaCZQc">
   <meta name="p:domain_verify" content="54d124bc9c4618cfe38edde207b08e55">
 
@@ -15,46 +20,46 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Facebook/og meta -->
-  <meta property="fb:app_id" content="1675583716017779" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="en_us" />
-  {% if entry is defined %}
-    <meta property="og:url" content="{{ entry.url }}" />
-  {% endif %}
-  <meta property="og:site_name" content="{{ siteName }}" />
-  <meta property="og:title" content="{% if seoTitle is defined %}{{ seoTitle }}{% elseif title is defined %}{{ title }} | {{ siteName }}{% else %}{{ siteName }}{% endif %}" />
-  {% if seoDescription is defined %}
+  {# Facebook/og meta -#}
+  <meta property="fb:app_id" content="1675583716017779">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_us">
+  {% if entry is defined -%}
+  <meta property="og:url" content="{{ entry.url }}">
+  {% endif -%}
+  <meta property="og:site_name" content="{{ siteName }}">
+  <meta property="og:title" content="{% if seoTitle is defined %}{{ seoTitle }}{% elseif title is defined %}{{ title }} | {{ siteName }}{% else %}{{ siteName }}{% endif %}">
+  {% if seoDescription is defined -%}
   <meta property="og:description" content="{{ seoDescription }}">
-  {% endif %}
-  {% if seoImage is defined %}
-    {% set transformedImage = craft.imager.transformImage(seoImage, { width: 1200, height: 630, mode: 'crop' }) %}
-  <meta property="og:image" content="{{ transformedImage.getUrl() }}"/>
-  <meta property="og:image:type" content="image/jpeg" />
-  {% elseif globalSeo.shareImage|length %}
-    {% set transformedImage = craft.imager.transformImage(globalSeo.shareImage.one(), { width: 1200, height: 630, mode: 'crop' }) %}
-  <meta property="og:image" content="{{ transformedImage.getUrl() }}"/>
-  <meta property="og:image:type" content="image/jpeg" />
-  {% endif %}
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@firebellydesign" />
-  <meta name="twitter:creator" content="@firebellydesign" />
-  <meta name="twitter:title" content="{% if seoTitle is defined %}{{ seoTitle }}{% elseif title is defined %}{{ title }} | {{ siteName }}{% else %}{{ siteName }}{% endif %}" />
-  {% if seoDescription is defined %}
+  {% endif -%}
+  {% if seoImage is defined -%}
+  {% set transformedImage = craft.imager.transformImage(seoImage, { width: 1200, height: 630, mode: 'crop' }) -%}
+  <meta property="og:image" content="{{ transformedImage.getUrl() }}">
+  <meta property="og:image:type" content="image/jpeg">
+  {% elseif globalSeo.shareImage|length -%}
+  {% set transformedImage = craft.imager.transformImage(globalSeo.shareImage.one(), { width: 1200, height: 630, mode: 'crop' }) -%}
+  <meta property="og:image" content="{{ transformedImage.getUrl() }}">
+  <meta property="og:image:type" content="image/jpeg">
+  {% endif -%}
+  {# Twitter Card -#}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@firebellydesign">
+  <meta name="twitter:creator" content="@firebellydesign">
+  <meta name="twitter:title" content="{% if seoTitle is defined %}{{ seoTitle }}{% elseif title is defined %}{{ title }} | {{ siteName }}{% else %}{{ siteName }}{% endif %}">
+  {% if seoDescription is defined -%}
   <meta name="twitter:description" content="{{ seoDescription }}">
-  {% endif %}
-  {% if seoImage is defined %}
-    {% set transformedImage = craft.imager.transformImage(seoImage, { width: 1200, height: 600, mode: 'crop' }) %}
-  <meta property="twitter:image" content="{{ transformedImage.getUrl() }}"/>
-  {% elseif globalSeo.shareImage|length %}
-    {% set transformedImage = craft.imager.transformImage(globalSeo.shareImage.one(), { width: 1200, height: 600, mode: 'crop' }) %}
-  <meta property="twitter:image" content="{{ transformedImage.getUrl() }}"/>
-  {% endif %}
+  {% endif -%}
+  {% if seoImage is defined -%}
+  {% set transformedImage = craft.imager.transformImage(seoImage, { width: 1200, height: 600, mode: 'crop' }) -%}
+  <meta property="twitter:image" content="{{ transformedImage.getUrl() }}">
+  {% elseif globalSeo.shareImage|length -%}
+  {% set transformedImage = craft.imager.transformImage(globalSeo.shareImage.one(), { width: 1200, height: 600, mode: 'crop' }) -%}
+  <meta property="twitter:image" content="{{ transformedImage.getUrl() }}">
+  {% endif -%}
 
   <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
-  <!-- Inject SVGs Defs for SVG icon use -->
+  {# Inject SVGs Defs for SVG icon use -#}
   <script>
     var ajax = new XMLHttpRequest();
     ajax.open("GET", "{{ rev('/svgs-defs.svg') }}", true);
