@@ -1,45 +1,92 @@
+<IfModule mod_expires.c>
+  # Set expire headers
+    ExpiresActive on
+    ExpiresDefault                                      "access plus 1 month"
+
+  # CSS
+    ExpiresByType text/css                              "access plus 1 year"
+
+  # Data interchange
+    ExpiresByType application/json                      "access plus 0 seconds"
+    ExpiresByType application/xml                       "access plus 0 seconds"
+    ExpiresByType text/xml                              "access plus 0 seconds"
+
+  # Favicon (cannot be renamed!) and cursor images
+    ExpiresByType image/x-icon                          "access plus 1 week"
+
+  # HTML components (HTCs)
+    ExpiresByType text/x-component                      "access plus 1 month"
+
+  # HTML
+    ExpiresByType text/html                             "access plus 0 seconds"
+
+  # JavaScript
+    ExpiresByType application/javascript                "access plus 1 year"
+
+  # Manifest files
+    ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+    ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+
+  # Media
+    ExpiresByType image/gif                             "access plus 1 month"
+    ExpiresByType image/jpeg                            "access plus 1 month"
+    ExpiresByType image/png                             "access plus 1 month"
+    ExpiresByType video/mp4                             "access plus 1 month"
+
+  # Web feeds
+    ExpiresByType application/atom+xml                  "access plus 1 hour"
+    ExpiresByType application/rss+xml                   "access plus 1 hour"
+
+  # Web fonts
+    ExpiresByType application/font-woff                 "access plus 1 month"
+    ExpiresByType application/x-font-ttf                "access plus 1 month"
+    ExpiresByType font/opentype                         "access plus 1 month"
+    ExpiresByType image/svg+xml                         "access plus 1 month"
+
+</IfModule>
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Ensure consistent URL
+  # Ensure consistent URL
     RewriteCond %{REQUEST_URI} !\.well\-known/acme\-challenge
     RewriteCond %{HTTP_HOST} !^www\.firebellydesign\.com [NC]
     # RewriteCond %{HTTP_HOST} !^craft3\.firebelly\.co [NC]
     RewriteCond %{HTTP_HOST} !^fb\-craft3\-v2\.localhost [NC]
     RewriteRule ^(.*)$ https://www.firebellydesign.com/$1 [R=301,L]
 
-    # Force SSL
+  # Force SSL
     RewriteCond %{REQUEST_URI} !\.well\-known/acme\-challenge
     RewriteCond %{HTTP:X-Forwarded-SSL} !on
     RewriteCond %{HTTP_HOST} !^fb\-craft3\-v2\.localhost [NC]
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-    # Custom redirects
+  # Custom redirects
     RewriteRule ^flor/?$ /work/flor-rebrand [R=301,L]
     RewriteRule ^expertise/?$ /process [R=301,L]
     RewriteRule ^(wheel|Wheel)/?$ /uploads/Firebelly-Project-Wheel.pdf [R=301,L]
     RewriteRule ^WorkshoppingWorkshops/?$ /uploads/Firebelly-Workshopping-Workshops.pdf [R=301,L]
 
-    # Redirect store -> homepage
+  # Redirect store -> homepage
     RewriteRule ^store(.*) / [R=301,L]
 
-    # Redirect thoughts -> ideas
+  # Redirect thoughts -> ideas
     RewriteRule ^thoughts(.*) /ideas$1 [R=301,L]
 
-    # Redirect tagged pages to landing page for now
+  # Redirect tagged pages to landing page for now
     RewriteRule ^ideas/tagged* /ideas [R=301,L]
 
-    # Redirect endeavors to about
+  # Redirect endeavors to about
     RewriteRule ^endeavors(.*) /about [R=301,L]
 
-    # Redirect process to services
+  # Redirect process to services
     RewriteRule ^process(.*)? /services [R=301,L]
 
-    # Redirect old people page, and people posts to team page modals
+  # Redirect old people page, and people posts to team page modals
     RewriteRule ^people/?$ /about [R=301,L]
-    RewriteRule ^people/(.*)/?$ /about#$1 [R=301,NE,L]
+    RewriteRule ^people/(.*)/?$ /abo#$1 [R=301,NE,L]
 
-    # Send would-be 404 requests to Craft
+  # Send would-be 404 requests to Craft
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
