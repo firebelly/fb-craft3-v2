@@ -9,7 +9,7 @@
     {% set transformedImageHover = craft.imager.transformImage(thumbnailImageHover, { width: 1116, height: 1504, mode: 'crop' }) %}
   {% elseif orientation == 'fullWidth' %}
     {% set transformedImage = craft.imager.transformImage(thumbnailImage, { width: 1728, height: 972, mode: 'crop' }) %}
-    {% set transformedImageHover = craft.imager.transformImage(thumbnailImageHover, { width: 1116, height: 640, mode: 'crop' }) %}
+    {% set transformedImageHover = craft.imager.transformImage(thumbnailImageHover, { width: 1728, height: 972, mode: 'crop' }) %}
   {% else %}
     {% set transformedImage = craft.imager.transformImage(thumbnailImage, { width: 1116, height: 640, mode: 'crop' }) %}
     {% set transformedImageHover = craft.imager.transformImage(thumbnailImageHover, { width: 1116, height: 640, mode: 'crop' }) %}
