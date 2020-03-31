@@ -6,22 +6,31 @@ require('flickity-imagesloaded');
 import Waypoints from 'waypoints/lib/jquery.waypoints.js';
 import Lazysizes from 'lazysizes';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
-import * as p5 from 'p5';
 import fitvids from 'fitvids';
 
 import appState from '../util/appState';
 
 // Shared vars
-let blobMaster,
-    isTouchDevice,
+let isTouchDevice,
     vimeoPlayers = [],
     $window = $(window),
     $body = $('body'),
     $document = $(document),
     $siteNav,
+    $blobs,
     mousedownTimer;
 
-export default {
+let blobFps = {
+  stop: false,
+  frameCount: 0,
+  fpsInterval: 0,
+  startTime: 0,
+  now: 0,
+  then: 0,
+  elapsed: 0
+};
+
+const common = {
   // JavaScript to be fired on all pages
   init() {
     // Set up libraries to be used with jQuery
@@ -30,6 +39,8 @@ export default {
     // Init shared vars
     $siteNav = $('.site-nav');
     isTouchDevice = _isTouchDevice();
+
+    $blobs = $('#blobs');
 
     // Add is-touch class for styling (hide carousel pagination divs on ipads, no Next Project rollover images, etc)
     $body.toggleClass('-is-touch', isTouchDevice);
@@ -282,95 +293,23 @@ export default {
       if (!$body.is('.with-blobs')) {
         return;
       }
-      $('canvas').removeClass('-fading');
+      $blobs.removeClass('-fading');
 
-      const bloblob = (p5) => {
-        let maxWidth,
-            color = $body.attr('data-blob-color') || '#FF3D00', //00C2FF
-            speed = 0.1,
-            thickness,
-            frameSpeed = 30,
-            minAmount = 4,
-            maxAmount,
-            trail = false;
+      let minAmount = 4,
+          maxAmount = (appState.breakpoints.nav ? 14 : 6);
 
-        // Set thickness based on viewport size
-        if (appState.breakpoints.nav) {
-          maxWidth = 110;
-          thickness = 48;
-          maxAmount = 14;
-        } else {
-          maxWidth = 46;
-          thickness = 16;
-          maxAmount = 6;
-        }
+      let blobs = [];
+      let amount = Math.ceil(Math.random() * (maxAmount - minAmount) + minAmount);
 
-        // make library globally available
-        window.p5 = p5;
-
-        let blobs = []; // array of Jitter objects
-        let amount = Math.ceil(p5.random(minAmount,maxAmount));
-
-        p5.setup = () => {
-          var canvas = p5.createCanvas(window.innerWidth * 1.1, window.innerHeight * 1.1);
-          canvas.id('blobs');
-          p5.angleMode(p5.DEGREES);
-          p5.noStroke();
-          p5.frameRate(frameSpeed);
-          // Create objects
-          for (let i = 0; i < amount; i++) {
-            blobs.push(new Jitter());
-          }
-        }
-
-        p5.draw = () => {
-          if (trail === false) {
-            p5.clear();
-          }
-          for (let i = 0; i < blobs.length; i++) {
-            p5.push();
-            blobs[i].move();
-            blobs[i].display();
-            p5.pop();
-          }
-        }
-
-        p5.windowResized = () => {
-          p5.resizeCanvas(window.innerWidth * 1.1, window.innerHeight * 1.1, false);
-        }
-
-        // Jitter class
-        class Jitter {
-          constructor() {
-            this.h = Math.random() * (maxWidth - thickness) + thickness;
-            this.x = p5.random(p5.width - thickness);
-            this.y = p5.random(p5.height - this.h);
-            this.speed = p5.random(speed, speed + (speed * 3));
-            this.rotation = p5.random(0,360);
-          }
-
-          move() {
-            this.x += p5.random(-this.speed * 2, this.speed);
-            this.y += -this.speed;
-            // if (this.y + (this.h / 2) < 0) {
-            //   this.y = p5.height + this.h;
-            //   this.x = p5.random(p5.width);
-            // }
-          }
-
-          display() {
-            p5.fill(color);
-            p5.push();
-              p5.translate(this.x, this.y);
-              p5.rotate(this.rotation);
-              p5.rectMode(p5.CENTER);
-              p5.rect(0, 0, thickness, this.h, 24, 24, 24, 24);
-            p5.pop();
-          }
-        }
+      for (let i = 0; i < amount; i++) {
+        let num = Math.ceil(Math.random() * 10);
+        let x = Math.ceil(Math.random() * window.innerWidth * 1.1);
+        let y = Math.ceil(Math.random() * window.innerHeight * 1.1);
+        let d = Math.ceil(Math.random() * 180);
+        $('<div style="left:'+x+'px;top:'+y+'px;" class="blob"><img style="transform:rotate('+d+'deg)" src="/assets/dist/images/blobs/blob-'+num+'.png"></div>').appendTo($blobs);
       }
 
-      blobMaster = new p5(bloblob);
+      common.startBlobs(30);
     }
 
     // Carousels
@@ -469,6 +408,33 @@ export default {
     $window.resize(_resize);
   },
 
+  startBlobs(fps) {
+    blobFps.fpsInterval = 1000 / fps;
+    blobFps.then = window.performance.now();
+    blobFps.startTime = blobFps.then;
+    common.moveBlobs();
+  },
+
+  moveBlobs(newtime) {
+    if (blobFps.stop) {
+      return;
+    }
+    requestAnimationFrame(common.moveBlobs);
+    blobFps.now = newtime;
+    blobFps.elapsed = blobFps.now - blobFps.then;
+
+    if (blobFps.elapsed > blobFps.fpsInterval) {
+      blobFps.then = blobFps.now - (blobFps.elapsed % blobFps.fpsInterval);
+      $('#blobs .blob').each(function() {
+        let $this = $(this);
+        let x = (Math.random() * -1) + 0.25;
+        let y = -0.25;
+        $this.css('left', parseFloat($this.css('left').replace('px','')) + x);
+        $this.css('top', parseFloat($this.css('top').replace('px','')) + y);
+      });
+    }
+  },
+
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
   },
@@ -480,9 +446,11 @@ export default {
     $('form.newsletter').find('.status').removeClass('error success').end().trigger('reset');
 
     // Remove blobs if present
-    if (blobMaster) {
-      $('canvas').addClass('-fading');
-      setTimeout(blobMaster.remove, 500);
+    if ($('#blobs .blob').length) {
+      $blobs.addClass('-fading');
+      setTimeout(function() {
+        $('#blobs .blob').remove();
+      }, 500);
     }
 
     // Remove flickity instances
@@ -503,3 +471,5 @@ export default {
     vimeoPlayers = [];
   },
 };
+
+export default common;
