@@ -18,21 +18,22 @@ let isTouchDevice,
     $document = $(document),
     $siteNav,
     $blobs,
+    blobsData,
     mousedownTimer;
-
-let blobFps = {
-  stop: false,
-  frameCount: 0,
-  fpsInterval: 0,
-  startTime: 0,
-  now: 0,
-  then: 0,
-  elapsed: 0
-};
 
 const common = {
   // JavaScript to be fired on all pages
   init() {
+    blobsData = {
+      stop: false,
+      frameCount: 0,
+      fpsInterval: 0,
+      startTime: 0,
+      now: 0,
+      then: 0,
+      elapsed: 0
+    };
+
     // Set up libraries to be used with jQuery
     jQueryBridget('flickity', Flickity, $);
 
@@ -41,6 +42,7 @@ const common = {
     isTouchDevice = _isTouchDevice();
 
     $blobs = $('#blobs');
+    $blobs.find('.blob').remove();
 
     // Add is-touch class for styling (hide carousel pagination divs on ipads, no Next Project rollover images, etc)
     $body.toggleClass('-is-touch', isTouchDevice);
@@ -52,11 +54,11 @@ const common = {
     _initBigClicky();
     _initSmoothScroll();
     _initSiteNav();
-    _initBlobs();
     _initFlickity();
     _initVideos();
     _initForms();
     _initNewsletterForm();
+    _initBlobs();
 
     // Ajaxify newsletter form
     function _initNewsletterForm() {
@@ -290,18 +292,18 @@ const common = {
 
     // Superfluous flesh!
     function _initBlobs() {
-      if (!$body.is('.with-blobs')) {
+      if (!$body.hasClass('with-blobs')) {
         return;
       }
       $blobs.removeClass('-fading');
 
-      let minAmount = 4,
-          maxAmount = (appState.breakpoints.nav ? 14 : 6);
+      let minBlobs = 4,
+          maxBlobs = (appState.breakpoints.nav ? 14 : 6);
 
       let blobs = [];
-      let amount = Math.ceil(Math.random() * (maxAmount - minAmount) + minAmount);
+      let numBlobs = Math.ceil(Math.random() * (maxBlobs - minBlobs) + minBlobs);
 
-      for (let i = 0; i < amount; i++) {
+      for (let i = 0; i < numBlobs; i++) {
         let num = Math.ceil(Math.random() * 10);
         let x = Math.ceil(Math.random() * window.innerWidth * 1.1);
         let y = Math.ceil(Math.random() * window.innerHeight * 1.1);
@@ -332,8 +334,8 @@ const common = {
       $('.vimeo-block').each(function(i) {
         var $this = $(this);
         var el;
-        var isBackgroundVideo = $this.is('.background-video');
-        var isBannerVideo = $this.is('.banner-video');
+        var isBackgroundVideo = $this.hasClass('background-video');
+        var isBannerVideo = $this.hasClass('banner-video');
         // Set vimeo player options
         // Note: embed options seem to overwrite these, so autoplay=0
         // must be in embed for video to stay paused until waypoint triggers play()
@@ -409,23 +411,23 @@ const common = {
   },
 
   startBlobs(fps) {
-    blobFps.fpsInterval = 1000 / fps;
-    blobFps.then = window.performance.now();
-    blobFps.startTime = blobFps.then;
+    blobsData.fpsInterval = 1000 / fps;
+    blobsData.then = window.performance.now();
+    blobsData.startTime = blobsData.then;
     common.moveBlobs();
   },
 
   moveBlobs(newtime) {
-    if (blobFps.stop) {
+    if (blobsData.stop) {
       return;
     }
     requestAnimationFrame(common.moveBlobs);
-    blobFps.now = newtime;
-    blobFps.elapsed = blobFps.now - blobFps.then;
+    blobsData.now = newtime;
+    blobsData.elapsed = blobsData.now - blobsData.then;
 
-    if (blobFps.elapsed > blobFps.fpsInterval) {
-      blobFps.then = blobFps.now - (blobFps.elapsed % blobFps.fpsInterval);
-      $('#blobs .blob').each(function() {
+    if (blobsData.elapsed > blobsData.fpsInterval) {
+      blobsData.then = blobsData.now - (blobsData.elapsed % blobsData.fpsInterval);
+      $blobs.find('.blob').each(function() {
         let $this = $(this);
         let x = (Math.random() * -1) + 0.25;
         let y = -0.25;
@@ -446,11 +448,8 @@ const common = {
     $('form.newsletter').find('.status').removeClass('error success').end().trigger('reset');
 
     // Remove blobs if present
-    if ($('#blobs .blob').length) {
+    if ($blobs.find('.blob').length) {
       $blobs.addClass('-fading');
-      setTimeout(function() {
-        $('#blobs .blob').remove();
-      }, 500);
     }
 
     // Remove flickity instances
