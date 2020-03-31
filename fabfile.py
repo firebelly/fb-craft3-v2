@@ -7,14 +7,14 @@ env.remotepath = '/home/firebelly/webapps/fb_craft3_dev'
 env.git_branch = 'master'
 env.warn_only = True
 
-# def production():
-#   env.hosts = ['firebellydesign.com']
-#   env.remotepath = '/home/firebelly/webapps/fb_craft3'
+def production():
+  env.hosts = ['firebellydesign.com']
+  env.remotepath = '/home/firebelly/webapps/fb_craft3'
 
-# def syncstaging():
-#   with cd(env.remotepath):
-#     run('/usr/bin/mysqldump --defaults-extra-file=/home/firebelly/etc/.my.cnf -u fb_craft_sql fb_craft3 | /usr/bin/mysql --defaults-extra-file=/home/firebelly/etc/.my.cnf -u fb_craft_sql fb_craft3_dev')
-#     run('/usr/bin/rsync -av --delete /home/firebelly/webapps/fb_craft3/web/uploads/ /home/firebelly/webapps/fb_craft3_dev/web/uploads/')
+def syncstaging():
+  with cd(env.remotepath):
+    run('/usr/bin/mysqldump --defaults-extra-file=/home/firebelly/etc/.my.cnf -u fb_craft_sql fb_craft3 | /usr/bin/mysql --defaults-extra-file=/home/firebelly/etc/.my.cnf -u fb_craft_sql fb_craft3_dev')
+    run('/usr/bin/rsync -av --delete /home/firebelly/webapps/fb_craft3/web/uploads/ /home/firebelly/webapps/fb_craft3_dev/web/uploads/')
 
 def devsetup():
   print "Composing and yarning...\n"
