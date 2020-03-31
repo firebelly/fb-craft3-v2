@@ -4,7 +4,7 @@
   {% if canonicalUrl is defined -%}
   <link rel="canonical" href="{{ canonicalUrl }}">
   {% else -%}
-  <link rel="canonical" href="{{ craft.request.getUrl() }}">
+  <link rel="canonical" href="{{ craft.app.request.absoluteUrl }}">
   {% endif -%}
   {% if seoDescription is defined -%}
   <meta name="description" content="{{ seoDescription }}">
