@@ -9,6 +9,7 @@
 {% endif %}
 
 <body class="{% if bodyClass is defined %}{{ bodyClass }} {% endif %}{{ pageClass }}" id="top">
+  <a href="#page" class="skip-to-content visually-hidden">Skip to main content</a>
   <div id="breakpoint-indicator" class="hidden"></div>
 
   <header class="site-header clearfix">
@@ -21,9 +22,9 @@
         <a href="/"><span class="visually-hidden">Firebelly</span>{% include 'partials/_logo' %}</a>
       </{{ craft.app.request.getUrl() == '/' ? 'h1' : 'div' }}>
 
+      <button id="nav-open" type="button" class="nav-toggle open">Menu</button>
       {% include 'partials/_sitenav' %}
 
-      <button id="nav-open" type="button" class="nav-toggle open">Menu</button>
     </div>
   </header>
 

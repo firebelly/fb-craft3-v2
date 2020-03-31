@@ -1,5 +1,19 @@
 // Header
 
+// Skip to content link
+.skip-to-content:focus {
+  top: 21px;
+  left: 170px;
+  width: auto;
+  height: auto;
+  clip: auto !important;
+  z-index: z(header) + 1;
+
+  @include media-nav {
+    top: 41px;
+  }
+}
+
 .site-header {
   top: 0;
   left: 0;
