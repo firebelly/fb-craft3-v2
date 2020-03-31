@@ -11,7 +11,7 @@
 <body class="{% if bodyClass is defined %}{{ bodyClass }} {% endif %}{{ pageClass }}" id="top">
   <div id="breakpoint-indicator" class="hidden"></div>
 
-  <header class="site-header clearfix" role="banner">
+  <header class="site-header clearfix">
     <div class="container">
       {% if entry is defined and entry.isEditable() %}
         <div class="edit-link"><a href="{{ entry.cpEditUrl ~ '?redirect=' ~ craft.app.request.getUrl()|url_encode }}">Edit Entry</a></div>
@@ -31,7 +31,7 @@
 
   {% include 'partials/_flash' %}
 
-  <main class="site-main" role="main">
+  <main class="site-main">
 
     <div id="page" class="transition-fade">
       {% block content %}{% endblock %}

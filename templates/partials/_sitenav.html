@@ -1,7 +1,7 @@
 {% set navItems = ['work','services','about','ideas','contact'] %}
 
-<nav class="site-nav" role="navigation" id="site-nav">
-  <button id="nav-close" class="nav-toggle close"><svg class="icon icon-close" aria-hidden="true" role="presentation"><use xlink:href="#icon-close"/></svg></button>
+<nav class="site-nav" id="site-nav">
+  <button id="nav-close" class="nav-toggle close"><svg class="icon icon-close" aria-hidden="true"><use xlink:href="#icon-close"/></svg></button>
   <ul class="primary">
     {% for navItem in navItems %}
       <li class="nav-{{ navItem }}{{ entry is defined and entry.slug == navItem or craft.app.request.getSegment(1) == navItem ? ' -current' : '' }}"><a href="/{{ navItem }}">{{ navItem | capitalize }}</a></li>

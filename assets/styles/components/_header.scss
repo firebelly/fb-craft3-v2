@@ -23,8 +23,8 @@ $logo-lg-w: 49px;
   z-index: z(header);
   @include transition(opacity);
   a {
-    display: block;
     padding: 10px;
+    display: block;
   }
 
   svg {
