@@ -306,7 +306,7 @@ const common = {
         let x = Math.ceil(Math.random() * window.innerWidth * 1.1);
         let y = Math.ceil(Math.random() * window.innerHeight * 1.1);
         let d = Math.ceil(Math.random() * 180);
-        $('<div style="left:'+x+'px;top:'+y+'px;" class="blob"><img style="transform:rotate('+d+'deg)" src="/assets/dist/images/blobs/blob-'+num+'.png"></div>').appendTo($blobs);
+        $('<div style="left:'+x+'px;top:'+y+'px;" class="blob"><img style="transform:rotate('+d+'deg)" src="/assets/dist/images/blobs/blob-'+num+'.png" role="presentation" alt=""></div>').appendTo($blobs);
       }
 
       common.startBlobs(30);

@@ -50,7 +50,7 @@ $logo-lg-w: 49px;
   }
 }
 
-#logo {
+.site-logo {
   top: 16px;
   margin: 0;
   left: 13px;
@@ -72,7 +72,7 @@ $logo-lg-w: 49px;
     align-items: center;
   }
 
-  #logo-f {
+  .logo-f {
     width: $logo-sm-w;
     height: $logo-sm-w;
   }
@@ -89,7 +89,7 @@ $logo-lg-w: 49px;
       display: block;
     }
 
-    #logo-f {
+    .logo-f {
       width: $logo-lg-w;
       height: $logo-lg-w;
     }
