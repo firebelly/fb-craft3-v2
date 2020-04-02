@@ -2,30 +2,8 @@
 {% set thumbnailImageHover = entry.altImage|length > 1 ? entry.altImage[1] : thumbnailImage %}
 {% set orientation = orientationOverride ?? entry.thumbnailOrientation %}
 
-{# todo: srcset these motherfunkers! #}
-{% if thumbnailImage %}
-  {% if orientation == 'portrait' %}
-    {% set transformedImage = craft.imager.transformImage(thumbnailImage, { width: 1116, height: 1504, mode: 'crop' }) %}
-    {% set transformedImageHover = craft.imager.transformImage(thumbnailImageHover, { width: 1116, height: 1504, mode: 'crop' }) %}
-  {% elseif orientation == 'fullWidth' %}
-    {% set transformedImage = craft.imager.transformImage(thumbnailImage, { width: 1728, height: 972, mode: 'crop' }) %}
-    {% set transformedImageHover = craft.imager.transformImage(thumbnailImageHover, { width: 1728, height: 972, mode: 'crop' }) %}
-  {% else %}
-    {% set transformedImage = craft.imager.transformImage(thumbnailImage, { width: 1116, height: 640, mode: 'crop' }) %}
-    {% set transformedImageHover = craft.imager.transformImage(thumbnailImageHover, { width: 1116, height: 640, mode: 'crop' }) %}
-  {% endif %}
-{% endif %}
-
 <article class="project {{ orientation == 'fullWidth' ? 'col-nav-full' : 'col-nav-1-2' }} -reveal">
-
-  {% if transformedImage is defined %}
-    <a class="-inner js-cursor" href="{{ entry.getUrl() }}" data-cursor-class="view">
-      <div class="rollover-image">
-        <img src="{{ transformedImage.getUrl() }}" alt="{{ thumbnailImage.altText | length ? thumbnailImage.altText : thumbnailImage.title }}">
-        <img src="{{ transformedImageHover.getUrl() }}" alt="{{ thumbnailImageHover.altText | length ? thumbnailImageHover.altText : thumbnailImageHover.title }}">
-      </div>
-    </a>
-  {% endif %}
+  {% include 'partials/_rollover-image' with { thumbnailImage: thumbnailImage } %}
 
   <div class="project-content">
     {% if entry.services|length %}
