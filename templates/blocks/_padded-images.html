@@ -1,5 +1,17 @@
 {% for image in block.image %}
-  {% set width = (block.size == 'halfWidth' ? 900 : 1800) %}
+  {% if block.treated %}
+    {% set treatedEffects = { modulate: [100, 0, 100], clut: 'gradient:#000000-#ffffff' } %}
+  {% else %}
+    {% set treatedEffects = {} %}
+  {% endif %}
+  {% if block.size matches '/halfWidth/' %}
+    {% set imgSrcSets = [ { width: 1200 }, { width: 750, jpegQuality: 65 }, ]  %}
+    {% set imgSizes = '(max-width: 768px) 100vw, 50vw' %}
+  {% else %}
+    {% set imgSrcSets = [ { width: 2000 }, { width: 750, jpegQuality: 65 }, ]  %}
+    {% set imgSizes = '100vw' %}
+  {% endif %}
+
   {% set embeddedAsset = craft.embeddedAssets.get(image) %}
   <div class="block-image -reveal {{ block.size }}">
     <div class="-inner">
@@ -14,14 +26,13 @@
       {% endif %}
     {% else %}
 
-      {% if block.treated %}
-        {% set treatedImage = craft.imager.transformImage(image, { width: width, effects: { modulate: [100, 0, 100], clut: 'gradient:#000000-#ffffff' } }) %}
+      {# Leave (untreated) GIFs alone #}
+      {% if image.filename matches '/gif$/' and not block.treated %}
+        {% set treatedImage = image %}
       {% else %}
-        {# Leave GIFs & PNGs alone #}
-        {% if image.filename matches '/(gif|png)$/' %}
-          {% set treatedImage = image %}
-        {% else %}
-          {% set treatedImage = craft.imager.transformImage(image, { width: width }) %}
+        {% set transformedImages = craft.imager.transformImage(image, imgSrcSets, { format: 'jpg', jpegQuality: 80, interlace: true, effects: treatedEffects }) %}
+        {% if craft.imager.serverSupportsWebp() %}
+          {% set transformedImagesWebp = craft.imager.transformImage(image, imgSrcSets, { format: 'webp', jpegQuality: 80, interlace: true, effects: treatedEffects }) %}
         {% endif %}
       {% endif %}
 
@@ -35,7 +46,18 @@
       <figure>
         <div class="-aspect-ratio-pad" style="padding-bottom: {{ image.height / image.width * 100 }}%">
           {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
-            <img class="lazyload" data-src="{{ treatedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
+
+            <picture>
+            {% if image.filename matches '/gif$/' and not block.treated %}
+              <img class="lazyload" src="{{ craft.imager.base64Pixel(2,1) }}" data-src="{{ treatedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
+            {% else %}
+                {% if transformedImagesWebp is defined %}
+                  <source data-sizes="{{ imgSizes }}" data-srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
+                {% endif %}
+                <img class="lazyload" src="{{ craft.imager.base64Pixel(2,1) }}" data-sizes="{{ imgSizes }}" data-srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ image.altText | length ? image.altText : image.title }}">
+            {% endif -%}
+            </picture>
+
           {%- if block.imageLinkUrl %}</a>{% endif -%}
         </div>
         {% if image.caption %}
