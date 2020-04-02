@@ -4,7 +4,7 @@
   {% else %}
     {% set treatedEffects = {} %}
   {% endif %}
-  {% if block.size matches '/halfWidth/' %}
+  {% if block.size matches '/halfWidth/' or block.size matches '/Padded/' %}
     {% set imgSrcSets = [ { width: 1200 }, { width: 750, jpegQuality: 65 }, ]  %}
     {% set imgSizes = '(max-width: 768px) 100vw, 50vw' %}
   {% else %}
