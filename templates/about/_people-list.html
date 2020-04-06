@@ -11,15 +11,26 @@
     {% for person in entry.people.with(['photo']).all() %}
       {% set image = person.photo[0] %}
       {% if image %}
-        {% set personImage = craft.imager.transformImage(image, { width: 1100, height: 640, mode: 'crop' }) %}
+        {% set imgSrcSets = [ { width: 1100, ratio: 10/5.82 }, { width: 750, ratio: 10/5.82, jpegQuality: 65 }, ]  %}
+        {% set imgSizes = '(max-width: 768px) 100vw, 50vw' %}
+        {% set transformedImages = craft.imager.transformImage(image, imgSrcSets, { format: 'jpg', mode: 'crop', jpegQuality: 80, interlace: true }) %}
+
+        {% if craft.imager.serverSupportsWebp() %}
+          {% set transformedImagesWebp = craft.imager.transformImage(image, imgSrcSets, { format: 'webp', mode: 'crop', jpegQuality: 80, interlace: true }) %}
+        {% endif %}
       {% endif %}
       <article class="col-md-1-2 person -reveal" data-person="{{ person.slug }}">
         <div class="anchor" id="{{ person.slug }}"></div>
 
         <div class="toggle-container">
-          {% if personImage is defined %}
+          {% if transformedImages is defined %}
             <a data-no-swup class="-inner js-cursor" data-cursor="hand" href="{{ person.getUrl() }}">
-              <img src="{{ personImage.getUrl() }}" alt="{{ person.altText | length ? person.altText : person.title }}">
+              <picture>
+                {% if transformedImagesWebp is defined %}
+                  <source sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
+                {% endif %}
+                <img src="{{ transformedImages[1].url }}" sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ image.altText | length ? image.altText : person.title }}">
+              </picture>
             </a>
           {% endif %}
           <h4 class="heading-smallcaps">{{ person.tagline }}</h4>
@@ -30,10 +41,13 @@
           <div class="container">
             <div class="grid spaced">
               <div class="person-info col-md-1-2">
-                {% if personImage is defined %}
-                  <div class="image">
-                    <img src="{{ personImage.getUrl() }}" alt="{{ person.altText | length ? person.altText : person.title }}">
-                  </div>
+                {% if transformedImages is defined %}
+                  <picture class="image">
+                    {% if transformedImagesWebp is defined %}
+                      <source sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
+                    {% endif %}
+                    <img src="{{ transformedImages[1].url }}" sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ image.altText | length ? image.altText : person.title }}">
+                  </picture>
                 {% endif %}
                 {% if person.pronouns %}
                   <h4 class="pronouns">
