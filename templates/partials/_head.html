@@ -72,6 +72,7 @@
     ajax.onload = function(e) {
       var div = document.createElement("div");
       div.className += "svg-defs hidden";
+      div.setAttribute("aria-hidden", "true");
       div.innerHTML = ajax.responseText;
       document.body.insertBefore(div, document.body.childNodes[0]);
     }

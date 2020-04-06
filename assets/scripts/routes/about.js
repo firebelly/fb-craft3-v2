@@ -10,6 +10,13 @@ const about = {
     // Init modal & specify scrollable container when modal is open
     modals.init('.modal');
 
+    // If page is being loaded after a modual using history is closed,
+    // set focus to the element that was in focus before the modal was opened
+    if (appState.personModalTrigger != false) {
+      $('[data-person="' + appState.personModalTrigger + '"] a:first-of-type').focus();
+      appState.personModalTrigger = false;
+    }
+
     // Person links to modals
     $('.person a').on('click', function(e) {
       e.preventDefault();

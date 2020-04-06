@@ -1,7 +1,7 @@
 // Common js
 
 import jQueryBridget from 'jquery-bridget';
-import Flickity from 'flickity/dist/flickity.pkgd.js';
+import Flickity from 'flickity-fade';
 require('flickity-imagesloaded');
 import Waypoints from 'waypoints/lib/jquery.waypoints.js';
 import Lazysizes from 'lazysizes';
@@ -11,6 +11,8 @@ import fitvids from 'fitvids';
 import appState from '../util/appState';
 
 // Shared vars
+const reducedMotionMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+
 let isTouchDevice,
     vimeoPlayers = [],
     $window = $(window),
@@ -20,6 +22,10 @@ let isTouchDevice,
     $blobs,
     blobsData,
     mousedownTimer;
+
+// Accessibility/tab trap taken from https://github.com/gdkraus/accessible-modal-dialog
+// jQuery formatted selector to search for focusable items
+let focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
 
 const common = {
   // JavaScript to be fired on all pages
@@ -261,6 +267,10 @@ const common = {
     function _initSiteNav() {
       $document.on('click.siteNavOpen', '#nav-open', _openNav);
       $document.on('click.siteNavClose', '#nav-close', _closeNav);
+
+      $('.site-nav.-active').keydown(function(event) {
+        trapTabKey($(this), event);
+      });
     }
 
     function _openNav() {
@@ -272,6 +282,11 @@ const common = {
         complete: function() {
           $siteNav.addClass('-active');
         }
+      });
+
+      // attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
+      $('body').on('focusin', '.site-main', function() {
+        setFocusToFirstItemInContainer($('.site-nav'));
       });
     }
 
@@ -286,13 +301,68 @@ const common = {
         complete: function() {
           $body.removeClass('nav-open');
           $siteNav.removeClass('-active');
+          $('#nav-open').focus();
         }
       });
+
+      // remove the listener which redirects tab keys in the main content area to the modal
+      $('body').off('focusin','.site-nav');
+    }
+
+    function trapTabKey(obj, evt) {
+      console.log('hey!');
+      // if tab or shift-tab pressed
+      if (evt.which == 9) {
+
+        // get list of all children elements in given object
+        var o = obj.find('*');
+
+        // get list of focusable items
+        var focusableItems;
+        focusableItems = o.filter(focusableElementsString).filter(':visible')
+
+        // get currently focused item
+        var focusedItem;
+        focusedItem = $(':focus');
+
+        // get the number of focusable items
+        var numberOfFocusableItems;
+        numberOfFocusableItems = focusableItems.length
+
+        // get the index of the currently focused item
+        var focusedItemIndex;
+        focusedItemIndex = focusableItems.index(focusedItem);
+
+        if (evt.shiftKey) {
+          //back tab
+          // if focused on first item and user preses back-tab, go to the last focusable item
+          if (focusedItemIndex == 0) {
+            focusableItems.get(numberOfFocusableItems - 1).focus();
+            evt.preventDefault();
+          }
+
+        } else {
+          //forward tab
+          // if focused on the last item and user preses tab, go to the first focusable item
+          if (focusedItemIndex == numberOfFocusableItems - 1) {
+            focusableItems.get(0).focus();
+            evt.preventDefault();
+          }
+        }
+      }
+    }
+
+    function setFocusToFirstItemInContainer(obj) {
+      // get list of all children elements in given object
+      var o = obj.find('*');
+
+      // set the focus to the first keyboard focusable item
+      o.filter(focusableElementsString).filter(':visible').first().focus();
     }
 
     // Superfluous flesh!
     function _initBlobs() {
-      if (!$body.hasClass('with-blobs')) {
+      if (!$body.hasClass('with-blobs') || reducedMotionMQ.matches) {
         return;
       }
       $blobs.removeClass('-fading');
@@ -308,7 +378,7 @@ const common = {
         let x = Math.ceil(Math.random() * window.innerWidth * 1.1);
         let y = Math.ceil(Math.random() * window.innerHeight * 1.1);
         let d = Math.ceil(Math.random() * 180);
-        $('<div style="left:'+x+'px;top:'+y+'px;" class="blob"><img style="transform:rotate('+d+'deg)" src="/assets/dist/images/blobs/blob-'+num+'.png"></div>').appendTo($blobs);
+        $('<div style="left:'+x+'px;top:'+y+'px;" class="blob"><img style="transform:rotate('+d+'deg)" src="/assets/dist/images/blobs/blob-'+num+'.png" alt=""></div>').appendTo($blobs);
       }
 
       common.startBlobs(30);
@@ -316,10 +386,18 @@ const common = {
 
     // Carousels
     function _initFlickity() {
+      var fade = false;
+      // If user has prefer-reduced-motion eneabled,
+      // enable the fad between slides
+      if (reducedMotionMQ.matches) {
+        fade = true;
+      }
+
       $('.flickity').flickity({
         pageDots: false,
         imagesLoaded: true,
         wrapAround: true,
+        fade: fade
       });
     }
 

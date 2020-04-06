@@ -108,12 +108,16 @@ body.nav-open {
 }
 
 .nav-toggle {
-  cursor: pointer;
-  padding: 15px;
+  @extend .button-reset;
   top: 10px;
   right: 3px;
+  padding: 15px;
+  cursor: pointer;
   position: absolute;
-  @extend .button-reset;
+
+  &:focus {
+    outline: -webkit-focus-ring-color auto 5px;
+  }
 
   &.open {
     @include p2;
