@@ -118,7 +118,7 @@ const modals = {
     // attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
     $('body').on('focusin', '.site-main', function() {
       modals.setFocusToFirstItemInModal($('.modal'));
-    })
+    });
 
     // save current focus
     focusedElementBeforeModal = $(':focus');
@@ -165,7 +165,6 @@ const modals = {
     }
     modals.toggleOverlay();
     $body.removeClass('modal-open');
-    $('.modal').scrollTop(0);
 
     // remove the listener which redirects tab keys in the main content area to the modal
     $('body').off('focusin','.site-main');

@@ -22,6 +22,10 @@ let isTouchDevice,
     $blobs,
     mousedownTimer;
 
+// Accessibility/tab trap taken from https://github.com/gdkraus/accessible-modal-dialog
+// jQuery formatted selector to search for focusable items
+let focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
+
 let blobFps = {
   stop: false,
   frameCount: 0,
@@ -261,6 +265,10 @@ const common = {
     function _initSiteNav() {
       $document.on('click.siteNavOpen', '#nav-open', _openNav);
       $document.on('click.siteNavClose', '#nav-close', _closeNav);
+
+      $('.site-nav.-active').keydown(function(event) {
+        trapTabKey($(this), event);
+      });
     }
 
     function _openNav() {
@@ -272,6 +280,11 @@ const common = {
         complete: function() {
           $siteNav.addClass('-active');
         }
+      });
+
+      // attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
+      $('body').on('focusin', '.site-main', function() {
+        setFocusToFirstItemInContainer($('.site-nav'));
       });
     }
 
@@ -286,8 +299,63 @@ const common = {
         complete: function() {
           $body.removeClass('nav-open');
           $siteNav.removeClass('-active');
+          $('#nav-open').focus();
         }
       });
+
+      // remove the listener which redirects tab keys in the main content area to the modal
+      $('body').off('focusin','.site-nav');
+    }
+
+    function trapTabKey(obj, evt) {
+      console.log('hey!');
+      // if tab or shift-tab pressed
+      if (evt.which == 9) {
+
+        // get list of all children elements in given object
+        var o = obj.find('*');
+
+        // get list of focusable items
+        var focusableItems;
+        focusableItems = o.filter(focusableElementsString).filter(':visible')
+
+        // get currently focused item
+        var focusedItem;
+        focusedItem = $(':focus');
+
+        // get the number of focusable items
+        var numberOfFocusableItems;
+        numberOfFocusableItems = focusableItems.length
+
+        // get the index of the currently focused item
+        var focusedItemIndex;
+        focusedItemIndex = focusableItems.index(focusedItem);
+
+        if (evt.shiftKey) {
+          //back tab
+          // if focused on first item and user preses back-tab, go to the last focusable item
+          if (focusedItemIndex == 0) {
+            focusableItems.get(numberOfFocusableItems - 1).focus();
+            evt.preventDefault();
+          }
+
+        } else {
+          //forward tab
+          // if focused on the last item and user preses tab, go to the first focusable item
+          if (focusedItemIndex == numberOfFocusableItems - 1) {
+            focusableItems.get(0).focus();
+            evt.preventDefault();
+          }
+        }
+      }
+    }
+
+    function setFocusToFirstItemInContainer(obj) {
+      // get list of all children elements in given object
+      var o = obj.find('*');
+
+      // set the focus to the first keyboard focusable item
+      o.filter(focusableElementsString).filter(':visible').first().focus();
     }
 
     // Superfluous flesh!
