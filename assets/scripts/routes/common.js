@@ -1,7 +1,7 @@
 // Common js
 
 import jQueryBridget from 'jquery-bridget';
-import Flickity from 'flickity/dist/flickity.pkgd.js';
+import Flickity from 'flickity-fade';
 require('flickity-imagesloaded');
 import Waypoints from 'waypoints/lib/jquery.waypoints.js';
 import Lazysizes from 'lazysizes';
@@ -11,6 +11,8 @@ import fitvids from 'fitvids';
 import appState from '../util/appState';
 
 // Shared vars
+const reducedMotionMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+
 let isTouchDevice,
     vimeoPlayers = [],
     $window = $(window),
@@ -290,7 +292,7 @@ const common = {
 
     // Superfluous flesh!
     function _initBlobs() {
-      if (!$body.is('.with-blobs')) {
+      if (!$body.is('.with-blobs') || reducedMotionMQ.matches) {
         return;
       }
       $blobs.removeClass('-fading');
@@ -314,10 +316,18 @@ const common = {
 
     // Carousels
     function _initFlickity() {
+      var fade = false;
+      // If user has prefer-reduced-motion eneabled,
+      // enable the fad between slides
+      if (reducedMotionMQ.matches) {
+        fade = true;
+      }
+
       $('.flickity').flickity({
         pageDots: false,
         imagesLoaded: true,
         wrapAround: true,
+        fade: fade
       });
     }
 

@@ -4,6 +4,7 @@ import appState from '../util/appState';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 // Shared vars
+const reducedMotionMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
 let $body = $('body'),
             $document = $(document),
             $html = $('html'),
@@ -11,6 +12,7 @@ let $body = $('body'),
             $modalOverlay,
             $modalContainer,
             scrollableSelector,
+            eventBinded = false,
             useHistory = true;
 
 // Accessibility/tab trap taken from https://github.com/gdkraus/accessible-modal-dialog
@@ -43,15 +45,16 @@ const modals = {
 
     // Keyboard-triggered functions
     $document.keyup(e => {
+      // Disabling esc key trigger again because it's firing multiple times and we can't figure out why
       // Escape key goes back (closing modal)
-      if (e.keyCode === 27 && !appState.isAnimating && appState.modalOpen) {
-        e.preventDefault();
-        if (useHistory) {
-          history.back();
-        } else {
-          modals.closeModal();
-        }
-      }
+      // if (e.keyCode === 27 && !eventBinded && !appState.isAnimating && appState.modalOpen) {
+      //   e.preventDefault();
+      //   if (useHistory) {
+      //     history.back();
+      //   } else {
+      //     modals.closeModal();
+      //   }
+      // }
     }).on('click.modal', '.modal a.close-modal', e => {
       // Clicking on X (close) button
       e.preventDefault();
@@ -89,32 +92,45 @@ const modals = {
     $modalContainer.html(html);
     // Set isAnimating to ignore any other triggers until modal is open
     appState.isAnimating = true;
-    $modal.velocity('stop').velocity({
-        opacity: [1, 0],
-        translateY: [0, 15],
-      }, {
-        duration: 500,
-        display: 'block',
-        complete: function() {
-          $body.addClass('modal-open');
-          disableBodyScroll($(scrollableSelector)[0]);
-          $html.css('overflow', 'hidden');
-          appState.isAnimating = false;
+    // Only animate opening if user doesn't prefer reduced motion
+    if (!reducedMotionMQ.matches) {
+      $modal.velocity('stop').velocity({
+          opacity: [1, 0],
+          translateY: [0, 15],
+        }, {
+          duration: 500,
+          display: 'block',
+          complete: function() {
+            modals.enableModal();
+          }
         }
-      }
-    )
+      );
+    } else {
+      $modal.css({
+        'display': 'block',
+        'opacity': 1,
+      });
+      modals.enableModal();
+    }
     appState.modalOpen = true;
     modals.toggleOverlay();
 
     // attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
-    $('body').on('focusin','.site-main',function() {
-      modals.setFocusToFirstItemInModal($modal);
+    $('body').on('focusin', '.site-main', function() {
+      modals.setFocusToFirstItemInModal($('.modal'));
     })
 
     // save current focus
     focusedElementBeforeModal = $(':focus');
 
-    modals.setFocusToFirstItemInModal($modal);
+    modals.setFocusToFirstItemInModal($('.modal'));
+  },
+
+  enableModal: function() {
+    $body.addClass('modal-open');
+    disableBodyScroll($(scrollableSelector)[0]);
+    $html.css('overflow', 'hidden');
+    appState.isAnimating = false;
   },
 
   // Close the modal
@@ -123,19 +139,26 @@ const modals = {
       return;
     }
     appState.modalOpen = false;
-    $('.modal').velocity({
-        opacity: [0, 1],
-        translateY: [15, 0],
-      }, {
-        duration: 250,
-        display: 'none',
-        complete: function() {
-          // appState.modalJustClosed = true;
-          enableBodyScroll($(scrollableSelector)[0]);
-          $html.css('overflow', '');
+    if (!reducedMotionMQ.matches) {
+      $('.modal').velocity({
+          opacity: [0, 1],
+          translateY: [15, 0],
+        }, {
+          duration: 250,
+          display: 'none',
+          complete: function() {
+            // appState.modalJustClosed = true;
+            modals.disableModal();
+          }
         }
-      }
-    );
+      );
+    } else {
+      $modal.css({
+        'opacity': 1,
+        'display': 'none'
+      });
+      modals.disableModal();
+    }
     modals.toggleOverlay();
     $body.removeClass('modal-open');
     $('.modal').scrollTop(0);
@@ -145,6 +168,11 @@ const modals = {
 
     // set focus back to element that had it before the modal was opened
     focusedElementBeforeModal.focus();
+  },
+
+  disableModal: function() {
+    enableBodyScroll($(scrollableSelector)[0]);
+    $html.css('overflow', '');
   },
 
   // Toggle modal overlay
@@ -208,6 +236,7 @@ const modals = {
   setFocusToFirstItemInModal: function(obj) {
     // get list of all children elements in given object
     var o = obj.find('*');
+
     // set the focus to the first keyboard focusable item
     o.filter(focusableElementsString).filter(':visible').first().focus();
   }

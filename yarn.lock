@@ -3340,7 +3340,7 @@ fitvids@^2.1.1:
   resolved "https://registry.yarnpkg.com/fitvids/-/fitvids-2.1.1.tgz#91feb2c5f8c34181d6f6e00c668fd1c4f7f3166d"
   integrity sha512-CvbOFRzdw1X1IieeVBu5NqR0eEFoAHXzq0MwTXXpKomiLhoOCR1BKYncmzW8415AygYg4RetZWJKbAb5wHxIVQ==
 
-fizzy-ui-utils@^2.0.7:
+fizzy-ui-utils@^2.0.0, fizzy-ui-utils@^2.0.7:
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/fizzy-ui-utils/-/fizzy-ui-utils-2.0.7.tgz#7df45dcc4eb374a08b65d39bb9a4beedf7330505"
   integrity sha512-CZXDVXQ1If3/r8s0T+v+qVeMshhfcuq0rqIFgJnrtd+Bu8GmDmqMjntjUePypVtjHXKJ6V4sw9zeyox34n9aCg==
@@ -3361,6 +3361,14 @@ flatted@^2.0.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.1.tgz#69e57caa8f0eacbc281d2e2cb458d46fdb449e08"
   integrity sha512-a1hQMktqW9Nmqr5aktAux3JMNqaucxGcjtjWnZLHX7yyPCmlSV3M54nGYbqT8K+0GhF3NBgmJCc3ma+WOgX8Jg==
 
+flickity-fade@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/flickity-fade/-/flickity-fade-1.0.0.tgz#3f613cd07c7afddef193936832932ff296ade135"
+  integrity sha512-5iXHN+nqjQcph6fqOw+/wAr0FHxIrcVQyKfwyVoI325CYrl9sVsx7cr6cyAih9sDYiUCGzrM6OykG7mSb5LPMg==
+  dependencies:
+    fizzy-ui-utils "^2.0.0"
+    flickity "^2.2.0"
+
 flickity-imagesloaded@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/flickity-imagesloaded/-/flickity-imagesloaded-2.0.0.tgz#a2d1d6aae6c26369ef2fa44f3eb948ea474e976b"
@@ -3369,7 +3377,7 @@ flickity-imagesloaded@^2.0.0:
     flickity "^2.0.0"
     imagesloaded "^4.1.0"
 
-flickity@^2.0.0, flickity@^2.2.1:
+flickity@^2.0.0, flickity@^2.2.0, flickity@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/flickity/-/flickity-2.2.1.tgz#81126e3d656cb54577358a5f959ffdbda088e670"
   integrity sha512-fCZJGNqabgDrIhaUBqt2ydE8c5V6iiB3KQAf6dH3Z45MoDUm7g6+uZmteN0aLV9pzVItNqCbfOJQjsJM/rHuSA==

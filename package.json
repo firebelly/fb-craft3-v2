@@ -42,6 +42,7 @@
     "body-scroll-lock": "^2.6.4",
     "fitvids": "^2.1.1",
     "flickity": "^2.2.1",
+    "flickity-fade": "^1.0.0",
     "flickity-imagesloaded": "^2.0.0",
     "jquery": "^3.4",
     "jquery-bridget": "^2.0.1",

@@ -16,6 +16,15 @@
     transform: translate3d(0, 0, 0);
   }
 }
+// prefers reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .-reveal {
+    &, &:not(.-instant), &.-active {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
 
 // Lined headers
 h4.lined {
