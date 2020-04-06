@@ -7,6 +7,7 @@ const appState = {
   modalOpen: false,
   initialHash: '',
   navStuck: false,
+  personModalTrigger: false,
   requestInProgress: false,
   breakpoints: {},
 

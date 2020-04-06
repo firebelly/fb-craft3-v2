@@ -122,12 +122,16 @@ const modals = {
 
     // save current focus
     focusedElementBeforeModal = $(':focus');
-
-    modals.setFocusToFirstItemInModal($('.modal'));
+    // If trigger is person modal
+    if (focusedElementBeforeModal.parents('.person').length) {
+      var person = focusedElementBeforeModal.parents('.person')
+      appState.personModalTrigger = person.attr('data-person');
+    }
   },
 
   enableModal: function() {
     $body.addClass('modal-open');
+    $modal.scrollTop(0);
     disableBodyScroll($(scrollableSelector)[0]);
     $html.css('overflow', 'hidden');
     appState.isAnimating = false;
@@ -167,7 +171,9 @@ const modals = {
     $('body').off('focusin','.site-main');
 
     // set focus back to element that had it before the modal was opened
-    focusedElementBeforeModal.focus();
+    if (!appState.personModalTrigger) {
+      focusedElementBeforeModal.focus();
+    }
   },
 
   disableModal: function() {
