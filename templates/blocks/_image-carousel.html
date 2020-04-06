@@ -19,7 +19,7 @@
         {% if not (image.filename matches '/gif$/') %}
           {% set imgSrcSets = [ { width: 2000 }, { width: 750, jpegQuality: 65 }, ]  %}
           {% set imgSizes = '100vw' %}
-          {% set transformedImages = craft.imager.transformImage(image, imgSrcSets, { format: 'jpg', jpegQuality: 80, interlace: true }) %}
+          {% set transformedImages = craft.imager.transformImage(image, imgSrcSets, { jpegQuality: 80, interlace: true }) %}
           {% if craft.imager.serverSupportsWebp() %}
             {% set transformedImagesWebp = craft.imager.transformImage(image, imgSrcSets, { format: 'webp', jpegQuality: 80, interlace: true }) %}
           {% endif %}
