@@ -13,7 +13,7 @@
       {% if image %}
         {% set imgSrcSets = [ { width: 1100, ratio: 10/5.82 }, { width: 750, ratio: 10/5.82, jpegQuality: 65 }, ]  %}
         {% set imgSizes = '(max-width: 768px) 100vw, 50vw' %}
-        {% set transformedImages = craft.imager.transformImage(image, imgSrcSets, { format: 'jpg', mode: 'crop', jpegQuality: 80, interlace: true }) %}
+        {% set transformedImages = craft.imager.transformImage(image, imgSrcSets, { mode: 'crop', jpegQuality: 80, interlace: true }) %}
 
         {% if craft.imager.serverSupportsWebp() %}
           {% set transformedImagesWebp = craft.imager.transformImage(image, imgSrcSets, { format: 'webp', mode: 'crop', jpegQuality: 80, interlace: true }) %}
