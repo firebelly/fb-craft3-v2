@@ -80,7 +80,7 @@ body.page-about {
     @include media-md {
       .person-info {
         margin-bottom: 0;
-        .image {
+        picture {
           padding-bottom: beat(6);
         }
       }
