@@ -22,33 +22,27 @@
       <article class="col-md-1-2 person -reveal" data-person="{{ person.slug }}">
         <div class="anchor" id="{{ person.slug }}"></div>
 
-        <div class="toggle-container">
-          {% if transformedImages is defined %}
+        {% if transformedImages is defined %}
+          <div class="-aspect-ratio-pad" style="padding-bottom: 58.2%">
             <a data-no-swup class="-inner js-cursor" data-cursor="hand" href="{{ person.getUrl() }}">
               <picture>
                 {% if transformedImagesWebp is defined %}
                   <source sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
                 {% endif %}
-                <img src="{{ transformedImages[1].url }}" sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ image.altText | length ? image.altText : person.title }}">
+                <img loading="lazy" src="{{ transformedImages[1].url }}" sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ image.altText | length ? image.altText : person.title }}">
               </picture>
             </a>
-          {% endif %}
-          <h4 class="heading-smallcaps">{{ person.tagline }}</h4>
-          <h3><a data-no-swup href="#{{ person.slug }}">{{ person.title }}</a></h3>
-        </div>
+          </div>
+        {% endif %}
+
+        <h4 class="heading-smallcaps">{{ person.tagline }}</h4>
+        <h3><a data-no-swup href="#{{ person.slug }}">{{ person.title }}</a></h3>
 
         <div class="modal-content">
           <div class="container">
             <div class="grid spaced">
               <div class="person-info col-md-1-2">
-                {% if transformedImages is defined %}
-                  <picture class="image">
-                    {% if transformedImagesWebp is defined %}
-                      <source sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
-                    {% endif %}
-                    <img src="{{ transformedImages[1].url }}" sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ image.altText | length ? image.altText : person.title }}">
-                  </picture>
-                {% endif %}
+                <div class="image-container"></div>
                 {% if person.pronouns %}
                   <h4 class="pronouns">
                     {{ person.pronouns }}

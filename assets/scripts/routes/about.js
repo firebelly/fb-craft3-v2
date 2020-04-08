@@ -17,15 +17,22 @@ const about = {
       appState.personModalTrigger = false;
     }
 
-    // Person links to modals
-    $('.person a').on('click', function(e) {
-      e.preventDefault();
-      if (appState.isAnimating) {
-        return;
-      }
-      let $person = $(this).parents('.person');
-      history.pushState(null, null, this.href);
-      about.openPerson($person);
+    $('article.person').each(function() {
+      let $person = $(this);
+
+      // Duplicate person image to modal
+      let $imageContainer = $person.find('.modal-content .image-container');
+      $person.find('picture').clone().appendTo($imageContainer);
+
+      // Person links to modals
+      $person.on('click', function(e) {
+        e.preventDefault();
+        if (appState.isAnimating) {
+          return;
+        }
+        history.pushState(null, null, this.href);
+        about.openPerson($person);
+      });
     });
 
     // Watch for state change (e.g. hitting next returning to /about#dawn-hancock, reopen modal)
