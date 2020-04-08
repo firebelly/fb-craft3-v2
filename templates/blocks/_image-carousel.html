@@ -29,14 +29,14 @@
         <div class="slide {{ orientation }}">
           {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
 
-            <picture loading="lazy">
+            <picture>
             {% if image.filename matches '/gif$/' %}
               <img src="{{ image.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
             {% else %}
                 {% if transformedImagesWebp is defined %}
                   <source sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
                 {% endif %}
-                <img sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ image.altText | length ? image.altText : image.title }}">
+                <img loading="lazy" sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ image.altText | length ? image.altText : image.title }}">
             {% endif -%}
             </picture>
 
