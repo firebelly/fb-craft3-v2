@@ -32,7 +32,7 @@ const modals = {
         <div class="modal-overlay"></div>
         <div class="modal">
           <div class="inner"></div>
-          <a href="#" class="close-modal"><svg class="icon icon-close-lg" aria-hidden="true"><use xlink:href="#icon-close-lg"/></svg></a>
+          <a href="#" class="close-modal" title="Close Bio"><svg class="icon icon-close-lg" aria-hidden="true"><use xlink:href="#icon-close-lg"/></svg></a>
         </div>
       `);
     }

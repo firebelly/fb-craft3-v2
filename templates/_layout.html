@@ -9,7 +9,7 @@
 {% endif %}
 
 <body class="{% if bodyClass is defined %}{{ bodyClass }} {% endif %}{{ pageClass }}" id="top">
-  <a href="#page" class="skip-to-content visually-hidden">Skip to main content</a>
+  <a href="#page" class="skip-to-content visually-hidden" data-no-swup>Skip to main content</a>
   <div id="breakpoint-indicator" class="hidden"></div>
 
   <header class="site-header clearfix">
@@ -34,7 +34,7 @@
 
   <main class="site-main">
 
-    <div id="page" class="transition-fade">
+    <div id="page" class="transition-fade" aria-live="polite" tabindex="-1">
       {% block content %}{% endblock %}
 
       {% if entry is defined and entry.section.type != 'channel' and entry.section.type != 'structure' %}

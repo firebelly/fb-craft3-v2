@@ -31,12 +31,6 @@
           <div class="position accordion" data-position="{{ position.slug }}">
             <div class="anchor" id="{{ position.slug }}"></div>
 
-            <a href="#{{ position.slug }}" class="expand">
-              <svg class="icon icon-plus" aria-hidden="true"><use xlink:href="#icon-plus"/></svg>
-            </a>
-            <a href="#{{ position.slug }}" class="toggle collapse">
-              <svg class="icon icon-minus" aria-hidden="true"><use xlink:href="#icon-minus"/></svg>
-            </a>
             <div class="block-text halfWidth">
               <div class="-inner">
                 <h2>{{ position.title }}</h2>
@@ -47,11 +41,18 @@
                 <div class="intro">
                   {{ position.positionInfo.intro }}
                 </div>
+                <a href="#{{ position.slug }}" class="expand" title="Expand position details">
+                  <svg class="icon icon-plus" aria-hidden="true"><use xlink:href="#icon-plus"/></svg>
+                </a>
+                <a href="#{{ position.slug }}" class="toggle collapse" title="Collapse position details">
+                  <svg class="icon icon-minus" aria-hidden="true"><use xlink:href="#icon-minus"/></svg>
+                </a>
                 <div class="description user-content">
                   {{ position.positionInfo.description }}
                 </div>
               </div>
             </div>
+
           </div>
         {% endfor %}
         </div>

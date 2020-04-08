@@ -8,6 +8,7 @@
   <div class="project-content">
     {% if entry.services|length %}
       <ul class="services">
+        <h5 class="visually-hidden">Services: </h5>
         {% if servicesLength is defined %}
           {% for service in entry.services|slice(0, servicesLength) %}
             {% set service = service.service[0] %}

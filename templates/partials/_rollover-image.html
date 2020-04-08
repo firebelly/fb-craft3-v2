@@ -19,7 +19,7 @@
     {% set transformedHoverImagesWebp = craft.imager.transformImage(thumbnailImageHover, imgSrcSets, { format: 'webp', mode: 'crop', webpQuality: 80, interlace: true }) %}
   {% endif %}
 
-  <a class="-inner js-cursor" href="{{ entry.getUrl() }}" data-cursor-class="view">
+  <a class="-inner js-cursor" href="{{ entry.getUrl() }}" title="View project: {{ entry.title }}" data-cursor-class="view">
     <div class="rollover-image">
       <picture>
         {% if transformedImagesWebp is defined %}

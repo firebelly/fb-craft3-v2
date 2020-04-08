@@ -36,6 +36,12 @@ body {
   }
 }
 
+// Skip to link gives main container focus,
+// but a focus state is probably not needed
+#page:focus {
+  outline: none;
+}
+
 .site-main {
   background-color: color('offwhite');
   border-left: 5px solid color('white');

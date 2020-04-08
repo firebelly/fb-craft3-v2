@@ -1,6 +1,6 @@
 {% set navItems = ['work','services','about','ideas','contact'] %}
 
-<nav class="site-nav" id="site-nav">
+<nav class="site-nav" id="site-nav" aria-live="polite">
   <ul class="primary">
     {% for navItem in navItems %}
       <li class="nav-{{ navItem }}{{ entry is defined and entry.slug == navItem or craft.app.request.getSegment(1) == navItem ? ' -current' : '' }}"><a href="/{{ navItem }}">{{ navItem | capitalize }}</a></li>
