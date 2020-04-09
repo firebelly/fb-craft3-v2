@@ -11,8 +11,6 @@ import fitvids from 'fitvids';
 import appState from '../util/appState';
 
 // Shared vars
-const reducedMotionMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
-
 let isTouchDevice,
     vimeoPlayers = [],
     $window = $(window),
@@ -362,7 +360,7 @@ const common = {
 
     // Superfluous flesh!
     function _initBlobs() {
-      if (!$body.hasClass('with-blobs') || reducedMotionMQ.matches) {
+      if (!$body.hasClass('with-blobs') || appState.reducedMotionMQ.matches) {
         return;
       }
       $blobs.removeClass('-fading');
@@ -389,7 +387,7 @@ const common = {
       var fade = false;
       // If user has prefer-reduced-motion eneabled,
       // enable the fad between slides
-      if (reducedMotionMQ.matches) {
+      if (appState.reducedMotionMQ.matches) {
         fade = true;
       }
 

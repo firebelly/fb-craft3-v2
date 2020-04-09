@@ -4,7 +4,6 @@ import appState from '../util/appState';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 // Shared vars
-const reducedMotionMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
 let $body = $('body'),
             $document = $(document),
             $html = $('html'),
@@ -93,7 +92,7 @@ const modals = {
     // Set isAnimating to ignore any other triggers until modal is open
     appState.isAnimating = true;
     // Only animate opening if user doesn't prefer reduced motion
-    if (!reducedMotionMQ.matches) {
+    if (!appState.reducedMotionMQ.matches) {
       $modal.velocity('stop').velocity({
           opacity: [1, 0],
           translateY: [0, 15],
@@ -143,7 +142,7 @@ const modals = {
       return;
     }
     appState.modalOpen = false;
-    if (!reducedMotionMQ.matches) {
+    if (!appState.reducedMotionMQ.matches) {
       $('.modal').velocity({
           opacity: [0, 1],
           translateY: [15, 0],

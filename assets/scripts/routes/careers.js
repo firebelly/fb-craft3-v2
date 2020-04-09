@@ -1,7 +1,6 @@
 // Careers page js
 
 import appState from '../util/appState';
-const reducedMotionMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 const careers = {
 
@@ -22,7 +21,7 @@ const careers = {
         appState.isAnimating = true;
         // Reset URL for Ariel
         history.pushState(null, null, location.pathname);
-        if (!reducedMotionMQ.matches) {
+        if (!appState.reducedMotionMQ.matches) {
           $this
             .removeClass('-active')
             .find('.description')
@@ -57,7 +56,7 @@ const careers = {
     if ($('.accordion.-active').length) {
       $('.accordion.-active').each(function() {
         appState.isAnimating = true;
-        if (!reducedMotionMQ.matches) {
+        if (!appState.reducedMotionMQ.matches) {
           $(this).removeClass('-active')
             .find('.description')
             .velocity('scroll', { duration: 0, offset: -document.querySelector('.site-header').offsetHeight })
@@ -91,7 +90,7 @@ const careers = {
     } else {
       // Just open accordion if none are already open
       $accordion.addClass('-active');
-      if (!reducedMotionMQ.matches) {
+      if (!appState.reducedMotionMQ.matches) {
         $accordion.find('.description').velocity('slideDown', 500, 'easeOutCubic', () => appState.isAnimating = false);
       } else {
         // If reduced motion is enabled just show it
@@ -105,7 +104,7 @@ const careers = {
   },
 
   closeAccordions() {
-    if (!reducedMotionMQ.matches) {
+    if (!appState.reducedMotionMQ.matches) {
       $('.accordion.-active')
         .removeClass('-active')
         .find('.description')

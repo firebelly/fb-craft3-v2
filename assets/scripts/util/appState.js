@@ -10,6 +10,7 @@ const appState = {
   personModalTrigger: false,
   requestInProgress: false,
   breakpoints: {},
+  reducedMotionMQ: window.matchMedia('(prefers-reduced-motion: reduce)'),
 
   init() {
     // Bind updateBreakpoints to domready and resize
