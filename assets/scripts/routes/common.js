@@ -308,7 +308,6 @@ const common = {
     }
 
     function trapTabKey(obj, evt) {
-      console.log('hey!');
       // if tab or shift-tab pressed
       if (evt.which == 9) {
 
