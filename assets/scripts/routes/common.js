@@ -511,8 +511,8 @@ const common = {
       blobsData.then = blobsData.now - (blobsData.elapsed % blobsData.fpsInterval);
       $blobs.find('.blob').each(function() {
         let $this = $(this);
-        let x = (Math.random() * -1) + 0.25;
-        let y = -0.25;
+        let x = (Math.random() * -0.95) + 0.175;
+        let y = -0.2;
         $this.css('left', parseFloat($this.css('left').replace('px','')) + x);
         $this.css('top', parseFloat($this.css('top').replace('px','')) + y);
       });
