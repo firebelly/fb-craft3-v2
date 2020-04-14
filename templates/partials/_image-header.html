@@ -1,25 +1,16 @@
 <header class="image-header">
   <div class="header-wrap">
 
-    {% if image is defined %}
-      {% set imgSrcSets = [ { width: 2400 }, { width: 750, jpegQuality: 70 }, ]  %}
-      {% set imgSizes = '100vw' %}
-      {% set transformedImages = craft.imager.transformImage(image, imgSrcSets, { jpegQuality: 80, interlace: true }) %}
-      {% if craft.imager.serverSupportsWebp() %}
-        {% set transformedImagesWebp = craft.imager.transformImage(image, imgSrcSets, { format: 'webp', jpegQuality: 80, interlace: true }) %}
-      {% endif %}
-    {% endif %}
-
     <div class="header-banner {% if entry.vimeoHeaderVideo %}video{% endif %}" {% if image is defined %}data-responsive-background-image{% endif %}>
       {% if entry.vimeoHeaderVideo %}
         <iframe src="https://player.vimeo.com/video/{{ entry.vimeoHeaderVideo|replace('/[^0-9+]/', '') }}?background=1;autoplay=1&autopause=0&loop=1&title=0&byline=0&portrait=0" frameborder="0"></iframe>
       {% endif %}
-      <picture>
-        {% if transformedImagesWebp is defined %}
-          <source sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
-        {% endif %}
-        <img sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ image.altText | length ? image.altText : image.title }}">
-      </picture>
+
+      {% include "partials/_picture" with {
+        image: image,
+        imgSrcSets: [ { width: 2400 }, { width: 750, jpegQuality: 70 }, ],
+        imgSizes: '100vw'
+      } %}
     </div>
 
     <div class="container">

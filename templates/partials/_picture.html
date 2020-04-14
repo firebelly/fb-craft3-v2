@@ -1,0 +1,37 @@
+{% if image %}
+  {# Lazyload? #}
+  {%- if lazy is not defined %}
+    {% set lazy = false %}
+  {% endif -%}
+
+  {# Native lazyload? #}
+  {%- if nativeLazy is not defined %}
+    {% set nativeLazy = false %}
+  {% endif -%}
+
+  {# Treated? #}
+  {%- if treatedEffects is not defined %}
+    {% set treatedEffects = {} %}
+  {% endif -%}
+
+  {# Leave GIFs alone #}
+  {% if image.filename matches '/gif$/' %}
+    {% set treatedImage = image %}
+  {% else %}
+    {% set transformedImages = craft.imager.transformImage(image, imgSrcSets, { jpegQuality: 80, interlace: true, effects: treatedEffects }) %}
+    {% if craft.imager.serverSupportsWebp() %}
+      {% set transformedImagesWebp = craft.imager.transformImage(image, imgSrcSets, { format: 'webp', jpegQuality: 80, interlace: true, effects: treatedEffects }) %}
+    {% endif %}
+  {% endif %}
+
+  <picture>
+    {% if image.filename matches '/gif$/' %}
+      <img {% if nativeLazy %}loading="lazy" {% elseif lazy %}class="lazyload" src="{{ craft.imager.base64Pixel(2,1) }}" data-{% endif %}src="{{ treatedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
+    {% else %}
+      {% if transformedImagesWebp is defined %}
+        <source {% if lazy %}src="{{ craft.imager.base64Pixel(2,1) }}" data-{% endif %}sizes="{{ imgSizes }}" {{ lazy ? 'data-' : '' }}srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
+      {% endif %}
+      <img {% if nativeLazy %}loading="lazy" {% elseif lazy %}class="lazyload" src="{{ craft.imager.base64Pixel(2,1) }}" data-{% endif %}sizes="{{ imgSizes }}" {{ lazy ? 'data-' : '' }}srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ image.altText | length ? image.altText : (titleOverride is defined ? titleOverride : image.title) }}">
+    {% endif %}
+  </picture>
+{% endif %}
