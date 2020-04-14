@@ -32,7 +32,7 @@
       {% for image in rolloverImages[1:] %}
         <picture>
           {% if rolloverImagesWebp[loop.index] %}
-            <source src="{{ rolloverImagesWebp[loop.index].transformedImage.getUrl() }}" type="image/webp">
+            <source srcset="{{ rolloverImagesWebp[loop.index].transformedImage.getUrl() }}" type="image/webp">
           {% endif %}
           <img src="{{ image.transformedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
         </picture>
@@ -41,7 +41,7 @@
       {# Put first image last because of CSS animator behavior #}
       <picture>
         {% if rolloverImagesWebp|length %}
-          <source src="{{ rolloverImagesWebp[0].transformedImage.getUrl() }}" type="image/webp">
+          <source srcset="{{ rolloverImagesWebp[0].transformedImage.getUrl() }}" type="image/webp">
         {% endif %}
         <img src="{{ rolloverImages[0].transformedImage.getUrl() }}" alt="{{ rolloverImages[0].altText | length ? rolloverImages[0].altText : rolloverImages[0].title }}">
       </picture>
