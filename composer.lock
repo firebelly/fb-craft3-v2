@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8173775bdbf3287fc1bfda6056667d8d",
+    "content-hash": "5041c2abc895a6417830661a8cd355e4",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -286,11 +286,11 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.6",
+            "version": "1.2.7",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/47fe531de31fca4a1b997f87308e7d7804348f7e",
-                "reference": "47fe531de31fca4a1b997f87308e7d7804348f7e",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/95c63ab2117a72f48f5a55da9740a3273d45b7fd",
+                "reference": "95c63ab2117a72f48f5a55da9740a3273d45b7fd",
                 "shasum": ""
             },
             "require": {
@@ -327,7 +327,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2020-01-13T10:02:55+00:00"
+            "time": "2020-04-08T08:27:21+00:00"
         },
         {
             "name": "composer/composer",
@@ -506,11 +506,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.4.13",
+            "version": "3.4.15",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/a516349f715bd96681dbe8ff190d970d6acd1773",
-                "reference": "a516349f715bd96681dbe8ff190d970d6acd1773",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/2fc56f0bcd70a1ae67e9338512e053b896f4a47e",
+                "reference": "2fc56f0bcd70a1ae67e9338512e053b896f4a47e",
                 "shasum": ""
             },
             "require": {
@@ -591,7 +591,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2020-04-02T13:49:11+00:00"
+            "time": "2020-04-09T17:45:41+00:00"
         },
         {
             "name": "craftcms/contact-form",
@@ -2500,11 +2500,11 @@
         },
         {
             "name": "laminas/laminas-zendframework-bridge",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/faf68f6109ceeff24241226033ab59640c7eb63b",
-                "reference": "faf68f6109ceeff24241226033ab59640c7eb63b",
+                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/bfbbdb6c998d50dbf69d2187cb78a5f1fa36e1e9",
+                "reference": "bfbbdb6c998d50dbf69d2187cb78a5f1fa36e1e9",
                 "shasum": ""
             },
             "require": {
@@ -2538,7 +2538,7 @@
                 "laminas",
                 "zf"
             ],
-            "time": "2020-03-26T16:07:12+00:00"
+            "time": "2020-04-03T16:01:00+00:00"
         },
         {
             "name": "league/flysystem",
@@ -3039,11 +3039,11 @@
         },
         {
             "name": "mrclay/minify",
-            "version": "3.0.9",
+            "version": "3.0.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mrclay/minify/zipball/d2a3e8c1d203958b45f56c0a399714ee8b478a12",
-                "reference": "d2a3e8c1d203958b45f56c0a399714ee8b478a12",
+                "url": "https://api.github.com/repos/mrclay/minify/zipball/8dba84a2d24ae6382057a1215ad3af25202addb9",
+                "reference": "8dba84a2d24ae6382057a1215ad3af25202addb9",
                 "shasum": ""
             },
             "require": {
@@ -3083,7 +3083,7 @@
             ],
             "description": "Minify is a PHP app that helps you follow several rules for client-side performance. It combines multiple CSS or Javascript files, removes unnecessary whitespace and comments, and serves them with gzip encoding and optimal client-side cache headers",
             "homepage": "https://github.com/mrclay/minify",
-            "time": "2020-03-24T19:30:43+00:00"
+            "time": "2020-04-02T19:47:26+00:00"
         },
         {
             "name": "mrclay/props-dic",
@@ -3226,11 +3226,11 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.3.0",
+            "version": "v4.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/9a9981c347c5c49d6dfe5cf826bb882b824080dc",
-                "reference": "9a9981c347c5c49d6dfe5cf826bb882b824080dc",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
+                "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
                 "shasum": ""
             },
             "require": {
@@ -3264,7 +3264,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-11-08T13:50:10+00:00"
+            "time": "2020-04-10T16:34:50+00:00"
         },
         {
             "name": "opis/closure",
