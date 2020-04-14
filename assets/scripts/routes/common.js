@@ -542,12 +542,12 @@ const common = {
     // Remove custom event watchers
     $document.off('mousedown.customCursor mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms');
 
-    // Remove vimeo players
-    $.each(vimeoPlayers, function(){
-      if (this.waypoint) {
-        this.waypoint[0].destroy();
+    // Unload Vimeo players
+    vimeoPlayers.forEach((el) => {
+      if (el.waypoint) {
+        el.waypoint[0].destroy();
       }
-      this.player.destroy();
+      el.player.destroy();
     });
     vimeoPlayers = [];
   },
