@@ -9,6 +9,7 @@ import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'bo
 import fitvids from 'fitvids';
 
 import appState from '../util/appState';
+import ResponsiveBackgroundImage from '../util/ResponsiveBackgroundImage';
 
 // Shared vars
 let isTouchDevice,
@@ -37,6 +38,12 @@ const common = {
       then: 0,
       elapsed: 0
     };
+
+    // Initialize
+    let elements = document.querySelectorAll('[data-responsive-background-image]');
+    for (let i=0; i<elements.length; i++) {
+      new ResponsiveBackgroundImage(elements[i]);
+    }
 
     // Set up libraries to be used with jQuery
     jQueryBridget('flickity', Flickity, $);
