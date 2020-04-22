@@ -102,6 +102,23 @@
     }
   }
 
+  .newsletter-label {
+    display: flex;
+    justify-content: space-between;
+    span {
+      margin-left: 50px;
+      display: inline-block;
+      a {
+        @include inline-link('red');
+        text-decoration: underline;
+      }
+    }
+
+    @include media-md {
+      display: block;
+    }
+  }
+
   .newsletter-section {
     margin-bottom: 15px;
     padding-bottom: 45px;
