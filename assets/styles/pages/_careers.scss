@@ -5,6 +5,8 @@ body.page-careers {
     display: flex;
     position: relative;
     flex-wrap: wrap;
+    padding: beat(1) 0 beat(2);
+
     // Faux link hover states of h2, intro, svg before expanding
     h2,
     .intro {
@@ -49,7 +51,7 @@ body.page-careers {
       position: absolute;
       width: 60px;
       height: 60px;
-      top: 10px;
+      top: 20px;
       right: 0;
       padding: 10px;
       &:hover svg {
