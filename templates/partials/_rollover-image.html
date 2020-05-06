@@ -25,13 +25,13 @@
         {% if transformedImagesWebp is defined %}
           <source sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
         {% endif %}
-        <img src="{{ transformedImages[1].url }}" sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ thumbnailImage.altText | length ? thumbnailImage.altText : thumbnailImage.title }}">
+        <img loading="lazy" src="{{ transformedImages[1].url }}" sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ thumbnailImage.altText | length ? thumbnailImage.altText : thumbnailImage.title }}">
       </picture>
       <picture>
         {% if transformedHoverImagesWebp is defined %}
           <source sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedHoverImagesWebp) }}" type="image/webp">
         {% endif %}
-        <img src="{{ transformedHoverImages[1].url }}" sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedHoverImages) }}" alt="{{ thumbnailImage.altText | length ? thumbnailImage.altText : thumbnailImage.title }}">
+        <img loading="lazy" src="{{ transformedHoverImages[1].url }}" sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedHoverImages) }}" alt="{{ thumbnailImage.altText | length ? thumbnailImage.altText : thumbnailImage.title }}">
       </picture>
     </div>
   </a>
