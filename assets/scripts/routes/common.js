@@ -391,8 +391,7 @@ const common = {
     // Carousels
     function _initFlickity() {
       var fade = false;
-      // If user has prefer-reduced-motion eneabled,
-      // enable the fad between slides
+      // If user has prefer-reduced-motion enabled, use fade between slides
       if (appState.reducedMotionMQ.matches) {
         fade = true;
       }
