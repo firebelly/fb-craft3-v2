@@ -1,13 +1,13 @@
 {% if thumbnailImage %}
   {% switch orientation %}
     {% case 'portrait' %}
-      {% set imgSrcSets = [ { width: 1200, ratio: 10/13.48 }, { width: 750, ratio: 10/13.48, jpegQuality: 65 }, ]  %}
+      {% set imgSrcSets = [ { width: 1200, ratio: 10/13.48 }, { width: 750, ratio: 10/13.48, jpegQuality: 70 }, ]  %}
       {% set imgSizes = '(max-width: 768px) 100vw, 50vw' %}
     {% case 'fullWidth' %}
-      {% set imgSrcSets = [ { width: 1700, ratio: 10/5.73 }, { width: 750, ratio: 10/5.73, jpegQuality: 65 }, ]  %}
+      {% set imgSrcSets = [ { width: 1700, ratio: 10/5.73 }, { width: 750, ratio: 10/5.73, jpegQuality: 70 }, ]  %}
       {% set imgSizes = '100vw' %}
     {% default %}
-      {% set imgSrcSets = [ { width: 1200, ratio: 10/5.73 }, { width: 750, ratio: 10/5.73, jpegQuality: 65 }, ]  %}
+      {% set imgSrcSets = [ { width: 1200, ratio: 10/5.73 }, { width: 750, ratio: 10/5.73, jpegQuality: 70 }, ]  %}
       {% set imgSizes = '(max-width: 768px) 100vw, 50vw' %}
   {% endswitch %}
 

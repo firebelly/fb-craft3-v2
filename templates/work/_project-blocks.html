@@ -59,7 +59,7 @@
                 {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
                   {% include "partials/_picture" with {
                     image: image,
-                    imgSrcSets: [ { mode: 'fit', width: 1800, height: 900 }, { mode: 'fit', width: 750, height: 400, jpegQuality: 65 }, ],
+                    imgSrcSets: [ { mode: 'fit', width: 1800 }, { mode: 'fit', width: 750, jpegQuality: 70 }, ],
                     imgSizes: '100vw',
                     lazy: true
                   } %}
@@ -79,7 +79,7 @@
             <figure class="slide {{ image.captionLabel or image.caption ? ' with-caption' : '' }}" data-responsive-background-image>
               {% include "partials/_picture" with {
                 image: image,
-                imgSrcSets: [ { mode: 'fit', width: 1800, height: 900 }, { mode: 'fit', width: 750, height: 400, jpegQuality: 65 }, ],
+                imgSrcSets: [ { mode: 'fit', width: 1800, height: 900 }, { mode: 'fit', width: 750, height: 400, jpegQuality: 70 }, ],
                 imgSizes: '100vw'
               } %}
               <picture>

@@ -5,10 +5,10 @@
     {% set treatedEffects = {} %}
   {% endif %}
   {% if block.size matches '/halfWidth/' or block.size matches '/Padded/' %}
-    {% set imgSrcSets = [ { width: 1200 }, { width: 750, jpegQuality: 65 }, ]  %}
+    {% set imgSrcSets = [ { width: 1200 }, { width: 750, jpegQuality: 70 }, ]  %}
     {% set imgSizes = '(max-width: 768px) 100vw, 50vw' %}
   {% else %}
-    {% set imgSrcSets = [ { width: 1800 }, { width: 750, jpegQuality: 65 }, ]  %}
+    {% set imgSrcSets = [ { width: 1800 }, { width: 750, jpegQuality: 70 }, ]  %}
     {% set imgSizes = '100vw' %}
   {% endif %}
 

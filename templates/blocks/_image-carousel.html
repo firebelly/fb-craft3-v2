@@ -19,7 +19,7 @@
           {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
             {% include "partials/_picture" with {
               image: image,
-              imgSrcSets: [ { width: 1800 }, { width: 750, jpegQuality: 65 }, ],
+              imgSrcSets: [ { width: 1800 }, { width: 750, jpegQuality: 70 }, ],
               imgSizes: '100vw'
             } %}
           {%- if block.imageLinkUrl %}</a>{% endif -%}
