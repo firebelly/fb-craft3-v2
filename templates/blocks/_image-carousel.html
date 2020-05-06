@@ -20,7 +20,8 @@
             {% include "partials/_picture" with {
               image: image,
               imgSrcSets: [ { width: 1800 }, { width: 750, jpegQuality: 70 }, ],
-              imgSizes: '100vw'
+              imgSizes: '100vw',
+              nativeLazy: true
             } %}
           {%- if block.imageLinkUrl %}</a>{% endif -%}
         </div>
