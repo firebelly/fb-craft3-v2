@@ -29,7 +29,7 @@
       <img {% if nativeLazy %}loading="lazy" {% elseif lazy %}class="lazyload" src="{{ craft.imager.base64Pixel(2,1) }}" data-{% endif %}src="{{ treatedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
     {% else %}
       {% if transformedImagesWebp is defined %}
-        <source {% if lazy %}src="{{ craft.imager.base64Pixel(2,1) }}" data-{% endif %}sizes="{{ imgSizes }}" {{ lazy ? 'data-' : '' }}srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
+        <source {% if lazy %}srcset="{{ craft.imager.base64Pixel(2,1) }}" data-{% endif %}sizes="{{ imgSizes }}" {{ lazy ? 'data-' : '' }}srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
       {% endif %}
       <img {% if nativeLazy %}loading="lazy" {% elseif lazy %}class="lazyload" src="{{ craft.imager.base64Pixel(2,1) }}" data-{% endif %}sizes="{{ imgSizes }}" {{ lazy ? 'data-' : '' }}srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ image.altText | length ? image.altText : (titleOverride is defined ? titleOverride : image.title) }}">
     {% endif %}
