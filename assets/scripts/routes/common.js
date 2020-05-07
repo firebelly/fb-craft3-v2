@@ -402,6 +402,13 @@ const common = {
         wrapAround: true,
         fade: fade
       });
+
+      // Resize flickity after full page load
+      $(window).on('load', () => {
+        $('.flickity-enabled').each(() => {
+          $(this).flickity('resize');
+        });
+      });
     }
 
     // Responsive videos, Vimeo API
@@ -534,7 +541,7 @@ const common = {
     }
 
     // Remove flickity instances
-    $('.flickity').each(function() {
+    $('.flickity-enabled').each(() => {
       $(this).css({'opacity': 0}).flickity('destroy');
     });
 
