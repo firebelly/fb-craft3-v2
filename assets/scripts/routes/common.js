@@ -402,13 +402,6 @@ const common = {
         wrapAround: true,
         fade: fade
       });
-
-      // Resize flickity after full page load
-      $(window).on('load', () => {
-        $('.flickity-enabled').each(() => {
-          $(this).flickity('resize');
-        });
-      });
     }
 
     // Responsive videos, Vimeo API
@@ -523,6 +516,14 @@ const common = {
         $this.css('top', parseFloat($this.css('top').replace('px','')) + y);
       });
     }
+  },
+
+  resizeCarousels() {
+    jQueryBridget('flickity', Flickity, $);
+    // Resize flickity carousels
+    $('.flickity-enabled').each(() => {
+      $(this).flickity('resize');
+    });
   },
 
   finalize() {

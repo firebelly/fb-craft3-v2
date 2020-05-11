@@ -83,6 +83,7 @@ swup.on('transitionEnd', () => {
   about.checkModal();
   careers.checkAccordion();
   appState.popState = false;
+  setTimeout(common.resizeCarousels, 1500);
 });
 
 swup.on('transitionStart', () => {
