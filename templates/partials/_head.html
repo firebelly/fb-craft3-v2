@@ -33,11 +33,11 @@
   <meta property="og:description" content="{{ seoDescription }}">
   {% endif -%}
   {% if seoImage is defined -%}
-  {% set transformedImage = craft.imager.transformImage(seoImage, { width: 1200, height: 630, mode: 'crop' }) -%}
+  {% set transformedImage = craft.imager.transformImage(seoImage, { width: 1200, height: 630, mode: 'crop', format: 'jpg' }) -%}
   <meta property="og:image" content="{{ transformedImage.getUrl() }}">
   <meta property="og:image:type" content="image/jpeg">
   {% elseif globalSeo.shareImage|length -%}
-  {% set transformedImage = craft.imager.transformImage(globalSeo.shareImage.one(), { width: 1200, height: 630, mode: 'crop' }) -%}
+  {% set transformedImage = craft.imager.transformImage(globalSeo.shareImage.one(), { width: 1200, height: 630, mode: 'crop', format: 'jpg' }) -%}
   <meta property="og:image" content="{{ transformedImage.getUrl() }}">
   <meta property="og:image:type" content="image/jpeg">
   {% endif -%}
