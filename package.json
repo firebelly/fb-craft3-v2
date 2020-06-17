@@ -46,7 +46,6 @@
     "flickity-imagesloaded": "^2.0.0",
     "jquery": "^3.4",
     "jquery-bridget": "^2.0.1",
-    "js-dom-router": "^1.0",
     "lazysizes": "^5.2.0-beta1",
     "swup": "^2.0.8",
     "terser": "4.6.10",

@@ -1,11 +1,9 @@
 // Import external dependencies
-import Velocity from 'velocity-animate';
 import Swup from 'swup';
 import SwupBodyClassPlugin from '@swup/body-class-plugin';
 import SwupScrollPlugin from '@swup/scroll-plugin';
 import SwupGaPlugin from '@swup/ga-plugin'
 // import SwupDebugPlugin from '@swup/debug-plugin';
-import Waypoint from 'waypoints/lib/jquery.waypoints.js';
 
 // Import local dependencies
 import Router from './util/Router';

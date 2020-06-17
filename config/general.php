@@ -42,6 +42,10 @@ return [
         'aliases' => [
             '@rootUrl' => getenv('SITE_URL'),
         ],
+
+        // Disable GraphQL
+        'enableGql' => false,
+
     ],
 
     // Dev environment settings
