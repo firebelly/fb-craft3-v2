@@ -1,4 +1,5 @@
 // Import external dependencies
+import Velocity from 'velocity-animate';
 import Swup from 'swup';
 import SwupBodyClassPlugin from '@swup/body-class-plugin';
 import SwupScrollPlugin from '@swup/scroll-plugin';
