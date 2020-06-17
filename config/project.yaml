@@ -42,7 +42,7 @@ categoryGroups:
     structure:
       maxLevels: null
       uid: fc5b02e8-6367-450b-84a1-45b214a20262
-dateModified: 1585663901
+dateModified: 1592405703
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
@@ -3753,7 +3753,7 @@ plugins:
   contact-form-extensions:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.0
+    schemaVersion: 1.0.1
     settings:
       confirmationSubject: 'Firebelly Contact'
       confirmationTemplate: contact/contact-email.html
@@ -3761,15 +3761,15 @@ plugins:
       enableDatabase: '1'
       enableTemplateOverwrite: '1'
       notificationTemplate: contact/contact-email-shop.html
-      recaptcha: ''
+      recaptcha: '1'
       recaptchaDataBadge: bottomright
       recaptchaDebug: ''
-      recaptchaHideBadge: ''
-      recaptchaSecretKey: ''
-      recaptchaSiteKey: ''
+      recaptchaHideBadge: '1'
+      recaptchaSecretKey: $RECAPTCHA_SECRET_KEY
+      recaptchaSiteKey: $RECAPTCHA_SITE_KEY
       recaptchaThreshold: '0.5'
       recaptchaTimeout: '5'
-      recaptchaVersion: ''
+      recaptchaVersion: '3'
   contact-form-honeypot:
     edition: standard
     enabled: true

@@ -79,7 +79,12 @@
           <input type="hidden" name="subject" value="Firebelly Contact Submission" data-original-value="Firebelly Contact Submission">
           <input type="hidden" name="message[formName]" value="Firebelly Contact">
 
+          {{ craft.contactFormExtensions.recaptcha | raw }}
+
           <button class="button -white -small hollow">Submit</button>
+          <p class="recaptcha-note" style="font-size: 10px; color: #666; margin-top: 30px;">
+            This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+          </p>
         </div>
       </form>
 
