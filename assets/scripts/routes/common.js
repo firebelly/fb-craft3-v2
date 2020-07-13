@@ -1,8 +1,8 @@
 // Common js
 
-import jQueryBridget from 'jquery-bridget';
 import Flickity from 'flickity-fade';
 require('flickity-imagesloaded');
+const imagesLoaded = require('imagesloaded');
 import Waypoints from 'waypoints/lib/jquery.waypoints.js';
 import Lazysizes from 'lazysizes';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
@@ -20,7 +20,8 @@ let isTouchDevice,
     $siteNav,
     $blobs,
     blobsData,
-    mousedownTimer;
+    mousedownTimer,
+    flickityCarousels = [];
 
 // Accessibility/tab trap taken from https://github.com/gdkraus/accessible-modal-dialog
 // jQuery formatted selector to search for focusable items
@@ -44,9 +45,6 @@ const common = {
     for (let i=0; i<elements.length; i++) {
       new ResponsiveBackgroundImage(elements[i]);
     }
-
-    // Set up libraries to be used with jQuery
-    jQueryBridget('flickity', Flickity, $);
 
     // Init shared vars
     $siteNav = $('.site-nav');
@@ -390,26 +388,16 @@ const common = {
 
     // Carousels
     function _initFlickity() {
-      var fade = false;
-      // If user has prefer-reduced-motion enabled, use fade between slides
-      if (appState.reducedMotionMQ.matches) {
-        fade = true;
-      }
-
-      $('.flickity').flickity({
-        pageDots: false,
-        imagesLoaded: true,
-        wrapAround: true,
-        fade: fade
-      });
-
-      // Resize flickity carousels
-      setTimeout(() => {
-        $('.flickity-enabled').each(() => {
-          $(this).flickity('resize');
+      $('.flickity').each((i, el) => {
+        let carousel = new Flickity(el, {
+          pageDots: false,
+          imagesLoaded: true,
+          lazyLoad: 2,
+          wrapAround: true,
+          fade: (appState.reducedMotionMQ.matches ? true : false) // If user has prefer-reduced-motion enabled, use fade between slides
         });
-      }, 1500);
-
+        flickityCarousels.push(carousel);
+      });
     }
 
     // Responsive videos, Vimeo API
@@ -490,13 +478,14 @@ const common = {
 
     // Called in quick succession as window is resized
     function _resize() {
+      console.log('foo');
       // Reset inline styles for navigation for medium breakpoint
       if (appState.breakpoints.nav) {
         $siteNav.attr('style', '');
       }
     }
 
-    $window.resize(_resize);
+    $window.on('resize.fb', _resize);
   },
 
   startBlobs(fps) {
@@ -542,12 +531,13 @@ const common = {
     }
 
     // Remove flickity instances
-    $('.flickity-enabled').each(() => {
-      $(this).css({'opacity': 0}).flickity('destroy');
+    flickityCarousels.forEach(el => {
+      el.destroy()
     });
 
     // Remove custom event watchers
     $document.off('mousedown.customCursor mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms');
+    $window.off('resize.fb');
 
     // Unload Vimeo players
     vimeoPlayers.forEach((el) => {

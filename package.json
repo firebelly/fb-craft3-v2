@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2",
     "@wordpress/browserslist-config": "^2.6.0",
+    "@swup/debug-plugin": "^1.0.3",
     "babel-eslint": "^10.0.2",
     "browser-sync": "^2.26",
     "browser-sync-webpack-plugin": "2.2",
@@ -36,7 +37,6 @@
   },
   "dependencies": {
     "@swup/body-class-plugin": "^1.0.1",
-    "@swup/debug-plugin": "^1.0.3",
     "@swup/ga-plugin": "^1.0.1",
     "@swup/scroll-plugin": "^1.0.6",
     "body-scroll-lock": "^3.0.1",
@@ -45,10 +45,8 @@
     "flickity-fade": "^1.0.0",
     "flickity-imagesloaded": "^2.0.0",
     "jquery": "^3.4",
-    "jquery-bridget": "^2.0.1",
     "lazysizes": "^5.2.0-beta1",
     "swup": "^2.0.8",
-    "terser": "4.6.10",
     "velocity-animate": "^1.5.2",
     "waypoints": "^4.0.1"
   }
