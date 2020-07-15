@@ -42,14 +42,15 @@ categoryGroups:
     structure:
       maxLevels: null
       uid: fc5b02e8-6367-450b-84a1-45b214a20262
-dateModified: 1592405703
+dateModified: 1594776631
 email:
   fromEmail: info@firebellydesign.com
   fromName: 'Firebelly Design'
+  replyToEmail: null
   template: null
   transportSettings:
     encryptionMethod: ssl
-    host: smtp.webfaction.com
+    host: $SMTP_HOST
     password: $SMTP_PASSWORD
     port: '465'
     timeout: '30'
