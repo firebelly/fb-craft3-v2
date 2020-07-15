@@ -1,21 +1,21 @@
 from fabric.api import *
 import os
 
-env.hosts = ['firebelly.webfactional.com']
+env.hosts = ['firebelly.opalstacked.com']
 env.user = 'firebelly'
-env.remotepath = '/home/firebelly/webapps/fb_craft3_dev'
+env.remotepath = '/home/firebelly/apps/fb-craft-staging'
 env.git_branch = 'staging'
 env.warn_only = True
 
 def production():
   env.hosts = ['firebellydesign.com']
   env.git_branch = 'master'
-  env.remotepath = '/home/firebelly/webapps/fb_craft3'
+  env.remotepath = '/home/firebelly/apps/fb-craft'
 
-def syncstaging():
-  with cd(env.remotepath):
-    run('/usr/bin/mysqldump --defaults-extra-file=/home/firebelly/etc/.my.cnf -u fb_craft_sql fb_craft3 | /usr/bin/mysql --defaults-extra-file=/home/firebelly/etc/.my.cnf -u fb_craft_sql fb_craft3_dev')
-    run('/usr/bin/rsync -av --delete /home/firebelly/webapps/fb_craft3/web/uploads/ /home/firebelly/webapps/fb_craft3_dev/web/uploads/')
+# def syncstaging():
+#   with cd(env.remotepath):
+#     run('/usr/bin/mysqldump --defaults-extra-file=/home/firebelly/etc/.my.cnf -u fb_craft_sql fb_craft3 | /usr/bin/mysql --defaults-extra-file=/home/firebelly/etc/.my.cnf -u fb_craft_sql fb_craft3_dev')
+#     run('/usr/bin/rsync -av --delete /home/firebelly/webapps/fb_craft3/web/uploads/ /home/firebelly/webapps/fb_craft3_dev/web/uploads/')
 
 def devsetup():
   print "Composing and yarning...\n"
