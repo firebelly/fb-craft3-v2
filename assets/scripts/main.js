@@ -82,11 +82,11 @@ swup.on('transitionEnd', () => {
   about.checkModal();
   careers.checkAccordion();
   appState.popState = false;
-  // Remove any focused elements after transition
-  document.activeElement.blur()
 });
 
 swup.on('transitionStart', () => {
+  // Remove any focused elements before transition
+  document.activeElement.blur()
   // Cleanup calls for js
   routes.unload();
   colorChanges.unload();
