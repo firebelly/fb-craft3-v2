@@ -6,11 +6,11 @@ return [
     'imagerUrl' => '@rootUrl/imager/',
   ],
   'staging' => [
-    'useCwebp' => true,
+    'useCwebp' => false, // disabling cwebp as it uses shell_exec() which is disabled in Opalstack, and it's a resource hog
     'cwebpPath' => '/home/firebelly/bin/cwebp',
   ],
   'production' => [
-    'useCwebp' => true,
+    'useCwebp' => false,
     'cwebpPath' => '/home/firebelly/bin/cwebp',
   ],
 ];
