@@ -1,0 +1,17 @@
+{% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? '_ajax-layout' : '_layout' %}
+
+{% set title = '500' %}
+{% set bodyClass = 'page-500' %}
+
+{% block content %}
+
+  <header class="text-header">
+    <div class="container">
+      <div class="title">
+        <h1>500—We’re handling some maintenance right now.</h1>
+        <h4 class="subhead">Please check back soon.</h4>
+      </div>
+    </div>
+  </header>
+
+{% endblock %}
