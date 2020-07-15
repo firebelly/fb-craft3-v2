@@ -183,7 +183,7 @@
     overflow: hidden;
     position: absolute;
     width: calc(50% - #{$padding-md / 2});
-    img {
+    picture {
       top: 0;
       left: 0;
       width: auto;
@@ -191,6 +191,9 @@
       display: block;
       max-width: none;
       position: absolute;
+      img {
+        display: block;
+      }
     }
 
     @include media-md {
@@ -200,7 +203,7 @@
         // Support 2-5 images in nextProjectImages field
         @for $j from 2 through 5 {
           &[data-num-images="#{$j}"] {
-            img {
+            picture {
               animation: imgRotator#{$j} #{0.6 * $j}s linear infinite;
               @for $i from 0 through ($j - 1) {
                 &:nth-child(#{$j - $i}) {
@@ -304,6 +307,15 @@
         .icon-big-arrow {
           top: auto;
         }
+      }
+    }
+  }
+
+  // prefers reduced motion
+  @media (prefers-reduced-motion: reduce) {
+    .rollover-images.hover {
+      img {
+        animation: none!important;
       }
     }
   }

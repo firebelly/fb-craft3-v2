@@ -1,17 +1,17 @@
 <header class="image-header">
   <div class="header-wrap">
 
-    {% if image is defined %}
-      {% set transformedImage = craft.imager.transformImage(image, { width: 2400, quality: 85 }) %}
-    {% endif %}
-
-    {% if entry.vimeoHeaderVideo %}
-      <div class="header-banner video" {% if image is defined %}style="background-image:url({{ transformedImage.getUrl() }});"{% endif %}>
+    <div class="header-banner {% if entry.vimeoHeaderVideo %}video{% endif %}" {% if image is defined %}data-responsive-background-image{% endif %}>
+      {% if entry.vimeoHeaderVideo %}
         <iframe src="https://player.vimeo.com/video/{{ entry.vimeoHeaderVideo|replace('/[^0-9+]/', '') }}?background=1;autoplay=1&autopause=0&loop=1&title=0&byline=0&portrait=0" frameborder="0"></iframe>
-      </div>
-    {% elseif image is defined %}
-      <div class="header-banner" style="background-image:url({{ transformedImage.getUrl() }});"></div>
-    {% endif %}
+      {% endif %}
+
+      {% include "partials/_picture" with {
+        image: image,
+        imgSrcSets: [ { width: 2400 }, { width: 750, jpegQuality: 70 }, ],
+        imgSizes: '100vw'
+      } %}
+    </div>
 
     <div class="container">
       <div class="header-title">

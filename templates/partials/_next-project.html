@@ -4,13 +4,24 @@
 {% endif %}
 
 {% set rolloverImages = [] %}
+{% set rolloverImagesWebp = [] %}
+
 {% if nextEntry.nextProjectImages|length %}
   {% for image in nextEntry.nextProjectImages.all() %}
     {% if not (image.filename matches '/(gif|svg|json)$/') %}
-      {% set transformedImage = craft.imager.transformImage(image, { width: 800, height: 450, mode: 'crop', quality: 75 }) %}
+
+      {% set transformedImage = craft.imager.transformImage(image, { width: 800, ratio: 10/5.63 }, { mode: 'crop', jpegQuality: 75, interlace: true }) %}
       {% if transformedImage %}
         {% set rolloverImages = rolloverImages|merge([ { transformedImage: transformedImage, altText: image.altText, title: image.title } ]) %}
       {% endif %}
+
+      {% if craft.imager.serverSupportsWebp() %}
+        {% set transformedImageWeb = craft.imager.transformImage(image, { width: 800, ratio: 10/5.63 }, { format: 'webp', mode: 'crop', webpQuality: 75, interlace: true }) %}
+        {% if transformedImageWeb %}
+          {% set rolloverImagesWebp = rolloverImagesWebp|merge([ { transformedImage: transformedImageWeb, altText: image.altText, title: image.title } ]) %}
+        {% endif %}
+      {% endif %}
+
     {% endif %}
   {% endfor %}
 {% endif %}
@@ -19,10 +30,21 @@
   {% if rolloverImages|length %}
     <div class="rollover-images" data-num-images="{{ rolloverImages|length }}">
       {% for image in rolloverImages[1:] %}
-        <img src="{{ image.transformedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
+        <picture>
+          {% if rolloverImagesWebp[loop.index] %}
+            <source srcset="{{ rolloverImagesWebp[loop.index].transformedImage.getUrl() }}" type="image/webp">
+          {% endif %}
+          <img src="{{ image.transformedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
+        </picture>
       {% endfor %}
+
       {# Put first image last because of CSS animator behavior #}
-      <img src="{{ rolloverImages|first.transformedImage.getUrl() }}" alt="{{ rolloverImages|first.altText | length ? rolloverImages|first.altText : rolloverImages|first.title }}">
+      <picture>
+        {% if rolloverImagesWebp|length %}
+          <source srcset="{{ rolloverImagesWebp[0].transformedImage.getUrl() }}" type="image/webp">
+        {% endif %}
+        <img src="{{ rolloverImages[0].transformedImage.getUrl() }}" alt="{{ rolloverImages[0].altText | length ? rolloverImages[0].altText : rolloverImages[0].title }}">
+      </picture>
     </div>
   {% endif %}
 

@@ -142,24 +142,27 @@ html.is-animating {
       width: 100%;
       height: 1px;
       background: color('black');
-      animation: 3s ease-in-out 0s 1 slideInFromLeft;
+      animation: 15s ease-in-out 0s 1 fauxProgressIndicator;
     }
   }
 }
-@keyframes slideInFromLeft {
+@keyframes fauxProgressIndicator {
   0% {
     transform: translateX(-100%);
   }
-  50% {
+  10% {
     transform: translateX(-100%);
   }
-  60% {
+  15% {
     transform: translateX(-70%);
   }
-  80% {
+  25% {
     transform: translateX(-50%);
   }
-  90% {
+  30% {
+    transform: translateX(-35%);
+  }
+  60% {
     transform: translateX(-20%);
   }
   100% {

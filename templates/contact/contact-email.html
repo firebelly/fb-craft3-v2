@@ -19,8 +19,10 @@
   <h3>Email</h3>
   <p>{{ submission.fromEmail }}</p>
 
-  <h3>Organization</h3>
-  <p>{{ submission.message["From Organization"] }}</p>
+  {% if submission.message["From Organization"] is defined %}
+    <h3>Organization</h3>
+    <p>{{ submission.message["From Organization"] }}</p>
+  {% endif %}
 
   <h3>Query</h3>
   <p>{{ submission.message["Query"] }}</p>

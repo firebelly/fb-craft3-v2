@@ -35,7 +35,7 @@ body.page-work {
           display: inline-block;
           font: bold 12px/1 $font-sans, sans-serif;
           vertical-align: top;
-          margin: 1.5em 0 0 0.25em;
+          margin: 1.5em 0 0 -.25em;
         }
 
         svg {
@@ -84,12 +84,15 @@ body.page-work {
         right: beat(3);
         top: beat(3);
       }
+
+      .services-nav a sup {
+        margin-left: -2em;
+      }
     }
   }
 }
 
-
-// Project image rotator on hover
+// Pulsing ">" on hovering link in services nav modal
 @keyframes puls0r {
   0% {
     margin-left: 0;

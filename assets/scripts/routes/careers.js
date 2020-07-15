@@ -21,12 +21,25 @@ const careers = {
         appState.isAnimating = true;
         // Reset URL for Ariel
         history.pushState(null, null, location.pathname);
-        $this
-          .removeClass('-active')
-          .find('.description')
-          .velocity('slideUp', 500, 'easeOutCubic', () => {
-            appState.isAnimating = false
-          });
+        if (!appState.reducedMotionMQ.matches) {
+          $this
+            .removeClass('-active')
+            .find('.description')
+            .velocity('slideUp', 500, 'easeOutCubic', () => {
+              appState.isAnimating = false;
+            });
+        } else {
+          $this
+            .removeClass('-active')
+            .find('.description')
+            .css({
+              'display': 'none',
+              'opacity': 0
+            });
+            setTimeout(function() {
+              appState.isAnimating = false;
+            }, 500);
+        }
       });
     });
 
@@ -38,35 +51,77 @@ const careers = {
     if ($accordion.hasClass('-active') || appState.isAnimating) {
       return false;
     }
-    appState.isAnimating = true;
 
     // Accordion already open? Collapse, scroll to position, and open selected
     if ($('.accordion.-active').length) {
       $('.accordion.-active').each(function() {
-        $(this).removeClass('-active')
-          .find('.description')
-          .velocity('scroll', { duration: 0, offset: -document.querySelector('.site-header').offsetHeight })
-          .velocity('slideUp', 0, () => {
-            $accordion.velocity('scroll', { duration: 50, offset: -document.querySelector('.site-header').offsetHeight })
-              .addClass('-active')
-              .find('.description')
-              .velocity('slideDown', 500, 'easeOutCubic', () => appState.isAnimating = false);
-          });
+        appState.isAnimating = true;
+        if (!appState.reducedMotionMQ.matches) {
+          $(this).removeClass('-active')
+            .find('.description')
+            .velocity('scroll', { duration: 0, offset: -document.querySelector('.site-header').offsetHeight })
+            .velocity('slideUp', 0, () => {
+              $accordion.velocity('scroll', { duration: 50, offset: -document.querySelector('.site-header').offsetHeight })
+                .addClass('-active')
+                .find('.description')
+                .velocity('slideDown', 500, 'easeOutCubic', () => appState.isAnimating = false);
+            });
+        } else {
+          // If prefers reduced motion is enabled, just hide/show/jump — no movement
+          $(this).removeClass('-active');
+          var prevOffset = $(this).offset().top;
+          window.scrollTo(0, prevOffset -document.querySelector('.site-header').offsetHeight);
+          $(this).find('.description')
+            .css({
+              'display': 'none',
+              'opacity': 0
+            });
+          var newOffset = $accordion.offset().top;
+          window.scrollTo(0, newOffset -document.querySelector('.site-header').offsetHeight);
+          $accordion.addClass('-active')
+            .find('.description')
+            .css({
+              'display': 'block',
+              'opacity': 1
+            });
+          appState.isAnimating = false;
+        }
       });
     } else {
       // Just open accordion if none are already open
       $accordion.addClass('-active');
-      $accordion.find('.description').velocity('slideDown', 500, 'easeOutCubic', () => appState.isAnimating = false);
+      if (!appState.reducedMotionMQ.matches) {
+        $accordion.find('.description').velocity('slideDown', 500, 'easeOutCubic', () => appState.isAnimating = false);
+      } else {
+        // If reduced motion is enabled just show it
+        $accordion.find('.description').css({
+          'display': 'block',
+          'opacity': 1
+        });
+        appState.isAnimating = false;
+      }
     }
   },
 
   closeAccordions() {
-    $('.accordion.-active')
-      .removeClass('-active')
-      .find('.description')
-      .velocity('slideUp', 500, 'easeOutCubic', () => {
-        appState.isAnimating = false
-      });
+    if (!appState.reducedMotionMQ.matches) {
+      $('.accordion.-active')
+        .removeClass('-active')
+        .find('.description')
+        .velocity('slideUp', 500, 'easeOutCubic', () => {
+          appState.isAnimating = false;
+        });
+    } else {
+      // If reduced motion is enabled, just hide it
+      $('.accordion.-active')
+        .removeClass('-active')
+        .find('.description')
+        .css({
+          'display': 'none',
+          'css': 0
+        });
+      appState.isAnimating = false;
+    }
   },
 
   checkAccordion() {

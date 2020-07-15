@@ -7,8 +7,10 @@ const appState = {
   modalOpen: false,
   initialHash: '',
   navStuck: false,
+  personModalTrigger: false,
   requestInProgress: false,
   breakpoints: {},
+  reducedMotionMQ: window.matchMedia('(prefers-reduced-motion: reduce)'),
 
   init() {
     // Bind updateBreakpoints to domready and resize

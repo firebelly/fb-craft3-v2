@@ -1,14 +1,15 @@
 // Common js
 
-import jQueryBridget from 'jquery-bridget';
-import Flickity from 'flickity/dist/flickity.pkgd.js';
+import Flickity from 'flickity-fade';
 require('flickity-imagesloaded');
+const imagesLoaded = require('imagesloaded');
 import Waypoints from 'waypoints/lib/jquery.waypoints.js';
 import Lazysizes from 'lazysizes';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import fitvids from 'fitvids';
 
 import appState from '../util/appState';
+import ResponsiveBackgroundImage from '../util/ResponsiveBackgroundImage';
 
 // Shared vars
 let isTouchDevice,
@@ -19,7 +20,12 @@ let isTouchDevice,
     $siteNav,
     $blobs,
     blobsData,
-    mousedownTimer;
+    mousedownTimer,
+    flickityCarousels = [];
+
+// Accessibility/tab trap taken from https://github.com/gdkraus/accessible-modal-dialog
+// jQuery formatted selector to search for focusable items
+let focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
 
 const common = {
   // JavaScript to be fired on all pages
@@ -34,8 +40,11 @@ const common = {
       elapsed: 0
     };
 
-    // Set up libraries to be used with jQuery
-    jQueryBridget('flickity', Flickity, $);
+    // Initialize
+    let elements = document.querySelectorAll('[data-responsive-background-image]');
+    for (let i=0; i<elements.length; i++) {
+      new ResponsiveBackgroundImage(elements[i]);
+    }
 
     // Init shared vars
     $siteNav = $('.site-nav');
@@ -261,6 +270,10 @@ const common = {
     function _initSiteNav() {
       $document.on('click.siteNavOpen', '#nav-open', _openNav);
       $document.on('click.siteNavClose', '#nav-close', _closeNav);
+
+      $('.site-nav.-active').keydown(function(event) {
+        trapTabKey($(this), event);
+      });
     }
 
     function _openNav() {
@@ -272,6 +285,11 @@ const common = {
         complete: function() {
           $siteNav.addClass('-active');
         }
+      });
+
+      // attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
+      $('body').on('focusin', '.site-main', function() {
+        setFocusToFirstItemInContainer($('.site-nav'));
       });
     }
 
@@ -286,13 +304,67 @@ const common = {
         complete: function() {
           $body.removeClass('nav-open');
           $siteNav.removeClass('-active');
+          $('#nav-open').focus();
         }
       });
+
+      // remove the listener which redirects tab keys in the main content area to the modal
+      $('body').off('focusin','.site-nav');
+    }
+
+    function trapTabKey(obj, evt) {
+      // if tab or shift-tab pressed
+      if (evt.which == 9) {
+
+        // get list of all children elements in given object
+        var o = obj.find('*');
+
+        // get list of focusable items
+        var focusableItems;
+        focusableItems = o.filter(focusableElementsString).filter(':visible')
+
+        // get currently focused item
+        var focusedItem;
+        focusedItem = $(':focus');
+
+        // get the number of focusable items
+        var numberOfFocusableItems;
+        numberOfFocusableItems = focusableItems.length
+
+        // get the index of the currently focused item
+        var focusedItemIndex;
+        focusedItemIndex = focusableItems.index(focusedItem);
+
+        if (evt.shiftKey) {
+          //back tab
+          // if focused on first item and user preses back-tab, go to the last focusable item
+          if (focusedItemIndex == 0) {
+            focusableItems.get(numberOfFocusableItems - 1).focus();
+            evt.preventDefault();
+          }
+
+        } else {
+          //forward tab
+          // if focused on the last item and user preses tab, go to the first focusable item
+          if (focusedItemIndex == numberOfFocusableItems - 1) {
+            focusableItems.get(0).focus();
+            evt.preventDefault();
+          }
+        }
+      }
+    }
+
+    function setFocusToFirstItemInContainer(obj) {
+      // get list of all children elements in given object
+      var o = obj.find('*');
+
+      // set the focus to the first keyboard focusable item
+      o.filter(focusableElementsString).filter(':visible').first().focus();
     }
 
     // Superfluous flesh!
     function _initBlobs() {
-      if (!$body.hasClass('with-blobs')) {
+      if (!$body.hasClass('with-blobs') || appState.reducedMotionMQ.matches) {
         return;
       }
       $blobs.removeClass('-fading');
@@ -308,7 +380,7 @@ const common = {
         let x = Math.ceil(Math.random() * window.innerWidth * 1.1);
         let y = Math.ceil(Math.random() * window.innerHeight * 1.1);
         let d = Math.ceil(Math.random() * 180);
-        $('<div style="left:'+x+'px;top:'+y+'px;" class="blob"><img style="transform:rotate('+d+'deg)" src="/assets/dist/images/blobs/blob-'+num+'.png"></div>').appendTo($blobs);
+        $('<div style="left:'+x+'px;top:'+y+'px;" class="blob"><img style="transform:rotate('+d+'deg)" src="/assets/dist/images/blobs/blob-'+num+'.png" alt=""></div>').appendTo($blobs);
       }
 
       common.startBlobs(30);
@@ -316,10 +388,15 @@ const common = {
 
     // Carousels
     function _initFlickity() {
-      $('.flickity').flickity({
-        pageDots: false,
-        imagesLoaded: true,
-        wrapAround: true,
+      $('.flickity').each((i, el) => {
+        let carousel = new Flickity(el, {
+          pageDots: false,
+          imagesLoaded: true,
+          lazyLoad: 2,
+          wrapAround: true,
+          fade: (appState.reducedMotionMQ.matches ? true : false) // If user has prefer-reduced-motion enabled, use fade between slides
+        });
+        flickityCarousels.push(carousel);
       });
     }
 
@@ -401,13 +478,14 @@ const common = {
 
     // Called in quick succession as window is resized
     function _resize() {
+      console.log('foo');
       // Reset inline styles for navigation for medium breakpoint
       if (appState.breakpoints.nav) {
         $siteNav.attr('style', '');
       }
     }
 
-    $window.resize(_resize);
+    $window.on('resize.fb', _resize);
   },
 
   startBlobs(fps) {
@@ -429,8 +507,8 @@ const common = {
       blobsData.then = blobsData.now - (blobsData.elapsed % blobsData.fpsInterval);
       $blobs.find('.blob').each(function() {
         let $this = $(this);
-        let x = (Math.random() * -1) + 0.25;
-        let y = -0.25;
+        let x = (Math.random() * -0.95) + 0.175;
+        let y = -0.2;
         $this.css('left', parseFloat($this.css('left').replace('px','')) + x);
         $this.css('top', parseFloat($this.css('top').replace('px','')) + y);
       });
@@ -453,19 +531,20 @@ const common = {
     }
 
     // Remove flickity instances
-    $('.flickity').each(function() {
-      $(this).css({'opacity': 0}).flickity('destroy');
+    flickityCarousels.forEach(el => {
+      el.destroy()
     });
 
     // Remove custom event watchers
     $document.off('mousedown.customCursor mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms');
+    $window.off('resize.fb');
 
-    // Remove vimeo players
-    $.each(vimeoPlayers, function(){
-      if (this.waypoint) {
-        this.waypoint[0].destroy();
+    // Unload Vimeo players
+    vimeoPlayers.forEach((el) => {
+      if (el.waypoint) {
+        el.waypoint[0].destroy();
       }
-      this.player.destroy();
+      el.player.destroy();
     });
     vimeoPlayers = [];
   },

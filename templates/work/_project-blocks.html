@@ -41,31 +41,8 @@
     {% case 'blockImages' %}
       {% if block.carousel %}
         {% if blockWrapped %}</div></div><!-- /.block-wrap -->{% set blockWrapped = false %}{% endif %}
-        <div class="block-carousel -reveal">
-          <div class="flickity js-cursor">
-            {% for image in block.images %}
-              {% set embeddedAsset = craft.embeddedAssets.get(image) %}
-              {% if embeddedAsset %}
-                {# Custom vimeo handling #}
-                {% if embeddedAsset.url matches '/vimeo\.com/' %}
-                  <div class="embedded-asset vimeo-block{{ block.backgroundVideo ? ' background-video' : '' }}" data-url="{{ embeddedAsset.url }}" data-width="{{ embeddedAsset.width }}" data-height="{{ embeddedAsset.height }}">
-                    <img class="lazyload" data-src="{{ embeddedAsset.images[0].url }}">
-                  </div>
-                {% else %}
-                  {{ embeddedAsset.html }}
-                {% endif %}
-              {% else %}
-                {% set treatedImage = craft.imager.transformImage(image, { mode: 'fit', width: 1800, height: 900 }) %}
-                {% set orientation = image.getWidth() > image.getHeight() ? 'landscape' : 'portrait' %}
-                <div class="slide {{ orientation }}">
-                  {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
-                    <img src="{{ treatedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
-                  {%- if block.imageLinkUrl %}</a>{% endif -%}
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
+        {% include 'blocks/_image-carousel' with { block: block } %}
+
       {% else %}
         {# todo: remove this support for old fullbleed image projects #}
         {% if not blockWrapped %}<div class="block-wrap"><div class="-inner">{% set blockWrapped = true %}{% endif %}
@@ -78,16 +55,14 @@
                   <img class="lazyload" data-src="{{ embeddedAsset.images[0].url }}">
                 </div>
               {% else %}
-                {# Leave GIFs & PNGs alone #}
-                {% if image.filename matches '/(gif|png)$/' %}
-                  {% set treatedImage = image %}
-                {% else %}
-                  {% set treatedImage = craft.imager.transformImage(image, { width: 1800 }) %}
-                {% endif %}
-
                 <figure class="-aspect-ratio-pad" style="padding-bottom: {{ image.height / image.width * 100 }}%">
                 {%- if block.imageLinkUrl %}<a href="{{ block.imageLinkUrl }}" target="_blank" rel="noopener">{% endif -%}
-                  <img class="lazyload" data-src="{{ treatedImage.getUrl() }}" alt="{{ image.altText | length ? image.altText : image.title }}">
+                  {% include "partials/_picture" with {
+                    image: image,
+                    imgSrcSets: [ { mode: 'fit', width: 1800 }, { mode: 'fit', width: 750, jpegQuality: 70 }, ],
+                    imgSizes: '100vw',
+                    lazy: true
+                  } %}
                 {%- if block.imageLinkUrl %}</a>{% endif -%}
                 </figure>
               {% endif %}
@@ -101,8 +76,19 @@
       <div class="block-carousel -reveal">
         <div class="flickity js-cursor with-captions">
           {% for image in block.images %}
-            {% set treatedImage = craft.imager.transformImage(image, { mode: 'fit', width: 1800, height: 900 }) %}
-            <figure class="slide {{ image.captionLabel or image.caption ? ' with-caption' : '' }}" style="background-image:url('{{ treatedImage.getUrl() }}');">
+            <figure class="slide {{ image.captionLabel or image.caption ? ' with-caption' : '' }}" data-responsive-background-image>
+              {% include "partials/_picture" with {
+                image: image,
+                imgSrcSets: [ { mode: 'fit', width: 1800, height: 900 }, { mode: 'fit', width: 750, height: 400, jpegQuality: 70 }, ],
+                imgSizes: '100vw'
+              } %}
+              <picture>
+                {% if transformedImagesWebp is defined %}
+                  <source sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
+                {% endif %}
+                <img sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ image.altText | length ? image.altText : image.title }}">
+              </picture>
+
               {% if image.captionLabel or image.caption %}
                 <figcaption class="image-text">
                   <div class="-inner">

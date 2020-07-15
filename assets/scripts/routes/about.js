@@ -10,15 +10,29 @@ const about = {
     // Init modal & specify scrollable container when modal is open
     modals.init('.modal');
 
-    // Person links to modals
-    $('.person a').on('click', function(e) {
-      e.preventDefault();
-      if (appState.isAnimating) {
-        return;
-      }
-      let $person = $(this).parents('.person');
-      history.pushState(null, null, this.href);
-      about.openPerson($person);
+    // If page is being loaded after a modual using history is closed,
+    // set focus to the element that was in focus before the modal was opened
+    if (appState.personModalTrigger != false) {
+      $('[data-person="' + appState.personModalTrigger + '"] a:first-of-type').focus();
+      appState.personModalTrigger = false;
+    }
+
+    $('article.person').each(function() {
+      let $person = $(this);
+
+      // Duplicate person image to modal
+      let $imageContainer = $person.find('.modal-content .image-container');
+      $person.find('picture').clone().appendTo($imageContainer);
+
+      // Person links to modals
+      $person.on('click', function(e) {
+        e.preventDefault();
+        if (appState.isAnimating) {
+          return;
+        }
+        history.pushState(null, null, this.href);
+        about.openPerson($person);
+      });
     });
 
     // Watch for state change (e.g. hitting next returning to /about#dawn-hancock, reopen modal)

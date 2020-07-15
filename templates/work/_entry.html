@@ -54,7 +54,7 @@
                 <li>
                   {% for service in entry.services.with('service').all() %}
                     <a href="{{ service.service[0].getUrl() }}">{{ service.service[0].title }}</a>
-                    {{ not loop.last ? ' / ' }}
+                    {{ not loop.last ? ' <span aria-hidden="true">/</span> ' }}
                   {% endfor %}
                 </li>
               </ul>

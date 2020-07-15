@@ -63,6 +63,7 @@
     <div class="container">
       {% set allCount = craft.entries.section('work').count() %}
       <ul class="services-nav">
+        <h3 class="visually-hidden">Filter by services:</h3>
         {% for service in craft.categories.group('services').all() %}
           {% set serviceCount = craft.superTable.getRelatedElements({
             relatedTo: {
@@ -71,9 +72,9 @@
             },
             section: 'work'
           }).count() %}
-          <li{{ category is defined and category.title == service.title ? ' class="-active"': '' }}><a data-no-swup href="{{ service.getUrl() }}">{{ service.title }}<sup>{{ serviceCount }}</sup> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
+          <li{{ category is defined and category.title == service.title ? ' class="-active"': '' }}><a data-no-swup href="{{ service.getUrl() }}">{{ service.title }} <sup>{{ serviceCount }}</sup><span class="visually-hidden"> projects</span> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
         {% endfor %}
-        <li><a data-no-swup href="{{ entry.getUrl() }}">All<sup>{{ allCount }}</sup> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
+        <li><a data-no-swup href="{{ entry.getUrl() }}">All <sup>{{ allCount }}</sup><span class="visually-hidden"> projects</span> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
       </ul>
     </div>
   </div>
