@@ -82,6 +82,10 @@ swup.on('transitionEnd', () => {
   about.checkModal();
   careers.checkAccordion();
   appState.popState = false;
+  // Remove any focus states on nav
+  document.querySelectorAll('.site-header a').forEach(el => {
+    el.blur();
+  });
 });
 
 swup.on('transitionStart', () => {
