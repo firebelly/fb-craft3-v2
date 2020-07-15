@@ -1,7 +1,7 @@
 from fabric.api import *
 import os
 
-env.hosts = ['firebelly.opalstacked.com']
+env.hosts = ['stage.firebelly.co']
 env.user = 'firebelly'
 env.remotepath = '/home/firebelly/apps/fb-craft-staging'
 env.git_branch = 'staging'
