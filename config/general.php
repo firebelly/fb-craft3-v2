@@ -41,6 +41,7 @@ return [
 
         'aliases' => [
             '@rootUrl' => getenv('SITE_URL'),
+            '@cdnUrl' => getenv('CDN_URL'),
         ],
 
         // Disable GraphQL
