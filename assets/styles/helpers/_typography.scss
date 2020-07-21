@@ -202,10 +202,19 @@ $font-sans: "Surt", Helvetica, Arial, sans-serif;
   @include p1;
 }
 
-// Pargraph Two
+// Paragraph Two
 @mixin p2 {
   @include font-sans;
   @include paragraph-style(16, 24, 0.015em);
+}
+.p2 {
+  @include p2;
+}
+
+// Paragraph Three
+@mixin p3 {
+  @include font-sans;
+  @include paragraph-style(12, 18, 0.015em);
 }
 .p2 {
   @include p2;

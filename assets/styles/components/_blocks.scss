@@ -177,8 +177,8 @@
   figure {
     margin: 0;
     figcaption {
-      margin: beat(1) 0;
-      @include p2;
+      margin: 12px 0 0;
+      @include p3;
       color: color('gray');
     }
   }
