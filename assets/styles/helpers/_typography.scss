@@ -10,6 +10,7 @@
     font-style: normal;
     font-weight: normal;
     text-rendering: optimizeLegibility;
+    font-display: swap;
 }
 
 @font-face {
@@ -20,6 +21,7 @@
        url('../fonts/Surt-Light.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -30,6 +32,7 @@
        url('../fonts/Surt-LightOblique.woff') format('woff');
   font-weight: 300;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -40,6 +43,7 @@
        url('../fonts/Surt-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -50,9 +54,10 @@
        url('../fonts/Surt-BoldOblique.woff') format('woff');
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
 }
 
-$font-serif: "StanleyPoster", serif;
+$font-serif: "StanleyPoster", Georgia, Times, serif;
 $font-sans: "Surt", Helvetica, Arial, sans-serif;
 
 /// example:
