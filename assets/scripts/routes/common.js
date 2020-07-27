@@ -478,7 +478,6 @@ const common = {
 
     // Called in quick succession as window is resized
     function _resize() {
-      console.log('foo');
       // Reset inline styles for navigation for medium breakpoint
       if (appState.breakpoints.nav) {
         $siteNav.attr('style', '');
