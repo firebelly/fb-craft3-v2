@@ -69,6 +69,13 @@ const common = {
     _initNewsletterForm();
     _initBlobs();
 
+    // Offset ScrollTop when visiting an anchor link for the sticky header
+    if (appState.initialHash) {
+      let target = $(appState.initialHash).offset().top;
+      let offset = $('.site-header').outerHeight();
+      window.scrollTo(0, target - offset);
+    }
+
     // Ajaxify newsletter form
     function _initNewsletterForm() {
       $('form.newsletter').each(function() {
