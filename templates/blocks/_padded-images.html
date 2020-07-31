@@ -19,7 +19,7 @@
       <figure>
         {# Custom vimeo handling #}
         {% if embeddedAsset.url matches '/vimeo\.com/' %}
-          <div class="embedded-asset vimeo-block{{ block.backgroundVideo ? ' background-video' : '' }}" data-url="{{ embeddedAsset.url }}" data-width="{{ embeddedAsset.width }}" data-height="{{ embeddedAsset.height }}" style="padding-bottom:{{ embeddedAsset.height / embeddedAsset.width * 100 }}%;">
+          <div class="embedded-asset vimeo-block{{ block.backgroundVideo ? ' background-video' : '' }}" data-url="{{ embeddedAsset.url }}" data-width="{{ embeddedAsset.width }}" data-height="{{ embeddedAsset.height }}">
             <img class="lazyload" data-src="{{ embeddedAsset.images[0].url }}">
           </div>
         {% else %}

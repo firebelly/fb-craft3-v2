@@ -21,6 +21,10 @@
   }
   .block-section-header {
     padding: 0 #{$padding-sm / 2};
+    h3 {
+      scroll-margin: $header-sm 0 0 0;
+      snap-scroll-margin: $header-sm 0 0 0;
+    }
   }
 
   // Text inside image blocks
@@ -38,6 +42,10 @@
 
     .block-section-header {
       padding: 0 #{$padding-md / 2};
+      h3 {
+        scroll-margin: $header-md 0 0 0;
+        snap-scroll-margin: $header-md 0 0 0;
+      }
     }
 
     .block-type-tester,
@@ -185,15 +193,6 @@
   // In case videos don't init properly, don't completely bork layout
   iframe {
     max-width: 100%;
-  }
-
-  .vimeo-block {
-    position: relative;
-    .fluid-width-video-wrapper {
-      top: 0;
-      left: 0;
-      position: absolute;
-    }
   }
 }
 
