@@ -34,6 +34,10 @@ const colorChanges = {
           'background': bgColor.match('#') ? bgColor : defaultColors[bgColor],
           'color': color.match('#') ? color : defaultColors[color]
         }];
+        $rootElement.css({
+          'background': colorChangeValues[0].background,
+          'color': colorChangeValues[0].color
+        });
       }
 
       // Reposition color changes after lazyloaded images show
