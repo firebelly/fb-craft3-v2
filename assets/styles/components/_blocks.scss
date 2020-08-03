@@ -23,7 +23,7 @@
     padding: 0 #{$padding-sm / 2};
     h3 {
       scroll-margin: $header-sm 0 0 0;
-      snap-scroll-margin: $header-sm 0 0 0;
+      scroll-snap-margin: $header-sm 0 0 0;
     }
   }
 
@@ -44,7 +44,7 @@
       padding: 0 #{$padding-md / 2};
       h3 {
         scroll-margin: $header-md 0 0 0;
-        snap-scroll-margin: $header-md 0 0 0;
+        scroll-snap-margin: $header-md 0 0 0;
       }
     }
 
