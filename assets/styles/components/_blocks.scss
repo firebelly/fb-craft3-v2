@@ -147,6 +147,7 @@
         opacity: 0;
         display: none;
         transform: translateX(20px);
+        color: var(--projectBlockColor);
         transition: opacity 0.2s ease-out, transform 0.35s ease-out;
 
         @include media-md {
