@@ -122,6 +122,61 @@
     border-top: 1px solid color('black'); // for IE
     border-top: 1px solid var(--projectBlockColor);
     padding-top: beat(1);
+    position: relative;
+
+    button {
+      @extend .button-reset;
+      padding: 0;
+      cursor: pointer;
+      margin-left: 16px;
+      position: relative;
+      align-items: center;
+      display: inline-flex;
+
+      .icon {
+        height: 30px;
+        display: flex;
+        padding: 0 8px;
+        margin-right: 8px;
+        border-radius: 15px;
+        background-color: color('gray-light');
+        transition: background-color 0.2s ease-out;
+      }
+
+      .text {
+        opacity: 0;
+        display: none;
+        transform: translateX(20px);
+        transition: opacity 0.2s ease-out, transform 0.35s ease-out;
+
+        @include media-md {
+          display: inline-block;
+        }
+      }
+
+      svg {
+        width: 15px;
+        margin: auto;
+        height: 10px;
+        fill: color('black');
+        display: inline-block;
+        transition: fill 0.2s ease-out;
+      }
+
+      &:hover,
+      &:focus {
+        .icon {
+          background-color: color('red');
+          svg {
+            fill: color('offwhite');
+          }
+        }
+        .text {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    }
   }
 }
 
