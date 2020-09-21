@@ -30,6 +30,7 @@ const about = {
         if (appState.isAnimating) {
           return;
         }
+        // Find first link in article.person to push to history
         let href = this.querySelector('a').href;
         history.pushState(null, null, href);
         about.openPerson($person);
