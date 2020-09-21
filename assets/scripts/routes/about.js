@@ -30,7 +30,8 @@ const about = {
         if (appState.isAnimating) {
           return;
         }
-        history.pushState(null, null, this.href);
+        let href = this.querySelector('a').href;
+        history.pushState(null, null, href);
         about.openPerson($person);
       });
     });
