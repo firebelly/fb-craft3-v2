@@ -103,6 +103,8 @@ const colorChanges = {
 
   // Garbage collection
   unload() {
+    // Reseting colorChangeValues so they don't carry over to another project page
+    colorChangeValues = [{ 'background': defaultColors.gray, 'color': defaultColors.black }];
     $window.off('scroll.colorChanges resize.colorChanges load.colorChanges');
   },
 

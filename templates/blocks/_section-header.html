@@ -1,3 +1,4 @@
+{% set anchorButton = '<button class="copy-anchor-link" data-link="'~ craft.app.request.absoluteUrl ~'#'~ block.headline | lower | replace({"&": "and", " + ": "-", ",": "", ":": "", " ": "-", "'": ""}) ~'"><span class="icon"><svg aria-hidden="true" role="presentation"><use xlink:href="#icon-link"/></svg></span> <span class="text">copy link to section</span></button>' %}
 <div class="block-section-header">
-  <h3 id="{{ block.headline | lower | replace({'&': 'and', ' + ': '-', ',': '', ':': '', ' ': '-', '\'': ''}) }}">{{ block.headline }}</h3>
+  <h3 id="{{ block.headline | lower | replace({'&': 'and', ' + ': '-', ',': '', ':': '', ' ': '-', '\'': ''}) }}">{{ block.headline }}{{ entry is defined and entry.isEditable() ? anchorButton|raw : '' }}</h3>
 </div>
