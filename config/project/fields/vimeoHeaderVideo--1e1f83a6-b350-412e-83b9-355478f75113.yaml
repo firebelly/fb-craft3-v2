@@ -1,0 +1,16 @@
+contentColumnType: text
+fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+handle: vimeoHeaderVideo
+instructions: ''
+name: 'Vimeo Header Video'
+searchable: true
+settings:
+  charLimit: ''
+  code: ''
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: 'https://vimeo.com/203895133'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

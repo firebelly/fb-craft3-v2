@@ -1,0 +1,9 @@
+siteUid: null
+sortOrder: 1
+template: ideas/index
+uriParts:
+  - ideas/tagged/
+  -
+    - tag
+    - '[^\/]+'
+uriPattern: 'ideas/tagged/<tag:[^\/]+>'

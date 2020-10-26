@@ -1,0 +1,18 @@
+enableVersioning: true
+handle: position
+name: Positions
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
+    enabledByDefault: true
+    hasUrls: true
+    template: ''
+    uriFormat: 'careers#{slug}'
+structure:
+  maxLevels: null
+  uid: 608be182-02b8-4338-8787-930cc77e3e8f
+type: structure

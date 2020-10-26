@@ -1,0 +1,61 @@
+field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
+fieldLayouts:
+  5e5928d4-ba89-4c6a-9c89-26d8cee206f9:
+    tabs:
+      -
+        fields:
+          cdf809ec-f742-48c0-aabd-858937fafc3c:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  cdf809ec-f742-48c0-aabd-858937fafc3c:
+    contentColumnType: string
+    fieldGroup: null
+    handle: size
+    instructions: 'Size of Spacer'
+    name: Size
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Small
+            -
+              - value
+              - '-small'
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Medium
+            -
+              - value
+              - '-medium'
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Large
+            -
+              - value
+              - '-large'
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: spacer
+name: Spacer
+sortOrder: 9

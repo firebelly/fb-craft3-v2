@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
+handle: intro
+instructions: ''
+name: Intro
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - 50e69270-f586-42e6-92bd-bf8cfe445810
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 992eca77-953d-4e50-9ca0-189b8806cc13
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_intro}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

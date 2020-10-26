@@ -1,0 +1,21 @@
+fieldLayouts:
+  de1aaaf0-67a0-472b-897a-dc5d51555c4e:
+    tabs:
+      -
+        fields:
+          ac9c369c-9a19-4d6f-9050-70c68705b2b9:
+            required: false
+            sortOrder: 2
+          b2a88991-30b5-43d2-84f3-9f214ba26717:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+handle: global
+hasUrls: true
+name: Global
+settings:
+  path: uploads/
+sortOrder: 1
+type: craft\volumes\Local
+url: '@rootUrl/uploads/'

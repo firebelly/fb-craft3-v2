@@ -1,0 +1,85 @@
+fieldLayouts:
+  e202b4f0-44e2-48d9-8526-6757bbf2bbd8:
+    tabs:
+      -
+        elements:
+          -
+            instructions: null
+            label: Title
+            type: craft\fieldlayoutelements\EntryTitleField
+          -
+            fieldUid: cfeb2873-7b57-40cd-89ca-956423fc2d63
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: a4b38771-d642-4c89-8372-f1d73f910aa7
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 633f1f9b-c9d5-40ce-ae9f-0f29a8c13f00
+            required: true
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: e09feac8-411a-42fa-b8a3-01cb28b49ce8
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: d9c72a60-67c9-4086-b918-069fa0ba21dd
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: Main
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 17b68b87-5b0f-4c9c-bf97-605dd31eb437
+            required: true
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: f442e9c0-3dcf-45a3-8dac-3134afcea15b
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 1e1f83a6-b350-412e-83b9-355478f75113
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: Header
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: b5b5edb5-b62f-41c2-a7ed-89e2b72e1c58
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: Body
+        sortOrder: 3
+      -
+        elements:
+          -
+            fieldUid: e5facf83-ead7-410b-96f6-761ac8ecb2d0
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: 'Page Blocks'
+        sortOrder: 4
+      -
+        elements:
+          -
+            fieldUid: 8dd0581c-6902-4a9c-8ddd-e11ce7656351
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 7a978b7f-cab5-448c-88dc-d4e1a9d281cf
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 91fc4a09-bb0c-423f-bf42-fea3573b74a9
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: SEO
+        sortOrder: 5
+handle: ideasPost
+hasTitleField: true
+name: 'Ideas Post'
+section: 8c753ecf-69cb-40e2-8cd0-94effdca10ab
+sortOrder: 1
+titleFormat: ''

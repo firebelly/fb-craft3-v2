@@ -1,0 +1,21 @@
+fieldLayouts:
+  ad2d8d4a-40ec-4488-b252-7d48e941f512:
+    tabs:
+      -
+        elements:
+          -
+            instructions: null
+            label: Title
+            type: craft\fieldlayoutelements\EntryTitleField
+          -
+            fieldUid: 9cca299e-1dbc-4979-90fc-f41d2bbb1937
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: Main
+        sortOrder: 1
+handle: position
+hasTitleField: true
+name: Position
+section: cd1bb424-9ba2-4cdf-9c77-4ffdabc78271
+sortOrder: 1
+titleFormat: ''

@@ -1,0 +1,127 @@
+field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
+fieldLayouts:
+  d54a2400-eb9e-4d66-91ca-5da12b714e0e:
+    tabs:
+      -
+        fields:
+          1601483c-947b-4094-9090-15ffacd94774:
+            required: false
+            sortOrder: 1
+          7748df7c-bf7f-4b05-9fa3-e9f442d8a98b:
+            required: false
+            sortOrder: 3
+          7fcbcb5c-e1de-4185-9943-4f882c3fe97c:
+            required: false
+            sortOrder: 4
+          ae4062a8-a6a9-44ba-a654-1aed2e7a7ee4:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  1601483c-947b-4094-9090-15ffacd94774:
+    contentColumnType: text
+    fieldGroup: null
+    handle: quote
+    instructions: ''
+    name: 'Quote / Statement'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '2'
+      multiline: '1'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  7748df7c-bf7f-4b05-9fa3-e9f442d8a98b:
+    contentColumnType: string
+    fieldGroup: null
+    handle: sizeAlignment
+    instructions: ''
+    name: 'Size / Alignment'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width (Right Aligned Text)'
+            -
+              - value
+              - 'halfWidth rightAligned'
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width (Left Aligned Text)'
+            -
+              - value
+              - halfWidth
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width, On The Left (Right Aligned Text)'
+            -
+              - value
+              - 'fullWidthPaddedRight rightAligned'
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width, On The Right (Left Aligned Text)'
+            -
+              - value
+              - fullWidthPaddedLeft
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  7fcbcb5c-e1de-4185-9943-4f882c3fe97c:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: quoteMarks
+    instructions: ''
+    name: 'Quote Marks'
+    searchable: false
+    settings:
+      default: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  ae4062a8-a6a9-44ba-a654-1aed2e7a7ee4:
+    contentColumnType: string
+    fieldGroup: null
+    handle: attribution
+    instructions: ''
+    name: Attribution
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: string
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: blockQuote
+name: 'Quote / Statement'
+sortOrder: 6

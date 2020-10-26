@@ -1,0 +1,45 @@
+field: 4d475249-13b3-46a6-981d-befb42899cef
+fieldLayouts:
+  06bdef56-48be-41d0-bda6-5b2e73dd91f5:
+    tabs:
+      -
+        fields:
+          6fb5c201-7948-4273-8a4a-69080393eaa4:
+            required: false
+            sortOrder: 2
+          9e1c0bbe-9830-45d8-a937-79e6a96da817:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  6fb5c201-7948-4273-8a4a-69080393eaa4:
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: clientUrl
+    instructions: 'Makes client name external link if populated'
+    name: URL
+    searchable: true
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+  9e1c0bbe-9830-45d8-a937-79e6a96da817:
+    contentColumnType: string
+    fieldGroup: null
+    handle: clientName
+    instructions: ''
+    name: Name
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: string
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

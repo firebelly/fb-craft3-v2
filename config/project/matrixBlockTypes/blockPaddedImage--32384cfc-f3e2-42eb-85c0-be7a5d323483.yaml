@@ -1,0 +1,173 @@
+field: e5facf83-ead7-410b-96f6-761ac8ecb2d0
+fieldLayouts:
+  92120fdf-e284-4c7b-be3a-d14754b43282:
+    tabs:
+      -
+        fields:
+          1c04b80c-8272-48ba-a173-80726c2ad05a:
+            required: false
+            sortOrder: 3
+          69fdad28-f737-4232-8513-78c3dd3ff7a9:
+            required: false
+            sortOrder: 5
+          9021cc6d-d767-493a-89d0-97cce98457ed:
+            required: false
+            sortOrder: 6
+          ade376af-055d-44bc-aaba-5ac3668864a4:
+            required: false
+            sortOrder: 4
+          d187c323-922c-4dea-8d87-4b010eb43e9f:
+            required: false
+            sortOrder: 1
+          eb64676f-22a9-446f-9cb6-e89559244dd1:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  1c04b80c-8272-48ba-a173-80726c2ad05a:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: treated
+    instructions: 'Add b&w treatment to image'
+    name: Treated
+    searchable: true
+    settings:
+      default: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  69fdad28-f737-4232-8513-78c3dd3ff7a9:
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: 'Optional text that will appear below the last image in the set if multiple images are added'
+    name: Text
+    searchable: true
+    settings:
+      availableTransforms: ''
+      availableVolumes: ''
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  9021cc6d-d767-493a-89d0-97cce98457ed:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: backgroundVideo
+    instructions: 'ON=video auto plays (muted) when scrolled into view, OFF=must click to play w/ sound'
+    name: 'Background Video'
+    searchable: true
+    settings:
+      default: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  ade376af-055d-44bc-aaba-5ac3668864a4:
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: imageLinkUrl
+    instructions: 'Optional link that opens in new tab'
+    name: URL
+    searchable: true
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+  d187c323-922c-4dea-8d87-4b010eb43e9f:
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: Images/Videos
+    searchable: true
+    settings:
+      allowedKinds:
+        - image
+        - json
+      defaultUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      singleUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      singleUploadLocationSubpath: '{owner.slug}'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: ''
+      validateRelatedElements: ''
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  eb64676f-22a9-446f-9cb6-e89559244dd1:
+    contentColumnType: string
+    fieldGroup: null
+    handle: size
+    instructions: ''
+    name: Size
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width'
+            -
+              - value
+              - halfWidth
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Full Width'
+            -
+              - value
+              - fullWidth
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width, On The Left'
+            -
+              - value
+              - fullWidthPaddedRight
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width, On The Right'
+            -
+              - value
+              - fullWidthPaddedLeft
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: blockPaddedImage
+name: Images/Videos
+sortOrder: 2

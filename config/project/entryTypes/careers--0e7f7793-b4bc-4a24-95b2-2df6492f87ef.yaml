@@ -1,0 +1,57 @@
+fieldLayouts:
+  80226eff-f435-4479-b673-d09cdd38a47e:
+    tabs:
+      -
+        elements:
+          -
+            instructions: null
+            label: Title
+            type: craft\fieldlayoutelements\EntryTitleField
+          -
+            fieldUid: d5391ce7-37cf-4fdc-807e-6cbacbdbe2a9
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 216d4589-17fe-484e-9a60-707a9dc09536
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: e5facf83-ead7-410b-96f6-761ac8ecb2d0
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 4c723610-9810-42d8-b81c-c75c426a7b52
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: e9ddbb67-3421-4553-9f71-b1b5c342fd51
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: c2b1d20c-3703-4b5c-911f-f7b0b0367bf9
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: Main
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 8dd0581c-6902-4a9c-8ddd-e11ce7656351
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 7a978b7f-cab5-448c-88dc-d4e1a9d281cf
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 91fc4a09-bb0c-423f-bf42-fea3573b74a9
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: SEO
+        sortOrder: 2
+handle: careers
+hasTitleField: true
+name: Careers
+section: 53bb7143-5489-4408-8bed-d0ae79b93aa2
+sortOrder: 1
+titleFormat: ''

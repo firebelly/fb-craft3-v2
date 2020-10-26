@@ -1,0 +1,19 @@
+contentColumnType: string
+fieldGroup: 8371a28a-a15c-40e8-a56a-142abd851d9b
+handle: recentWork
+instructions: ''
+name: 'Recent Work'
+searchable: true
+settings:
+  limit: '2'
+  localizeRelations: false
+  selectionLabel: ''
+  source: null
+  sources:
+    - 'section:a622d82a-9cfa-44de-b537-5a453e294cc7'
+  targetSiteId: null
+  validateRelatedElements: ''
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

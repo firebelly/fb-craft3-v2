@@ -1,0 +1,19 @@
+contentColumnType: string
+fieldGroup: 2155774e-82f7-4a6f-9357-0429f8ef8d05
+handle: people
+instructions: ''
+name: People
+searchable: true
+settings:
+  limit: ''
+  localizeRelations: false
+  selectionLabel: 'Add people'
+  source: null
+  sources:
+    - 'section:4b622926-f41b-4a90-af05-e9b6802d5276'
+  targetSiteId: null
+  validateRelatedElements: ''
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

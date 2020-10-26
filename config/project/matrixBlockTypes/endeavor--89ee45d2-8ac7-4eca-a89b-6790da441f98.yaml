@@ -1,0 +1,97 @@
+field: fe919db2-5aa8-4d45-800d-6d7d414c18c5
+fieldLayouts:
+  a51e1f90-2f62-47b1-b826-bc591f3f653d:
+    tabs:
+      -
+        fields:
+          2282333e-de25-475e-89d7-2350fe597125:
+            required: false
+            sortOrder: 3
+          506e7b23-0c3a-4bac-b9de-711703d320ed:
+            required: false
+            sortOrder: 1
+          cf976f22-5ea9-4a4d-8bdb-1c106abce839:
+            required: false
+            sortOrder: 4
+          e05263ab-0548-4410-938f-a3f51dd9f584:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  2282333e-de25-475e-89d7-2350fe597125:
+    contentColumnType: text
+    fieldGroup: null
+    handle: endeavorColumn1
+    instructions: ''
+    name: 'Endeavor Column 1'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      columnType: text
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  506e7b23-0c3a-4bac-b9de-711703d320ed:
+    contentColumnType: text
+    fieldGroup: null
+    handle: endeavorTitle
+    instructions: ''
+    name: 'Endeavor Title'
+    searchable: true
+    settings:
+      charLimit: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  cf976f22-5ea9-4a4d-8bdb-1c106abce839:
+    contentColumnType: text
+    fieldGroup: null
+    handle: endeavorColumn2
+    instructions: ''
+    name: 'Endeavor Column 2'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      columnType: text
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  e05263ab-0548-4410-938f-a3f51dd9f584:
+    contentColumnType: text
+    fieldGroup: null
+    handle: endeavorDescription
+    instructions: ''
+    name: 'Endeavor Description'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      columnType: text
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+handle: endeavor
+name: Endeavor
+sortOrder: 1

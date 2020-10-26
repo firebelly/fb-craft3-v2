@@ -1,0 +1,19 @@
+contentColumnType: string
+fieldGroup: 544f7f96-7297-4753-bfde-ed6ea24b1117
+handle: positions
+instructions: ''
+name: Positions
+searchable: true
+settings:
+  limit: ''
+  localizeRelations: false
+  selectionLabel: 'Add a position'
+  source: null
+  sources:
+    - 'section:cd1bb424-9ba2-4cdf-9c77-4ffdabc78271'
+  targetSiteId: null
+  validateRelatedElements: ''
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

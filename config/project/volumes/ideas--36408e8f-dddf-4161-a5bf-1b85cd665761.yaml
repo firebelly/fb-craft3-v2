@@ -1,0 +1,21 @@
+fieldLayouts:
+  84a8d9e1-e36f-4b4e-8914-60eeae0eb838:
+    tabs:
+      -
+        fields:
+          ac9c369c-9a19-4d6f-9050-70c68705b2b9:
+            required: false
+            sortOrder: 2
+          b2a88991-30b5-43d2-84f3-9f214ba26717:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+handle: ideas
+hasUrls: true
+name: Ideas
+settings:
+  path: uploads/ideas/
+sortOrder: 4
+type: craft\volumes\Local
+url: '@rootUrl/uploads/ideas/'
