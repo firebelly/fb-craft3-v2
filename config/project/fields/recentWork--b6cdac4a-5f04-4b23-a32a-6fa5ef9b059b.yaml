@@ -1,18 +1,21 @@
 contentColumnType: string
 fieldGroup: 8371a28a-a15c-40e8-a56a-142abd851d9b
 handle: recentWork
-instructions: ''
-name: 'Recent Work'
+instructions: 'Pick two Work or Ideas posts to show at the top of the homepage'
+name: 'Recent Work + Ideas'
 searchable: true
 settings:
+  allowSelfRelations: false
   limit: '2'
   localizeRelations: false
   selectionLabel: ''
+  showSiteMenu: true
   source: null
   sources:
+    - 'section:8c753ecf-69cb-40e2-8cd0-94effdca10ab'
     - 'section:a622d82a-9cfa-44de-b537-5a453e294cc7'
   targetSiteId: null
-  validateRelatedElements: ''
+  validateRelatedElements: false
   viewMode: null
 translationKeyFormat: null
 translationMethod: site

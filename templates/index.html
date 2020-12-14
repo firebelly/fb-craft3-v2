@@ -11,16 +11,26 @@
 
   {% include 'partials/_text-header' with { headerTag: 'h2' } %}
 
-  {% set recentWork = entry.recentWork.with(['altImage', 'services.service']).all() %}
+  {% set recentWork = entry.recentWork.with([
+      'headerImage',
+      'thumbnailImage',
+      'altImage',
+      'ideasType',
+      'services.service',
+    ]).all() %}
 
   {% if recentWork|length %}
     <div class="recent-work section">
       <div class="container">
         <h4 class="lined">Recent</h4>
         <div class="thumbnail-grid grid spaced">
-          {% for project in recentWork %}
-            {% include 'work/_article' with { entry: project, orientationOverride: (loop.last ? 'portrait' : 'landscape'), servicesLength: 3 } %}
-          {% endfor %}
+        {% for featuredEntry in recentWork %}
+          {% if featuredEntry.type == 'project' %}
+            {% include 'work/_article' with { entry: featuredEntry, orientationOverride: (loop.last ? 'portrait' : 'landscape'), servicesLength: 3 } %}
+          {% elseif featuredEntry.type == 'ideasPost' %}
+            {% include 'ideas/_article' with { entry: featuredEntry, orientationOverride: (loop.last ? 'portrait' : 'landscape'), servicesLength: 3 } %}
+          {% endif %}
+        {% endfor %}
         </div>
       </div>
     </div>
