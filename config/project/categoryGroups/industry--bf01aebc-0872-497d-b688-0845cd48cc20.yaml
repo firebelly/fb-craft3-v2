@@ -1,0 +1,10 @@
+handle: industry
+name: Industry
+siteSettings:
+  8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
+    hasUrls: true
+    template: work/industry
+    uriFormat: '{% if object.level == 1 %}work/industry/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
+structure:
+  maxLevels: null
+  uid: 4509c77b-c431-4044-9371-7de8f39524de

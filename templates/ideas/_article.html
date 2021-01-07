@@ -2,7 +2,7 @@
 {% set thumbnailImageHover = entry.thumbnailImage|length > 1 ? entry.thumbnailImage[1] : thumbnailImage %}
 {% set orientation = orientationOverride ?? entry.thumbnailOrientation %}
 
-<article class="ideas {{ entry.thumbnailOrientation == 'fullWidth' ? 'col-nav-full' : 'col-nav-1-2' }} -reveal">
+<article class="ideas {{ orientation == 'fullWidth' ? 'col-nav-full' : 'col-nav-1-2' }} -reveal">
   {% include 'partials/_rollover-image' with { thumbnailImage: thumbnailImage } %}
 
   <div class="idea-meta">

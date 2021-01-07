@@ -1,0 +1,53 @@
+field: c2b1d20c-3703-4b5c-911f-f7b0b0367bf9
+fieldLayouts:
+  48e2ca8d-efa5-49ee-a4a3-94550dbcf3bd:
+    tabs:
+      -
+        fields:
+          07e125b8-faf1-4a21-b2e9-35492c4483e1:
+            required: false
+            sortOrder: 1
+          d1fe725b-a0fe-4932-a9cd-b20aeff2760d:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  07e125b8-faf1-4a21-b2e9-35492c4483e1:
+    contentColumnType: text
+    fieldGroup: null
+    handle: intro
+    instructions: ''
+    name: Intro
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '2'
+      multiline: '1'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d1fe725b-a0fe-4932-a9cd-b20aeff2760d:
+    contentColumnType: text
+    fieldGroup: null
+    handle: body
+    instructions: ''
+    name: Body
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field

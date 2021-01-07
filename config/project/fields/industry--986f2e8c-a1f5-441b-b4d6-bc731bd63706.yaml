@@ -1,0 +1,20 @@
+contentColumnType: string
+fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+handle: industry
+instructions: ''
+name: Industry
+searchable: true
+settings:
+  branchLimit: 1
+  limit: null
+  localizeRelations: false
+  selectionLabel: null
+  showBlankOption: ''
+  source: 'group:bf01aebc-0872-497d-b688-0845cd48cc20'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: elivz\singlecat\fields\SingleCatField

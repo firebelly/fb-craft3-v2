@@ -1,0 +1,13 @@
+contentColumnType: string
+fieldGroup: 885301bf-3f92-4266-818e-0c53786afc3a
+handle: pageSections
+instructions: 'Repeating page sections'
+name: 'Page Sections'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_pagesections}}'
+  localizeBlocks: false
+  maxBlocks: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Matrix

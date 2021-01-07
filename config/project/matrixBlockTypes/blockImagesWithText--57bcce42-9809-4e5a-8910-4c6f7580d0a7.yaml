@@ -1,0 +1,42 @@
+field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
+fieldLayouts:
+  6d997742-be7d-456b-b546-3a90fc995178:
+    tabs:
+      -
+        fields:
+          0943643d-bfdf-4b25-8911-ed4a49b73aa8:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  0943643d-bfdf-4b25-8911-ed4a49b73aa8:
+    contentColumnType: string
+    fieldGroup: null
+    handle: images
+    instructions: 'Select one image, or multiple images, to be displayed in a full-width carousel. Double click on each image to edit its caption label and caption text, which will be displayed over the image. Images will be display at a forced aspect ratio of 1:~1.6 for small screen, and 16:9 on large screen'
+    name: Images
+    searchable: false
+    settings:
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: 'Add an image'
+      singleUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      singleUploadLocationSubpath: '{owner.slug}'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: '1'
+      validateRelatedElements: ''
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: blockImagesWithText
+name: 'Images With Text'
+sortOrder: 2

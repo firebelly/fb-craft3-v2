@@ -1,0 +1,57 @@
+fieldLayouts:
+  d0ff1bd9-ec94-4011-9d82-3812b8f3d484:
+    tabs:
+      -
+        elements:
+          -
+            instructions: null
+            label: Name
+            type: craft\fieldlayoutelements\EntryTitleField
+          -
+            fieldUid: 4d99ca25-a97e-4f75-81d6-63b0de40e463
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 15ec60bb-5dd4-4ba8-9439-d6d0d27852e9
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 634f28ac-77c1-474c-ba4a-ffbd731f529d
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 227385b6-8cac-440b-a21a-baab39260887
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 10e541f6-8f8a-4989-ae4f-ba0a6c14fe7a
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 3299e13b-c0fd-4177-a838-00ca6a466265
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: Main
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 8dd0581c-6902-4a9c-8ddd-e11ce7656351
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 7a978b7f-cab5-448c-88dc-d4e1a9d281cf
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 91fc4a09-bb0c-423f-bf42-fea3573b74a9
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: SEO
+        sortOrder: 2
+handle: person
+hasTitleField: true
+name: Person
+section: 4b622926-f41b-4a90-af05-e9b6802d5276
+sortOrder: 1
+titleFormat: ''

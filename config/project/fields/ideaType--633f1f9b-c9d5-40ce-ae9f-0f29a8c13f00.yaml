@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 6437dede-d24a-41aa-b80e-ca2691b7f29b
+handle: ideaType
+instructions: ''
+name: 'Idea Type'
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  branchLimit: '1'
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Set Idea Type'
+  source: 'group:9a689cb6-2caf-4f05-af0a-4a44a4b139d7'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: ''
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

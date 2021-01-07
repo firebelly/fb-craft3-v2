@@ -1,0 +1,33 @@
+field: 91e94580-5640-43f9-ab7f-efc779c3e379
+fieldLayouts:
+  03b262d1-e7eb-4ee7-887f-f176f668cfad:
+    tabs:
+      -
+        fields:
+          1c5c9bf9-9c15-4b64-872b-bcd113568146:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  1c5c9bf9-9c15-4b64-872b-bcd113568146:
+    contentColumnType: string
+    fieldGroup: null
+    handle: service
+    instructions: ''
+    name: Service
+    searchable: true
+    settings:
+      branchLimit: 1
+      limit: null
+      localizeRelations: false
+      selectionLabel: null
+      showBlankOption: ''
+      source: 'group:c3c1211d-da8f-41f9-b98f-9f08a291d513'
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: elivz\singlecat\fields\SingleCatField

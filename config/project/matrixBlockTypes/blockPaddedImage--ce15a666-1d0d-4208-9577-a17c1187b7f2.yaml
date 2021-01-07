@@ -1,0 +1,217 @@
+field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
+fieldLayouts:
+  d8881eda-9871-4ed4-a9d3-d2dbc4c86167:
+    tabs:
+      -
+        fields:
+          52791cbe-7784-410d-bb2c-db8942a1f072:
+            required: false
+            sortOrder: 1
+          7f5535e1-62db-41db-8d49-8d37c639cbbe:
+            required: false
+            sortOrder: 3
+          a190e4db-d599-4548-bbe9-5c42d38b00fc:
+            required: false
+            sortOrder: 2
+          ce3981a8-a6b3-4c34-96f1-74b6b405619a:
+            required: false
+            sortOrder: 6
+          d15ceb3c-431d-4c08-bf03-2ff32be5c401:
+            required: false
+            sortOrder: 7
+          daa3251f-e2b0-4219-bc04-d6642a932856:
+            required: false
+            sortOrder: 4
+          f31d83c1-8c67-4ae7-9c46-ee85539b9184:
+            required: false
+            sortOrder: 5
+        name: Content
+        sortOrder: 1
+fields:
+  52791cbe-7784-410d-bb2c-db8942a1f072:
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: Images/Videos
+    searchable: true
+    settings:
+      allowedKinds:
+        - image
+        - json
+      defaultUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      defaultUploadLocationSubpath: '{owner.slug}'
+      limit: ''
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      singleUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      singleUploadLocationSubpath: '{owner.slug}'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: '1'
+      validateRelatedElements: ''
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  7f5535e1-62db-41db-8d49-8d37c639cbbe:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: treated
+    instructions: ''
+    name: 'B&W Treatment'
+    searchable: true
+    settings:
+      default: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  a190e4db-d599-4548-bbe9-5c42d38b00fc:
+    contentColumnType: string
+    fieldGroup: null
+    handle: size
+    instructions: ''
+    name: Size
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width'
+            -
+              - value
+              - halfWidth
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Full Width'
+            -
+              - value
+              - fullWidth
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width, On The Left'
+            -
+              - value
+              - fullWidthPaddedRight
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width, On The Right'
+            -
+              - value
+              - fullWidthPaddedLeft
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  ce3981a8-a6b3-4c34-96f1-74b6b405619a:
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: 'Optional text that will appear below the last image in the set if multiple images are added'
+    name: Text
+    searchable: true
+    settings:
+      availableTransforms: ''
+      availableVolumes: ''
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  d15ceb3c-431d-4c08-bf03-2ff32be5c401:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: backgroundVideo
+    instructions: 'ON=video auto plays (muted) when scrolled into view, OFF=must click to play w/ sound'
+    name: 'Background Video'
+    searchable: true
+    settings:
+      default: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  daa3251f-e2b0-4219-bc04-d6642a932856:
+    contentColumnType: string
+    fieldGroup: null
+    handle: browserFrame
+    instructions: ''
+    name: 'Browser Frame'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 3fff67ff-48e5-40bb-944b-80041c037145
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 53651a69-8231-4239-a2e2-e23b1a841189
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 6cfeb752-b0e2-42c2-9d50-6fc5a21cc5c0
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_15_browserframe}}'
+      fieldLayout: table
+      maxRows: ''
+      minRows: ''
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: '1'
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  f31d83c1-8c67-4ae7-9c46-ee85539b9184:
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: imageLinkUrl
+    instructions: 'Optional link that opens in new tab'
+    name: URL
+    searchable: true
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+handle: blockPaddedImage
+name: 'Padded Image / Video'
+sortOrder: 3

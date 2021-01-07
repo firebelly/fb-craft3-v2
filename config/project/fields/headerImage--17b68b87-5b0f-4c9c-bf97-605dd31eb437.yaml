@@ -1,0 +1,26 @@
+contentColumnType: string
+fieldGroup: 6437dede-d24a-41aa-b80e-ca2691b7f29b
+handle: headerImage
+instructions: ''
+name: 'Header Image'
+searchable: true
+settings:
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:36408e8f-dddf-4161-a5bf-1b85cd665761'
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  restrictFiles: '1'
+  selectionLabel: 'Set header image'
+  singleUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+  singleUploadLocationSubpath: ''
+  source: null
+  sources: '*'
+  targetSiteId: null
+  useSingleFolder: ''
+  validateRelatedElements: ''
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

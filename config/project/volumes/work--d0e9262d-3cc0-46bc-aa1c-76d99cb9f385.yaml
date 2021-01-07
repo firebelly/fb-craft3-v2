@@ -1,0 +1,24 @@
+fieldLayouts:
+  c2668c15-3d1c-4afc-af59-7c39de4da785:
+    tabs:
+      -
+        fields:
+          92519b8f-b52c-4b39-9bc7-a7df62593778:
+            required: false
+            sortOrder: 2
+          ac9c369c-9a19-4d6f-9050-70c68705b2b9:
+            required: false
+            sortOrder: 3
+          b2a88991-30b5-43d2-84f3-9f214ba26717:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+handle: work
+hasUrls: true
+name: Work
+settings:
+  path: uploads/work/
+sortOrder: 2
+type: craft\volumes\Local
+url: '@rootUrl/uploads/work/'

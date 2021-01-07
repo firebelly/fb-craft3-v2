@@ -1,0 +1,21 @@
+fieldLayouts:
+  1e4d2cec-6615-412f-878b-2ebffdd87048:
+    tabs:
+      -
+        fields:
+          ac9c369c-9a19-4d6f-9050-70c68705b2b9:
+            required: false
+            sortOrder: 2
+          b2a88991-30b5-43d2-84f3-9f214ba26717:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+handle: people
+hasUrls: true
+name: People
+settings:
+  path: uploads/people/
+sortOrder: 3
+type: craft\volumes\Local
+url: '@rootUrl/uploads/people/'

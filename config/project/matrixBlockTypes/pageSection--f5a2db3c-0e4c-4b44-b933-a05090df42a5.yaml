@@ -1,0 +1,119 @@
+field: e51fc2d2-3662-458a-a01c-4f431657b645
+fieldLayouts:
+  1225d149-8a2f-44ad-99d8-d8f939310ad5:
+    tabs:
+      -
+        fields:
+          216f833b-5569-410b-80fe-73bba4d1b5c6:
+            required: false
+            sortOrder: 3
+          c648f7f8-1b35-4072-9085-44b85f9110da:
+            required: false
+            sortOrder: 5
+          de003789-8a28-4064-907d-d269402ae69e:
+            required: false
+            sortOrder: 4
+          eac3ffce-f4dd-42a8-bf40-86ed4c0c1ea2:
+            required: true
+            sortOrder: 2
+          eb133079-b47b-45a6-a1a8-5ef1a4a229c5:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  216f833b-5569-410b-80fe-73bba4d1b5c6:
+    contentColumnType: text
+    fieldGroup: null
+    handle: pageSectionDescription
+    instructions: 'The section description'
+    name: 'Page Section Description'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  c648f7f8-1b35-4072-9085-44b85f9110da:
+    contentColumnType: text
+    fieldGroup: null
+    handle: rightColumnContent
+    instructions: 'The righthand column content'
+    name: 'Right Column Content'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  de003789-8a28-4064-907d-d269402ae69e:
+    contentColumnType: text
+    fieldGroup: null
+    handle: leftColumnContent
+    instructions: 'The lefthand column content'
+    name: 'Left Column Content'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  eac3ffce-f4dd-42a8-bf40-86ed4c0c1ea2:
+    contentColumnType: text
+    fieldGroup: null
+    handle: pageSectionTitle
+    instructions: 'The section title'
+    name: 'Page Section Title'
+    searchable: true
+    settings:
+      charLimit: ''
+      columnType: text
+      initialRows: '1'
+      multiline: '1'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  eb133079-b47b-45a6-a1a8-5ef1a4a229c5:
+    contentColumnType: string
+    fieldGroup: null
+    handle: sectionNumber
+    instructions: 'Optional section number that hangs in the gutter. Enter exactly what you want to appear, example: "II."'
+    name: 'Section Number'
+    searchable: true
+    settings:
+      charLimit: '4'
+      columnType: string
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: pageSection
+name: 'Page Section'
+sortOrder: 1

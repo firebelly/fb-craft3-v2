@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: 8371a28a-a15c-40e8-a56a-142abd851d9b
+handle: featuredServices
+instructions: 'Featured services and short descriptions that appear on the homepage.'
+name: 'Featured Services'
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - 195d4768-976a-455a-aede-a233cfa8b363
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - a937d4b1-f5ba-42cf-8c90-a903d38ee8cc
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_featuredservices}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: 'Add a service'
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

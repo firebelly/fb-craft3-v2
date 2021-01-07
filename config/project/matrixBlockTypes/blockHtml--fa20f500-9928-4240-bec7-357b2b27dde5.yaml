@@ -1,0 +1,36 @@
+field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
+fieldLayouts:
+  9b8a09f0-7d99-4616-9045-d081c4220ea2:
+    tabs:
+      -
+        fields:
+          e4baee51-ae56-49d3-9c7e-6ad49fdc53b8:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  e4baee51-ae56-49d3-9c7e-6ad49fdc53b8:
+    contentColumnType: text
+    fieldGroup: null
+    handle: html
+    instructions: '**Paste a YouTube or Vimeo URL to embed a video.** _Note: If you embed multiple Vimeo videos and toggle the autoplay feature on more than one video on a page, you need to manually add `&autopause=0` to the url after `autoplay=1`)_'
+    name: 'Embed Code'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: ''
+      redactorConfig: ''
+      removeEmptyTags: ''
+      removeInlineStyles: ''
+      removeNbsp: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+handle: blockHtml
+name: 'HTML (deprecated)'
+sortOrder: 11

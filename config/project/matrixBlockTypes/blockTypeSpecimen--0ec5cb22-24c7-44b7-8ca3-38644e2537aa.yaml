@@ -1,0 +1,363 @@
+field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
+fieldLayouts:
+  3627c896-e2e5-4a5f-9482-5b1336a38507:
+    tabs:
+      -
+        fields:
+          15709825-2a2f-4119-8b35-be0e61a4e5c6:
+            required: true
+            sortOrder: 1
+          262020bd-d053-4ac3-b0a0-621929b1ebe2:
+            required: false
+            sortOrder: 5
+          425556aa-857f-4352-8afa-a316ca4db28c:
+            required: true
+            sortOrder: 8
+          9e84b734-dead-440b-9493-1484a4d52443:
+            required: false
+            sortOrder: 10
+          bf77081d-5d7e-4358-9657-29c87a2e7ce8:
+            required: false
+            sortOrder: 7
+          dbeed756-76d7-4789-8639-0cb135337463:
+            required: true
+            sortOrder: 9
+          ec6a6f2f-5940-454e-ac20-1e4037d38edb:
+            required: false
+            sortOrder: 4
+          ef5949af-61d8-4731-af57-caf826e81f9e:
+            required: false
+            sortOrder: 11
+          f0f7a48c-a100-4cc4-8121-85b51e24f6cf:
+            required: false
+            sortOrder: 2
+          f1943093-4558-4d96-b8d4-35f2683a05b3:
+            required: false
+            sortOrder: 6
+          fc184f35-a89a-41f9-a649-eab67481394c:
+            required: false
+            sortOrder: 12
+          ff44638b-7c0f-42ae-b7e7-52142b522825:
+            required: true
+            sortOrder: 3
+        name: Content
+        sortOrder: 1
+fields:
+  15709825-2a2f-4119-8b35-be0e61a4e5c6:
+    contentColumnType: text
+    fieldGroup: null
+    handle: fontName
+    instructions: 'The name of the font, as used by the CSS'
+    name: 'Font Name'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  262020bd-d053-4ac3-b0a0-621929b1ebe2:
+    contentColumnType: 'decimal(12,2)'
+    fieldGroup: null
+    handle: glyphsLineHeight
+    instructions: 'The glyphs are displayed in boxes and look better when they are vertically centered, which is sometimes only possible with a line-height that is not the same as the preferred line height used in practice (and set in the preceding field). Glyphs are displayed in a 1em x 1em box. Set this line height according to how it looks best.'
+    name: 'Glyphs Line Height'
+    searchable: true
+    settings:
+      decimals: '2'
+      defaultValue: null
+      max: null
+      min: '0'
+      prefix: ''
+      size: null
+      suffix: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  425556aa-857f-4352-8afa-a316ca4db28c:
+    contentColumnType: string
+    fieldGroup: null
+    handle: woffFontFile
+    instructions: 'The font file in `.woff` format.'
+    name: 'Woff Font File'
+    searchable: true
+    settings:
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      restrictFiles: ''
+      selectionLabel: 'Add the font file'
+      singleUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      singleUploadLocationSubpath: '{owner.slug}'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: '1'
+      validateRelatedElements: ''
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  9e84b734-dead-440b-9493-1484a4d52443:
+    contentColumnType: text
+    fieldGroup: null
+    handle: colors
+    instructions: 'Optional color pairs to offer the type to be viewed in.'
+    name: Colors
+    searchable: true
+    settings:
+      addRowLabel: 'Add a color combo'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Text Color'
+                -
+                  - handle
+                  - textColor
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Background Color'
+                -
+                  - handle
+                  - backgroundColor
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  bf77081d-5d7e-4358-9657-29c87a2e7ce8:
+    contentColumnType: integer(10)
+    fieldGroup: null
+    handle: maxFontSize
+    instructions: 'The maximum font size, in `px`, that the font should be able to be viewed at'
+    name: 'Max Font Size'
+    searchable: true
+    settings:
+      decimals: 0
+      defaultValue: null
+      max: null
+      min: '0'
+      prefix: ''
+      size: null
+      suffix: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  dbeed756-76d7-4789-8639-0cb135337463:
+    contentColumnType: string
+    fieldGroup: null
+    handle: svgFontFile
+    instructions: 'The font file in `.svg` format. This file is necessary to construct the glyph chart.'
+    name: 'SVG Font File'
+    searchable: true
+    settings:
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      restrictFiles: ''
+      selectionLabel: 'Add the font file'
+      singleUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      singleUploadLocationSubpath: '{owner.slug}'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: '1'
+      validateRelatedElements: ''
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  ec6a6f2f-5940-454e-ac20-1e4037d38edb:
+    contentColumnType: 'decimal(12,2)'
+    fieldGroup: null
+    handle: lineHeight
+    instructions: 'Preferred, unit-less line-height used for the type tester. Ex: ''1.5'''
+    name: 'Type Line Height'
+    searchable: true
+    settings:
+      decimals: '2'
+      defaultValue: null
+      max: null
+      min: '0'
+      prefix: ''
+      size: null
+      suffix: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  ef5949af-61d8-4731-af57-caf826e81f9e:
+    contentColumnType: string
+    fieldGroup: null
+    handle: initialView
+    instructions: 'Should the initial view be of the type tester or the glyphs chart?'
+    name: 'Initial View'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Type Tester'
+            -
+              - value
+              - typeTester
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Glyphs Chart'
+            -
+              - value
+              - glyphsChart
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  f0f7a48c-a100-4cc4-8121-85b51e24f6cf:
+    contentColumnType: text
+    fieldGroup: null
+    handle: sampleText
+    instructions: 'The sample text displayed in the type tester'
+    name: 'Sample Text'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: 'Start typing here...'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f1943093-4558-4d96-b8d4-35f2683a05b3:
+    contentColumnType: integer(10)
+    fieldGroup: null
+    handle: minFontSize
+    instructions: 'The minimum font size, in `px`, that the font should be able to be viewed at'
+    name: 'Min Font Size'
+    searchable: true
+    settings:
+      decimals: 0
+      defaultValue: null
+      max: null
+      min: '0'
+      prefix: ''
+      size: null
+      suffix: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  fc184f35-a89a-41f9-a649-eab67481394c:
+    contentColumnType: string
+    fieldGroup: null
+    handle: initialAlignment
+    instructions: 'What the text-alignment will be when the type specimen first loads. Defaults to ''left''.'
+    name: 'Initial Alignment'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Left
+            -
+              - value
+              - left
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Center
+            -
+              - value
+              - center
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Right
+            -
+              - value
+              - right
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  ff44638b-7c0f-42ae-b7e7-52142b522825:
+    contentColumnType: integer(10)
+    fieldGroup: null
+    handle: startingFontSize
+    instructions: 'The size, in `px`, the font is initially displayed in. This is also the size that the glyph chart is displayed in.'
+    name: 'Starting Font Size'
+    searchable: true
+    settings:
+      decimals: 0
+      defaultValue: null
+      max: null
+      min: '0'
+      prefix: ''
+      size: null
+      suffix: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+handle: blockTypeSpecimen
+name: 'Type Specimen'
+sortOrder: 7

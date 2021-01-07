@@ -1,0 +1,42 @@
+field: a8a2e11c-d1f1-4994-a783-d224857107ac
+fieldLayouts:
+  d38ce7a7-0b80-4546-9b4e-1cf44fb8b90e:
+    tabs:
+      -
+        fields:
+          b23b3bfc-8991-42df-8a09-75c8df7204f6:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  b23b3bfc-8991-42df-8a09-75c8df7204f6:
+    contentColumnType: string
+    fieldGroup: null
+    handle: clientLogos
+    instructions: ''
+    name: 'Client Logos'
+    searchable: false
+    settings:
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: 'Add client logos'
+      singleUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+      singleUploadLocationSubpath: logos
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: '1'
+      validateRelatedElements: ''
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: clientGroup
+name: 'Client Group'
+sortOrder: 1

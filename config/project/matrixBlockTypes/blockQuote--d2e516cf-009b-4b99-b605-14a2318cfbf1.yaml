@@ -1,0 +1,127 @@
+field: e5facf83-ead7-410b-96f6-761ac8ecb2d0
+fieldLayouts:
+  74e87440-f2c5-460b-a0e9-5591bcf90970:
+    tabs:
+      -
+        fields:
+          0a5cec0b-231f-4e63-81a8-63a1ac641fbf:
+            required: false
+            sortOrder: 4
+          41c70af9-fae6-411a-b469-d20f50133d8f:
+            required: false
+            sortOrder: 1
+          660c9787-b4f5-480e-8926-65516900a149:
+            required: false
+            sortOrder: 2
+          b51d66e6-1149-4327-9b72-31a1840db7ab:
+            required: false
+            sortOrder: 3
+        name: Content
+        sortOrder: 1
+fields:
+  0a5cec0b-231f-4e63-81a8-63a1ac641fbf:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: quoteMarks
+    instructions: ''
+    name: 'Quote Marks'
+    searchable: false
+    settings:
+      default: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  41c70af9-fae6-411a-b469-d20f50133d8f:
+    contentColumnType: text
+    fieldGroup: null
+    handle: quote
+    instructions: ''
+    name: 'Quote / Statement'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '2'
+      multiline: '1'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  660c9787-b4f5-480e-8926-65516900a149:
+    contentColumnType: text
+    fieldGroup: null
+    handle: attribution
+    instructions: ''
+    name: Attribution
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b51d66e6-1149-4327-9b72-31a1840db7ab:
+    contentColumnType: string
+    fieldGroup: null
+    handle: sizeAlignment
+    instructions: ''
+    name: 'Size / Alignment'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width (Right Aligned Text)'
+            -
+              - value
+              - 'halfWidth rightAligned'
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width (Left Aligned Text)'
+            -
+              - value
+              - halfWidth
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width, On The Left (Right Aligned Text)'
+            -
+              - value
+              - 'fullWidthPaddedRight rightAligned'
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width, On The Right (Left Aligned Text)'
+            -
+              - value
+              - fullWidthPaddedLeft
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: blockQuote
+name: 'Quote / Statement'
+sortOrder: 5

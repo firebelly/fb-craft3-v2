@@ -243,7 +243,7 @@
     figcaption {
       margin: 12px 0 0;
       @include p3;
-      color: color('gray');
+      color: var(--projectBlockColor);
     }
   }
   // In case videos don't init properly, don't completely bork layout

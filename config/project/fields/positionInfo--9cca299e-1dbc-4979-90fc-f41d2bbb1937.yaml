@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: 544f7f96-7297-4753-bfde-ed6ea24b1117
+handle: positionInfo
+instructions: ''
+name: 'Position Info'
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - 12d191c1-4cf6-4a3e-be8f-bed2806425f8
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - ccc6bfde-ea63-4c3a-b1ab-62fa533a9d93
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_positioninfo}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

@@ -1,0 +1,26 @@
+contentColumnType: string
+fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
+handle: industries
+instructions: ''
+name: Industries
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - 319e6046-72bf-4cae-9e40-cf33df8cc47a
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_industries}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: 'Add industry'
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

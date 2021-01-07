@@ -1,0 +1,27 @@
+contentColumnType: string
+fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+handle: nextProjectImages
+instructions: 'Shown as thumbnail slideshow in Next Project links'
+name: 'Next Project Images'
+searchable: true
+settings:
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+  defaultUploadLocationSubpath: '{slug}'
+  limit: '5'
+  localizeRelations: false
+  restrictFiles: '1'
+  selectionLabel: 'Add images'
+  singleUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+  singleUploadLocationSubpath: '{slug}'
+  source: null
+  sources:
+    - 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+  targetSiteId: null
+  useSingleFolder: '1'
+  validateRelatedElements: ''
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets
