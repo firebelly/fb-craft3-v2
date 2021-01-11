@@ -12,6 +12,7 @@ body.page-work {
     border-left: 5px solid color('white');
     border-right: 5px solid color('white');
 
+    .industries-nav,
     .services-nav {
       @extend %semantic-list;
 
@@ -28,7 +29,7 @@ body.page-work {
       a {
         display: inline-block;
         position: relative;
-        @include h1-sans;
+        @include h2-sans;
         padding-right: 12px;
 
         sup {
@@ -45,8 +46,8 @@ body.page-work {
         @include media-nav {
           svg {
             opacity: 0;
-            width: 175px;
-            height: 100px;
+            width: 88px;
+            height: 50px;
             white-space: nowrap;
             display: inline-block;
             vertical-align: middle;
@@ -60,6 +61,11 @@ body.page-work {
             }
           }
         }
+      }
+
+      @include media-nav {
+        float: left;
+        width: 45%;
       }
     }
 
@@ -86,7 +92,7 @@ body.page-work {
       }
 
       .services-nav a sup {
-        margin-left: -2em;
+        // margin-left: -2em;
       }
     }
   }

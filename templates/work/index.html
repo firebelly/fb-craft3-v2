@@ -15,7 +15,7 @@
 
 {% if category is defined %}
 
-  {% if category.type == 'service' %}
+  {% if category.group == 'service' %}
     {% set projectEntries = craft.superTable.getRelatedElements({
       relatedTo: {
         targetElement: category,
@@ -71,7 +71,7 @@
     <div class="container">
       {% set allCount = craft.entries.section('work').count() %}
       <ul class="services-nav">
-        <h3 class="visually-hidden">Filter by services:</h3>
+        <h3>Filter by Services:</h3>
         {% for service in craft.categories.group('services').all() %}
           {% set serviceCount = craft.superTable.getRelatedElements({
             relatedTo: {
@@ -85,7 +85,7 @@
         <li><a data-no-swup href="{{ entry.getUrl() }}">All <sup>{{ allCount }}</sup><span class="visually-hidden"> projects</span> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
       </ul>
       <ul class="industries-nav">
-        <h3 class="visually-hidden">Filter by industry:</h3>
+        <h3>Filter by Industry:</h3>
         {% for industry in craft.categories.group('industry').all() %}
           {% set industryCount = craft.entries({
             relatedTo: industry,
