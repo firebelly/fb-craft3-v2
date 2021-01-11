@@ -1,0 +1,140 @@
+field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
+fieldLayouts:
+  171342bd-5d91-4763-8123-c26c8a112e9e:
+    tabs:
+      -
+        fields:
+          5ff6fcc8-a978-4064-90c6-f095e27e0536:
+            required: false
+            sortOrder: 2
+          6680e6bf-a506-458f-9816-c2bb00398a79:
+            required: false
+            sortOrder: 3
+          6821fcdd-6f2b-4b86-8d3f-351a426bc175:
+            required: false
+            sortOrder: 1
+          82ae774c-be86-4f81-960b-b33b2a617beb:
+            required: false
+            sortOrder: 4
+        name: Content
+        sortOrder: 1
+fields:
+  5ff6fcc8-a978-4064-90c6-f095e27e0536:
+    contentColumnType: string(7)
+    fieldGroup: null
+    handle: customBackgroundColor
+    instructions: ''
+    name: 'Custom Background Color'
+    searchable: false
+    settings:
+      defaultColor: '#ffffff'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Color
+  6680e6bf-a506-458f-9816-c2bb00398a79:
+    contentColumnType: string
+    fieldGroup: null
+    handle: textColor
+    instructions: ''
+    name: 'Text Color Change'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Custom
+            -
+              - value
+              - custom
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - White
+            -
+              - value
+              - white
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Black
+            -
+              - value
+              - black
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  6821fcdd-6f2b-4b86-8d3f-351a426bc175:
+    contentColumnType: string
+    fieldGroup: null
+    handle: color
+    instructions: 'Changes background + text colors until another Color Change block is encountered'
+    name: 'Color Change'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Custom
+            -
+              - value
+              - custom
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Gray
+            -
+              - value
+              - gray
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Black
+            -
+              - value
+              - black
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  82ae774c-be86-4f81-960b-b33b2a617beb:
+    contentColumnType: string(7)
+    fieldGroup: null
+    handle: customTextColor
+    instructions: ''
+    name: 'Custom Text Color'
+    searchable: false
+    settings:
+      defaultColor: '#231f20'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Color
+handle: blockColorChange
+name: 'Color Change'
+sortOrder: 5

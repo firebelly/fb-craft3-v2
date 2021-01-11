@@ -1,0 +1,52 @@
+field: a2483d09-6798-40be-8f35-c45413ed2e03
+fieldLayouts:
+  52d1b1d2-e619-4cfb-9946-fd234606a574:
+    tabs:
+      -
+        fields:
+          84f75f13-0524-40d3-b45b-ab28bf69826d:
+            required: true
+            sortOrder: 1
+          e1636a53-9498-4131-b772-a6abcd2773e8:
+            required: true
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  84f75f13-0524-40d3-b45b-ab28bf69826d:
+    contentColumnType: text
+    fieldGroup: null
+    handle: serviceName
+    instructions: ''
+    name: 'Service Name'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e1636a53-9498-4131-b772-a6abcd2773e8:
+    contentColumnType: text
+    fieldGroup: null
+    handle: serviceDescription
+    instructions: 'A short sentence or two describing the service.'
+    name: 'Service Description'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '2'
+      multiline: '1'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: service
+name: Service
+sortOrder: 1

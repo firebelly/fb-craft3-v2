@@ -1,0 +1,26 @@
+contentColumnType: string
+fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+handle: services
+instructions: 'Top three are shown in list views'
+name: Services
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - 1c5c9bf9-9c15-4b64-872b-bcd113568146
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_services}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: 'Add a service'
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

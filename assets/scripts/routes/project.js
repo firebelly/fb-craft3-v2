@@ -4,6 +4,7 @@ export default {
   init() {
     // JavaScript to be fired on project pages
     _initTypeTester();
+    _initCopyAnchorToClipboard();
 
     // Add hover class to rollover images on hover for Next Project links (if not touch)
     if (!document.body.classList.contains('-is-touch')) {
@@ -223,6 +224,12 @@ export default {
           $(this).append('<span class="type-cursor"></span>');
         });
 
+      });
+    }
+
+    function _initCopyAnchorToClipboard() {
+      $('.copy-anchor-link').on('click', function() {
+        navigator.clipboard.writeText($(this).attr('data-link'));
       });
     }
   },

@@ -1,0 +1,15 @@
+enableVersioning: true
+handle: careers
+name: Careers
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
+    enabledByDefault: true
+    hasUrls: true
+    template: careers
+    uriFormat: careers
+type: single

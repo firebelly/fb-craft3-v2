@@ -1,0 +1,13 @@
+contentColumnType: string
+fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
+handle: endeavors
+instructions: ''
+name: Endeavors
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_endeavors}}'
+  localizeBlocks: false
+  maxBlocks: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Matrix

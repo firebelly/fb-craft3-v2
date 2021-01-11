@@ -1,0 +1,33 @@
+field: 8567d77b-1731-470e-8a5d-d998a26562f0
+fieldLayouts:
+  2bd9e4a5-a4c6-4b6e-bec0-c24db249411d:
+    tabs:
+      -
+        fields:
+          319e6046-72bf-4cae-9e40-cf33df8cc47a:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  319e6046-72bf-4cae-9e40-cf33df8cc47a:
+    contentColumnType: string
+    fieldGroup: null
+    handle: industry
+    instructions: ''
+    name: Industry
+    searchable: true
+    settings:
+      branchLimit: 1
+      limit: null
+      localizeRelations: false
+      selectionLabel: null
+      showBlankOption: ''
+      source: 'group:bf01aebc-0872-497d-b688-0845cd48cc20'
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: elivz\singlecat\fields\SingleCatField

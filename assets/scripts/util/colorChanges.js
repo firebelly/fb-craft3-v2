@@ -1,4 +1,6 @@
 // Color change blocks
+//
+// Changes project bg/text colors on scroll when color-change blocks enter viewport
 
 let $colorChangeBlocks = [],
     defaultColors = { 'white': '#ffffff', 'gray': '#F2F2F0', 'black': '#232323' }, // Default, named colors
@@ -22,6 +24,21 @@ const colorChanges = {
       $window.on('scroll.colorChanges', colorChanges.scrolling);
       $window.on('resize.colorChanges', colorChanges.resizing);
       $window.on('load.colorChanges', colorChanges.resizing);
+
+      // Check if first project block is a color-change, set defaults from that so project meta area always has that color combo
+      let firstColorChange = document.querySelector('.project-blocks div:nth-child(1).color-change');
+      if (firstColorChange) {
+        let bgColor = firstColorChange.getAttribute('data-background');
+        let color = firstColorChange.getAttribute('data-color');
+        colorChangeValues = [{
+          'background': bgColor.match('#') ? bgColor : defaultColors[bgColor],
+          'color': color.match('#') ? color : defaultColors[color]
+        }];
+        $rootElement.css({
+          'background': colorChangeValues[0].background,
+          'color': colorChangeValues[0].color
+        });
+      }
 
       // Reposition color changes after lazyloaded images show
       document.addEventListener('lazyloaded', function(e){
@@ -86,6 +103,8 @@ const colorChanges = {
 
   // Garbage collection
   unload() {
+    // Reseting colorChangeValues so they don't carry over to another project page
+    colorChangeValues = [{ 'background': defaultColors.gray, 'color': defaultColors.black }];
     $window.off('scroll.colorChanges resize.colorChanges load.colorChanges');
   },
 

@@ -1,0 +1,167 @@
+dateModified: 1610398513
+email:
+  fromEmail: info@firebellydesign.com
+  fromName: 'Firebelly Design'
+  replyToEmail: null
+  template: null
+  transportSettings:
+    encryptionMethod: ssl
+    host: $SMTP_HOST
+    password: $SMTP_PASSWORD
+    port: '465'
+    timeout: '30'
+    useAuthentication: '1'
+    username: $SMTP_USER
+  transportType: craft\mail\transportadapters\Smtp
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
+plugins:
+  asset-preview:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  asset-rev:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  assetrev:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  cache-clear:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings:
+      key: fbclear
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      allowAttachments: ''
+      prependSender: ''
+      prependSubject: ''
+      successFlashMessage: 'Thank you for reaching out! We’ll be in touch soon.'
+      toEmail: 'info@firebellydesign.com,developer@firebellydesign.com'
+  contact-form-extensions:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+    settings:
+      confirmationSubject: 'Firebelly Contact'
+      confirmationTemplate: contact/contact-email.html
+      enableConfirmationEmail: '1'
+      enableDatabase: '1'
+      enableTemplateOverwrite: '1'
+      notificationTemplate: contact/contact-email-shop.html
+      recaptcha: '1'
+      recaptchaDataBadge: bottomright
+      recaptchaDebug: ''
+      recaptchaHideBadge: '1'
+      recaptchaSecretKey: $RECAPTCHA_SECRET_KEY
+      recaptchaSiteKey: $RECAPTCHA_SITE_KEY
+      recaptchaThreshold: '0.5'
+      recaptchaTimeout: '5'
+      recaptchaVersion: '3'
+  contact-form-honeypot:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      honeypotParam: botsLoveTheHoney
+  cp-field-inspect:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  embeddedassets:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  expanded-singles:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings:
+      expandSingles: '1'
+      redirectToEntry: '1'
+  fb-cachefly:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  fb-redactor-css:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  fb-store:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  fb-widgets:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  field-manager:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  htmlcache:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings:
+      cacheDuration: '3600'
+      enableGeneral: '1'
+      enableIndex: '1'
+  hue:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 0.0.0.0
+    settings: null
+  imager:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 2.0.0
+    settings: null
+  import:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  redactor:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 2.3.0
+    settings: null
+  retcon:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  single-cat:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.0
+  smith:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  super-table:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 2.2.1
+    settings: null
+system:
+  edition: solo
+  live: true
+  name: 'Firebelly Design'
+  schemaVersion: 3.5.13
+  timeZone: America/Chicago

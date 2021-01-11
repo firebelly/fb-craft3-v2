@@ -1,0 +1,89 @@
+field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
+fieldLayouts:
+  215b2ab2-a016-498b-aba3-72eb85b00a87:
+    tabs:
+      -
+        fields:
+          8137e76e-6940-452e-a1fe-97ae1c9d6a3a:
+            required: false
+            sortOrder: 1
+          948b851d-e6e2-4b0f-b7c6-ac6500d54404:
+            required: false
+            sortOrder: 3
+          ccd7f012-43f3-49bb-b2bc-9a64ca1a3259:
+            required: false
+            sortOrder: 4
+          d77142c4-10ec-458c-a97c-7eb9f9759b79:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  8137e76e-6940-452e-a1fe-97ae1c9d6a3a:
+    contentColumnType: string
+    fieldGroup: null
+    handle: images
+    instructions: ''
+    name: Images/Videos
+    searchable: true
+    settings:
+      allowedKinds:
+        - image
+        - json
+      defaultUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      singleUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      singleUploadLocationSubpath: '{owner.slug}'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: '1'
+      validateRelatedElements: ''
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  948b851d-e6e2-4b0f-b7c6-ac6500d54404:
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: imageLinkUrl
+    instructions: 'Make image(s) a link that opens in new tab'
+    name: URL
+    searchable: true
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+  ccd7f012-43f3-49bb-b2bc-9a64ca1a3259:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: backgroundVideo
+    instructions: 'ON=video auto plays (muted) when scrolled into view, OFF=must click to play w/ sound'
+    name: 'Background Video'
+    searchable: true
+    settings:
+      default: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  d77142c4-10ec-458c-a97c-7eb9f9759b79:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: carousel
+    instructions: 'Shows multiple images as full-width carousel'
+    name: Carousel
+    searchable: false
+    settings:
+      default: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+handle: blockImages
+name: 'Full Bleed Images / Videos'
+sortOrder: 1

@@ -1,0 +1,40 @@
+contentColumnType: string
+fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
+handle: staggeredImageHeader
+instructions: ''
+name: 'Staggered Image Header'
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - 30ff7126-9c3b-45f8-8bd7-53139d5c28cd
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - d7f5bbc1-0a3b-44c9-b389-3722daa0d2f8
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - ff17b8dd-04eb-43b7-b2e2-3f73a408f503
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_staggeredimageheader}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

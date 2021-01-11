@@ -1,0 +1,60 @@
+field: daa3251f-e2b0-4219-bc04-d6642a932856
+fieldLayouts:
+  6a9e374c-6f79-4789-9484-5edee867f4b3:
+    tabs:
+      -
+        fields:
+          3fff67ff-48e5-40bb-944b-80041c037145:
+            required: false
+            sortOrder: 3
+          53651a69-8231-4239-a2e2-e23b1a841189:
+            required: false
+            sortOrder: 1
+          6cfeb752-b0e2-42c2-9d50-6fc5a21cc5c0:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  3fff67ff-48e5-40bb-944b-80041c037145:
+    contentColumnType: integer(10)
+    fieldGroup: null
+    handle: scrollHeight
+    instructions: 'Set a frame height in percentage, which is a percentage based on the width of the frame. Default value is 75%.'
+    name: 'Scrolling Frame Height'
+    searchable: false
+    settings:
+      decimals: 0
+      defaultValue: '75'
+      max: null
+      min: '50'
+      prefix: ''
+      size: null
+      suffix: '%'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  53651a69-8231-4239-a2e2-e23b1a841189:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: browserFrameActive
+    instructions: ''
+    name: 'Add Browser Frame?'
+    searchable: false
+    settings:
+      default: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  6cfeb752-b0e2-42c2-9d50-6fc5a21cc5c0:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: browserFrameScroll
+    instructions: 'Check this if you would like to force the frame to a certain height, allowing a user to scrolling to see the rest of the screenshot/image.'
+    name: 'Frame Scrolling?'
+    searchable: false
+    settings:
+      default: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch

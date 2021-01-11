@@ -1,0 +1,16 @@
+contentColumnType: string
+fieldGroup: 7d6b2f37-d8cf-429f-8b3f-f3d7df5d814b
+handle: tagline
+instructions: ''
+name: Tagline
+searchable: true
+settings:
+  charLimit: ''
+  code: ''
+  columnType: string
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

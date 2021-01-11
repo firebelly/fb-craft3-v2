@@ -1,0 +1,90 @@
+field: 1aa39e81-b095-4d9a-9fb5-68e65b990311
+fieldLayouts:
+  36b39017-b1c0-4ae6-9c4a-e284d7761845:
+    tabs:
+      -
+        fields:
+          4c73b619-7e3e-4af8-b8f3-393a4f6b3dd3:
+            required: false
+            sortOrder: 1
+          f368c9bc-907e-4802-8e7a-7f42e35d643b:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  4c73b619-7e3e-4af8-b8f3-393a4f6b3dd3:
+    contentColumnType: string
+    fieldGroup: null
+    handle: header
+    instructions: 'e.g. Awards or Press & Recognition'
+    name: Header
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: string
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f368c9bc-907e-4802-8e7a-7f42e35d643b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: items
+    instructions: ''
+    name: Items
+    searchable: true
+    settings:
+      addRowLabel: 'Add a row'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Title
+                -
+                  - handle
+                  - title
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'URL (optional)'
+                -
+                  - handle
+                  - url
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - url
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table

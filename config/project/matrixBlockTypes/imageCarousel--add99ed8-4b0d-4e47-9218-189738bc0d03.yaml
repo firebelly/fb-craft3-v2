@@ -1,0 +1,43 @@
+field: e5facf83-ead7-410b-96f6-761ac8ecb2d0
+fieldLayouts:
+  dedee9e5-f5dd-4e8c-ae17-6d839f533f59:
+    tabs:
+      -
+        fields:
+          56ccc2db-d89f-4e56-b202-b67887baa187:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  56ccc2db-d89f-4e56-b202-b67887baa187:
+    contentColumnType: string
+    fieldGroup: null
+    handle: images
+    instructions: ''
+    name: Images
+    searchable: true
+    settings:
+      allowedKinds:
+        - image
+        - json
+      defaultUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: 'Add image(s)'
+      singleUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: ''
+      validateRelatedElements: ''
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: imageCarousel
+name: 'Image Carousel'
+sortOrder: 4

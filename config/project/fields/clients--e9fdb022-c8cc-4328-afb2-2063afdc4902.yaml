@@ -1,0 +1,40 @@
+contentColumnType: string
+fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
+handle: clients
+instructions: ''
+name: Clients
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - 98ee58ee-5a3c-41cf-abb7-d8018a02ead4
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - a8a2e11c-d1f1-4994-a783-d224857107ac
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - ca8ba7dd-574a-45c4-8248-6ff797a9e22e
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_clients}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

@@ -1,0 +1,76 @@
+field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
+fieldLayouts:
+  b0643ed0-fc96-4679-934e-4a50f1faacff:
+    tabs:
+      -
+        fields:
+          83c669be-4817-49be-8816-1a16e844d2ac:
+            required: false
+            sortOrder: 2
+          b34b99fe-6b4d-4fc4-a32f-b86545d51cd8:
+            required: false
+            sortOrder: 3
+          d37f633a-9bce-4ab8-860d-f463a95922a9:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  83c669be-4817-49be-8816-1a16e844d2ac:
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockTitle
+    instructions: ''
+    name: 'Block Title'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: 'Stationary System'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b34b99fe-6b4d-4fc4-a32f-b86545d51cd8:
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockDescription
+    instructions: 'Paragraph describing this batch of images.'
+    name: 'Block Description'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  d37f633a-9bce-4ab8-860d-f463a95922a9:
+    contentColumnType: text
+    fieldGroup: null
+    handle: numberHeader
+    instructions: ''
+    name: 'Number Header'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: IV.
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: blockHeader
+name: 'Header (deprecated)'
+sortOrder: 12

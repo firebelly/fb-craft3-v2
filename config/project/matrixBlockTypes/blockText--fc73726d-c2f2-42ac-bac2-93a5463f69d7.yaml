@@ -1,0 +1,96 @@
+field: e5facf83-ead7-410b-96f6-761ac8ecb2d0
+fieldLayouts:
+  37d2ec9c-2014-4ca1-b050-946f81bf2910:
+    tabs:
+      -
+        fields:
+          77a929e5-d279-4423-b22e-641378d1d793:
+            required: false
+            sortOrder: 2
+          b0bfe786-8f06-4851-8b3c-4d76418b3466:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  77a929e5-d279-4423-b22e-641378d1d793:
+    contentColumnType: string
+    fieldGroup: null
+    handle: size
+    instructions: ''
+    name: Size
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width'
+            -
+              - value
+              - halfWidth
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Full Width'
+            -
+              - value
+              - fullWidth
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width, On The Right'
+            -
+              - value
+              - fullWidthPaddedLeft
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Half Width, On The Left'
+            -
+              - value
+              - fullWidthPaddedRight
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  b0bfe786-8f06-4851-8b3c-4d76418b3466:
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: ''
+    name: Text
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+handle: blockText
+name: Text
+sortOrder: 3

@@ -1,0 +1,190 @@
+field: f68bd23e-cdef-4a93-bc69-d799858a5e37
+fieldLayouts:
+  4abe6998-c1dd-475d-8e47-7ed204edd12b:
+    tabs:
+      -
+        fields:
+          0a33cf4a-e767-459d-80ad-67047568db1e:
+            required: false
+            sortOrder: 2
+          1f925843-0bcc-4428-a1bf-50113d0d59d2:
+            required: false
+            sortOrder: 7
+          48228f4c-56f6-42a9-921f-9a34afd1ced3:
+            required: false
+            sortOrder: 6
+          551d613d-4943-4f9e-bf8b-6326a5e24460:
+            required: false
+            sortOrder: 5
+          75c045ba-7415-4cdc-9fb8-a5cf7508e1dc:
+            required: false
+            sortOrder: 3
+          8c2775de-f70f-4f07-b5c3-161c0f83715a:
+            required: false
+            sortOrder: 8
+          8f7d6df0-566a-4c34-b6da-6d9850f19621:
+            required: false
+            sortOrder: 1
+          e7d409d4-2f29-4388-9755-f6ab096c7c7f:
+            required: false
+            sortOrder: 4
+        name: Content
+        sortOrder: 1
+fields:
+  0a33cf4a-e767-459d-80ad-67047568db1e:
+    contentColumnType: text
+    fieldGroup: null
+    handle: personNameFirst
+    instructions: ''
+    name: 'First Name'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  1f925843-0bcc-4428-a1bf-50113d0d59d2:
+    contentColumnType: text
+    fieldGroup: null
+    handle: socialLinks
+    instructions: ''
+    name: 'Social Links'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  48228f4c-56f6-42a9-921f-9a34afd1ced3:
+    contentColumnType: text
+    fieldGroup: null
+    handle: tagline
+    instructions: ''
+    name: Tagline
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  551d613d-4943-4f9e-bf8b-6326a5e24460:
+    contentColumnType: string
+    fieldGroup: null
+    handle: pronouns
+    instructions: 'e.g. she / her / hers'
+    name: Pronouns
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: string
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  75c045ba-7415-4cdc-9fb8-a5cf7508e1dc:
+    contentColumnType: text
+    fieldGroup: null
+    handle: personNameLast
+    instructions: ''
+    name: 'Last Name'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  8c2775de-f70f-4f07-b5c3-161c0f83715a:
+    contentColumnType: text
+    fieldGroup: null
+    handle: bio
+    instructions: ''
+    name: Bio
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  8f7d6df0-566a-4c34-b6da-6d9850f19621:
+    contentColumnType: string
+    fieldGroup: null
+    handle: photo
+    instructions: ''
+    name: Photo
+    searchable: true
+    settings:
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:d0e9262d-3cc0-46bc-aa1c-76d99cb9f385'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: 'Select photo'
+      singleUploadLocationSource: 'volume:cd389634-6297-4886-ac1a-17f7ff2050c8'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: '1'
+      validateRelatedElements: ''
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  e7d409d4-2f29-4388-9755-f6ab096c7c7f:
+    contentColumnType: text
+    fieldGroup: null
+    handle: personTitle
+    instructions: ''
+    name: Title
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: person
+name: Person
+sortOrder: 1

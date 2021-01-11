@@ -1,0 +1,10 @@
+handle: ideaType
+name: 'Idea Type'
+siteSettings:
+  8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
+    hasUrls: true
+    template: ideas/index
+    uriFormat: 'ideas/type/{slug}'
+structure:
+  maxLevels: null
+  uid: 04fb36cd-36ea-4813-9aff-ed3f475ce3ad

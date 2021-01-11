@@ -1,0 +1,73 @@
+field: 3d11dc56-b4bf-4f4d-b797-c50fffb724a5
+fieldLayouts:
+  f628e66a-791f-4b6c-94f5-7e272b77968d:
+    tabs:
+      -
+        fields:
+          34a5f75e-3e0f-4152-8f58-0716a4127bc2:
+            required: false
+            sortOrder: 2
+          538acca9-6fb7-45a5-a7a8-8d5d7798fc6c:
+            required: false
+            sortOrder: 3
+          d55fe46e-1f0f-49ca-9699-76a225854940:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  34a5f75e-3e0f-4152-8f58-0716a4127bc2:
+    contentColumnType: text
+    fieldGroup: null
+    handle: successMessage
+    instructions: ''
+    name: 'Success Message'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '2'
+      multiline: '1'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  538acca9-6fb7-45a5-a7a8-8d5d7798fc6c:
+    contentColumnType: text
+    fieldGroup: null
+    handle: noteToSubmitter
+    instructions: 'Shown at top of confirmation email sent to submitter'
+    name: 'Note to Submitter'
+    searchable: true
+    settings:
+      availableTransforms: ''
+      availableVolumes: ''
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  d55fe46e-1f0f-49ca-9699-76a225854940:
+    contentColumnType: text
+    fieldGroup: null
+    handle: toEmail
+    instructions: 'Where to send submissions, separate multiple emails with comma'
+    name: 'To Email'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: info@firebellydesign.com
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

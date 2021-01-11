@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: 3690a445-5c74-47c8-a37d-af19533bfdcf
+handle: extraDetails
+instructions: ''
+name: 'Extra Details'
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - 4c73b619-7e3e-4af8-b8f3-393a4f6b3dd3
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - f368c9bc-907e-4802-8e7a-7f42e35d643b
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_extradetails}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: 'Add Extra Details block'
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

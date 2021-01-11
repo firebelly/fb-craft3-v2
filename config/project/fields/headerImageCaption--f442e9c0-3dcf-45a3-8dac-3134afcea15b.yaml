@@ -1,0 +1,15 @@
+contentColumnType: text
+fieldGroup: 6437dede-d24a-41aa-b80e-ca2691b7f29b
+handle: headerImageCaption
+instructions: 'Shows below main header image'
+name: 'Header Image Caption'
+searchable: true
+settings:
+  charLimit: ''
+  columnType: text
+  initialRows: '4'
+  multiline: '1'
+  placeholder: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

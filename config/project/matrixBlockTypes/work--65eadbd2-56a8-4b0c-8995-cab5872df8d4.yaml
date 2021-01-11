@@ -1,0 +1,74 @@
+field: ae9536dc-70b1-4e78-b8a8-eff55a877bb7
+fieldLayouts:
+  5d5ad463-2922-4b79-8e61-8d33d0281ca7:
+    tabs:
+      -
+        fields:
+          79beca15-3ac6-4ce4-88d4-744175734077:
+            required: false
+            sortOrder: 2
+          ebe3df80-f4b8-44d5-b801-ff435339c49c:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  79beca15-3ac6-4ce4-88d4-744175734077:
+    contentColumnType: string
+    fieldGroup: null
+    handle: thumbnailOrientation
+    instructions: ''
+    name: 'Thumbnail Orientation'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Landscape
+            -
+              - value
+              - landscape
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Portrait
+            -
+              - value
+              - portrait
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  ebe3df80-f4b8-44d5-b801-ff435339c49c:
+    contentColumnType: string
+    fieldGroup: null
+    handle: featuredEntry
+    instructions: ''
+    name: Entry
+    searchable: true
+    settings:
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: 'Choose an entry'
+      source: null
+      sources:
+        - 'section:8c753ecf-69cb-40e2-8cd0-94effdca10ab'
+        - 'section:a622d82a-9cfa-44de-b537-5a453e294cc7'
+      targetSiteId: null
+      validateRelatedElements: ''
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: work
+name: Work
+sortOrder: 1

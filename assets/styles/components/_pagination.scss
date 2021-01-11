@@ -314,7 +314,7 @@
   // prefers reduced motion
   @media (prefers-reduced-motion: reduce) {
     .rollover-images.hover {
-      img {
+      picture {
         animation: none!important;
       }
     }

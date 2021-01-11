@@ -9,14 +9,14 @@ body.page-homepage {
     @include media-nav {
       padding-bottom: beat(16);
 
-      .project {
+      article {
         margin-bottom: 0;
       }
 
-      .project:first-of-type {
+      article:first-of-type {
         margin-top: 144px;
       }
-      .project:last-of-type {
+      article:last-of-type {
         margin-top: -176px;
       }
     }

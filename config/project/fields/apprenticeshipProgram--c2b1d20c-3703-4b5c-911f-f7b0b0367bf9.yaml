@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: 544f7f96-7297-4753-bfde-ed6ea24b1117
+handle: apprenticeshipProgram
+instructions: ''
+name: 'Apprenticeship Program'
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - 07e125b8-faf1-4a21-b2e9-35492c4483e1
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - d1fe725b-a0fe-4932-a9cd-b20aeff2760d
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_apprenticeshipprogram}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

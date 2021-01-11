@@ -1,0 +1,71 @@
+field: e9fdb022-c8cc-4328-afb2-2063afdc4902
+fieldLayouts:
+  80acf802-860f-4d15-8ed4-00988881322b:
+    tabs:
+      -
+        fields:
+          98ee58ee-5a3c-41cf-abb7-d8018a02ead4:
+            required: false
+            sortOrder: 1
+          a8a2e11c-d1f1-4994-a783-d224857107ac:
+            required: false
+            sortOrder: 3
+          ca8ba7dd-574a-45c4-8248-6ff797a9e22e:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  98ee58ee-5a3c-41cf-abb7-d8018a02ead4:
+    contentColumnType: text
+    fieldGroup: null
+    handle: headline
+    instructions: ''
+    name: Headline
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a8a2e11c-d1f1-4994-a783-d224857107ac:
+    contentColumnType: string
+    fieldGroup: null
+    handle: clients
+    instructions: ''
+    name: Clients
+    searchable: false
+    settings:
+      contentTable: '{{%matrixcontent_clients}}'
+      maxBlocks: ''
+      minBlocks: ''
+      propagationMethod: all
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
+  ca8ba7dd-574a-45c4-8248-6ff797a9e22e:
+    contentColumnType: text
+    fieldGroup: null
+    handle: body
+    instructions: ''
+    name: Body
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: ''
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field

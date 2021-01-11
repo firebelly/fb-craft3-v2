@@ -1,0 +1,40 @@
+fieldLayouts:
+  46f849e8-dfa8-46a5-baf7-7678b8873cc5:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: industry
+name: Industry
+siteSettings:
+  8e487d70-7966-4e1f-a6dd-bfbbb1dd9100:
+    hasUrls: true
+    template: work/index
+    uriFormat: '{% if object.level == 1 %}work/industry/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
+structure:
+  maxLevels: null
+  uid: 4509c77b-c431-4044-9371-7de8f39524de

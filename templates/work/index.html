@@ -15,23 +15,31 @@
 
 {% if category is defined %}
 
-  {% set projectEntries = craft.superTable.getRelatedElements({
-    relatedTo: {
-      targetElement: category,
-      field: 'services.service'
-    },
-    section: 'work',
-  }) %}
-  {# todo: make these fields on services? or is this hardcoded? #}
+  {% if category.group == 'service' %}
+    {% set projectEntries = craft.superTable.getRelatedElements({
+      relatedTo: {
+        targetElement: category,
+        field: 'services.service'
+      },
+      section: 'work',
+    }) %}
+  {% else %}
+    {% set projectEntries = craft.entries({
+      relatedTo: category,
+      section: 'work',
+    }) %}
+  {% endif %}
   {% set headline = 'Check out all our %s projects.'|format(category.title|lower) %}
   {% set subhead = 'Feast your eyes.' %}
   {% set sectionHeader = 'All %s Projects'|format(category.title) %}
   {% set filterLinks = '<a href="#" class="filter-projects" data-no-swup>Change Filter</a>' %}
 
 {% else %}
+
   {% set projectEntries = craft.entries({
     section: 'work',
   }) %}
+
 {% endif %}
 
 {% block content %}
@@ -63,7 +71,7 @@
     <div class="container">
       {% set allCount = craft.entries.section('work').count() %}
       <ul class="services-nav">
-        <h3 class="visually-hidden">Filter by services:</h3>
+        <h3>Filter by Services:</h3>
         {% for service in craft.categories.group('services').all() %}
           {% set serviceCount = craft.superTable.getRelatedElements({
             relatedTo: {
@@ -73,6 +81,19 @@
             section: 'work'
           }).count() %}
           <li{{ category is defined and category.title == service.title ? ' class="-active"': '' }}><a data-no-swup href="{{ service.getUrl() }}">{{ service.title }} <sup>{{ serviceCount }}</sup><span class="visually-hidden"> projects</span> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
+        {% endfor %}
+        <li><a data-no-swup href="{{ entry.getUrl() }}">All <sup>{{ allCount }}</sup><span class="visually-hidden"> projects</span> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
+      </ul>
+      <ul class="industries-nav">
+        <h3>Filter by Industry:</h3>
+        {% for industry in craft.categories.group('industry').all() %}
+          {% set industryCount = craft.entries({
+            relatedTo: industry,
+            section: 'work'
+          }).count() %}
+          {% if industryCount > 0 %}
+            <li{{ category is defined and category.title == industry.title ? ' class="-active"': '' }}><a data-no-swup href="{{ industry.getUrl() }}">{{ industry.title }} <sup>{{ industryCount }}</sup><span class="visually-hidden"> projects</span> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
+          {% endif %}
         {% endfor %}
         <li><a data-no-swup href="{{ entry.getUrl() }}">All <sup>{{ allCount }}</sup><span class="visually-hidden"> projects</span> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
       </ul>

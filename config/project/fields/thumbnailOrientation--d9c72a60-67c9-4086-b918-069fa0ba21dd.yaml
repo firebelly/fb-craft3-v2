@@ -1,0 +1,45 @@
+contentColumnType: string
+fieldGroup: 9aec6670-8753-4f2e-91d5-03ff2b4f3ef6
+handle: thumbnailOrientation
+instructions: ''
+name: 'Thumbnail Orientation'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Landscape
+        -
+          - value
+          - landscape
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Portrait
+        -
+          - value
+          - portrait
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Full Width'
+        -
+          - value
+          - fullWidth
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

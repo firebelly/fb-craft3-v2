@@ -1,0 +1,12 @@
+fieldLayouts:
+  28f935c5-af4d-4e7b-a845-3055289751ee:
+    tabs:
+      -
+        fields:
+          eda76d5c-fc33-4224-bc43-f163bafe5593:
+            required: false
+            sortOrder: 1
+        name: Settings
+        sortOrder: 1
+handle: globalSeo
+name: 'Global SEO'

@@ -1,0 +1,49 @@
+field: 2a5054ba-d822-4486-9917-cd1bcd4aba46
+fieldLayouts:
+  6dd7c96e-73b3-4bd9-b56e-16fd3cde0189:
+    tabs:
+      -
+        fields:
+          ee6e50bd-8324-47a2-ae1d-a4a9aa232b49:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  ee6e50bd-8324-47a2-ae1d-a4a9aa232b49:
+    contentColumnType: string
+    fieldGroup: null
+    handle: stats
+    instructions: ''
+    name: Stats
+    searchable: true
+    settings:
+      columns:
+        __assoc__:
+          -
+            - ac9fcc5e-0535-4619-b4ed-7bc0e68d0750
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - fe70869e-e26a-4841-be4e-9216ab695e8c
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_23_stats}}'
+      fieldLayout: table
+      maxRows: ''
+      minRows: ''
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: statTable
+name: 'Stat Table'
+sortOrder: 10

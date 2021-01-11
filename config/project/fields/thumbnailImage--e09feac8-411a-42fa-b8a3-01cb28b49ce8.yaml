@@ -1,0 +1,26 @@
+contentColumnType: string
+fieldGroup: 6437dede-d24a-41aa-b80e-ca2691b7f29b
+handle: thumbnailImage
+instructions: 'Used for thumbnail in list views, second image is shown on hover'
+name: 'Thumbnail Images'
+searchable: false
+settings:
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:36408e8f-dddf-4161-a5bf-1b85cd665761'
+  defaultUploadLocationSubpath: ''
+  limit: '2'
+  localizeRelations: false
+  restrictFiles: '1'
+  selectionLabel: 'Set thumbnail images'
+  singleUploadLocationSource: 'volume:42068817-6f6f-4a12-8420-4c2bf823fa58'
+  singleUploadLocationSubpath: ''
+  source: null
+  sources: '*'
+  targetSiteId: null
+  useSingleFolder: ''
+  validateRelatedElements: ''
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets
