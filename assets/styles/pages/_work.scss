@@ -29,8 +29,17 @@ body.page-work {
       a {
         display: inline-block;
         position: relative;
-        @include h2-sans;
         padding-right: 12px;
+      }
+    }
+    .industries-nav {
+      a {
+        @include h3;
+      }
+    }
+    .services-nav {
+       a {
+        @include h1-sans;
 
         sup {
           display: inline-block;
@@ -62,12 +71,8 @@ body.page-work {
           }
         }
       }
-
-      @include media-nav {
-        float: left;
-        width: 45%;
-      }
     }
+
 
     .close-modal {
       top: 17px;
@@ -91,8 +96,14 @@ body.page-work {
         top: beat(3);
       }
 
-      .services-nav a sup {
-        // margin-left: -2em;
+      .industries-nav {
+        float: left;
+      }
+      .services-nav {
+        float: left;
+        a sup {
+          margin-left: -2em;
+        }
       }
     }
   }
