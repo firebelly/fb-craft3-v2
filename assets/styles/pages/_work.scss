@@ -40,6 +40,10 @@ body.page-work {
     .industries-nav {
       a {
         @include h3;
+        &:hover {
+          color: color('red');
+          text-decoration: underline;
+        }
       }
     }
     .services-nav {
