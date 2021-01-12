@@ -70,7 +70,7 @@
   <div class="modal-content hidden">
     <div class="container">
       <div class="grid">
-        <div class="col-2-3">
+        <div class="col-services">
           {% set allCount = craft.entries.section('work').count() %}
           <h4 class="heading-smallcaps">Services</h4>
           <ul class="services-nav">
@@ -87,7 +87,7 @@
             <li><a data-no-swup href="{{ entry.getUrl() }}">All <sup>{{ allCount }}</sup><span class="visually-hidden"> projects</span> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
           </ul>
         </div>
-        <div class="col-1-3">
+        <div class="col-industries">
           <h4 class="heading-smallcaps">Industries</h4>
           <ul class="industries-nav">
             {% for industry in craft.categories.group('industry').all() %}
