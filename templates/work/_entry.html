@@ -45,7 +45,8 @@
 
             <h4>Industry</h4>
             {% if entry.industry|length %}
-              <p>{{ entry.industry.one().title }}</p>
+              {% set industry = entry.industry.one() %}
+              <p><a href="{{ industry.getUrl() }}">{{ industry.title }}</a></p>
             {% endif %}
 
             {% if entry.services|length %}
