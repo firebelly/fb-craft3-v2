@@ -15,7 +15,7 @@
 
 {% if category is defined %}
 
-  {% if category.group == 'service' %}
+  {% if category.group == 'Services' %}
     {% set projectEntries = craft.superTable.getRelatedElements({
       relatedTo: {
         targetElement: category,
