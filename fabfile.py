@@ -10,7 +10,7 @@ env.forward_agent = True
 
 def production():
   env.hosts = ['firebellydesign.com']
-  env.git_branch = 'master'
+  env.git_branch = 'main'
   env.remotepath = '/home/firebelly/apps/fb-craft'
 
 # def syncstaging():
