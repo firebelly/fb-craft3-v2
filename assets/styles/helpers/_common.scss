@@ -66,25 +66,6 @@ h4.lined {
   }
 }
 
-// Filter sections below text/image headers
-.top-section-header {
-  .filter-links {
-    a {
-      @include paragraph-style(24, 32, 0.015em);
-      &:hover {
-        color: color('red');
-        text-decoration: underline;
-      }
-    }
-  }
-
-  @include media-nav {
-    .filter-links {
-      text-align: right;
-    }
-  }
-}
-
 // Thumbnail grid (project/ideas)
 .thumbnail-grid {
   align-items: flex-start;
