@@ -113,7 +113,11 @@ h4.lined {
   }
   h3 {
     @include h3;
-    margin-top: beat(1);
+    margin-top: beat(0.5);
+
+    @include media-md {
+      margin-top: beat(1);
+    }
   }
 }
 
