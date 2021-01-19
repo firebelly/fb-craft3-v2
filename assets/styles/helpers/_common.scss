@@ -109,7 +109,7 @@ h4.lined {
     @include small-titles;
   }
   h4 {
-    margin: beat(1) 0;
+    margin: beat(1) 0 0;
   }
   h3 {
     @include h3;
