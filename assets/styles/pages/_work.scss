@@ -1,6 +1,101 @@
 // Work page
 
 body.page-work {
+  // Filters
+  .filters {
+    margin: $padding-md 0 $padding-lg;
+
+    .filter-nav {
+      position: relative;
+      &:hover,
+      &:focus {
+        ul {
+          display: block;
+        }
+      }
+
+      + .filter-nav {
+        margin-top: $padding-md;
+      }
+
+      button {
+        @extend .button-reset;
+        @include h3;
+        width: 100%;
+        cursor: pointer;
+        text-align: left;
+        position: relative;
+        padding-top: $beat;
+        white-space: nowrap;
+        color: color('black');
+        padding-bottom: $beat;
+        padding-right: $padding-lg;
+        border-bottom: 1px solid color('black');
+        &:hover,
+        &:focus {
+          background-color: color('gray-light');
+        }
+
+        .arrow {
+          top: 50%;
+          right: 4px;
+          width: 12px;
+          height: 12px;
+          display: block;
+          position: absolute;
+          border-right: 3px solid color('black');
+          border-bottom: 3px solid color('black');
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+      }
+
+      ul {
+        @extend .semantic-list;
+        left: 0;
+        top: 100%;
+        z-index: 2;
+        display: none;
+        min-width: 100%;
+        position: absolute;
+        background-color: color('offwhite');
+      }
+
+      li {
+        &.-active {
+          a {
+            background-color: color('gray-light');
+          }
+        }
+
+        a {
+          padding: 6px;
+          display: block;
+          white-space: nowrap;
+          &:hover,
+          &:focus {
+            background-color: color('gray-light');
+          }
+        }
+      }
+
+      @include media-sm {
+        + .filter-nav {
+          margin-top: 0;
+          margin-left: $padding-md;
+        }
+
+        button {
+          width: auto;
+        }
+      }
+    }
+
+    @include media-sm {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
   .modal-overlay {
     background-color: rgba(color('white'),.9);
   }

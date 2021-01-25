@@ -96,6 +96,10 @@ swup.on('transitionStart', () => {
   document.body.classList.remove('-cursor-active');
 });
 
+swup.on('contentReplaced', () => {
+  document.body.setAttribute('style', '');
+});
+
 // Flickity fix for iOS 13
 (function() {
   var touchingCarousel = false,
