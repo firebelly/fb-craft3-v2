@@ -51,11 +51,8 @@ export default {
         // run image reveals to show projects
         imageReveals.init();
       })
-      .done(function() {
-      })
       .fail(function() {
-        console.log( "error" );
-        $('#projects-container').html('<h2>We had some trouble processing your request. Try reloading the page and trying again.')
+        $('#projects-container').html('<h2 class="error">We had some trouble processing your request. Try reloading the page and trying again.');
       });
     });
 

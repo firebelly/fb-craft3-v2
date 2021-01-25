@@ -1,6 +1,11 @@
 // Work page
 
 body.page-work {
+  // Ajax Error Message
+  h2.error {
+    margin-bottom: $padding-lg;
+  }
+
   // Filters
   .filters {
     margin: $padding-md 0 $padding-lg;
