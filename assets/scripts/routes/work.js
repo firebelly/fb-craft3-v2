@@ -14,6 +14,7 @@ export default {
     $document.on('click.filters', '#filters a', function(e) {
       e.preventDefault();
 
+      $('#page').css('opacity', '0.5');
       const $this = $(this);
       const $parentFilter = $this.closest('.filter-nav');
       const title = $this.find('.filter-title').html();
@@ -40,14 +41,16 @@ export default {
 
         if (title !== 'All') {
           $parentFilter.find('.all-option').removeClass('hidden');
-          $parentFilter.find('button .label').html(title);
         } else {
           $parentFilter.find('.all-option').addClass('hidden');
-          $parentFilter.find('button .label').html(defaultLabel);
         }
 
         $('.filtered-title').html(title + ' projects');
         $('#projects-container').html(projects);
+      })
+      .done(function() {
+        $('#page').css('opacity', '1');
+
         // run image reveals to show projects
         imageReveals.init();
       })
