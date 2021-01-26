@@ -7,6 +7,20 @@ body.page-work {
   }
 
   // Filters
+  .filtered-title {
+    a {
+      top: 1px;
+      position: relative;
+      display: inline-block;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      vertical-align: top;
+    }
+  }
+
   .filters {
     margin: $padding-md 0 $padding-lg;
 

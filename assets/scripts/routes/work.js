@@ -11,13 +11,26 @@ export default {
 
   init() {
     // ajax load projects from filter-nav
-    $document.on('click.filters', '#filters a', function(e) {
+    $document.on('click.filters', '#filters a, .filtered-title a', function(e) {
       e.preventDefault();
 
-      $('#page').css('opacity', '0.5');
       const $this = $(this);
-      const $parentFilter = $this.closest('.filter-nav');
-      const title = $this.find('.filter-title').html();
+      let clearFilter,
+          $parentFilter,
+          title;
+
+      // Drop opacity of page until projects are loaded
+      $('#page').css('opacity', '0.5');
+
+      // If it's a filter link (as opposed to a clear filter link)
+      if ($this.parents('#filters').length) {
+        clearFilter = false;
+        $parentFilter = $this.closest('.filter-nav');
+        title = $this.find('.filter-title').html();
+      } else  {
+        clearFilter = true;
+      }
+
       const href = this.getAttribute('href');
 
       $.get( href, function( data ) {
@@ -29,23 +42,26 @@ export default {
 
         // Reset active classes
         $('.filter-nav.-active').removeClass('-active');
-        $parentFilter.addClass('-active');
         $('.filter-nav li.-active').removeClass('-active');
-        $this.parent('li').addClass('-active');
 
-        // Reset titles and populate projects
-        let defaultLabel = $parentFilter.find('button .label').attr('data-default');
-        let otherDefaultLabel = $('.filter-nav').not($parentFilter).find('button .label').attr('data-default');
-        $('.filter-nav').not($parentFilter).find('button .label').html(otherDefaultLabel);
-        $('.filter-nav').not($parentFilter).find('.all-option').addClass('hidden');
-
-        if (title !== 'All') {
-          $parentFilter.find('.all-option').removeClass('hidden');
+        if (!clearFilter) {
+          $parentFilter.addClass('-active');
+          $this.parent('li').addClass('-active');
+          // Reset active classest
+          $('.filter-nav').not($parentFilter).find('.all-option').addClass('hidden');
+          // Show/hide "all" filter options
+          if (title !== 'All') {
+            $parentFilter.find('.all-option').removeClass('hidden');
+          } else {
+            $parentFilter.find('.all-option').addClass('hidden');
+          }
+          // Set section title
+          $('.filtered-title').html(title + ' projects <a href="/work" data-no-swup><span class="visually-hidden">Clear Filter</span><svg class="icon-close" aria-hidden="true" role="presentation"><use xlink:href="#icon-close"/></svg></a>');
         } else {
-          $parentFilter.find('.all-option').addClass('hidden');
+          $('.filtered-title').html('All Projects');
+          $('.all-option').addClass('hidden');
         }
 
-        $('.filtered-title').html(title + ' projects');
         $('#projects-container').html(projects);
       })
       .done(function() {

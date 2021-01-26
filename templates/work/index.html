@@ -29,7 +29,7 @@
       section: 'work',
     }) %}
   {% endif %}
-  {% set sectionHeader = '%s Projects'|format(category.title) %}
+  {% set sectionHeader = '%s Projects <a href="/work" data-no-swup><span class="visually-hidden">Clear Filter</span><svg class="icon-close" aria-hidden="true" role="presentation"><use xlink:href="#icon-close"/></svg></a>'|format(category.title) %}
 
 {% else %}
 
@@ -45,10 +45,10 @@
 
   <div class="container">
     <div class="block-section-header top-section-header">
-      <h3 class="filtered-title">{{ sectionHeader }}</h3>
+      <h3 class="filtered-title">{{ sectionHeader|raw }}</h3>
       {% include 'work/_filters' %}
     </div>
-    <div id="projects-container">
+    <div id="projects-container" aria-live="polite">
       <div class="thumbnail-grid grid spaced">
         {% for projectEntry in projectEntries.with([
             'altImage',
