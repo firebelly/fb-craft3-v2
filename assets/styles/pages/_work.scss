@@ -12,6 +12,7 @@ body.page-work {
 
     .filter-nav {
       position: relative;
+      z-index: z(blobs) + 1;
       &:hover,
       &:focus {
         ul {

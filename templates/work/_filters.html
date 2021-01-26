@@ -1,6 +1,6 @@
 <div id="filters" class="filters">
   <nav class="filter-nav{{ category is defined and category.group.handle == 'services' ? ' -active' : '' }}">
-    <button><span class="label" data-default="Services">{{ category is defined and category.group.handle == 'services' ? category.title : 'Services' }}</span> <span class="arrow"></span></button>
+    <button><span class="label">Services</span> <span class="arrow"></span></button>
     <ul>
       <li class="all-option{{ category is defined and category.group.handle == 'services' ? '' : ' hidden' }}"><a href="/work" data-no-swup><span class="filter-title">All</span></a></li>
     {% for service in craft.categories.group('services').all() %}
@@ -13,14 +13,14 @@
       }).count() %}
 
       {% if serviceCount > 0 %}
-        <li{{ category is defined and category.title == service.title ? ' class="-active"': '' }}><a href="{{ service.getUrl() }}" data-no-swup><span class="filter-title">{{ service.title }}</span> ({{ serviceCount }})</a></li>
+        <li{{ category is defined and category.title == service.title ? ' class="-active"': '' }}><a href="{{ service.getUrl() }}" data-no-swup><span class="filter-title">{{ service.title }}</span></a></li>
       {% endif %}
     {% endfor %}
     </ul>
   </nav>
 
   <nav class="filter-nav{{ category is defined and category.group.handle == 'industry' ? ' -active' : '' }}">
-    <button><span class="label" data-default="Industry">{{ category is defined and category.group.handle == 'industry' ? category.title : 'Industry' }}</span> <span class="arrow"></span></button>
+    <button><span class="label">Industry</span> <span class="arrow"></span></button>
     <ul>
       <li class="all-option{{ category is defined and category.group.handle == 'industry' ? '' : ' hidden' }}"><a href="/work" data-no-swup><span class="filter-title">All</span></a></li>
     {% for industry in craft.categories.group('industry').all() %}
@@ -28,7 +28,7 @@
       {% set industryCount = craft.entries.section('work').relatedTo(industryCat).count() %}
 
       {% if industryCount > 0 %}
-        <li{{ category is defined and category.title == industry.title ? ' class="-active"': '' }}><a href="{{ industry.getUrl() }}" data-no-swup><span class="filter-title">{{ industry.title }}</span> ({{ industryCount }})</a></li>
+        <li{{ category is defined and category.title == industry.title ? ' class="-active"': '' }}><a href="{{ industry.getUrl() }}" data-no-swup><span class="filter-title">{{ industry.title }}</span></a></li>
       {% endif %}
     {% endfor %}
     </ul>
