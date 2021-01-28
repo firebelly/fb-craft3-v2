@@ -47,7 +47,7 @@
   },
   "autoload": {
     "psr-4": {
-      "modules\\": "modules/"
+      "modules\\firebellymodule\\": "modules/firebellymodule/src/"
     }
   },
   "config": {

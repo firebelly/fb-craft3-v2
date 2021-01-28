@@ -18,8 +18,26 @@
  */
 
 return [
-    'modules' => [
-        'my-module' => \modules\Module::class,
+
+    // All environments
+    '*'       => [
+        'modules'   => [
+            'firebelly-module' => [
+                'class' => \modules\firebellymodule\FirebellyModule::class,
+            ],
+        ],
+        'bootstrap' => ['firebelly-module'],
     ],
-    //'bootstrap' => ['my-module'],
+
+    // Live (production) environment
+    'live'    => [
+    ],
+
+    // Staging (pre-production) environment
+    'staging' => [
+    ],
+
+    // Local (development) environment
+    'local'   => [
+    ],
 ];

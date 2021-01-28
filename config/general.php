@@ -56,6 +56,7 @@ return [
         'restoreCommand' => "/usr/local/bin/mysql -h 127.0.0.1 -u root -proot {database} < \"{file}\"",
         // Dev Mode (see https://craftcms.com/support/dev-mode)
         'devMode' => true,
+        'resourceBasePath' => dirname(__DIR__) . '/web/cpresources',
     ],
 
     // Staging environment settings
