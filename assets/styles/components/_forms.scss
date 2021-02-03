@@ -78,7 +78,8 @@ form {
 
   textarea,
   input[type=email],
-  input[type=text] {
+  input[type=text],
+  input[type=search] {
     @extend .input-reset;
     @include p2;
     line-height: 1.2; // ...to line up with selects

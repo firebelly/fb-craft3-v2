@@ -9,6 +9,7 @@ import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'bo
 import fitvids from 'fitvids';
 
 import appState from '../util/appState';
+import modals from '../util/modals';
 import ResponsiveBackgroundImage from '../util/ResponsiveBackgroundImage';
 
 // Shared vars
@@ -63,6 +64,7 @@ const common = {
     _initBigClicky();
     _initSmoothScroll();
     _initSiteNav();
+    _initSiteSearch();
     _initFlickity();
     _initVideos();
     _initForms();
@@ -312,6 +314,38 @@ const common = {
       $('body').off('focusin','.site-nav');
     }
 
+    function _initSiteSearch() {
+      modals.init('.modal .-inner');
+
+      // Open search modal when clicking on the search button
+      let searchHtml = $('#siteSearch').html();
+      $document.on('click.search', 'button#searchToggle', function(e) {
+        e.preventDefault();
+        $body.addClass('search-open');
+        modals.openModal(searchHtml, 'noHistory', function() {
+          // Focus search input after modal opens
+          $('.modal input[type="search"]').focus();
+        });
+      });
+      // Closing Search Modal removes search-open body class
+      $document.on('click.search', 'a.close-modal', function() {
+        $body.removeClass('search-open');
+      });
+
+      // Handle Search Form with Ajax
+      $document.on('submit', '#searchForm', function(e) {
+        e.preventDefault();
+
+        const q = $(this).find('input[name="q"]').val();
+        const resultsHref = $(this).attr('action') + '?q=' + q;
+
+        $.get( resultsHref, function(data) {
+          let $resultsContainer = $('.modal #searchResults');
+          $resultsContainer.html(data);
+        });
+      });
+    }
+
     function trapTabKey(obj, evt) {
       // if tab or shift-tab pressed
       if (evt.which == 9) {
@@ -535,7 +569,7 @@ const common = {
     });
 
     // Remove custom event watchers
-    $document.off('mousedown.customCursor mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms');
+    $document.off('mousedown.customCursor mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms click.search');
     $window.off('resize.fb');
 
     // Unload Vimeo players

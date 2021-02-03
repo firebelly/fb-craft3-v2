@@ -46,11 +46,47 @@ body.nav-open {
     }
   }
 
+  // Search Toggle
+  .searchToggle {
+    @extend .button-reset;
+    cursor: pointer;
+
+    svg {
+      top: 2px;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      fill: color('black');
+      @include transition(fill);
+    }
+
+    &:hover,
+    &:focus {
+      svg {
+        fill: color('red');
+      }
+    }
+  }
 
   @include media-nav {
     ul {
+      position: relative;
+
       li {
         @include paragraph-style(96, 96, 0.01em);
+
+        &.nav-search {
+          left: 100%;
+          position: absolute;
+          transform: translateX(-50%);
+          margin-left: $padding-lg / 2;
+        }
+      }
+    }
+
+    .searchToggle {
+      .label {
+        @include visuallyhidden;
       }
     }
   }

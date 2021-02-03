@@ -1,0 +1,84 @@
+// Search Form and Results Styles
+
+.searchForm {
+  display: flex;
+  height: $header-sm;
+  align-items: center;
+  padding-right: 120px;
+
+  input {
+    @extend .input-reset;
+    background-color: transparent;
+    border-bottom: 1px solid color('black');
+  }
+
+  @include media-nav {
+    height: $header-md;
+  }
+}
+
+.searchResults {
+  overflow: auto;
+  padding-top: 28px;
+  color: color('black');
+  height: calc(100% - #{$header-sm});
+
+  @include media-nav {
+    height: calc(100% - #{$header-md});
+  }
+}
+
+// Search Modal Styles
+// set with search-open body class
+body.search-open {
+  .modal-overlay {
+    background-color: color('white');
+  }
+
+  .modal {
+    padding: 0;
+    overflow: hidden;
+    &::before {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: '';
+      top: $header-sm;
+      position: absolute;
+      background-color: color('offwhite');
+    }
+
+    .inner {
+      position: relative;
+    }
+
+    .close-modal {
+      right: 0;
+      top: $header-sm / 2;
+      transform: translateY(-50%);
+
+      svg {
+        fill: color('black');
+        width: $header-sm / 2;
+        height: $header-sm / 2;
+      }
+    }
+
+    @include media-nav {
+      width: auto;
+      right: $padding-lg;
+      &::before {
+        top: $header-md;
+      }
+
+      .close-modal {
+        top: $header-md / 2;
+
+        svg {
+          width: $header-md / 2;
+          height: $header-md / 2;
+        }
+      }
+    }
+  }
+}

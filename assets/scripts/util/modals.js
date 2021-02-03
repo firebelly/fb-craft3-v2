@@ -81,7 +81,7 @@ const modals = {
   },
 
   // Open a modal with html
-  openModal: function(html, noHistory) {
+  openModal: function(html, noHistory, callback) {
     if (typeof noHistory !== 'undefined') {
       useHistory = false;
     } else {
@@ -101,6 +101,10 @@ const modals = {
           display: 'block',
           complete: function() {
             modals.enableModal();
+            // Run Optional Callback Function
+            if (typeof callback == "function") {
+              callback();
+            }
           }
         }
       );
@@ -110,6 +114,10 @@ const modals = {
         'opacity': 1,
       });
       modals.enableModal();
+      // Run Optional Callback Function
+      if (typeof callback == "function") {
+        callback();
+      }
     }
     appState.modalOpen = true;
     modals.toggleOverlay();

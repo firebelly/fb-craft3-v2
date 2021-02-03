@@ -1,0 +1,30 @@
+{% extends (craft.app.request.isAjax and not craft.app.request.isLivePreview) ? '_ajax-layout' : '_layout' %}
+
+{% set title = 'Search Results' %}
+{% set bodyClass = 'search-results' %}
+
+{% set searchQuery = craft.app.request.getParam('q') %}
+{% set entries = craft.entries()
+  .search(searchQuery)
+  .orderBy('score')
+  .all() %}
+
+{% block content %}
+
+<div class="results">
+  <h3>Results:</h3>
+
+  {% if entries|length %}
+    <p>{{ entries|length }} results:</p>
+
+    <ul>
+      {% for entry in entries %}
+        <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Your search for “{{ searchQuery }}” didn’t return any results.</p>
+  {% endif %}
+</div>
+
+{% endblock %}
