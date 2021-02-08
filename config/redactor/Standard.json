@@ -13,5 +13,6 @@
   "buttons": ["formatting", "lists", "link", "html"],
   "plugins": ["fullscreen", "alignment"],
   "toolbarFixed": true,
-  "linkNewTab": true
+  "linkNewTab": true,
+  "pasteInlineTags": ["a", "img", "strong", "ins", "code", "del", "span", "samp", "kbd", "sup", "sub", "mark", "var", "cite", "small", "b", "u", "em", "i"]
 }
