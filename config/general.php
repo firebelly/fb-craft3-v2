@@ -36,9 +36,6 @@ return [
         // Enable Project Config
         'useProjectConfigFile' => true,
 
-        // Base site URL
-        'siteUrl' => getenv('SITE_URL'),
-
         'aliases' => [
             '@rootUrl' => getenv('SITE_URL'),
             '@cdnUrl' => getenv('CDN_URL'),
