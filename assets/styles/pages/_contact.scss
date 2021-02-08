@@ -44,6 +44,12 @@ body.page-contact {
     padding-bottom: beat(4);
   }
 
+  .contact-info {
+    p {
+      @include p2;
+    }
+  }
+
   .contact-form {
     padding-top: beat(4);
     padding-bottom: beat(4);

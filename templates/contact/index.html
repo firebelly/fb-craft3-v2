@@ -10,8 +10,33 @@
 
   {% include 'partials/_text-header' %}
 
-  {% include 'partials/_intro' %}
+  {% set intro = entry.intro.one() %}
+  <div class="contact block-wrap intro">
+    <div class="-inner">
+      <div class="block-section-header">
+        <h3>{{ intro.headline }}</h3>
+      </div>
+      <div class="block-text halfWidth">
+        <div class="-inner">
+          <div class="contact-info user-content">
+            <p>773 489 3200<br>
+            &mdash;<br>
+            <a href="mailto:info@firebellydesign.com">info@firebellydesign.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
 
-  {% include 'contact/_contact-form' %}
+      {% if intro.body %}
+        <div class="block-text halfWidth user-content">
+          <div class="-inner">
+            {{ intro.body }}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {# include 'contact/_contact-form' #}
 
 {% endblock %}
