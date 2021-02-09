@@ -29,10 +29,7 @@
       section: 'work',
     }) %}
   {% endif %}
-  {% set headline = 'Check out all our %s projects.'|format(category.title|lower) %}
-  {% set subhead = 'Feast your eyes.' %}
-  {% set sectionHeader = 'All %s Projects'|format(category.title) %}
-  {% set filterLinks = '<a href="#" class="filter-projects" data-no-swup>Change Filter</a>' %}
+  {% set sectionHeader = '%s Projects <a href="/work" data-no-swup><span class="visually-hidden">Clear Filter</span><svg class="icon-close" aria-hidden="true" role="presentation"><use xlink:href="#icon-close"/></svg></a>'|format(category.title) %}
 
 {% else %}
 
@@ -44,58 +41,21 @@
 
 {% block content %}
 
-  {% if category is defined %}
-    {% include 'partials/_text-header' with { headline: headline, subhead: subhead } %}
-  {% else %}
-    {% include 'partials/_text-header' %}
-  {% endif %}
+  {% include 'partials/_text-header' %}
 
   <div class="container">
     <div class="block-section-header top-section-header">
-      <h3>{{ sectionHeader }}</h3>
-      <div class="filter-links">
-        {{ filterLinks|raw }}
-      </div>
+      <h3 class="filtered-title">{{ sectionHeader|raw }}</h3>
+      {% include 'work/_filters' %}
     </div>
-    <div class="thumbnail-grid grid spaced">
-      {% for projectEntry in projectEntries.with([
-          'altImage',
-          'services.service',
-        ]).all() %}
-        {% include 'work/_article' with { entry: projectEntry } %}
-      {% endfor %}
-    </div>
-  </div>
-
-  <div class="modal-content hidden">
-    <div class="container">
-      <div class="grid">
-        <div class="col-services">
-          {% set allCount = craft.entries.section('work').count() %}
-          <h4 class="heading-smallcaps">Services</h4>
-          <ul class="services-nav">
-            {% for service in craft.categories.group('services').all() %}
-              {% set serviceCount = craft.superTable.getRelatedElements({
-                relatedTo: {
-                  targetElement: service,
-                  field: 'services.service'
-                },
-                section: 'work'
-              }).count() %}
-              <li{{ category is defined and category.title == service.title ? ' class="-active"': '' }}><a data-no-swup href="{{ service.getUrl() }}">{{ service.title }} <sup>{{ serviceCount }}</sup><span class="visually-hidden"> projects</span> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
-            {% endfor %}
-            <li><a data-no-swup href="{{ entry.getUrl() }}">All <sup>{{ allCount }}</sup><span class="visually-hidden"> projects</span> <svg class="icon icon-big-arrow" aria-hidden="true"><use xlink:href="#icon-big-arrow"/></svg></a></li>
-          </ul>
-        </div>
-        <div class="col-industries">
-          <h4 class="heading-smallcaps">Industries</h4>
-          <ul class="industries-nav">
-            {% for industry in craft.categories.group('industry').all() %}
-              <li{{ category is defined and category.title == industry.title ? ' class="-active"': '' }}><a data-no-swup href="{{ industry.getUrl() }}">{{ industry.title }}</a></li>
-            {% endfor %}
-            <li><a data-no-swup href="{{ entry.getUrl() }}">All</a></li>
-          </ul>
-        </div>
+    <div id="projects-container" aria-live="polite">
+      <div class="thumbnail-grid grid spaced">
+        {% for projectEntry in projectEntries.with([
+            'altImage',
+            'services.service',
+          ]).all() %}
+          {% include 'work/_article' with { entry: projectEntry } %}
+        {% endfor %}
       </div>
     </div>
   </div>
