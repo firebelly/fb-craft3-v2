@@ -1,6 +1,6 @@
 // Search Form and Results Styles
 
-.searchForm {
+.search-form {
   display: flex;
   height: $header-sm;
   align-items: center;
@@ -9,7 +9,7 @@
   input {
     @extend .input-reset;
     background-color: transparent;
-    border-bottom: 1px solid color('black');
+    border-bottom: 1px solid color('white');
   }
 
   @include media-nav {
@@ -17,10 +17,10 @@
   }
 }
 
-.searchResults {
+.search-results {
   overflow: auto;
   padding-top: 28px;
-  color: color('black');
+  color: color('white');
   height: calc(100% - #{$header-sm});
 
   @include media-nav {
@@ -31,9 +31,7 @@
 // Search Modal Styles
 // set with search-open body class
 body.search-open {
-  .modal-overlay {
-    background-color: color('white');
-  }
+  .modal-overlay {}
 
   .modal {
     padding: 0;
@@ -45,7 +43,6 @@ body.search-open {
       content: '';
       top: $header-sm;
       position: absolute;
-      background-color: color('offwhite');
     }
 
     .inner {
@@ -55,10 +52,9 @@ body.search-open {
     .close-modal {
       right: 0;
       top: $header-sm / 2;
-      transform: translateY(-50%);
+      transform: translate(-50%);
 
       svg {
-        fill: color('black');
         width: $header-sm / 2;
         height: $header-sm / 2;
       }
