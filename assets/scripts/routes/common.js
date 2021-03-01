@@ -316,32 +316,32 @@ const common = {
 
     function _initSiteSearch() {
       modals.init('.modal .-inner');
+      let siteSearch = document.querySelector('.site-header .site-search');
 
       // Open search modal when clicking on the search button
-      let searchHtml = $('#siteSearch').html();
-      $document.on('click.search', 'button#searchToggle', function(e) {
+      $document.on('click.search', 'button.search-toggle', e => {
         e.preventDefault();
         $body.addClass('search-open');
-        modals.openModal(searchHtml, 'noHistory', function() {
+        modals.openModal(siteSearch.innerHTML, 'noHistory', () => {
           // Focus search input after modal opens
-          $('.modal input[type="search"]').focus();
+          document.querySelector('.modal input[type="search"]').focus();
         });
       });
+
       // Closing Search Modal removes search-open body class
-      $document.on('click.search', 'a.close-modal', function() {
+      $document.on('modal-closed', () => {
         $body.removeClass('search-open');
       });
 
       // Handle Search Form with Ajax
-      $document.on('submit', '#searchForm', function(e) {
+      $document.on('submit', '.modal form.search-form', e => {
         e.preventDefault();
 
-        const q = $(this).find('input[name="q"]').val();
-        const resultsHref = $(this).attr('action') + '?q=' + q;
+        const q = siteSearch.querySelector('input[name="q"]').value;
+        const resultsHref = e.target.getAttribute('action') + '?q=' + q;
 
-        $.get( resultsHref, function(data) {
-          let $resultsContainer = $('.modal #searchResults');
-          $resultsContainer.html(data);
+        $.get( resultsHref, data => {
+          document.querySelector('.modal .search-results').innerHTML = data;
         });
       });
     }
