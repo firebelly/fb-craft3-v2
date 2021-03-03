@@ -227,6 +227,7 @@ export default {
       });
     }
 
+    // Copy anchor link on click
     function _initCopyAnchorToClipboard() {
       $('.copy-anchor-link').on('click', function() {
         navigator.clipboard.writeText($(this).attr('data-link'));
