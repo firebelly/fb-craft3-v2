@@ -1,80 +1,113 @@
 // Search Form and Results Styles
 
 .search-form {
-  display: flex;
-  height: $header-sm;
-  align-items: center;
-  padding-right: 120px;
+  padding-top: 20px;
 
-  input {
-    @extend .input-reset;
-    background-color: transparent;
-    border-bottom: 1px solid color('white');
+  p {
+    @include p1;
+    max-width: 700px;
+    padding-right: 80px;
   }
 
+  fieldset {
+    @include clearfix;
+    .button {
+      &::after,
+      &::before {
+        display: none;
+      }
+      text-align: center;
+      width: 140px;
+      float: right;
+      padding: 0 40px;
+    }
+  }
+  .input-wrap {
+    height: 76px;
+    border-bottom: 1px solid color('white');
+    padding: 20px 20px 20px 0;
+    margin-bottom: 20px;
+  }
+
+  input[type=search] {
+    @extend .input-reset;
+    width: 100%;
+    @include paragraph-style(32, 40);
+    // Hide search field (X)
+    &::-webkit-search-cancel-button {
+     -webkit-appearance: none;
+    }
+    background-color: transparent;
+    border: none;
+  }
+
+  // Mid-breakpoint (100% search input, bump to larger type)
+  @include media-sm {
+    .input-wrap {
+      height: 96px;
+    }
+    input[type=search] {
+      @include h2-sans;
+    }
+  }
+
+  // Desktop styles
+  @include media-md {
+    fieldset {
+      display: flex;
+      align-items: center;
+      height: $header-sm;
+      margin-top: 60px;
+      .button {
+        width: 100%;
+        float: none;
+      }
+    }
+    .input-wrap {
+      flex: 3;
+      border-bottom: 1px solid color('white');
+      padding: 20px 20px 20px 0;
+      margin-right: 40px;
+    }
+    .button-wrap {
+      flex: 1;
+    }
+  }
   @include media-nav {
-    height: $header-md;
+    fieldset {
+      margin-top: 80px;
+    }
+    padding-top: 0;
   }
 }
 
 .search-results {
-  overflow: auto;
-  padding-top: 28px;
+  overflow-x: hidden;
+  padding: 30px 0 100px;
   color: color('white');
-  height: calc(100% - #{$header-sm});
-
-  @include media-nav {
-    height: calc(100% - #{$header-md});
+  .results {
+    >h4 {
+      margin-bottom: 40px;
+    }
+    margin-top: 20px;
+    border-top: 1px solid color('white');
   }
-}
 
-// Search Modal Styles
-// set with search-open body class
-body.search-open {
-  .modal-overlay {}
-
-  .modal {
-    padding: 0;
-    overflow: hidden;
-    &::before {
-      left: 0;
-      right: 0;
-      bottom: 0;
-      content: '';
-      top: $header-sm;
-      position: absolute;
-    }
-
-    .inner {
-      position: relative;
-    }
-
-    .close-modal {
-      right: 0;
-      top: $header-sm / 2;
-      transform: translate(-50%);
-
-      svg {
-        width: $header-sm / 2;
-        height: $header-sm / 2;
+  .thumbnail-grid {
+    article.page {
+      h4.heading-smallcaps {
+        margin-top: 0;
       }
     }
+  }
 
-    @include media-nav {
-      width: auto;
-      right: $padding-lg;
-      &::before {
-        top: $header-md;
+  @include media-md {
+    padding: 60px 0 100px;
+    .results {
+      >h4 {
+        margin-bottom: 60px;
       }
-
-      .close-modal {
-        top: $header-md / 2;
-
-        svg {
-          width: $header-md / 2;
-          height: $header-md / 2;
-        }
-      }
+      margin-top: 60px;
     }
   }
 }
