@@ -1,8 +1,13 @@
 {% set thumbnailImage = entry.thumbnailImage[0] ?? null %}
 {% set thumbnailImageHover = entry.thumbnailImage|length > 1 ? entry.thumbnailImage[1] : thumbnailImage %}
 {% set orientation = orientationOverride ?? entry.thumbnailOrientation %}
+{% if classOverride is defined %}
+  {% set articleClass = classOverride %}
+{% else %}
+  {% set articleClass = orientation == 'fullWidth' ? 'col-nav-full' : 'col-nav-1-2' %}
+{% endif %}
 
-<article class="ideas {{ orientation == 'fullWidth' ? 'col-nav-full' : 'col-nav-1-2' }} -reveal">
+<article class="ideas {{ articleClass }} -reveal">
   {% include 'partials/_rollover-image' with { thumbnailImage: thumbnailImage } %}
 
   <div class="idea-meta">
