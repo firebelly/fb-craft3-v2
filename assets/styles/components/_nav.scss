@@ -68,6 +68,15 @@ body.nav-open {
     }
   }
 
+  @include max-screen($breakpoint-nav) {
+    .search-toggle {
+      padding: 0;
+      svg {
+        @include visuallyhidden;
+      }
+    }
+  }
+
   @include media-nav {
     ul {
       position: relative;
