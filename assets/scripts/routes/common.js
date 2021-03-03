@@ -154,7 +154,7 @@ const common = {
     }
 
     // Keyboard navigation and esc handlers
-    $document.keyup(function(e) {
+    $document.on('keyup.nerds', function(e) {
       // Esc key
       if (e.keyCode === 27) {
         _closeNav();
@@ -596,7 +596,7 @@ const common = {
     });
 
     // Remove custom event watchers
-    $document.off('mousedown.customCursor mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms click.searchToggle click.searchArticle submit.search modal-closed.search click.search');
+    $document.off('mousedown.customCursor mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms click.searchToggle click.searchArticle submit.search modal-closed.search click.search keyup.nerds');
     $window.off('resize.fb');
 
     // Unload Vimeo players
