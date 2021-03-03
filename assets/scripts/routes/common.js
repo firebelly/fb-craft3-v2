@@ -11,6 +11,7 @@ import fitvids from 'fitvids';
 import appState from '../util/appState';
 import modals from '../util/modals';
 import ResponsiveBackgroundImage from '../util/ResponsiveBackgroundImage';
+import imageReveals from '../util/imageReveals';
 
 // Shared vars
 let isTouchDevice,
@@ -342,6 +343,8 @@ const common = {
 
         $.get( resultsHref, data => {
           document.querySelector('.modal .search-results').innerHTML = data;
+          // Fire up imageReveals in modal for results
+          imageReveals.init($('.modal'));
         });
       });
     }

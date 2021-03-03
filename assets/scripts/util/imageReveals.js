@@ -6,16 +6,20 @@ import appState from '../util/appState';
 
 let $reveals,
     activated = [],
-    $window = $(window),
-    windowHeight,
+    $scrollEl = $(window),
+    scrollElHeight,
     scrollTop,
     ticking;
 
 const imageReveals = {
 
-  // Init sticky headers
-  init() {
+  // Init image reveals
+  init(scrollEl=null) {
     if ($('.-reveal').length) {
+      // Override scrollEl?
+      if (scrollEl) {
+        $scrollEl = scrollEl;
+      }
       // Reset activated
       activated = [];
       $reveals = $('.-reveal');
@@ -23,9 +27,13 @@ const imageReveals = {
       imageReveals.resize();
       imageReveals.update();
 
-      $window.on('scroll.reveals', imageReveals.scrolling);
-      $window.on('resize.reveals', imageReveals.resize);
-      $window.on('load.reveals', imageReveals.resize);
+      // Reset listeners in case we init() twice on a page (search)
+      $scrollEl.off('scroll.reveals resize.reveals load.reveals');
+
+      // Init scroll listeners
+      $scrollEl.on('scroll.reveals', imageReveals.scrolling);
+      $scrollEl.on('resize.reveals', imageReveals.resize);
+      $scrollEl.on('load.reveals', imageReveals.resize);
     }
 
     // Reposition after lazyloaded images show
@@ -45,10 +53,10 @@ const imageReveals = {
   // Update image reveal
   update() {
     ticking = false;
-    scrollTop = $window.scrollTop();
+    scrollTop = $scrollEl.scrollTop();
     // Find current sticky section title based on scroll position
     $reveals.each(function(i) {
-      if (!activated[i] && this.getAttribute('data-originalPosition') <= (scrollTop + windowHeight - (windowHeight * 0.05))) {
+      if (!activated[i] && this.offsetTop <= (scrollTop + scrollElHeight - (scrollElHeight * 0.05))) {
         $(this).addClass('-active');
         if (appState.popState) {
           $(this).addClass('-instant');
@@ -60,11 +68,7 @@ const imageReveals = {
 
   // Resize, recalculate positions
   resize(event) {
-    windowHeight = $window.height();
-    $reveals.each(function(i) {
-      let $this = $(this);
-      $this.attr('data-originalPosition', $this.offset().top);
-    });
+    scrollElHeight = $scrollEl.height();
   },
 
   // Scrolling
@@ -74,7 +78,7 @@ const imageReveals = {
 
   // Garbage collection
   unload() {
-    $window.off('scroll.reveals resize.reveals load.reveals');
+    $scrollEl.off('scroll.reveals resize.reveals load.reveals');
   },
 
 };
