@@ -5,7 +5,7 @@
     {% for navItem in navItems %}
       <li class="nav-{{ navItem }}{{ entry is defined and entry.slug == navItem or craft.app.request.getSegment(1) == navItem ? ' -current' : '' }}"><a href="/{{ navItem }}">{{ navItem | capitalize }}</a></li>
     {% endfor %}
-    <li class="nav-search"><button id="searchToggle" class="searchToggle"><svg class="icon" aria-hidden="true" role="presentation"><use xlink:href="#icon-search"/></svg> <span class="label">Search</span></button></li>
+    <li class="nav-search"><button class="search-toggle"><svg class="icon" aria-hidden="true" role="presentation"><use xlink:href="#icon-search"/></svg> <span class="label">Search</span></button></li>
   </ul>
   <button id="nav-close" class="nav-toggle close"><svg class="icon icon-close" aria-hidden="true"><use xlink:href="#icon-close"/></svg></button>
 </nav>

@@ -47,7 +47,7 @@ body.nav-open {
   }
 
   // Search Toggle
-  .searchToggle {
+  .search-toggle {
     @extend .button-reset;
     cursor: pointer;
 
@@ -68,6 +68,15 @@ body.nav-open {
     }
   }
 
+  @include max-screen($breakpoint-nav) {
+    .search-toggle {
+      padding: 0;
+      svg {
+        @include visuallyhidden;
+      }
+    }
+  }
+
   @include media-nav {
     ul {
       position: relative;
@@ -75,16 +84,11 @@ body.nav-open {
       li {
         @include paragraph-style(96, 96, 0.01em);
 
-        &.nav-search {
-          left: 100%;
-          position: absolute;
-          transform: translateX(-50%);
-          margin-left: $padding-lg / 2;
-        }
+        &.nav-search {}
       }
     }
 
-    .searchToggle {
+    .search-toggle {
       .label {
         @include visuallyhidden;
       }

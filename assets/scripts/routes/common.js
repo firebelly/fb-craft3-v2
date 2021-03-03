@@ -11,6 +11,7 @@ import fitvids from 'fitvids';
 import appState from '../util/appState';
 import modals from '../util/modals';
 import ResponsiveBackgroundImage from '../util/ResponsiveBackgroundImage';
+import imageReveals from '../util/imageReveals';
 
 // Shared vars
 let isTouchDevice,
@@ -171,6 +172,7 @@ const common = {
       }
     });
 
+    // Determine if touch device
     function _isTouchDevice() {
       var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
       var mq = function(query) {
@@ -234,6 +236,7 @@ const common = {
         });
       }
 
+      // Mouse down triggers clicky finger icon
       $document.on('mousedown.customCursor', () => {
         $body.addClass('-mousedown');
         if (mousedownTimer) { clearTimeout(mousedownTimer); }
@@ -310,76 +313,89 @@ const common = {
         }
       });
 
-      // remove the listener which redirects tab keys in the main content area to the modal
+      // Remove the listener which redirects tab keys in the main content area to the modal
       $('body').off('focusin','.site-nav');
     }
 
+    // Site search modal
     function _initSiteSearch() {
       modals.init('.modal .-inner');
+      let siteSearch = document.querySelector('.site-header .site-search');
 
       // Open search modal when clicking on the search button
-      let searchHtml = $('#siteSearch').html();
-      $document.on('click.search', 'button#searchToggle', function(e) {
+      $document.on('click.searchToggle', 'button.search-toggle', e => {
         e.preventDefault();
         $body.addClass('search-open');
-        modals.openModal(searchHtml, 'noHistory', function() {
+        modals.openModal(siteSearch.innerHTML, 'noHistory', () => {
           // Focus search input after modal opens
-          $('.modal input[type="search"]').focus();
+          document.querySelector('.modal input[type="search"]').focus();
         });
       });
+
+      // Hijack clicks in search results
+      // $document.on('click.searchArticle', '.search-results article', function(e) {
+      //   e.preventDefault();
+      //   modals.closeModal();
+      //   let url = e.target.querySelector('a');
+      //   console.log(e, url);
+      //   swup.loadPage({ url: url.pathname });
+      // });
+
       // Closing Search Modal removes search-open body class
-      $document.on('click.search', 'a.close-modal', function() {
+      $document.on('modal-closed.search', () => {
         $body.removeClass('search-open');
       });
 
       // Handle Search Form with Ajax
-      $document.on('submit', '#searchForm', function(e) {
+      $document.on('submit.search', 'form.search-form', e => {
         e.preventDefault();
+        let q = e.target.querySelector('input[name="q"]').value;
+        let searchUrl = e.target.getAttribute('action') + '?q=' + q;
 
-        const q = $(this).find('input[name="q"]').val();
-        const resultsHref = $(this).attr('action') + '?q=' + q;
-
-        $.get( resultsHref, function(data) {
-          let $resultsContainer = $('.modal #searchResults');
-          $resultsContainer.html(data);
+        $.get(searchUrl, data => {
+          // Populate results from search
+          document.querySelector('.modal .search-results').innerHTML = data;
+          // Fire up imageReveals in modal for results
+          imageReveals.init($('.modal'));
         });
       });
     }
 
+    // Attempt at more accessible tabbing inside modals
     function trapTabKey(obj, evt) {
-      // if tab or shift-tab pressed
+      // If tab (or shift-tab) pressed
       if (evt.which == 9) {
 
-        // get list of all children elements in given object
+        // Get list of all children elements in given object
         var o = obj.find('*');
 
-        // get list of focusable items
+        // Get list of focusable items
         var focusableItems;
         focusableItems = o.filter(focusableElementsString).filter(':visible')
 
-        // get currently focused item
+        // Get currently focused item
         var focusedItem;
         focusedItem = $(':focus');
 
-        // get the number of focusable items
+        // Get the number of focusable items
         var numberOfFocusableItems;
         numberOfFocusableItems = focusableItems.length
 
-        // get the index of the currently focused item
+        // Get the index of the currently focused item
         var focusedItemIndex;
         focusedItemIndex = focusableItems.index(focusedItem);
 
         if (evt.shiftKey) {
-          //back tab
-          // if focused on first item and user preses back-tab, go to the last focusable item
+          // Back tab
+          // If focused on first item and user preses back-tab, go to the last focusable item
           if (focusedItemIndex == 0) {
             focusableItems.get(numberOfFocusableItems - 1).focus();
             evt.preventDefault();
           }
 
         } else {
-          //forward tab
-          // if focused on the last item and user preses tab, go to the first focusable item
+          // Forward tab
+          // If focused on the last item and user preses tab, go to the first focusable item
           if (focusedItemIndex == numberOfFocusableItems - 1) {
             focusableItems.get(0).focus();
             evt.preventDefault();
@@ -388,11 +404,12 @@ const common = {
       }
     }
 
+    // Set focus when opening modal
     function setFocusToFirstItemInContainer(obj) {
-      // get list of all children elements in given object
+      // Get list of all children elements in given object
       var o = obj.find('*');
 
-      // set the focus to the first keyboard focusable item
+      // Set the focus to the first keyboard focusable item
       o.filter(focusableElementsString).filter(':visible').first().focus();
     }
 
@@ -521,6 +538,7 @@ const common = {
     $window.on('resize.fb', _resize);
   },
 
+  // Fire up the blobs
   startBlobs(fps) {
     blobsData.fpsInterval = 1000 / fps;
     blobsData.then = window.performance.now();
@@ -528,6 +546,7 @@ const common = {
     common.moveBlobs();
   },
 
+  // Jiggle them blobs
   moveBlobs(newtime) {
     if (blobsData.stop) {
       return;
@@ -569,7 +588,7 @@ const common = {
     });
 
     // Remove custom event watchers
-    $document.off('mousedown.customCursor mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms click.search');
+    $document.off('mousedown.customCursor mousemove.customCursor scroll.customCursor resize.customCursor click.smoothScroll click.siteNavOpen click.siteNavClose click.bigClicky keyup.forms change.forms blur.forms click.searchToggle click.searchArticle submit.search modal-closed.search click.search');
     $window.off('resize.fb');
 
     // Unload Vimeo players

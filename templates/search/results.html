@@ -7,21 +7,37 @@
 {% set entries = craft.entries()
   .search(searchQuery)
   .orderBy('score')
+  .with([
+    'headerImage',
+    'thumbnailImage',
+    'altImage',
+    'ideasType',
+    'services.service',
+  ])
   .all() %}
 
 {% block content %}
 
 <div class="results">
-  <h3>Results:</h3>
-
   {% if entries|length %}
-    <p>{{ entries|length }} results:</p>
+    <h4 class="heading-smallcaps">{{ entries|length }} results for &ldquo;{{ searchQuery }}&rdquo;</h4>
 
-    <ul>
+    <div class="thumbnail-grid grid spaced">
       {% for entry in entries %}
-        <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+        {% if entry.section.handle == 'work' %}
+          {% include 'work/_article' with { entry: entry, servicesLength: 3, classOverride: 'col-nav-1-3' } %}
+        {% elseif entry.section.handle == 'ideas' %}
+          {% include 'ideas/_article' with { entry: entry, servicesLength: 3, classOverride: 'col-nav-1-3' } %}
+        {% else %}
+          <article class="page col-nav-1-3 -reveal">
+            <div class="meta">
+              <h4 class="heading-smallcaps">{{ entry.section.handle in ['people', 'position'] ? entry.section.handle : 'Page' }}</h4>
+              <h3><a href="{{ entry.getUrl() }}"><span>{{ entry.title }}</span></a></h3>
+            </div>
+          </article>
+        {% endif %}
       {% endfor %}
-    </ul>
+    </div>
   {% else %}
     <p>Your search for “{{ searchQuery }}” didn’t return any results.</p>
   {% endif %}

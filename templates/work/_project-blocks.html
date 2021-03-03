@@ -82,12 +82,6 @@
                 imgSrcSets: [ { mode: 'fit', width: 1800, height: 900 }, { mode: 'fit', width: 750, height: 400, jpegQuality: 70 }, ],
                 imgSizes: '100vw'
               } %}
-              <picture>
-                {% if transformedImagesWebp is defined %}
-                  <source sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
-                {% endif %}
-                <img sizes="{{ imgSizes }}" srcset="{{ craft.imager.srcset(transformedImages) }}" alt="{{ image.altText | length ? image.altText : image.title }}">
-              </picture>
 
               {% if image.captionLabel or image.caption %}
                 <figcaption class="image-text">

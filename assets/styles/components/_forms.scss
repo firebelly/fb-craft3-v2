@@ -184,7 +184,8 @@ form {
     }
     textarea,
     input[type=email],
-    input[type=text] {
+    input[type=text],
+    input[type=search] {
       color: color('white-dark');
       border-color: color('white-dark');
 

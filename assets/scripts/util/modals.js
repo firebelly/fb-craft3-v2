@@ -11,7 +11,6 @@ let $body = $('body'),
             $modalOverlay,
             $modalContainer,
             scrollableSelector,
-            eventBinded = false,
             useHistory = true;
 
 // Accessibility/tab trap taken from https://github.com/gdkraus/accessible-modal-dialog
@@ -43,17 +42,17 @@ const modals = {
     scrollableSelector = scrollableSelectorValue;
 
     // Keyboard-triggered functions
-    $document.keyup(e => {
+    $document.on('keyup.modal', e => {
       // Disabling esc key trigger again because it's firing multiple times and we can't figure out why
       // Escape key goes back (closing modal)
-      // if (e.keyCode === 27 && !eventBinded && !appState.isAnimating && appState.modalOpen) {
-      //   e.preventDefault();
-      //   if (useHistory) {
-      //     history.back();
-      //   } else {
-      //     modals.closeModal();
-      //   }
-      // }
+      if (e.keyCode === 27 && !appState.isAnimating && appState.modalOpen) {
+        e.preventDefault();
+        if (useHistory) {
+          history.back();
+        } else {
+          modals.closeModal();
+        }
+      }
     }).on('click.modal', '.modal a.close-modal', e => {
       // Clicking on X (close) button
       e.preventDefault();
@@ -172,6 +171,7 @@ const modals = {
     }
     modals.toggleOverlay();
     $body.removeClass('modal-open');
+    $document.trigger('modal-closed');
 
     // remove the listener which redirects tab keys in the main content area to the modal
     $('body').off('focusin','.site-main');
@@ -199,7 +199,7 @@ const modals = {
 
   // Remove events
   unload: function() {
-    $document.off('click.modal');
+    $document.off('click.modal keyup.modal');
     window.removeEventListener('popstate', modals.checkModal);
   },
 
