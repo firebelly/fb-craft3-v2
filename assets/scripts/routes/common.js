@@ -155,13 +155,17 @@ const common = {
 
     // Keyboard navigation and esc handlers
     $document.keyup(function(e) {
-      // esc
+      // Esc key
       if (e.keyCode === 27) {
         _closeNav();
         // Unfocus any focused elements
         if (document.activeElement != document.body) {
           document.activeElement.blur();
         }
+      }
+      // Forward-slash open search if not in input
+      if (e.keyCode === 191 && e.target.nodeName != 'INPUT') {
+        common.openSearch();
       }
     }).on('click.closeNav', 'body.nav-open', function(e) {
       // Clicking outside of nav closes nav
@@ -292,8 +296,8 @@ const common = {
         }
       });
 
-      // attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
-      $('body').on('focusin', '.site-main', function() {
+      // Attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
+      $body.on('focusin.setFocus', '.site-main', function() {
         setFocusToFirstItemInContainer($('.site-nav'));
       });
     }
@@ -314,22 +318,17 @@ const common = {
       });
 
       // Remove the listener which redirects tab keys in the main content area to the modal
-      $('body').off('focusin','.site-nav');
+      $body.off('focusin.setFocus');
     }
 
     // Site search modal
     function _initSiteSearch() {
       modals.init('.modal .-inner');
-      let siteSearch = document.querySelector('.site-header .site-search');
 
       // Open search modal when clicking on the search button
       $document.on('click.searchToggle', 'button.search-toggle', e => {
         e.preventDefault();
-        $body.addClass('search-open');
-        modals.openModal(siteSearch.innerHTML, 'noHistory', () => {
-          // Focus search input after modal opens
-          document.querySelector('.modal input[type="search"]').focus();
-        });
+        common.openSearch();
       });
 
       // Hijack clicks in search results
@@ -565,6 +564,15 @@ const common = {
         $this.css('top', parseFloat($this.css('top').replace('px','')) + y);
       });
     }
+  },
+
+  openSearch() {
+    let siteSearch = document.querySelector('.site-header .site-search');
+    modals.openModal(siteSearch.innerHTML, 'noHistory', () => {
+      $body.addClass('search-open');
+      // Focus search input after modal opens
+      document.querySelector('.modal input[type="search"]').focus();
+    });
   },
 
   finalize() {
