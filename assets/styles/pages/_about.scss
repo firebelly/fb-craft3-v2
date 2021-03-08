@@ -1,5 +1,12 @@
 // About
 
+// Shared people styles (search also has people lists)
+article.person {
+  img {
+    filter: grayscale(100%);
+  }
+}
+
 body.page-about {
   .the-team {
     padding: beat(3) 0 beat(2);
@@ -15,11 +22,8 @@ body.page-about {
       display: none;
     }
 
-    // Less spacing for people than a work thumbnail-grid
-    article {
-      img {
-        filter: grayscale(100%);
-      }
+    article.person {
+      // Less spacing for people than a work thumbnail-grid
       h4 {
         margin-top: 6px;
       }
