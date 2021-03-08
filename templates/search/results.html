@@ -13,6 +13,7 @@
     'altImage',
     'ideasType',
     'services.service',
+    'photo'
   ])
   .all() %}
 
@@ -28,13 +29,16 @@
           {% include 'work/_article' with { entry: entry, servicesLength: 3, classOverride: 'col-nav-1-3' } %}
         {% elseif entry.section.handle == 'ideas' %}
           {% include 'ideas/_article' with { entry: entry, servicesLength: 3, classOverride: 'col-nav-1-3' } %}
+        {% elseif entry.section.handle == 'people' %}
+          {% include 'people/_article' with { entry: entry, articleClass: 'col-nav-1-3', noModal: 'yeah', cursor: '' } %}
         {% else %}
+          {# Temporarily hiding pages + positions
           <article class="page col-nav-1-3 -reveal">
             <div class="meta">
               <h4 class="heading-smallcaps">{{ entry.section.handle in ['people', 'position'] ? entry.section.handle : 'Page' }}</h4>
               <h3><a href="{{ entry.getUrl() }}"><span>{{ entry.title }}</span></a></h3>
             </div>
-          </article>
+          </article> #}
         {% endif %}
       {% endfor %}
     </div>
