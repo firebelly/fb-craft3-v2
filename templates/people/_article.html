@@ -1,0 +1,69 @@
+{% if noModal is not defined %}
+  {% set noModal = false %}
+{% endif %}
+{% if articleClass is not defined %}
+  {% set articleClass = 'col-md-1-2' %}
+{% endif %}
+{% if cursor is not defined %}
+  {% set cursor = 'hand' %}
+{% endif %}
+{% set image = entry.photo[0] %}
+<article class="{{ articleClass }} person -reveal" data-person="{{ entry.slug }}">
+  <div class="anchor" id="{{ entry.slug }}"></div>
+
+  {% if image %}
+    <div class="-aspect-ratio-pad" style="padding-bottom: 58.2%">
+      <a data-no-swup class="-inner js-cursor" data-cursor="{{ cursor }}" href="{{ entry.getUrl() }}">
+        {% include "partials/_picture" with {
+          image: image,
+          imgSrcSets: [ { width: 1100, ratio: 10/5.82 }, { width: 750, ratio: 10/5.82, jpegQuality: 70 }, ],
+          imgSizes: '(max-width: 768px) 100vw, 50vw',
+          titleOverride: entry.title,
+          nativeLazy: true
+        } %}
+      </a>
+    </div>
+  {% endif %}
+
+  <h4 class="heading-smallcaps">{{ entry.tagline }}</h4>
+  <h3><a data-no-swup href="#{{ entry.slug }}">{{ entry.title }}</a></h3>
+
+  {% if not noModal %}
+    <div class="modal-content">
+      <div class="container">
+        <div class="grid spaced">
+          <div class="person-info col-md-1-2">
+            <div class="image-container"></div>
+            {% if entry.pronouns %}
+              <h4 class="pronouns">
+                {{ entry.pronouns }}
+              </h4>
+            {% endif %}
+            <h2>
+              {{ entry.title }}
+            </h2>
+            {% if entry.personTitle %}
+              <p>{{ entry.personTitle }}</p>
+              {% if entry.socialLinks|length %}
+                <ul class="social">
+                {% for link in entry.socialLinks %}
+                  <li>
+                    {% if link.type %}{{ link.type }}:{% endif %}
+                    <a href="{{ link.url }}" rel="noopener noreferrer" target="_blank">{{ link.text }}</a>
+                  </li>
+                {% endfor %}
+              {% endif %}
+              </ul>
+            {% endif %}
+          </div>
+          <div class="person-bio col-md-1-2 user-content">
+            <div class="-inner">
+              {{ entry.bio }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+</article>
