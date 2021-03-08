@@ -45,6 +45,7 @@
   @include media-sm {
     .input-wrap {
       height: 96px;
+      margin: 0;
     }
     input[type=search] {
       @include h2-sans;
